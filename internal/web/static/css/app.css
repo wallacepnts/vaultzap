@@ -301,30 +301,6 @@ html {
 }
 
 /* The rail is 62px wide, so the language menu has to open to its right. */
-.form-me {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 12px 20px 20px;
-}
-
-.label-me {
-  font-size: 13px;
-  color: var(--text-dim);
-}
-
-.button-save-me {
-  align-self: flex-start;
-  padding: 8px 18px;
-  border: none;
-  border-radius: 18px;
-  background: var(--accent);
-  color: #fff;
-  font-family: inherit;
-  font-size: 14px;
-  cursor: pointer;
-}
-
 #rail .menu-locale {
   left: 46px;
   right: auto;
@@ -1163,7 +1139,7 @@ html {
 .icon-field-profile {
   flex: none;
   color: var(--text-dim);
-  padding-top: 22px;
+  padding-top: 38px;
 }
 
 .field-profile-group {

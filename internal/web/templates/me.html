@@ -17,17 +17,20 @@
         <span class="overlay-avatar-large">{{template "icon-camera-plus"}}</span>
       </button>
     </div>
-
-    <span class="name-profile">{{if .Name}}{{.Name}}{{else}}{{t "me.no_name"}}{{end}}</span>
   </div>
 
-  <div class="divider-profile-actions"></div>
-
-  <form class="form-me" hx-post="/eu" hx-target="#right-panel">
-    <label class="label-me" for="field-me">{{t "me.name_label"}}</label>
-    <input type="text" id="field-me" name="name" value="{{.Name}}" maxlength="100"
-           class="field-search" placeholder="{{t "me.name_placeholder"}}" autocomplete="off">
-    <button type="submit" class="button-save-me">{{t "action.save"}}</button>
+  {{/* Same field-profile-row/button-confirm-profile style as a chat's own edit form
+       (profile.html), minus the phone row — the user only has a name here. */}}
+  <form class="body-profile-edit" hx-post="/eu" hx-target="#right-panel">
+    <div class="field-profile-row">
+      <span class="icon-field-profile">{{template "icon-person"}}</span>
+      <div class="field-profile-group">
+        <label class="label-field-profile">{{t "me.name_label"}}</label>
+        <input type="text" name="name" value="{{.Name}}" maxlength="100"
+               placeholder="{{t "me.name_placeholder"}}" autocomplete="off" autofocus>
+      </div>
+    </div>
+    <button type="submit" class="button-confirm-profile" title="{{t "action.save"}}">{{template "icon-check"}}</button>
     <p class="help-participants">{{t "me.help"}}{{if .FromEnv}} {{t "me.from_env"}}{{end}}</p>
   </form>
 </div>
