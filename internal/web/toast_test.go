@@ -27,7 +27,7 @@ func TestToggleMessageFlag_toastSoAoFavoritar(t *testing.T) {
 		chatID, "2026-07-26 10:00:00", 1, "Ana", "oi", "text", "h1")
 	msgID, _ := res.LastInsertId()
 
-	h := NewHandler(s, config.Config{}, nil)
+	h := NewHandler(s, config.Config{}, nil, "")
 
 	post := func(rota string) map[string]any {
 		t.Helper()
@@ -93,7 +93,7 @@ func TestToggleMessageFlag_desfazerNaoGeraOutroToast(t *testing.T) {
 		chatID, "2026-07-26 10:00:00", 1, "Ana", "oi", "text", "h1")
 	msgID, _ := res.LastInsertId()
 
-	h := NewHandler(s, config.Config{}, nil)
+	h := NewHandler(s, config.Config{}, nil, "")
 	rec := httptest.NewRecorder()
 	req := httptest.NewRequest(http.MethodPost,
 		"/chats/"+strconv.FormatInt(chatID, 10)+"/messages/"+strconv.FormatInt(msgID, 10)+"/favoritar?undoing=1", nil)
@@ -114,7 +114,7 @@ func TestFavoriteChat_desfazerSoAoRemover(t *testing.T) {
 	res, _ := s.DB().Exec(`INSERT INTO chats (name, is_group, source, created_at) VALUES ('Ana',0,'android','2026-07-26 00:00:00')`)
 	chatID, _ := res.LastInsertId()
 
-	h := NewHandler(s, config.Config{}, nil)
+	h := NewHandler(s, config.Config{}, nil, "")
 	post := func() map[string]any {
 		t.Helper()
 		rec := httptest.NewRecorder()

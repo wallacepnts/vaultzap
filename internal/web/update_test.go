@@ -59,7 +59,7 @@ func TestApplyUpdate_respondsWithoutWaitingForTheImport(t *testing.T) {
 	}
 
 	scanner := &slowScanner{started: make(chan struct{}), release: make(chan struct{})}
-	h := NewHandler(s, config.Config{Inbox: inbox, MediaDir: filepath.Join(dir, "media")}, scanner)
+	h := NewHandler(s, config.Config{Inbox: inbox, MediaDir: filepath.Join(dir, "media")}, scanner, "")
 
 	req := httptest.NewRequest(http.MethodPost, "/chats/1/atualizar",
 		strings.NewReader("file="+nome))

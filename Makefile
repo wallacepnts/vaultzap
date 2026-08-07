@@ -1,4 +1,5 @@
 BINARY  := vaultzap
+VERSAO  := $(shell git describe --tags --always --dirty 2>/dev/null || echo dev)
 IMAGEM  := ghcr.io/wallacepnts/vaultzap:latest
 PLATAFORMAS := linux/amd64,linux/arm64
 CONTAINERS_DIR := $(HOME)/.config/containers
@@ -24,15 +25,15 @@ lint:
 	fi
 
 build:
-	CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o $(BINARY) ./cmd/vaultzap
+	CGO_ENABLED=0 go build -trimpath -ldflags="-s -w -X main.version=$(VERSAO)" -o $(BINARY) ./cmd/vaultzap
 
 image:
-	podman build -t $(IMAGEM) -f deploy/Dockerfile .
+	podman build --build-arg VERSION=$(VERSAO) -t $(IMAGEM) -f deploy/Dockerfile .
 
 # Builda e publica um manifest multi-arch (amd64+arm64); exige "podman login ghcr.io" antes.
 # Builds and pushes a multi-arch manifest (amd64+arm64); requires "podman login ghcr.io" first.
 image-multiarch:
-	podman build --platform $(PLATAFORMAS) --manifest $(IMAGEM) -f deploy/Dockerfile .
+	podman build --platform $(PLATAFORMAS) --build-arg VERSION=$(VERSAO) --manifest $(IMAGEM) -f deploy/Dockerfile .
 	podman manifest push $(IMAGEM) docker://$(IMAGEM)
 
 # Um único arquivo quadlet, então ele fica solto em systemd/ (subpasta só a

@@ -138,7 +138,7 @@ func handlerWithChat(t *testing.T, n int) (*Handler, int64) {
 		t.Fatal(err)
 	}
 
-	return NewHandler(s, config.Config{}, nil), chatID
+	return NewHandler(s, config.Config{}, nil, ""), chatID
 }
 
 func getFragment(t *testing.T, h *Handler, path string) string {

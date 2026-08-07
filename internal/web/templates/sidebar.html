@@ -40,5 +40,8 @@
      upstream repo, not an instance-specific fork — self-hosters running a fork should
      change this to their own repo's URL. Sits below the chat list, not in the rail: a bare
      icon there went unnoticed, and the license means for this to be found. */}}
-<a class="link-source" href="https://github.com/wallacepnts/vaultzap" target="_blank"
-   rel="noopener noreferrer">github.com/wallacepnts/vaultzap</a>
+<div class="footer-source">
+  <a class="link-source" href="https://github.com/wallacepnts/vaultzap" target="_blank"
+     rel="noopener noreferrer">github.com/wallacepnts/vaultzap</a>
+  {{if .Version}}<span class="version-app">{{.Version}}</span>{{end}}
+</div>

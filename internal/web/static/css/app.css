@@ -340,20 +340,30 @@ html {
 
 /* Same size as the "read-only" banner under the conversation, which it visually pairs
    with — one strip at the foot of each side column. */
-.link-source {
-  display: block;
+.footer-source {
+  display: flex;
   flex: none;
-  text-align: center;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
   padding: 10px;
+  border-top: 1px solid var(--divider);
+}
+
+.link-source {
   font-size: 13px;
   color: var(--text-dim);
-  border-top: 1px solid var(--divider);
   text-decoration: none;
 }
 
 .link-source:hover {
   color: var(--text);
-  background: var(--bg-hover);
+}
+
+.version-app {
+  font-size: 11px;
+  color: var(--text-dim);
+  opacity: 0.7;
 }
 
 .top-sidebar {

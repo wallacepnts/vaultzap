@@ -30,6 +30,8 @@ type ChatListData struct {
 	Lists          []store.List
 	// Photo is the user's own picture, shown at the bottom of the sidebar.
 	Photo bool
+	// Version is the build's own version, shown under the source-code link.
+	Version string
 }
 
 type ConversationData struct {

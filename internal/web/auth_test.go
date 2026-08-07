@@ -19,7 +19,7 @@ func openTestHandler(t *testing.T, cfg config.Config) *Handler {
 		t.Fatalf("abrir banco: %v", err)
 	}
 	t.Cleanup(func() { s.Close() })
-	return NewHandler(s, cfg, nil)
+	return NewHandler(s, cfg, nil, "")
 }
 
 func TestWithAuth_unconfiguredPassesThrough(t *testing.T) {

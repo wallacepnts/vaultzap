@@ -25,15 +25,16 @@ type Handler struct {
 	cfg     config.Config
 	tz      *time.Location
 	scanner Scanner
+	version string
 }
 
 // The configured time zone is used to decide "today/yesterday" in date dividers.
-func NewHandler(s *store.Store, cfg config.Config, scanner Scanner) *Handler {
+func NewHandler(s *store.Store, cfg config.Config, scanner Scanner, version string) *Handler {
 	tz, err := time.LoadLocation(cfg.TimeZone)
 	if err != nil {
 		tz = time.UTC
 	}
-	return &Handler{store: s, cfg: cfg, tz: tz, scanner: scanner}
+	return &Handler{store: s, cfg: cfg, tz: tz, scanner: scanner, version: version}
 }
 
 // Routes builds the reading UI's mux, with Basic Auth applied when configured.

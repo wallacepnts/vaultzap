@@ -28,6 +28,10 @@ import (
 	"github.com/wallacepnts/vaultzap/internal/web"
 )
 
+// Set via -ldflags "-X main.version=..." at build time (see Makefile and
+// deploy/Dockerfile); "dev" is what `go run`/`make dev` leaves it at.
+var version = "dev"
+
 func main() {
 	if len(os.Args) > 1 {
 		switch os.Args[1] {
@@ -118,7 +122,7 @@ func runServer() error {
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /healthz", healthzHandler)
-	mux.Handle("/", web.NewHandler(db, cfg, scanner).Routes())
+	mux.Handle("/", web.NewHandler(db, cfg, scanner, version).Routes())
 
 	server := &http.Server{
 		Addr:    cfg.Addr,

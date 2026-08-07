@@ -137,6 +137,7 @@ func (h *Handler) buildChatList(ctx context.Context, filter store.ChatFilter, la
 		Lists:          lists,
 		ActiveList:     filter.ListID,
 		Photo:          h.hasMyPhoto(),
+		Version:        h.version,
 	}
 	switch {
 	case filter.Favorites:
