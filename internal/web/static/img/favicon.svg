@@ -1,0 +1,53 @@
+<!-- viewBox is cropped to the balloon's own ink, so the drawing fills the
+     canvas edge to edge. It took two passes to get here, both reported by
+     the user comparing a browser's tile grid side by side:
+       1. -5 -5 74 74 — an outer pad added on purpose, aiming to sit small
+          inside the tab. Balloon filled ~63%: clearly the smallest icon.
+       2. 0 0 64 64 — the artwork's nominal box, outer pad dropped. Still
+          only ~83%, because the path ITSELF carries ~5.3 units of margin
+          on every side (its bbox is 5.33,5.33 to 58.53,58.67); the
+          nominal box was never the ink.
+     Now the viewBox IS the ink bbox, squared off around its centre
+     (31.93, 32.0) so a non-square box can't letterbox the drawing, which
+     puts fill at 100% — level with WhatsApp/Gmail/YouTube, whose icons are
+     full-bleed. Nothing was redrawn: the letters scale with the balloon,
+     so the clearance worked out below is preserved as a ratio.
+     O viewBox é recortado na tinta do balão, então o desenho preenche o
+     canvas de ponta a ponta. Foram duas rodadas até aqui, as duas
+     apontadas pelo usuário comparando uma grade de favicons do navegador:
+     (1) -5 -5 74 74, com folga externa de propósito — balão em ~63%, o
+     menor ícone da grade; (2) 0 0 64 64, a caixa nominal da arte, sem a
+     folga externa — ainda ~83%, porque o próprio path carrega ~5,3
+     unidades de margem nos quatro lados; a caixa nominal nunca foi a
+     tinta. Agora o viewBox É a bbox da tinta, quadrada em torno do centro
+     (31,93, 32,0) pra uma caixa não quadrada não encaixotar o desenho, o
+     que leva o preenchimento a 100% — no nível dos vizinhos, que são
+     full-bleed. Nada foi redesenhado: as letras escalam junto com o balão,
+     então a folga calculada abaixo se preserva como proporção. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="5.26 5.33 53.34 53.34">
+  <!-- WhatsApp balloon, by explicit request: the only exception to the "no
+       Meta marks" rule (§1, §11.23). Body is the standard 24 unit WhatsApp
+       bubble path scaled to 64 units, tail at the bottom left. Green is the
+       brand #25d366 darkened so the white letters stand out: 3.1:1 against
+       white, over the 3:1 WCAG floor for a graphical object (the brand green
+       itself only reaches 1.98:1).
+       Balão do WhatsApp, a pedido explícito: a única exceção à regra de não
+       usar marcas da Meta (§1, §11.23). O corpo é o path padrão da bolha do
+       WhatsApp em 24 unidades, escalado pra 64, cauda embaixo à esquerda. O
+       verde é o #25d366 da marca escurecido pras letras brancas se
+       sobressaírem: 3,1:1 contra o branco, acima do piso de 3:1 da WCAG pra
+       elemento gráfico (o verde da marca sozinho só chega a 1,98:1). -->
+  <path fill="#1da851"
+        d="M32.11 5.33C17.55 5.33 5.68 17.2 5.68 31.76c0 4.67 1.23 9.23 3.52 13.23L5.33 58.67l14-3.68c3.87 2.11 8.21 3.23 12.77 3.23 14.56 0 26.43-11.87 26.43-26.43S46.67 5.33 32.11 5.33z"/>
+  <!-- V and Z joined at the shared top vertex, as in the reference: that makes
+       the pair a single polyline (V down, V up, Z bar, Z diagonal, Z bar).
+       Stroked paths, never a text element, so there is no font dependency and
+       the mark rasterizes identically at 16px on any system.
+       V e Z unidos no vértice de cima que os dois compartilham, como na
+       referência: isso faz o par virar uma polilinha só (V desce, V sobe,
+       barra do Z, diagonal, barra). Paths com stroke, nunca um elemento de
+       texto, então não há dependência de fonte e a marca rasteriza igual a
+       16px em qualquer sistema. -->
+  <path fill="none" stroke="#fff" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"
+        d="M16 22L24.8 41L33.5 22H48L36 41H48"/>
+</svg>

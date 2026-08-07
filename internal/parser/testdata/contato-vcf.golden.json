@@ -1,0 +1,17 @@
+{
+  "source": "android",
+  "date_order": "DMY",
+  "is_group": false,
+  "messages": [
+    {
+      "sent_at": "2026-07-26 14:32:00",
+      "seq": 1,
+      "sender": "Vitor",
+      "body": "Bruno.vcf (arquivo anexado)",
+      "kind": "contact",
+      "attachment_name": "Bruno.vcf",
+      "media_kind": "contact"
+    }
+  ],
+  "warnings": null
+}

@@ -1,0 +1,128 @@
+{{/* Calendar panel. Each day with a message opens the conversation at that
+     day's first message, via "?around=".
+     Painel de calendário. Cada dia com mensagem abre a conversa na primeira
+     mensagem daquele dia, via "?around=". */}}
+<div class="panel-calendar">
+  <div class="header-profile">
+    <button type="button" class="button-close-profile" title="{{t "action.close"}}"
+            onclick="document.getElementById('right-panel').innerHTML=''">{{template "icon-close"}}</button>
+    <span>{{t "conversation.go_to_date"}}</span>
+  </div>
+
+  <div class="navigation-month">
+    {{if .Previous}}
+    <button type="button" class="button-month" title="{{t "calendar.previous_month"}}"
+            hx-get="/chats/{{.Chat.ID}}/calendario?mes={{.Previous}}" hx-target="#right-panel">
+      {{template "icon-back"}}
+    </button>
+    {{else}}<span class="button-month button-month--empty"></span>{{end}}
+
+    {{/* Month/year pickers styled like the locale dropdown: button +
+         floating panel with a check on the active option. Each item already
+         sends "ano"+"mesNum" ready, no hx-include needed.
+         Seletores de mês/ano no estilo do menu suspenso de idioma:
+         botão + painel flutuante com check na opção ativa. Cada item já
+         manda "ano"+"mesNum" prontos, sem precisar de hx-include. */}}
+    {{$mesAtual := .CurrentMonth}}
+    {{$anoAtual := .CurrentYear}}
+    {{$chatID := .Chat.ID}}
+    <span class="picker-month-year">
+      <div class="wrap-picker-month-year" x-data="{ open: false }" @keydown.escape.window="open = false">
+        <button type="button" class="button-picker-month-year" title="{{t "calendar.month"}}"
+                :class="{ 'button-picker-month-year--open': open }" :aria-expanded="open" @click="open = !open">
+          <span>{{.CurrentMonthName}}</span>
+          {{template "icon-arrow-down"}}
+        </button>
+        <div class="menu-picker-month-year" x-show="open" x-cloak @click.outside="open = false">
+          {{range .Months}}
+          <button type="button" class="item-menu-chat" @click="open = false"
+                  hx-get="/chats/{{$chatID}}/calendario?ano={{$anoAtual}}&mesNum={{.Number}}" hx-target="#right-panel">
+            <span class="mark-list">{{if eq .Number $mesAtual}}{{template "icon-check"}}{{end}}</span>
+            <span>{{.Name}}</span>
+          </button>
+          {{end}}
+        </div>
+      </div>
+
+      <div class="wrap-picker-month-year" x-data="{ open: false }" @keydown.escape.window="open = false">
+        <button type="button" class="button-picker-month-year" title="{{t "calendar.year"}}"
+                :class="{ 'button-picker-month-year--open': open }" :aria-expanded="open" @click="open = !open">
+          <span>{{.CurrentYear}}</span>
+          {{template "icon-arrow-down"}}
+        </button>
+        <div class="menu-picker-month-year" x-show="open" x-cloak @click.outside="open = false">
+          {{range .Years}}
+          <button type="button" class="item-menu-chat" @click="open = false"
+                  hx-get="/chats/{{$chatID}}/calendario?ano={{.}}&mesNum={{$mesAtual}}" hx-target="#right-panel">
+            <span class="mark-list">{{if eq . $anoAtual}}{{template "icon-check"}}{{end}}</span>
+            <span>{{.}}</span>
+          </button>
+          {{end}}
+        </div>
+      </div>
+    </span>
+
+    {{if .Next}}
+    <button type="button" class="button-month" title="{{t "calendar.next_month"}}"
+            hx-get="/chats/{{.Chat.ID}}/calendario?mes={{.Next}}" hx-target="#right-panel">
+      {{template "icon-forward"}}
+    </button>
+    {{else}}<span class="button-month button-month--empty"></span>{{end}}
+  </div>
+
+  <div class="grid-calendar">
+    {{range .Weekdays}}<span class="label-day-week">{{.}}</span>{{end}}
+
+    {{$chatID := .Chat.ID}}
+    {{range .Weeks}}{{range .}}
+    {{if eq .Day 0}}
+    <span class="cell-day cell-day--outside"></span>
+    {{else if eq .Total 0}}
+    <span class="cell-day cell-day--empty"><span class="number-day">{{.Day}}</span></span>
+    {{else}}
+    <button type="button" class="cell-day cell-day--n{{.Weight}}"
+            title="{{if eq .Total 1}}{{t "calendar.day_singular" .Total}}{{else}}{{t "calendar.day_plural" .Total}}{{end}}"
+            hx-get="/chats/{{$chatID}}/messages?around={{.FirstID}}"
+            hx-target="#list-messages" hx-swap="innerHTML">
+      <span class="number-day">{{.Day}}</span>
+      <span class="count-day">{{.Total}}</span>
+    </button>
+    {{end}}
+    {{end}}{{end}}
+  </div>
+
+  {{/* Grid and navigation stay fixed; only what can grow (a full month's
+       day list) scrolls inside .body-calendar.
+       Grid e navegação ficam fixos; só o que pode crescer (lista de dias
+       de um mês cheio) rola dentro de .body-calendar. */}}
+  <div class="body-calendar">
+    {{if ne .Month .Latest}}
+    <button type="button" class="button-month-recent"
+            hx-get="/chats/{{.Chat.ID}}/calendario?mes={{.Latest}}" hx-target="#right-panel">
+      {{t "calendar.recent_month"}}
+    </button>
+    {{end}}
+
+    {{/* List of the same days as the grid, one per row — easier to scan in
+         a narrow column than the little squares, each with the full date.
+         Same click target as the grid's matching cell.
+         Lista dos mesmos dias do grid, um por linha — mais fácil de
+         escanear numa coluna estreita do que os quadradinhos, cada um com
+         a data por extenso. Mesmo alvo de clique da célula correspondente
+         do grid. */}}
+    {{if .Days}}
+    <div class="list-days-calendar">
+      {{range .Days}}
+      <button type="button" class="item-day-calendar"
+              hx-get="/chats/{{$chatID}}/messages?around={{.FirstID}}"
+              hx-target="#list-messages" hx-swap="innerHTML">
+        <span class="label-item-day-calendar">{{.Label}}</span>
+        <span class="count-item-day-calendar cell-day--n{{.Weight}}">{{.Total}}</span>
+      </button>
+      {{end}}
+    </div>
+    {{end}}
+
+    <p class="help-participants">{{t "calendar.help"}}</p>
+  </div>
+</div>

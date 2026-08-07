@@ -1,0 +1,53 @@
+<div class="panel-profile">
+  <div class="header-profile">
+    <button type="button" class="button-close-profile" title="{{t "action.close"}}"
+            onclick="document.getElementById('right-panel').innerHTML=''">{{template "icon-close"}}</button>
+    <span>{{t "chats.update_chat"}}</span>
+  </div>
+
+  <div class="body-update">
+    <p class="help-update">{{t "update.help_1"}}<strong>{{.Chat.Name}}</strong>{{t "update.help_2"}}</p>
+
+    {{if .Started}}
+    <p class="result-update">{{t "update.started" .Started}}</p>
+    {{template "import-progress-bar" progressPlaceholder .Started}}
+    {{end}}
+
+    {{with .Report}}
+    <p class="result-update">{{t "update.result" .Added .Skipped}}{{if .Warnings}}, {{t "update.result_warnings" .Warnings}}{{end}}.</p>
+    {{end}}
+
+    {{if .Units}}<p class="title-group-inbox">{{t "update.in_inbox"}}</p>{{end}}
+    {{range .Units}}
+    {{template "inbox-unit-button" dict "Unit" . "ChatID" $.Chat.ID "ChatName" $.Chat.Name "Origin" "inbox"}}
+    {{end}}
+
+    {{/* With the default "move" policy the file left the inbox: without this section the
+         panel opens empty exactly when the user clicks "Reimport…". */}}
+    {{if .Imported}}<p class="title-group-inbox">{{t "update.already_imported"}}</p>{{end}}
+    {{range .Imported}}
+    {{template "inbox-unit-button" dict "Unit" . "ChatID" $.Chat.ID "ChatName" $.Chat.Name "Origin" "imported"}}
+    {{end}}
+
+    {{if not (or .Units .Imported)}}
+    <p class="list-empty">
+      {{t "update.empty_1"}}<br>
+      {{t "update.empty_2"}} <code>{{.Inbox}}</code>{{t "update.empty_3"}}
+    </p>
+    {{end}}
+  </div>
+</div>
+
+{{define "inbox-unit-button"}}
+<button type="button" class="item-inbox"
+        hx-post="/chats/{{.ChatID}}/atualizar"
+        hx-vals='{"file": "{{.Unit.Name}}", "origem": "{{.Origin}}"}'
+        hx-target="#right-panel" hx-disabled-elt="this"
+        hx-confirm="{{t "update.confirm" .Unit.Name .ChatName}}">
+  <span class="icon-item-inbox">{{if .Unit.IsFolder}}{{template "icon-folder"}}{{else}}{{template "icon-archive"}}{{end}}</span>
+  <span class="info-item-inbox">
+    <span class="name-item-inbox">{{.Unit.Name}}</span>
+    {{with fileSize .Unit.Bytes}}<span class="meta-item-inbox">{{.}}</span>{{end}}
+  </span>
+</button>
+{{end}}

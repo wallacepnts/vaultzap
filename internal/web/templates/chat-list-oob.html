@@ -1,0 +1,17 @@
+{{/* OOB fragments for actions fired from the "Contact info" panel: they change
+     the sidebar (and, on delete, the open conversation) even though the swap
+     target is #right-panel.
+     Fragmentos OOB para ações disparadas do painel "Dados do contato": elas
+     mudam a sidebar (e, ao apagar, a conversa aberta) mesmo com o alvo do
+     swap sendo #right-panel. */}}
+
+{{define "chat-list-oob"}}<div id="list-chats" hx-swap-oob="true">{{template "chat-list.html" .}}</div>{{end}}
+
+{{/* Delete also has to clear the conversation, since the chat it was showing
+     no longer exists.
+     Apagar também precisa limpar a conversa, já que o chat que ela mostrava
+     não existe mais. */}}
+{{define "chat-gone-oob"}}
+<div id="list-chats" hx-swap-oob="true">{{template "chat-list.html" .}}</div>
+<main id="conversation" hx-swap-oob="true">{{template "conversation-empty.html" .}}</main>
+{{end}}

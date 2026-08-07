@@ -1,0 +1,64 @@
+{
+  "source": "android",
+  "date_order": "DMY",
+  "is_group": true,
+  "messages": [
+    {
+      "sent_at": "2026-07-26 14:32:00",
+      "seq": 1,
+      "sender": "Vitor",
+      "body": "\u003cMídia oculta\u003e",
+      "kind": "media_omitted"
+    },
+    {
+      "sent_at": "2026-07-26 14:38:00",
+      "seq": 2,
+      "sender": "Fatima",
+      "body": "autocolante não incluído",
+      "kind": "media_omitted"
+    },
+    {
+      "sent_at": "2026-07-26 14:33:00",
+      "seq": 3,
+      "sender": "Ana",
+      "body": "\u003cMedia omitted\u003e",
+      "kind": "media_omitted"
+    },
+    {
+      "sent_at": "2026-07-26 14:34:00",
+      "seq": 4,
+      "sender": "Bruno",
+      "body": "\u003cMultimedia omitido\u003e",
+      "kind": "media_omitted"
+    },
+    {
+      "sent_at": "2026-07-26 14:35:00",
+      "seq": 5,
+      "sender": "Carla",
+      "body": "\u003cMedia omessi\u003e",
+      "kind": "media_omitted"
+    },
+    {
+      "sent_at": "2026-07-26 14:36:00",
+      "seq": 6,
+      "sender": "Dieter",
+      "body": "\u003cMédias omis\u003e",
+      "kind": "media_omitted"
+    },
+    {
+      "sent_at": "2026-07-26 14:37:00",
+      "seq": 7,
+      "sender": "Elke",
+      "body": "\u003cMedien weggelassen\u003e",
+      "kind": "media_omitted"
+    },
+    {
+      "sent_at": "2026-07-26 14:39:00",
+      "seq": 8,
+      "sender": "Femke",
+      "body": "\u003cMedia weggelaten\u003e",
+      "kind": "media_omitted"
+    }
+  ],
+  "warnings": null
+}

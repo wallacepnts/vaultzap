@@ -1,0 +1,65 @@
+{{define "message-actions"}}
+{{/* Star/pin badges + the "more options" dropdown, styled after the
+     official app's hover chevron. The dropdown is "position: fixed" with
+     its top/left computed on open from the chevron's own bounding rect:
+     .bubble--media sets overflow:hidden to clip image/video to the
+     bubble's shape (§6.2), which would also clip a ~200px dropdown opened
+     on a media message — but a fixed-position element's containing block
+     is the viewport, not the nearest overflow:hidden ancestor (only
+     transform/filter/perspective ancestors change that), so it escapes the
+     clip without needing to move the element in the DOM. hx-target uses the
+     stable "#meta-{id}" id, not "closest", so the swap works the same way
+     regardless of where in the DOM this fragment lives.
+     Selos de favorita/fixada + o menu de "mais opções", no estilo do menu
+     que aparece no hover do app oficial. O menu é "position:
+     fixed", com o topo/esquerda calculados na abertura a partir do próprio
+     chevron: .bubble--media usa overflow:hidden pra clipar imagem/vídeo à
+     forma do balão (§6.2), o que também cliparia um dropdown de ~200px
+     aberto numa mensagem de mídia — mas o bloco de contenção de um elemento
+     "position:fixed" é o viewport, não o ancestral overflow:hidden mais
+     próximo (só ancestral com transform/filter/perspective muda isso), então
+     escapa do corte sem precisar mover o elemento no DOM. O hx-target usa o
+     id estável "#meta-{id}", não "closest", pra o swap funcionar igual não
+     importa onde no DOM esse fragmento more. */}}
+{{/* display:contents wrapper: it exists as a stable swap target (#meta-{id})
+     and Alpine scope, but generates no box — so the chevron button below is
+     positioned against the bubble itself (top-right corner, like the
+     official app), while the time/badges keep their own bottom-right anchor.
+     Wrapper display:contents: existe como alvo estável de swap (#meta-{id})
+     e escopo Alpine, mas não gera caixa — assim o botão do chevron abaixo é
+     posicionado contra o próprio balão (canto superior direito, como no app
+     oficial), enquanto hora/selos mantêm sua âncora no canto inferior. */}}
+<span id="meta-{{.MessageID}}" class="wrap-message-actions" x-data="{ open: false, top: 0, left: 0 }">
+  <span class="{{.WrapClass}}">
+    {{if .Favorite}}<span class="badge-message-star" title="{{t "message.starred"}}">{{template "icon-star-filled"}}</span>{{end}}
+    {{if .Pinned}}<span class="badge-message-pin" title="{{t "message.pinned"}}">{{template "icon-pin"}}</span>{{end}}
+    <span class="time-bubble">{{.ShortTime}}</span>
+  </span>
+
+  <button type="button" class="button-menu-message" title="{{t "chats.more_options"}}"
+          :class="{ 'button-menu-message--open': open }" :aria-expanded="open"
+          @click.stop="if (!open) { const r = $el.getBoundingClientRect(); top = r.bottom + 4; left = Math.min(r.left, window.innerWidth - 236) } open = !open">
+    {{template "icon-arrow-down"}}
+  </button>
+
+  <div class="menu-message" x-show="open" x-cloak :style="'top:' + top + 'px; left:' + left + 'px'"
+         @click.outside="open = false" @keydown.escape.window="open = false">
+      <button type="button" class="item-menu-chat"
+              hx-post="/chats/{{.ChatID}}/messages/{{.MessageID}}/favoritar" hx-vals='{"sticker": {{eq .WrapClass "meta-sticker"}}}'
+              hx-target="#meta-{{.MessageID}}" hx-swap="outerHTML">
+        {{if .Favorite}}{{template "icon-star-filled"}}{{else}}{{template "icon-star"}}{{end}}
+        <span>{{if .Favorite}}{{t "message.unstar"}}{{else}}{{t "message.star"}}{{end}}</span>
+      </button>
+      {{/* data-pinned is read by the replace confirmation in app.js: only
+           pinning can evict, unpinning never asks.
+           data-pinned é lido pela confirmação de substituição no app.js: só
+           fixar pode substituir, desafixar nunca pergunta. */}}
+      <button type="button" class="item-menu-chat" data-pinned="{{if .Pinned}}1{{end}}"
+              hx-post="/chats/{{.ChatID}}/messages/{{.MessageID}}/fixar" hx-vals='{"sticker": {{eq .WrapClass "meta-sticker"}}}'
+              hx-target="#meta-{{.MessageID}}" hx-swap="outerHTML">
+        {{template "icon-pin"}}
+        <span>{{if .Pinned}}{{t "message.unpin"}}{{else}}{{t "message.pin"}}{{end}}</span>
+      </button>
+    </div>
+</span>
+{{end}}

@@ -1,0 +1,17 @@
+{{/* The sidebar's own-photo button. Clicking it goes through the same cropper as any other
+     avatar; data-cropper-for tells app.js which hidden input receives the cropped blob. */}}
+<button type="button" id="my-photo" class="button-my-photo" title="{{t "sidebar.my_photo"}}"
+        hx-get="/eu" hx-target="#right-panel">
+  {{if .Photo}}
+  <img class="avatar-photo" src="/eu/foto" alt="">
+  {{else}}
+  {{template "icon-person"}}
+  {{end}}
+</button>
+
+{{define "my-photo-oob"}}
+<button type="button" id="my-photo" class="button-my-photo" title="{{t "sidebar.my_photo"}}"
+        hx-get="/eu" hx-target="#right-panel" hx-swap-oob="true">
+  {{if .Photo}}<img class="avatar-photo" src="/eu/foto" alt="">{{else}}{{template "icon-person"}}{{end}}
+</button>
+{{end}}

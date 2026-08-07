@@ -1,0 +1,634 @@
+# VaultZap — UI text catalog. msgid is the key used in templates via
+# {{t "key"}}, not source text — see internal/locale/locale.go.
+# Catálogo de texto da UI. msgid é a chave usada nos templates via
+# {{t "chave"}}, não o texto de origem — ver internal/locale/locale.go.
+
+msgid "me.title"
+msgstr "Il tuo profilo"
+
+msgid "me.no_name"
+msgstr "Nessun nome impostato"
+
+msgid "me.name_label"
+msgstr "Il tuo nome nell'esportazione"
+
+msgid "me.name_placeholder"
+msgstr "Come appari nelle conversazioni"
+
+msgid "me.help"
+msgstr "È il mittente considerato te nelle conversazioni senza proprietario scelto."
+
+msgid "me.from_env"
+msgstr "Da VAULTZAP_ME."
+
+msgid "rail.label"
+msgstr "Barra di navigazione"
+
+msgid "sidebar.all_media"
+msgstr "Media di tutte le conversazioni"
+
+msgid "sidebar.my_photo"
+msgstr "La tua foto"
+
+msgid "sidebar.watched_folder"
+msgstr "Cartella osservata"
+
+msgid "sidebar.toggle_theme"
+msgstr "Cambia tema"
+
+msgid "sidebar.language_title"
+msgstr "Lingua: %s"
+
+msgid "sidebar.search_chat"
+msgstr "Cerca conversazione"
+
+msgid "chats.archived"
+msgstr "Archiviate"
+
+msgid "chats.all"
+msgstr "Tutte"
+
+msgid "chats.favorites"
+msgstr "Preferite"
+
+msgid "chats.groups"
+msgstr "Gruppi"
+
+msgid "chats.delete_list_title"
+msgstr "Elimina la lista %s"
+
+msgid "chats.delete_list_confirm"
+msgstr "Eliminare la lista %s? Le sue conversazioni non vengono toccate."
+
+msgid "chats.new_list"
+msgstr "Nuova lista"
+
+msgid "chats.more_lists"
+msgstr "Altre liste"
+
+msgid "chats.list_name"
+msgstr "Nome della lista"
+
+msgid "action.create"
+msgstr "Crea"
+
+msgid "chats.favorite"
+msgstr "Preferita"
+
+msgid "chats.pinned"
+msgstr "Fissata"
+
+msgid "chats.more_options"
+msgstr "Altre opzioni"
+
+msgid "chats.unarchive"
+msgstr "Rimuovi dall'archivio"
+
+msgid "chats.archive"
+msgstr "Archivia conversazione"
+
+msgid "chats.unpin"
+msgstr "Non fissare più"
+
+msgid "chats.pin"
+msgstr "Fissa conversazione"
+
+msgid "chats.remove_favorite"
+msgstr "Rimuovi dai Preferiti"
+
+msgid "chats.add_favorite"
+msgstr "Aggiungi ai Preferiti"
+
+msgid "chats.update_chat"
+msgstr "Aggiorna conversazione"
+
+msgid "chats.merge_chat"
+msgstr "Unisci conversazione"
+
+msgid "chats.export_chat"
+msgstr "Esporta conversazione"
+
+msgid "export.txt"
+msgstr "Testo (.txt)"
+
+msgid "export.markdown"
+msgstr "Markdown (.md)"
+
+msgid "export.html"
+msgstr "HTML"
+
+msgid "export.print"
+msgstr "HTML per stampa / PDF"
+
+msgid "export.typst"
+msgstr "Typst (.typ)"
+
+msgid "chats.add_to_list"
+msgstr "Aggiungi a lista"
+
+msgid "chats.delete_confirm"
+msgstr "Eliminare la conversazione %s? Messaggi e file spariscono per sempre da VaultZap. L'export nella cartella osservata non viene toccato — puoi reimportarlo da lì."
+
+msgid "chats.delete_chat"
+msgstr "Elimina conversazione"
+
+msgid "chats.empty_archived"
+msgstr "Nessuna conversazione archiviata."
+
+msgid "chats.empty_favorites"
+msgstr "Ancora nessuna conversazione preferita."
+
+msgid "chats.empty_groups"
+msgstr "Ancora nessun gruppo importato."
+
+msgid "chats.empty_list"
+msgstr "Ancora nessuna conversazione in questa lista."
+
+msgid "chats.empty_all"
+msgstr "Ancora nessuna conversazione importata."
+
+msgid "conversation.contact_info"
+msgstr "Info contatto"
+
+msgid "conversation.group_info"
+msgstr "Info gruppo"
+
+msgid "conversation.total_messages"
+msgstr "%d messaggi"
+
+msgid "conversation.search_here"
+msgstr "Cerca in questa conversazione"
+
+msgid "conversation.go_to_date"
+msgstr "Vai a una data"
+
+msgid "conversation.view_media"
+msgstr "Visualizza media"
+
+msgid "conversation.which_is_you"
+msgstr "Quale di questi sei tu?"
+
+msgid "conversation.recent_message"
+msgstr "Vai al messaggio più recente"
+
+msgid "conversation.read_only"
+msgstr "Archivio di sola lettura"
+
+msgid "conversation.select_prompt"
+msgstr "Seleziona una conversazione per iniziare a leggere."
+
+msgid "conversation.epigraph"
+msgstr "Chi controlla il passato controlla il futuro; chi controlla il presente controlla il passato."
+
+msgid "action.close"
+msgstr "Chiudi"
+
+msgid "action.clear"
+msgstr "Cancella"
+
+msgid "calendar.previous_month"
+msgstr "Mese precedente"
+
+msgid "calendar.month"
+msgstr "Mese"
+
+msgid "calendar.year"
+msgstr "Anno"
+
+msgid "calendar.next_month"
+msgstr "Mese successivo"
+
+msgid "calendar.day_singular"
+msgstr "%d messaggio"
+
+msgid "calendar.day_plural"
+msgstr "%d messaggi"
+
+msgid "calendar.recent_month"
+msgstr "Vai al mese più recente"
+
+msgid "calendar.help"
+msgstr "Clicca su un giorno per aprire la conversazione in quel punto."
+
+msgid "action.edit"
+msgstr "Modifica"
+
+msgid "action.back"
+msgstr "Indietro"
+
+msgid "action.save"
+msgstr "Salva"
+
+msgid "action.rename"
+msgstr "Rinomina"
+
+msgid "profile.edit_group"
+msgstr "Modifica nome del gruppo"
+
+msgid "profile.edit_contact"
+msgstr "Modifica contatto"
+
+msgid "profile.show_photo"
+msgstr "Mostra foto"
+
+msgid "profile.upload_photo"
+msgstr "Carica foto"
+
+msgid "profile.remove_photo"
+msgstr "Rimuovi foto"
+
+msgid "profile.starred_messages"
+msgstr "Messaggi importanti"
+
+msgid "profile.no_starred_messages"
+msgstr "Ancora nessun messaggio importante."
+
+msgid "profile.participants_title"
+msgstr "Partecipanti (%d)"
+
+msgid "profile.you"
+msgstr "Tu"
+
+msgid "profile.participant_photo"
+msgstr "Foto del partecipante"
+
+msgid "profile.link_photo"
+msgstr "Usa la foto di un'altra conversazione"
+
+msgid "profile.link_photo_search"
+msgstr "Cerca conversazione con foto"
+
+msgid "profile.link_photo_hint"
+msgstr "Scegli la conversazione la cui foto rappresenterà %s."
+
+msgid "profile.link_photo_empty"
+msgstr "Nessuna conversazione ha ancora una foto."
+
+msgid "profile.see_all"
+msgstr "Vedi tutti (altri %d)"
+
+msgid "profile.search_members"
+msgstr "Cerca partecipanti"
+
+msgid "profile.search_contacts"
+msgstr "Cerca contatti"
+
+msgid "profile.participants_help"
+msgstr "Lascia il nome vuoto per tornare a quello dell'export."
+
+msgid "profile.messages_per_page"
+msgstr "Messaggi per pagina"
+
+msgid "profile.load"
+msgstr "Carica"
+
+msgid "profile.all"
+msgstr "Tutti"
+
+msgid "profile.page_help"
+msgstr "Quanti messaggi si caricano alla volta, qui e scorrendo verso l'alto. Vale solo per questa conversazione — aprirne un'altra torna a 50. \"Tutti\" sono %d in questa."
+
+msgid "profile.group_name"
+msgstr "Nome del gruppo"
+
+msgid "profile.name"
+msgstr "Nome"
+
+msgid "profile.phone"
+msgstr "Telefono"
+
+msgid "gallery.back"
+msgstr "Torna alla conversazione"
+
+msgid "gallery.all_chats"
+msgstr "Media di tutte le conversazioni"
+
+msgid "gallery.title"
+msgstr "Media — %s"
+
+msgid "gallery.tab_photos"
+msgstr "Foto"
+
+msgid "gallery.tab_videos"
+msgstr "Video"
+
+msgid "gallery.tab_stickers"
+msgstr "Sticker"
+
+msgid "gallery.tab_audio"
+msgstr "Audio"
+
+msgid "gallery.tab_documents"
+msgstr "Documenti"
+
+msgid "gallery.tab_links"
+msgstr "Link"
+
+msgid "gallery.empty_links"
+msgstr "Nessun link in questa conversazione."
+
+msgid "gallery.empty_documents"
+msgstr "Nessun documento in questa conversazione."
+
+msgid "gallery.empty_audio"
+msgstr "Nessun audio in questa conversazione."
+
+msgid "gallery.empty_tab"
+msgstr "Ancora niente in questa scheda."
+
+msgid "gallery.pause"
+msgstr "Pausa"
+
+msgid "gallery.play_audio"
+msgstr "Riproduci audio"
+
+msgid "message.star"
+msgstr "Contrassegna messaggio"
+
+msgid "message.unstar"
+msgstr "Rimuovi contrassegno"
+
+msgid "message.pin"
+msgstr "Fissa messaggio"
+
+msgid "message.pin_replace"
+msgstr "Hai già fissato il numero massimo di messaggi. Quello fissato da più tempo verrà sostituito."
+
+msgid "message.unpin"
+msgstr "Rimuovi messaggio fissato"
+
+msgid "message.starred"
+msgstr "Importante"
+
+msgid "message.pinned"
+msgstr "Fissato"
+
+msgid "message.sticker"
+msgstr "Sticker"
+
+msgid "message.image"
+msgstr "Immagine"
+
+msgid "message.you"
+msgstr "Tu"
+
+msgid "search.system"
+msgstr "Sistema"
+
+msgid "search.no_results"
+msgstr "Nessun risultato per \"%s\"."
+
+msgid "merge.help"
+msgstr "Scegli la conversazione da unire a questa. I suoi messaggi vengono spostati qui e smette di esistere."
+
+msgid "merge.search_placeholder"
+msgstr "Cerca conversazione"
+
+msgid "merge.confirm"
+msgstr "Unire tutto da \"%s\" in questa conversazione (\"%s\")? La conversazione \"%s\" smette di esistere; i messaggi duplicati vengono scartati, niente viene duplicato."
+
+msgid "merge.empty"
+msgstr "Nessuna conversazione trovata."
+
+msgid "chats.group_singular"
+msgstr "gruppo"
+
+msgid "imports.items"
+msgstr "%d elementi"
+
+msgid "imports.scan_now"
+msgstr "Cerca ora"
+
+msgid "imports.count"
+msgstr "%d aggiunti, %d saltati"
+
+msgid "imports.warning_count"
+msgstr "%d avvisi"
+
+msgid "imports.hide_details"
+msgstr "Nascondi dettagli"
+
+msgid "imports.view_details"
+msgstr "Mostra dettagli"
+
+msgid "imports.reimport"
+msgstr "Reimporta…"
+
+msgid "imports.added"
+msgstr "Aggiunti"
+
+msgid "imports.added_note"
+msgstr "nuovi messaggi registrati"
+
+msgid "imports.skipped"
+msgstr "Saltati"
+
+msgid "imports.skipped_note"
+msgstr "già presenti nell'archivio (stessa data, mittente e testo) — reimportare lo stesso export non duplica nulla"
+
+msgid "imports.warnings"
+msgstr "Avvisi"
+
+msgid "imports.warnings_note"
+msgstr "righe che il parser non ha capito; diventano un messaggio di sistema con il testo originale, niente viene scartato"
+
+msgid "imports.finished"
+msgstr "Completato"
+
+msgid "imports.warning_lines"
+msgstr "Righe con avviso"
+
+msgid "imports.fix_note_1"
+msgstr "Per correggerlo: modifica quelle righe nel file dell'export, rimetti il file nella cartella osservata e usa "
+
+msgid "imports.fix_note_2"
+msgstr " (oppure \"Aggiorna conversazione\" nel menu della conversazione). I messaggi già importati non vengono duplicati."
+
+msgid "coherence.title"
+msgstr "Verifica di coerenza"
+
+msgid "coherence.clean"
+msgstr "Nulla si discosta da ciò che scrive WhatsApp. Non è un certificato di autenticità: un'esportazione non ha firma."
+
+msgid "coherence.note"
+msgstr "Nessuno di questi prova una manomissione, e la loro assenza non prova il contrario — un'esportazione non ha firma. È un triage."
+
+msgid "coherence.marks_missing"
+msgstr "%d riga/righe di allegato o avviso senza i segni invisibili che WhatsApp scrive (dalla riga %d)."
+
+msgid "coherence.out_of_order"
+msgstr "%d messaggio/i datato/i molto prima del precedente (dal messaggio %d). Le esportazioni sono cronologiche."
+
+msgid "coherence.media_naming"
+msgstr "%d allegato/i con nome fuori dalla convenzione di WhatsApp (dal messaggio %d)."
+
+msgid "coherence.media_date"
+msgstr "%d allegato/i il cui nome porta una data diversa da quella del messaggio (dal messaggio %d)."
+
+msgid "coherence.media_missing"
+msgstr "%d allegato/i citati nel testo non sono arrivati nel file, mentre altri sì."
+
+msgid "imports.empty"
+msgstr "Ancora nessun import. Trascina un file nella cartella osservata."
+
+msgid "update.help_1"
+msgstr "Scegli il file dalla cartella osservata che completa "
+
+msgid "update.help_2"
+msgstr ". Entrano solo i messaggi nuovi — quelli già presenti vengono saltati."
+
+msgid "update.result"
+msgstr "%d nuovi messaggi, %d già esistevano"
+
+msgid "update.result_warnings"
+msgstr "%d avvisi del parser"
+
+msgid "update.confirm"
+msgstr "Importare \"%s\" nella conversazione %s?"
+
+msgid "update.empty_1"
+msgstr "Nessun file nella cartella osservata."
+
+msgid "update.empty_2"
+msgstr "Trascina il nuovo export in"
+
+msgid "update.empty_3"
+msgstr " e riapri questa schermata."
+
+msgid "messages.loading_older"
+msgstr "Caricamento messaggi precedenti…"
+
+msgid "lightbox.previous"
+msgstr "Precedente"
+
+msgid "lightbox.next"
+msgstr "Successivo"
+
+msgid "lightbox.zoom_out"
+msgstr "Riduci zoom"
+
+msgid "lightbox.zoom_in"
+msgstr "Aumenta zoom"
+
+msgid "lightbox.download"
+msgstr "Scarica"
+
+msgid "cropper.drag"
+msgstr "Trascina l'immagine per regolare"
+
+msgid "cropper.confirm"
+msgstr "Conferma"
+
+msgid "action.cancel"
+msgstr "Annulla"
+
+msgid "action.replace"
+msgstr "Sostituisci"
+
+msgid "action.undo"
+msgstr "Annulla azione"
+
+msgid "toast.pin_limit"
+msgstr "Puoi fissare fino a %d conversazioni."
+
+msgid "toast.chat_pinned"
+msgstr "Conversazione fissata"
+
+msgid "toast.chat_unpinned"
+msgstr "Conversazione non più fissata"
+
+msgid "toast.message_starred"
+msgstr "Messaggio aggiunto ai preferiti: 1"
+
+msgid "toast.message_unstarred"
+msgstr "Messaggio rimosso dai preferiti: 1"
+
+msgid "toast.chat_favorited"
+msgstr "Aggiunta ai preferiti."
+
+msgid "toast.chat_unfavorited"
+msgstr "Rimossa dai preferiti."
+
+msgid "toast.removed_from_list"
+msgstr "Conversazione rimossa dalla lista"
+
+msgid "toast.added_to_list"
+msgstr "Conversazione aggiunta alla lista"
+
+msgid "toast.import_error"
+msgstr "Impossibile importare quel file: %s"
+
+msgid "toast.new_messages_in"
+msgstr "%d nuovi messaggi in %s"
+
+msgid "toast.merge_error"
+msgstr "Impossibile unire le conversazioni: %s"
+
+msgid "toast.merge_result"
+msgstr "%d messaggi spostati, %d già esistevano"
+
+msgid "date.connector"
+msgstr "alle"
+
+msgid "export.photo"
+msgstr "foto"
+
+msgid "export.video"
+msgstr "video"
+
+msgid "export.gif"
+msgstr "GIF"
+
+msgid "export.audio"
+msgstr "audio"
+
+msgid "export.voice"
+msgstr "messaggio vocale"
+
+msgid "export.sticker"
+msgstr "sticker"
+
+msgid "export.document"
+msgstr "documento"
+
+msgid "export.contact"
+msgstr "contatto"
+
+msgid "export.attachment"
+msgstr "allegato"
+
+msgid "export.footer"
+msgstr "Esportato da VaultZap il %s."
+
+msgid "imports.phase_scanning"
+msgstr "Scansione della cartella…"
+
+msgid "imports.phase_extracting"
+msgstr "Estrazione"
+
+msgid "imports.phase_importing"
+msgstr "Importazione messaggi"
+
+msgid "imports.of"
+msgstr "%s di %s"
+
+msgid "imports.of_messages"
+msgstr "%d di %d messaggi"
+
+msgid "imports.running_now"
+msgstr "Importazione in corso"
+
+msgid "update.in_inbox"
+msgstr "Nella cartella di ingresso"
+
+msgid "update.already_imported"
+msgstr "Già importati (spostati)"
+
+msgid "update.started"
+msgstr "Importazione di %s…"
+
+msgid "conversation.other_sender"
+msgstr "Altro mittente (%d)"
+
+msgid "conversation.filter_sender"
+msgstr "Cerca mittente"

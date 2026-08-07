@@ -1,0 +1,89 @@
+{{define "gallery-items"}}
+{{if eq .Tab "links"}}
+  {{range .Links}}
+  <a class="card-link" href="{{.URL}}" target="_blank" rel="noopener noreferrer">
+    <span class="card-link-domain">{{.Domain}}</span>
+    <span class="card-link-url">{{.URL}}</span>
+    <span class="card-link-date">{{shortDate .SentAt}}</span>
+  </a>
+  {{else}}
+  <p class="list-empty">{{t "gallery.empty_links"}}</p>
+  {{end}}
+
+{{else if eq .Tab "documentos"}}
+  {{range .Attachments}}
+  <a class="card-document" href="/media/{{.ID}}" download="{{.Filename}}">
+    <span class="card-document-badge">{{fileExtension .Filename}}</span>
+    <span class="card-document-info">
+      <span class="card-document-name">{{.Filename}}</span>
+      <span class="card-document-meta">{{fileExtension .Filename}}{{with fileSize .SizeBytes}} &bull; {{.}}{{end}}</span>
+    </span>
+    <span class="card-document-date">{{shortDate .SentAt}}</span>
+  </a>
+  {{else}}
+  <p class="list-empty">{{t "gallery.empty_documents"}}</p>
+  {{end}}
+
+{{else if eq .Tab "audios"}}
+  {{range .Attachments}}
+  {{/* Same audio player as the message bubble (audioVoice + audio-waveform). */}}
+  <div class="card-audio" x-data="audioVoice()">
+    <div class="card-audio-header">
+      <span class="card-audio-name">{{.Filename}}</span>
+      <span class="card-audio-date">{{shortDate .SentAt}}</span>
+    </div>
+    <div class="audio-voice audio-voice--gallery">
+      <audio x-ref="audio" preload="none" src="/media/{{.ID}}"
+             @loadedmetadata="duration = $refs.audio.duration"
+             @timeupdate="position = $refs.audio.currentTime"
+             @ended="playing = false"
+             @pause="playing = false"></audio>
+      <button type="button" class="audio-voice-play"
+              @click="playing ? pause() : play()" :aria-label="playing ? '{{t "gallery.pause"}}' : '{{t "gallery.play_audio"}}'">
+        <span class="icon-audio-play" x-show="!playing">{{template "icon-play"}}</span>
+        <span x-show="playing" x-cloak>{{template "icon-pause"}}</span>
+      </button>
+      <div class="audio-voice-body">
+        <div class="audio-voice-waveform" @click="seek($event)">
+          {{template "audio-waveform"}}
+          <div class="audio-voice-waveform-progress" :style="'clip-path: inset(0 ' + (100 - progress) + '% 0 0)'">{{template "audio-waveform"}}</div>
+          <div class="audio-voice-waveform-dot" :style="'left:' + progress + '%'"></div>
+        </div>
+        <div class="audio-voice-times">
+          <span x-text="playing ? currentTime : totalTime"></span>
+        </div>
+      </div>
+      <button type="button" class="audio-voice-speed" x-show="playing" x-cloak
+              @click="cycleSpeed()" x-text="displayedSpeed"></button>
+    </div>
+  </div>
+  {{else}}
+  <p class="list-empty">{{t "gallery.empty_audio"}}</p>
+  {{end}}
+
+{{else}}
+  {{range .Attachments}}
+  {{if or (eq .MediaKind "video") (eq .MediaKind "gif")}}
+  <video class="gallery-item media-lightbox" src="/media/{{.ID}}" muted playsinline preload="metadata"
+         data-when="{{dateTimeDisplay .SentAt}}"
+         @click="$dispatch('open-lightbox', { src: '/media/{{.ID}}' })"></video>
+  {{else}}
+  <img class="gallery-item{{if eq .MediaKind "sticker"}} gallery-item--sticker{{end}} media-lightbox"
+       src="/media/{{.ID}}" loading="lazy" alt="{{.Filename}}"
+       data-when="{{dateTimeDisplay .SentAt}}"
+       @click="$dispatch('open-lightbox', { src: '/media/{{.ID}}' })">
+  {{end}}
+  {{else}}
+  <p class="list-empty">{{t "gallery.empty_tab"}}</p>
+  {{end}}
+{{end}}
+
+{{/* Loads the next page in place of itself. root: is the scrolling container — the gallery
+     scrolls inside it, not in the window, so a plain "revealed" would never fire. */}}
+{{if .HasMore}}
+<div class="sentinel-gallery"
+     hx-get="{{if .Global}}/midia?aba={{.Tab}}&before={{.NextCursor}}{{else}}/chats/{{.Chat.ID}}/media?aba={{.Tab}}&before={{.NextCursor}}{{end}}"
+     hx-trigger="intersect once root:.gallery-scroll"
+     hx-target="this" hx-swap="outerHTML"></div>
+{{end}}
+{{end}}

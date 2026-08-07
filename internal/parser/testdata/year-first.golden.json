@@ -1,0 +1,29 @@
+{
+  "source": "android",
+  "date_order": "YMD",
+  "is_group": false,
+  "messages": [
+    {
+      "sent_at": "2026-07-26 14:32:00",
+      "seq": 1,
+      "sender": "Victor",
+      "body": "Ano primeiro",
+      "kind": "text"
+    },
+    {
+      "sent_at": "2026-07-26 14:33:00",
+      "seq": 2,
+      "sender": "Ana",
+      "body": "Sueco, lituano, hungaro, japones, chines",
+      "kind": "text"
+    },
+    {
+      "sent_at": "2026-08-01 09:05:00",
+      "seq": 3,
+      "sender": "Victor",
+      "body": "Mes seguinte",
+      "kind": "text"
+    }
+  ],
+  "warnings": null
+}

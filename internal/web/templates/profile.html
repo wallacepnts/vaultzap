@@ -1,0 +1,206 @@
+<div class="panel-profile" x-data="{ editing: false }">
+  <div class="header-profile" x-show="!editing">
+    <button type="button" class="button-close-profile" title="{{t "action.close"}}"
+            onclick="document.getElementById('right-panel').innerHTML=''">{{template "icon-close"}}</button>
+    <span>{{if .Chat.IsGroup}}{{t "conversation.group_info"}}{{else}}{{t "conversation.contact_info"}}{{end}}</span>
+    <button type="button" class="button-edit-profile" title="{{t "action.edit"}}" @click="editing = true">
+      {{template "icon-edit"}}
+    </button>
+  </div>
+  <div class="header-profile" x-show="editing" x-cloak>
+    <button type="button" class="button-close-profile" title="{{t "action.back"}}" @click="editing = false">
+      {{template "icon-back"}}
+    </button>
+    <span>{{if .Chat.IsGroup}}{{t "profile.edit_group"}}{{else}}{{t "profile.edit_contact"}}{{end}}</span>
+  </div>
+
+  <div class="body-profile" x-show="!editing">
+    {{/* Without a custom photo yet, the menu would only ever offer one
+         useful item ("Escolher foto") — "Ver foto" and "Remover foto" only
+         make sense once a photo exists. So skip the menu entirely and open
+         the file picker straight from the click; the menu only shows up
+         once there's something to look at or remove.
+         Sem foto customizada ainda, o menu só teria um item útil de
+         verdade ("Escolher foto") — "Ver" e "Remover" só fazem sentido
+         com uma foto já existente. Então pula o menu e abre o seletor de
+         arquivo direto no clique; o menu só aparece quando há o que ver
+         ou remover. */}}
+    {{if .Chat.AvatarPath}}
+    <div class="avatar-large-wrap" x-data="{ photoMenuOpen: false }" @click.outside="photoMenuOpen = false">
+      <button type="button" class="button-avatar-large" @click="photoMenuOpen = !photoMenuOpen">
+        <span class="avatar-large">
+          {{template "avatar-core" .Chat}}
+        </span>
+        <span class="overlay-avatar-large">{{template "icon-camera-plus"}}</span>
+      </button>
+
+      <div class="menu-photo-avatar" x-show="photoMenuOpen" x-cloak>
+        <button type="button" class="item-menu-photo-avatar"
+                @click="photoMenuOpen = false; $dispatch('open-lightbox', { src: '/chats/{{.Chat.ID}}/avatar' })">
+          {{template "icon-eye"}} {{t "profile.show_photo"}}
+        </button>
+        <label class="item-menu-photo-avatar"
+               @click="document.getElementById('avatar-sender').value = ''; document.getElementById('avatar-from').value = ''">
+          {{template "icon-folder"}} {{t "profile.upload_photo"}}
+          <input type="file" id="input-avatar-raw" accept="image/*" class="input-avatar-hidden">
+        </label>
+        <hr class="divider-menu-photo-avatar">
+        <button type="button" class="item-menu-photo-avatar"
+                hx-delete="/chats/{{.Chat.ID}}/avatar" hx-target="#right-panel">
+          {{template "icon-trash"}} {{t "profile.remove_photo"}}
+        </button>
+      </div>
+    </div>
+    {{else}}
+    <div class="avatar-large-wrap">
+      <button type="button" class="button-avatar-large"
+              @click="document.getElementById('avatar-sender').value = ''; document.getElementById('avatar-from').value = ''; document.getElementById('input-avatar-raw').click()">
+        <span class="avatar-large {{avatarClass .Chat.Name}}">
+          {{template "avatar-core" .Chat}}
+        </span>
+        <span class="overlay-avatar-large">{{template "icon-camera-plus"}}</span>
+      </button>
+      <input type="file" id="input-avatar-raw" accept="image/*" class="input-avatar-hidden">
+    </div>
+    {{end}}
+
+    <span class="name-profile">{{.Chat.Name}}</span>
+    {{if .Chat.Phone}}<span class="phone-profile">{{.Chat.Phone}}</span>{{end}}
+    {{if .OwnerCandidates}}
+    <button type="button" class="button-who-are-you" @click="$dispatch('reopen-owner-picker')">{{t "conversation.which_is_you"}}</button>
+    {{end}}
+  </div>
+
+  {{/* "Media, links and docs", same place and order the official app puts it: right
+       after the header, before "Starred messages". No thumbnail strip — that needs a
+       second query per kind, and the count alone already gets people to the gallery.
+       "Mídia, links e docs", no mesmo lugar e ordem do app oficial: logo após o
+       cabeçalho, antes de "Mensagens favoritas". Sem tira de miniaturas — exigiria uma
+       segunda consulta por tipo, e a contagem sozinha já leva pra galeria. */}}
+  <button type="button" class="row-profile-action" x-show="!editing"
+          hx-get="/chats/{{.Chat.ID}}/media" hx-target="#conversation">
+    {{template "icon-gallery"}}
+    <span>{{t "conversation.view_media"}}</span>
+    <span class="chip-counter">{{.MediaCount}}</span>
+  </button>
+
+  {{/* "Starred messages", same place the official app puts it.
+       "Mensagens favoritas", no mesmo lugar em que o app oficial põe. */}}
+  <button type="button" class="row-profile-action" x-show="!editing"
+          hx-get="/chats/{{.Chat.ID}}/favoritas" hx-target="#right-panel">
+    {{template "icon-star"}}
+    <span>{{t "profile.starred_messages"}}</span>
+  </button>
+
+  {{if .ParticipantTotal}}{{template "participants" .}}{{end}}
+
+
+  {{/* Chat-level actions, in the official app's order and grouping: favorite
+       and list first, then the destructive one after a divider. All three
+       already existed in the sidebar's context menu; here they carry
+       from=perfil, which makes the handler answer with this panel re-rendered
+       (labels/checkmarks follow the new state) plus the sidebar out of band.
+       Ações da conversa, na ordem e no agrupamento do app oficial: favoritar
+       e lista primeiro, a destrutiva depois de um divisor. As três já
+       existiam no menu de contexto da sidebar; aqui elas levam from=perfil,
+       o que faz o handler responder com este painel re-renderizado (rótulos e
+       checks acompanham o novo estado) mais a sidebar via OOB. */}}
+  <div class="section-profile-actions" x-show="!editing" x-data="{ listsSubmenu: false, newList: false }">
+    <div class="divider-profile-actions"></div>
+
+    <button type="button" class="row-profile-action"
+            hx-post="/chats/{{.Chat.ID}}/favoritar?from=perfil" hx-target="#right-panel">
+      {{if .Chat.Favorite}}{{template "icon-heart-filled"}}<span>{{t "chats.remove_favorite"}}</span>
+      {{else}}{{template "icon-heart"}}<span>{{t "chats.add_favorite"}}</span>{{end}}
+    </button>
+
+    <button type="button" class="row-profile-action" @click="listsSubmenu = !listsSubmenu">
+      {{template "icon-list"}}<span>{{t "chats.add_to_list"}}</span>
+    </button>
+
+    <div class="submenu-profile-lists" x-show="listsSubmenu" x-cloak>
+      {{$chatID := .Chat.ID}}
+      {{range .Lists}}
+      <button type="button" class="item-menu-chat"
+              hx-post="/chats/{{$chatID}}/listas?from=perfil" hx-target="#right-panel"
+              hx-vals='{"list_id": "{{.ID}}", "in": "{{if .In}}0{{else}}1{{end}}"}'>
+        <span class="mark-list">{{if .In}}{{template "icon-check"}}{{end}}</span>
+        <span>{{.Name}}</span>
+      </button>
+      {{end}}
+      <button type="button" class="item-menu-chat" x-show="!newList"
+              @click.stop="newList = true; $nextTick(() => $refs.listField.focus())">
+        {{template "icon-plus"}}<span>{{t "chats.new_list"}}</span>
+      </button>
+      <form class="form-new-list form-new-list--menu" x-show="newList" x-cloak
+            hx-post="/chats/{{.Chat.ID}}/listas?from=perfil" hx-target="#right-panel">
+        <input type="text" name="name" x-ref="listField" placeholder="{{t "chats.list_name"}}"
+               maxlength="40" required @keydown.escape.stop="newList = false">
+        <button type="submit" title="{{t "action.create"}}">{{template "icon-check"}}</button>
+      </form>
+    </div>
+
+    <div class="divider-profile-actions"></div>
+
+    <button type="button" class="row-profile-action row-profile-action--danger"
+            hx-delete="/chats/{{.Chat.ID}}?from=perfil" hx-target="#right-panel"
+            hx-confirm="{{t "chats.delete_confirm" .Chat.Name}}">
+      {{template "icon-trash"}}<span>{{t "chats.delete_chat"}}</span>
+    </button>
+  </div>
+
+  <form class="body-profile-edit" x-show="editing" x-cloak
+        hx-post="/chats/{{.Chat.ID}}/renomear" hx-target="#right-panel">
+    <div class="field-profile-row">
+      <span class="icon-field-profile">{{template "icon-person"}}</span>
+      <div class="field-profile-group">
+        {{/* Single field with the whole name. Phone only shows for a contact. */}}
+        <label class="label-field-profile">{{if .Chat.IsGroup}}{{t "profile.group_name"}}{{else}}{{t "profile.name"}}{{end}}</label>
+        <input type="text" name="name" value="{{.Chat.Name}}" required maxlength="100" autofocus>
+      </div>
+    </div>
+    {{if not .Chat.IsGroup}}
+    <div class="field-profile-row">
+      <span class="icon-field-profile">{{template "icon-phone"}}</span>
+      <div class="field-profile-group">
+        <label class="label-field-profile">{{t "profile.phone"}}</label>
+        <input type="text" name="phone" value="{{.Chat.Phone}}" maxlength="40">
+      </div>
+    </div>
+    {{end}}
+    <button type="submit" class="button-confirm-profile" title="{{t "action.save"}}">{{template "icon-check"}}</button>
+  </form>
+
+
+  <!-- Real upload input, hidden; populated via DataTransfer by the global cropper. -->
+  {{/* Empty means the chat's own photo; the participant menu fills it in before opening the
+       file picker, and the same POST then lands on that participant. */}}
+  <input type="hidden" id="avatar-sender" name="sender" value="">
+  {{/* "modal" makes the answer be the members dialog re-rendered, not this panel. */}}
+  <input type="hidden" id="avatar-from" name="from" value="">
+  <input type="file" id="input-avatar-final" name="photo" class="input-avatar-hidden"
+         hx-post="/chats/{{.Chat.ID}}/avatar" hx-target="#right-panel" hx-encoding="multipart/form-data"
+         {{/* The dialog's own search field rides along so re-rendering it keeps the term; the
+       selector simply matches nothing when the dialog is closed. */}}
+         hx-include="#avatar-sender, #avatar-from, .dialog-members input[name=q]">
+  {{/* Page size, valid only in this conversation (window.pageLimit in app.js).
+       Target #list-messages reloads the messages without closing the panel.
+       Tamanho da página, válido só nesta conversa (window.pageLimit em
+       app.js). Alvo #list-messages recarrega as mensagens sem fechar o
+       painel. */}}
+  <div class="divider-profile-actions" x-show="!editing"></div>
+  <div class="section-page" x-show="!editing"
+       x-data="{ limit: window.pageLimit || '50' }">
+    <h3 class="title-section-participants">{{t "profile.messages_per_page"}}</h3>
+    <form class="form-page"
+          hx-get="/chats/{{.Chat.ID}}/messages" hx-target="#list-messages" hx-swap="innerHTML">
+      <input type="number" name="limit" min="10" max="{{.Chat.MessageCount}}" step="10" required
+             x-model="limit">
+      <button type="submit" title="{{t "profile.load"}}">{{template "icon-check"}}</button>
+      <button type="button" class="button-all-page" @click="limit = '{{.Chat.MessageCount}}'"
+              hx-get="/chats/{{.Chat.ID}}/messages?limit={{.Chat.MessageCount}}"
+              hx-target="#list-messages" hx-swap="innerHTML">{{t "profile.all"}}</button>
+    </form>
+    <p class="help-participants">{{t "profile.page_help" .Chat.MessageCount}}</p>
+  </div>
+</div>

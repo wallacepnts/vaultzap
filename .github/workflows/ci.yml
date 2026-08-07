@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.26"
+      - run: gofmt -l . | tee /tmp/gofmt.out; test ! -s /tmp/gofmt.out
+      - run: go vet ./...
+      - run: go test ./...
+
+  # Detector de corrida em job separado porque ele é caro: internal/ingest
+  # sai de ~4s para ~56s, e os testes de varredura ainda esperam o mtime
+  # envelhecer. Separado, o job rápido continua dando o retorno normal e
+  # este roda em paralelo sem atrasá-lo.
+  #
+  # Race detector in its own job because it's expensive: internal/ingest
+  # goes from ~4s to ~56s. Split out, the fast job keeps giving the usual
+  # feedback while this one runs alongside it.
+  race:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.26"
+      - run: go test -race -count=1 ./...
+        timeout-minutes: 15

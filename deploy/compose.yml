@@ -1,0 +1,35 @@
+services:
+  vaultzap:
+    image: ghcr.io/wallacepnts/vaultzap:latest
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    restart: always
+    user: "${VAULTZAP_UID:-1000}:${VAULTZAP_GID:-1000}"
+    ports:
+      - '8927:8927'
+    volumes:
+      - './vaultzap/data:/data:rw,z'
+      - './vaultzap/inbox:/inbox:rw,z'
+    env_file:
+      - ./vaultzap.env
+
+    #secrets:
+    #  - vaultzap_basic_auth
+    #environment:
+    #  VAULTZAP_BASIC_AUTH_FILE: /run/secrets/vaultzap_basic_auth
+
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "/vaultzap", "healthcheck"]
+      interval: 30s
+
+#secrets:
+#  vaultzap_basic_auth:
+#    file: ./secrets/basic-auth.txt

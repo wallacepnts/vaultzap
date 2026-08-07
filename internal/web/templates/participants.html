@@ -1,0 +1,73 @@
+{{define "participants"}}
+{{/* Ten at most, like the official app: a 10-year group has 724 participants, and rendering
+     them all made the profile panel a mile of rows. The rest is behind "see all". */}}
+<div class="section-participants" id="section-participants" x-show="!editing">
+  <h3 class="title-section-participants">{{t "profile.participants_title" .ParticipantTotal}}</h3>
+
+  {{$chatID := .Chat.ID}}
+  {{range .Participants}}
+  <div class="row-participant" x-data="{ editingName: false, photoMenu: false }" @click.outside="photoMenu = false">
+    {{/* The avatar doubles as the photo menu's trigger: upload one, borrow another chat's,
+         or drop it. Nothing here comes from the export (§9.5) — it is the user's own tag. */}}
+    <button type="button" class="avatar avatar-participant {{if not .AvatarURL}}{{avatarClass .Display}}{{end}}"
+            title="{{t "profile.participant_photo"}}" @click="photoMenu = !photoMenu">
+      {{if .AvatarURL}}<img class="avatar-photo" src="{{.AvatarURL}}" alt="">{{else}}{{initials .Display}}{{end}}
+    </button>
+
+    <div class="menu-chat menu-participant-photo" x-show="photoMenu" x-cloak @click="photoMenu = false">
+      {{/* The sender travels in data-sender, never interpolated into the Alpine expression:
+           @click is not a JS context for html/template, so a name would land unquoted (and
+           a name with a quote in it would be an injection). */}}
+      <button type="button" class="item-menu-chat" data-sender="{{.Original}}"
+              @click="document.getElementById('avatar-sender').value = $el.dataset.sender;
+                      document.getElementById('avatar-from').value = '';
+                      document.getElementById('input-avatar-raw').click()">
+        {{template "icon-folder"}} {{t "profile.upload_photo"}}
+      </button>
+      <button type="button" class="item-menu-chat"
+              hx-get="/chats/{{$chatID}}/participante/foto?sender={{.Original | urlquery}}" hx-target="#right-panel">
+        {{template "icon-list"}} {{t "profile.link_photo"}}
+      </button>
+      {{if .AvatarURL}}
+      <button type="button" class="item-menu-chat"
+              hx-delete="/chats/{{$chatID}}/avatar?sender={{.Original | urlquery}}" hx-target="#right-panel">
+        {{template "icon-trash"}} {{t "profile.remove_photo"}}
+      </button>
+      {{end}}
+    </div>
+
+    <div class="info-participant" x-show="!editingName">
+      <span class="name-participant">{{.Display}}</span>
+      {{if .Renamed}}<span class="original-participant">{{.Original}}</span>{{end}}
+    </div>
+    {{if .IsOwner}}
+    <span class="badge-participant-owner">{{t "profile.you"}}</span>
+    {{else}}
+    <button type="button" class="button-edit-participant" title="{{t "action.rename"}}" x-show="!editingName"
+            @click="editingName = true; $nextTick(() => $refs.field.focus())">
+      {{template "icon-edit"}}
+    </button>
+    {{end}}
+
+    <form class="form-participant" x-show="editingName" x-cloak
+          hx-post="/chats/{{$chatID}}/participante" hx-target="#right-panel"
+          @keydown.escape="editingName = false">
+      <input type="hidden" name="sender" value="{{.Original}}">
+      <input type="text" name="name" x-ref="field" value="{{if .Renamed}}{{.Display}}{{end}}"
+             placeholder="{{.Original}}" maxlength="100">
+      <button type="submit" title="{{t "action.save"}}">{{template "icon-check"}}</button>
+    </form>
+  </div>
+  {{else}}
+  <p class="list-empty">{{t "search.no_results" .ParticipantTerm}}</p>
+  {{end}}
+
+  {{if .ParticipantRest}}
+  <button type="button" class="button-see-all"
+          hx-get="/chats/{{.Chat.ID}}/membros" hx-target="#modal">
+    {{t "profile.see_all" .ParticipantRest}}
+  </button>
+  {{end}}
+  <p class="help-participants">{{t "profile.participants_help"}}</p>
+</div>
+{{end}}

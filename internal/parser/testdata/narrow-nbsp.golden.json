@@ -1,0 +1,22 @@
+{
+  "source": "ios",
+  "date_order": "MDY",
+  "is_group": false,
+  "messages": [
+    {
+      "sent_at": "2026-07-26 14:32:15",
+      "seq": 1,
+      "sender": "Victor",
+      "body": "Narrow no-break space before PM",
+      "kind": "text"
+    },
+    {
+      "sent_at": "2026-07-26 14:33:01",
+      "seq": 2,
+      "sender": "Ana",
+      "body": "Modern WhatsApp builds export it this way",
+      "kind": "text"
+    }
+  ],
+  "warnings": null
+}

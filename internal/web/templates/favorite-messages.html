@@ -1,0 +1,29 @@
+<div class="panel-profile">
+<div class="header-profile">
+  <button type="button" class="button-close-profile" title="{{t "action.close"}}"
+          onclick="document.getElementById('right-panel').innerHTML=''">{{template "icon-close"}}</button>
+  <span>{{t "profile.starred_messages"}}</span>
+</div>
+{{/* Messages plucked from all over the conversation; clicking one jumps to
+     its place via the search's "?around=" (§6.5).
+     Mensagens soltas de qualquer ponto da conversa; clicar numa salta pro
+     seu lugar via "?around=" da busca (§6.5). */}}
+<div class="list-results-search">
+  {{$chat := .Chat}}
+  {{range .Messages}}
+  <a class="result-search"
+     hx-get="/chats/{{$chat.ID}}/messages?around={{.ID}}"
+     hx-target="#list-messages" hx-swap="innerHTML">
+    <span class="result-header">
+      <span class="result-sender">
+        {{if .Mine}}{{t "message.you"}}{{else if .SenderName}}{{.SenderName}}{{else}}{{t "search.system"}}{{end}}
+      </span>
+      <span class="result-date">{{dateTimeDisplay .SentAt}}</span>
+    </span>
+    <span class="result-snippet">{{if .AttachmentID}}{{.AttachmentName}}{{else}}{{.Body}}{{end}}</span>
+  </a>
+  {{else}}
+  <p class="list-empty">{{t "profile.no_starred_messages"}}</p>
+  {{end}}
+</div>
+</div>

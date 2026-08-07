@@ -1,0 +1,50 @@
+{{/* The full sender list lives in the right panel, not in a dropdown: a group with 725
+     senders has no business in a floating menu, and this is where the project already
+     puts long lists (search, gallery, merge). Filtering is server-side, like the sidebar
+     search, so the browser never holds hundreds of hidden buttons. */}}
+{{/* One wrapper, like profile/merge/update: every direct child of #right-panel gets a
+     fixed width, so a child with side margins overflows the panel — .hint-senders did,
+     by 32px, at every window size. */}}
+<div class="panel-profile">
+<div class="header-search">
+  <button type="button" class="button-close-profile" title="{{t "action.close"}}"
+          onclick="document.getElementById('right-panel').innerHTML=''">{{template "icon-close"}}</button>
+
+  <div class="box-search" x-data="{ q: false }" x-init="q = !!$refs.fieldSearch.value">
+    <span class="icon-search">{{template "icon-search"}}</span>
+    <input
+      type="search"
+      class="field-search"
+      name="q"
+      placeholder="{{t "conversation.filter_sender"}}"
+      autocomplete="off"
+      value="{{.Term}}"
+      autofocus
+      x-ref="fieldSearch"
+      @input="q = !!$event.target.value"
+      hx-get="/chats/{{.Chat.ID}}/remetentes"
+      hx-trigger="input changed delay:300ms, search"
+      hx-target="#right-panel"
+    >
+    <button type="button" class="button-clear-search" x-show="q" x-cloak
+            title="{{t "action.clear"}}"
+            @click="$refs.fieldSearch.value = ''; q = false; $refs.fieldSearch.focus(); $refs.fieldSearch.dispatchEvent(new Event('search'))">
+      {{template "icon-close"}}
+    </button>
+  </div>
+</div>
+
+<p class="hint-senders">{{t "conversation.which_is_you"}}</p>
+
+<div class="list-senders">
+  {{range .Senders}}
+  <button type="button" class="item-sender" name="owner" value="{{.}}"
+          hx-post="/chats/{{$.Chat.ID}}/owner" hx-target="#conversation">
+    <span class="avatar avatar-sender {{avatarClass .}}">{{initials .}}</span>
+    <span class="name-sender">{{.}}</span>
+  </button>
+  {{else}}
+  <p class="list-empty">{{t "search.no_results" .Term}}</p>
+  {{end}}
+</div>
+</div>

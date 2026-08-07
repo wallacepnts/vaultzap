@@ -1,0 +1,22 @@
+{
+  "source": "android",
+  "date_order": "DMY",
+  "is_group": false,
+  "messages": [
+    {
+      "sent_at": "2026-01-05 10:00:00",
+      "seq": 1,
+      "sender": "Vitor",
+      "body": "primeira",
+      "kind": "text"
+    },
+    {
+      "sent_at": "2026-02-01 11:00:00",
+      "seq": 2,
+      "sender": "Vitor",
+      "body": "segunda",
+      "kind": "text"
+    }
+  ],
+  "warnings": null
+}

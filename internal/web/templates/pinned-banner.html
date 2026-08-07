@@ -1,0 +1,49 @@
+{{/* Thin strip under the conversation header listing the pinned messages,
+     like the official app: segmented indicator on the left (one segment per
+     pinned message, the current one lit), pin icon, and a one-line preview.
+     Clicking jumps to that message via the search's "?around=" and advances
+     to the next pinned one, so repeated clicks cycle through them.
+     It lives outside #list-messages, so the "?around=" jump never wipes it;
+     pinning/unpinning from a message's menu swaps it out of band instead.
+     Faixa fina sob o cabeçalho da conversa listando as mensagens fixadas,
+     como no app oficial: indicador segmentado à esquerda (um segmento por
+     fixada, a atual acesa), ícone de pin e uma prévia de uma linha. Clicar
+     salta pra mensagem via "?around=" da busca e avança pra próxima fixada,
+     então cliques repetidos passeiam por elas.
+     Fica fora de #list-messages, então o salto "?around=" nunca a apaga;
+     fixar/desafixar pelo menu da mensagem a troca via OOB. */}}
+{{define "pinned-banner-inner"}}
+{{if .PinnedMessages}}
+{{$chatID := .Chat.ID}}
+{{$total := len .PinnedMessages}}
+<div class="banner-pinned" x-data="{ i: 0, total: {{$total}} }"
+     data-total="{{$total}}" data-limit="{{pinnedLimit}}" data-confirm="{{t "message.pin_replace"}}">
+  {{if gt $total 1}}
+  <span class="segments-pinned">
+    {{range $idx, $m := .PinnedMessages}}
+    <span class="segment-pinned" :class="{ 'segment-pinned--active': i === {{$idx}} }"></span>
+    {{end}}
+  </span>
+  {{end}}
+
+  <span class="icon-banner-pinned">{{template "icon-pin"}}</span>
+
+  {{range $idx, $m := .PinnedMessages}}
+  <a class="text-banner-pinned" x-show="i === {{$idx}}" {{if $idx}}x-cloak{{end}}
+     title="{{t "message.pinned"}}"
+     hx-get="/chats/{{$chatID}}/messages?around={{$m.ID}}"
+     hx-target="#list-messages" hx-swap="innerHTML"
+     @click="i = (i + 1) % total">
+    {{if $m.AttachmentID}}{{$m.AttachmentName}}{{else}}{{$m.Body}}{{end}}
+  </a>
+  {{end}}
+</div>
+{{end}}
+{{end}}
+
+{{/* Inline, as part of the conversation. */}}
+{{define "pinned-banner"}}<div id="pinned-banner">{{template "pinned-banner-inner" .}}</div>{{end}}
+
+{{/* OOB: the answer to pinning/unpinning from a message's menu.
+     OOB: a resposta de fixar/desafixar pelo menu da mensagem. */}}
+{{define "pinned-banner-oob"}}<div id="pinned-banner" hx-swap-oob="true">{{template "pinned-banner-inner" .}}</div>{{end}}

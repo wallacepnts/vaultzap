@@ -1,0 +1,92 @@
+{{/* The watched folder and the settings on top, the user's own things at the bottom. It
+     lives outside the sidebar so a filter change never redraws it, and data-rail-path is
+     what tells app.js which button answers for which destination. */}}
+<nav id="rail" aria-label="{{t "rail.label"}}">
+  <button type="button" class="button-imports" data-rail-path="/imports"
+          title="{{t "sidebar.watched_folder"}}"
+          hx-get="/imports" hx-target="#conversation" hx-push-url="true">
+    {{template "icon-folder"}}
+    <!-- hx-push-url="false" or the badge would inherit the parent button's "true"
+         and change the URL on every poll. -->
+    <span class="badge-imports" hx-get="/imports/badge" hx-trigger="load, every 5s"
+          hx-target="this" hx-swap="innerHTML" hx-push-url="false"></span>
+  </button>
+
+  <button type="button" class="button-theme" title="{{t "sidebar.toggle_theme"}}"
+          @click="theme = (theme === 'dark' ? 'light' : 'dark')">
+    {{/* Which one shows is decided by CSS off data-theme, not x-show: Alpine loads
+         deferred, so with x-show both icons were painted at once until it booted. */}}
+    <span class="icon-theme icon-theme--dark">{{template "icon-sun"}}</span>
+    <span class="icon-theme icon-theme--light">{{template "icon-moon"}}</span>
+  </button>
+
+  {{/* Cookie, then a full reload: nearly every visible string is resolved server-side. */}}
+  <div class="wrap-select-locale" x-data="{ open: false }" @keydown.escape.window="open = false">
+    <button type="button" class="button-locale" title="{{t "sidebar.language_title" .Locale.Label}}"
+            :class="{ 'button-locale--open': open }" :aria-expanded="open"
+            @click="open = !open">{{template "icon-globe"}}</button>
+
+    <div class="menu-locale" x-show="open" x-cloak @click.outside="open = false">
+      <button type="button" class="item-menu-chat" @click="open = false"
+              onclick="document.cookie = 'locale=pt-BR; path=/; max-age=31536000; samesite=lax'; location.href = '/'">
+        <span class="mark-list">{{if eq .Locale "pt-BR"}}{{template "icon-check"}}{{end}}</span>
+        <span class="flag-locale">🇧🇷</span>
+        <span>Português (Brasil)</span>
+      </button>
+      <button type="button" class="item-menu-chat" @click="open = false"
+              onclick="document.cookie = 'locale=pt; path=/; max-age=31536000; samesite=lax'; location.href = '/'">
+        <span class="mark-list">{{if eq .Locale "pt"}}{{template "icon-check"}}{{end}}</span>
+        <span class="flag-locale">🇵🇹</span>
+        <span>Português</span>
+      </button>
+      <button type="button" class="item-menu-chat" @click="open = false"
+              onclick="document.cookie = 'locale=en; path=/; max-age=31536000; samesite=lax'; location.href = '/'">
+        <span class="mark-list">{{if eq .Locale "en"}}{{template "icon-check"}}{{end}}</span>
+        <span class="flag-locale">🇺🇸</span>
+        <span>English</span>
+      </button>
+      <button type="button" class="item-menu-chat" @click="open = false"
+              onclick="document.cookie = 'locale=es; path=/; max-age=31536000; samesite=lax'; location.href = '/'">
+        <span class="mark-list">{{if eq .Locale "es"}}{{template "icon-check"}}{{end}}</span>
+        <span class="flag-locale">🇪🇸</span>
+        <span>Español</span>
+      </button>
+      <button type="button" class="item-menu-chat" @click="open = false"
+              onclick="document.cookie = 'locale=it; path=/; max-age=31536000; samesite=lax'; location.href = '/'">
+        <span class="mark-list">{{if eq .Locale "it"}}{{template "icon-check"}}{{end}}</span>
+        <span class="flag-locale">🇮🇹</span>
+        <span>Italiano</span>
+      </button>
+      <button type="button" class="item-menu-chat" @click="open = false"
+              onclick="document.cookie = 'locale=fr; path=/; max-age=31536000; samesite=lax'; location.href = '/'">
+        <span class="mark-list">{{if eq .Locale "fr"}}{{template "icon-check"}}{{end}}</span>
+        <span class="flag-locale">🇫🇷</span>
+        <span>Français</span>
+      </button>
+      <button type="button" class="item-menu-chat" @click="open = false"
+              onclick="document.cookie = 'locale=de; path=/; max-age=31536000; samesite=lax'; location.href = '/'">
+        <span class="mark-list">{{if eq .Locale "de"}}{{template "icon-check"}}{{end}}</span>
+        <span class="flag-locale">🇩🇪</span>
+        <span>Deutsch</span>
+      </button>
+      <button type="button" class="item-menu-chat" @click="open = false"
+              onclick="document.cookie = 'locale=nl; path=/; max-age=31536000; samesite=lax'; location.href = '/'">
+        <span class="mark-list">{{if eq .Locale "nl"}}{{template "icon-check"}}{{end}}</span>
+        <span class="flag-locale">🇳🇱</span>
+        <span>Nederlands</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="spacer-rail"></div>
+
+  <button type="button" class="button-rail" data-rail-path="/midia"
+          title="{{t "sidebar.all_media"}}"
+          hx-get="/midia" hx-target="#conversation">{{template "icon-gallery"}}</button>
+
+  {{template "my-photo.html" (dict "Photo" .Photo)}}
+  <input type="file" id="input-my-photo-raw" accept="image/*" class="input-avatar-hidden"
+         data-cropper-for="input-my-photo-final">
+  <input type="file" id="input-my-photo-final" name="photo" class="input-avatar-hidden"
+         hx-post="/eu/foto" hx-target="#right-panel" hx-encoding="multipart/form-data">
+</nav>

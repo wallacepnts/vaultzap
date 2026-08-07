@@ -1,0 +1,15 @@
+{{if .HasMore}}
+<div
+  class="sentinel-top"
+  hx-get="/chats/{{.Chat.ID}}/messages?before={{.NextCursor}}"
+  hx-trigger="load-more"
+  hx-target="this"
+  hx-swap="outerHTML"
+><span class="sentinel-top-loading htmx-indicator">{{t "messages.loading_older"}}</span></div>
+{{end}}
+{{range .Messages}}
+{{if .DateDivider}}
+<div class="divider-date"><span>{{.DateDivider}}</span></div>
+{{end}}
+{{template "message.html" .}}
+{{end}}

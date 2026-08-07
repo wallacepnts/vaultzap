@@ -1,0 +1,50 @@
+{
+  "source": "android",
+  "date_order": "DMY",
+  "is_group": true,
+  "messages": [
+    {
+      "sent_at": "2026-07-26 14:32:00",
+      "seq": 1,
+      "sender": "Vitor",
+      "body": "location: https://maps.google.com/?q=-23.55,-46.63",
+      "kind": "location"
+    },
+    {
+      "sent_at": "2026-07-26 14:33:00",
+      "seq": 2,
+      "sender": "Ana",
+      "body": "ubicación: https://maps.google.com/?q=-23.55,-46.63",
+      "kind": "location"
+    },
+    {
+      "sent_at": "2026-07-26 14:34:00",
+      "seq": 3,
+      "sender": "Bruno",
+      "body": "posizione: https://maps.google.com/?q=-23.55,-46.63",
+      "kind": "location"
+    },
+    {
+      "sent_at": "2026-07-26 14:35:00",
+      "seq": 4,
+      "sender": "Carla",
+      "body": "position: https://maps.google.com/?q=-23.55,-46.63",
+      "kind": "location"
+    },
+    {
+      "sent_at": "2026-07-26 14:36:00",
+      "seq": 5,
+      "sender": "Dieter",
+      "body": "standort: https://maps.google.com/?q=-23.55,-46.63",
+      "kind": "location"
+    },
+    {
+      "sent_at": "2026-07-26 14:38:00",
+      "seq": 6,
+      "sender": "Femke",
+      "body": "locatie: https://maps.google.com/?q=-23.55,-46.63",
+      "kind": "location"
+    }
+  ],
+  "warnings": null
+}

@@ -1,0 +1,77 @@
+<div id="imports-page">
+<div class="header-conversation">
+  <div class="info-header">
+    <span class="name-conversation">{{t "sidebar.watched_folder"}}</span>
+    <span class="detail-conversation">{{t "imports.items" (len .Imports)}}</span>
+  </div>
+  {{/* The scan runs in the background; hx-disabled-elt blocks repeated clicks while the
+       request that starts it is in flight. */}}
+  <button type="button" class="button-search button-scan" title="{{t "imports.scan_now"}}"
+          hx-post="/imports/rescan" hx-target="#conversation"
+          hx-disabled-elt="this">{{template "icon-refresh"}}</button>
+</div>
+{{if .Importing}}{{template "import-progress-bar" .Running}}{{end}}
+<div class="list-imports">
+  {{range .Imports}}
+  <div class="item-import item-import--{{.Status}}" x-data="{ open: false }">
+    <div class="item-import-row1">
+      <span class="item-import-path">{{.Path}}</span>
+      <span class="item-import-when">{{dateTimeDisplay .StartedAt}}</span>
+    </div>
+
+    {{if eq .Status "error"}}
+    <p class="item-import-error">{{.Error}}</p>
+    {{else}}
+    <p class="item-import-detail">
+      {{if .ChatName}}{{.ChatName}} — {{end}}{{t "imports.count" .Added .Skipped}}{{with fileSize .SizeBytes}} · {{.}}{{end}}
+      {{if gt .Warnings 0}}, <span class="item-import-warnings">{{t "imports.warning_count" .Warnings}}</span>{{end}}
+    </p>
+    {{end}}
+
+    <div class="item-import-actions">
+      <button type="button" class="button-detail-import" @click="open = !open">
+        <span x-text="open ? '{{t "imports.hide_details"}}' : '{{t "imports.view_details"}}'"></span>
+      </button>
+      {{if .ChatID}}
+      <button type="button" class="button-detail-import"
+              hx-get="/chats/{{.ChatID}}/atualizar" hx-target="#right-panel">{{t "imports.reimport"}}</button>
+      {{end}}
+    </div>
+
+    <div class="detail-import" x-show="open" x-cloak>
+      <dl class="grid-detail-import">
+        <dt>{{t "imports.added"}}</dt>
+        <dd>{{.Added}} <span class="note-detail">{{t "imports.added_note"}}</span></dd>
+        <dt>{{t "imports.skipped"}}</dt>
+        <dd>{{.Skipped}} <span class="note-detail">{{t "imports.skipped_note"}}</span></dd>
+        <dt>{{t "imports.warnings"}}</dt>
+        <dd>{{.Warnings}} <span class="note-detail">{{t "imports.warnings_note"}}</span></dd>
+        {{if .FinishedAt}}<dt>{{t "imports.finished"}}</dt><dd>{{dateTimeDisplay .FinishedAt}}</dd>{{end}}
+      </dl>
+
+      {{/* Triage over the file's own shape. The note is not decoration: an export carries no
+           signature, so silence here is not authenticity. */}}
+      {{if .Coherence}}
+      <p class="title-warnings-import">{{t "coherence.title"}}</p>
+      <ul class="list-coherence-import">
+        {{range .Coherence}}<li>{{.}}</li>{{end}}
+      </ul>
+      <p class="note-detail">{{t "coherence.note"}}</p>
+      {{else}}
+      <p class="note-detail note-coherence-clean">{{t "coherence.clean"}}</p>
+      {{end}}
+
+      {{if .WarningText}}
+      <p class="title-warnings-import">{{t "imports.warning_lines"}}</p>
+      <ul class="list-warnings-import">
+        {{range .WarningText}}<li>{{.}}</li>{{end}}
+      </ul>
+      <p class="note-detail">{{t "imports.fix_note_1"}}<strong>{{t "imports.reimport"}}</strong>{{t "imports.fix_note_2"}}</p>
+      {{end}}
+    </div>
+  </div>
+  {{else}}
+  <p class="list-empty">{{t "imports.empty"}}</p>
+  {{end}}
+</div>
+</div>

@@ -1,0 +1,51 @@
+<div class="panel-profile">
+  <div class="header-profile">
+    <button type="button" class="button-close-profile" title="{{t "action.close"}}"
+            onclick="document.getElementById('right-panel').innerHTML=''">{{template "icon-close"}}</button>
+    <span>{{t "chats.merge_chat"}}</span>
+  </div>
+
+  <div class="body-update">
+    <p class="help-update">{{t "merge.help"}}</p>
+
+    <div class="box-search" x-data="{ q: false }" x-init="q = !!$refs.fieldSearch.value">
+      <span class="icon-search">{{template "icon-search"}}</span>
+      <input
+        type="search"
+        class="field-search"
+        name="q"
+        placeholder="{{t "merge.search_placeholder"}}"
+        autocomplete="off"
+        value="{{.Term}}"
+        x-ref="fieldSearch"
+        @input="q = !!$event.target.value"
+        hx-get="/chats/{{.Chat.ID}}/mesclar"
+        hx-trigger="input changed delay:300ms, search"
+        hx-target="#right-panel"
+      >
+      <button type="button" class="button-clear-search" x-show="q" x-cloak
+              title="{{t "action.clear"}}"
+              @click="$refs.fieldSearch.value = ''; q = false; $refs.fieldSearch.focus(); $refs.fieldSearch.dispatchEvent(new Event('search'))">
+        {{template "icon-close"}}
+      </button>
+    </div>
+
+    {{$chat := .Chat}}
+    {{range .Candidates}}
+    <button type="button" class="item-inbox"
+            hx-post="/chats/{{$chat.ID}}/mesclar" hx-vals='{"origem": "{{.ID}}"}'
+            hx-target="#right-panel" hx-disabled-elt="this"
+            hx-confirm="{{t "merge.confirm" .Name $chat.Name .Name}}">
+      <span class="avatar avatar-participant{{if not .AvatarPath}} {{avatarClass .Name}}{{end}}">
+        {{template "avatar-core" .}}
+      </span>
+      <span class="info-item-inbox">
+        <span class="name-item-inbox">{{.Name}}</span>
+        <span class="meta-item-inbox">{{t "conversation.total_messages" .MessageCount}}</span>
+      </span>
+    </button>
+    {{else}}
+    <p class="list-empty">{{t "merge.empty"}}</p>
+    {{end}}
+  </div>
+</div>

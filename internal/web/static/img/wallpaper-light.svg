@@ -1,0 +1,757 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 680" width="680" height="680">
+<defs>
+<g id="s-saturn" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="12" cy="10" r="5.4"/>
+<ellipse vector-effect="non-scaling-stroke" cx="12" cy="10" rx="11" ry="3.4" transform="rotate(-22 12 10)"/></g>
+<g id="s-planet" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="9.5" cy="9.5" r="7.6"/>
+<path vector-effect="non-scaling-stroke" d="M3 5.6c3.4 1.6 8.2 1.8 12 .4"/>
+<path vector-effect="non-scaling-stroke" d="M2.4 12c3.8 1.8 9.4 1.6 13.6-.6"/></g>
+<g id="s-star" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M10 1.6 12.6 7l6 .9-4.3 4.2 1 6-5.3-2.8-5.3 2.8 1-6L1.4 7.9l6-.9z"/></g>
+<g id="s-sparkle" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M8 1.2c.6 4 2.8 6.2 6.8 6.8-4 .6-6.2 2.8-6.8 6.8-.6-4-2.8-6.2-6.8-6.8 4-.6 6.2-2.8 6.8-6.8z"/></g>
+<g id="s-heart" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M10 16.4C3.4 12 1.4 8.8 1.4 6.2 1.4 3.6 3.4 2 5.6 2c1.8 0 3.4 1 4.4 2.6C11 3 12.6 2 14.4 2c2.2 0 4.2 1.6 4.2 4.2 0 2.6-2 5.8-8.6 10.2z"/></g>
+<g id="s-rocket" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M9 1.4c3.4 3 5.2 7.2 5.2 11.6L14 18H4l-.2-5C3.8 8.6 5.6 4.4 9 1.4z"/>
+<circle vector-effect="non-scaling-stroke" cx="9" cy="9.4" r="2.2"/>
+<path vector-effect="non-scaling-stroke" d="M4 13.4 1.4 17.6l3-.6M14 13.4l2.6 4.2-3-.6"/>
+<path vector-effect="non-scaling-stroke" d="M7 18.6c.6 2.6 1.4 4.2 2 5 .6-.8 1.4-2.4 2-5"/></g>
+<g id="s-coffee" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M2.6 6.4h13.2v6.8c0 2.8-2.2 5-5 5H7.6c-2.8 0-5-2.2-5-5z"/>
+<path vector-effect="non-scaling-stroke" d="M15.8 8.4h1.8a2.8 2.8 0 0 1 0 5.6h-1.8"/>
+<path vector-effect="non-scaling-stroke" d="M6 3.6c-.8-1-.8-1.8 0-2.6M9.6 3.6c-.8-1-.8-1.8 0-2.6M13.2 3.6c-.8-1-.8-1.8 0-2.6"/></g>
+<g id="s-camera" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.6" y="4.6" width="20.8" height="13" rx="2.6"/>
+<circle vector-effect="non-scaling-stroke" cx="12" cy="11" r="4.2"/>
+<path vector-effect="non-scaling-stroke" d="M7.4 4.6 9 1.6h6l1.6 3"/>
+<circle vector-effect="non-scaling-stroke" cx="18.6" cy="7.8" r="1"/></g>
+<g id="s-note" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="4" cy="16.6" r="3"/><circle vector-effect="non-scaling-stroke" cx="13.4" cy="14.2" r="3"/>
+<path vector-effect="non-scaling-stroke" d="M7 16.6V3.4l9.4-2.2v13"/><path vector-effect="non-scaling-stroke" d="M7 7.4l9.4-2.2"/></g>
+<g id="s-smiley" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="10.5" cy="10.5" r="8.8"/>
+<circle vector-effect="non-scaling-stroke" cx="7.6" cy="8.4" r="1.2"/><circle vector-effect="non-scaling-stroke" cx="13.4" cy="8.4" r="1.2"/>
+<path vector-effect="non-scaling-stroke" d="M6.2 12.6c2.4 3.2 6.2 3.2 8.6 0"/></g>
+<g id="s-wink" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="10.5" cy="10.5" r="8.8"/>
+<path vector-effect="non-scaling-stroke" d="M6 8.4c1-1.2 2.4-1.2 3.4 0"/><circle vector-effect="non-scaling-stroke" cx="13.6" cy="8.4" r="1.2"/>
+<path vector-effect="non-scaling-stroke" d="M6.4 12.8c2.4 3 6 3 8.4 0"/></g>
+<g id="s-bolt" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M8.6 1.4 2 12.6h4.2L5.4 20.6 12 9.4H7.8z"/></g>
+<g id="s-cloud" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M6.4 14.4a4.8 4.8 0 0 1-.6-9.6 6.4 6.4 0 0 1 12.2 1.4 4.1 4.1 0 0 1-.6 8.2z"/></g>
+<g id="s-moon" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M13.6 1.8a8.6 8.6 0 1 0 2.8 13.8A9.4 9.4 0 0 1 13.6 1.8z"/></g>
+<g id="s-terminal" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.6" y="2.6" width="21.8" height="14.4" rx="2.2"/>
+<path vector-effect="non-scaling-stroke" d="M1.6 6.4h21.8"/><path vector-effect="non-scaling-stroke" d="m6 10 2.4 2.2L6 14.4M11 14.4h5.4"/></g>
+<g id="s-gear" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="11" cy="11" r="3.6"/>
+<path vector-effect="non-scaling-stroke" d="M11 1.6v3M11 17.4v3M20.4 11h-3M4.6 11h-3M17.6 4.4l-2.1 2.1M6.5 15.5l-2.1 2.1M17.6 17.6l-2.1-2.1M6.5 6.5 4.4 4.4"/></g>
+<g id="s-bug" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><ellipse vector-effect="non-scaling-stroke" cx="10.5" cy="12" rx="5" ry="6.4"/><path vector-effect="non-scaling-stroke" d="M10.5 6.6V19"/>
+<circle vector-effect="non-scaling-stroke" cx="10.5" cy="5.4" r="2.4"/><path vector-effect="non-scaling-stroke" d="M8.8 3.6 7.4 1.6M12.2 3.6l1.4-2"/>
+<path vector-effect="non-scaling-stroke" d="M5.5 9 1.8 7.4M5.5 12.6H1.6M5.5 16.2l-3.4 2M15.5 9l3.7-1.6M15.5 12.6h3.9M15.5 16.2l3.4 2"/></g>
+<g id="s-plane" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M21.4 1.6 1.6 9.4l7.4 2.8 2.6 6.8z"/><path vector-effect="non-scaling-stroke" d="M21.4 1.6 9 12.2"/></g>
+<g id="s-diamond" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M9.5 1.6 17.4 9.5 9.5 17.4 1.6 9.5z"/></g>
+<g id="s-flask" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M7.4 1.8v6.6L2 18.2c-.8 1.6.3 3.4 2.1 3.4h10.8c1.8 0 2.9-1.8 2.1-3.4L11.6 8.4V1.8z"/>
+<path vector-effect="non-scaling-stroke" d="M5.6 1.8h7.8"/><path vector-effect="non-scaling-stroke" d="M4.6 14.4h9.8"/></g>
+<g id="s-chip" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="5.4" y="5.4" width="10.2" height="10.2" rx="1.6"/>
+<path vector-effect="non-scaling-stroke" d="M8.6 1.6v3.8M13.4 1.6v3.8M8.6 15.6v3.8M13.4 15.6v3.8M1.6 8.6h3.8M1.6 13.4h3.8M15.6 8.6h3.8M15.6 13.4h3.8"/></g>
+<g id="s-folder" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M1.6 4.4a2 2 0 0 1 2-2h5l2.4 2.6h8.4a2 2 0 0 1 2 2v7.4a2 2 0 0 1-2 2H3.6a2 2 0 0 1-2-2z"/></g>
+<g id="s-branch" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="4.4" cy="4.4" r="2.6"/><circle vector-effect="non-scaling-stroke" cx="4.4" cy="17.6" r="2.6"/>
+<circle vector-effect="non-scaling-stroke" cx="13.6" cy="4.4" r="2.6"/><path vector-effect="non-scaling-stroke" d="M4.4 7v8"/>
+<path vector-effect="non-scaling-stroke" d="M13.6 7v2.4c0 2.6-2 4.2-5 4.6"/></g>
+<g id="s-ring" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="8" cy="8" r="6.4"/></g>
+<g id="s-dot" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="4.5" cy="4.5" r="3.2"/></g>
+<g id="s-donut" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="11" cy="11" r="9.4"/><circle vector-effect="non-scaling-stroke" cx="11" cy="11" r="3.4"/>
+<path vector-effect="non-scaling-stroke" d="M4.6 5.4c1.6 1.2 1.2 3-.4 3.8M17 5.6c-1.4 1.4-.8 3 .8 3.6M8 19.4c.6-1.8 2.4-2 3.6-.8M17.8 15c-1.8.2-2.6 1.6-2 3.2"/></g>
+<g id="s-pizza" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M11 1.4 20.4 18a1.6 1.6 0 0 1-1.6 2.4H3.2A1.6 1.6 0 0 1 1.6 18z"/>
+<path vector-effect="non-scaling-stroke" d="M4.6 17.6h12.8"/>
+<circle vector-effect="non-scaling-stroke" cx="11" cy="8.6" r="1.4"/><circle vector-effect="non-scaling-stroke" cx="7.6" cy="13.4" r="1.2"/><circle vector-effect="non-scaling-stroke" cx="14.2" cy="13" r="1.2"/></g>
+<g id="s-bicycle" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="6.4" cy="12.4" r="5.8"/><circle vector-effect="non-scaling-stroke" cx="23.6" cy="12.4" r="5.8"/>
+<path vector-effect="non-scaling-stroke" d="M6.4 12.4 12 4.6h6l4.4 7.8M12 4.6h4.4M9.6 12.4h8.8"/>
+<circle vector-effect="non-scaling-stroke" cx="6.4" cy="12.4" r="1"/></g>
+<g id="s-guitar" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M8.6 9.6c3 0 5.4 2.4 5.4 5.6 0 3.6-2.4 6.4-5.4 6.4-3 0-5.4-2.8-5.4-6.4 0-3.2 2.4-5.6 5.4-5.6z"/>
+<circle vector-effect="non-scaling-stroke" cx="8.6" cy="14.6" r="2"/>
+<path vector-effect="non-scaling-stroke" d="M8.6 9.6V3.2M6.8 1.6h3.6"/></g>
+<g id="s-headphones" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M2.6 13.6v-2a9.4 9.4 0 0 1 18.8 0v2"/>
+<rect vector-effect="non-scaling-stroke" x="1" y="12.4" width="5" height="7" rx="2.4"/><rect vector-effect="non-scaling-stroke" x="18" y="12.4" width="5" height="7" rx="2.4"/></g>
+<g id="s-icecream" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M2.4 9.6a5.2 5.2 0 0 1 10.2 0z"/>
+<path vector-effect="non-scaling-stroke" d="M2.4 9.6h10.2l-4.2 13a.9.9 0 0 1-1.8 0z"/>
+<path vector-effect="non-scaling-stroke" d="M3.6 13.6h7.8M4.8 17.4h5.4"/></g>
+<g id="s-burger" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M2 7.4c0-3.2 4.4-5.8 10-5.8s10 2.6 10 5.8z"/>
+<path vector-effect="non-scaling-stroke" d="M2.2 10.4h19.6M2.6 13.6c2.6 1.6 5 .4 7.6.4s5.4 1.2 8.4 0"/>
+<path vector-effect="non-scaling-stroke" d="M2 15.6h20c0 1.8-1.6 3.2-3.6 3.2H5.6C3.6 18.8 2 17.4 2 15.6z"/></g>
+<g id="s-book" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M12 4.6C9.6 2.4 5.8 1.8 2 2.4v14c3.8-.6 7.6 0 10 2.2 2.4-2.2 6.2-2.8 10-2.2v-14c-3.8-.6-7.6 0-10 2.2z"/>
+<path vector-effect="non-scaling-stroke" d="M12 4.6v14"/></g>
+<g id="s-gamepad" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.4" y="3.6" width="24.2" height="12.8" rx="5.6"/>
+<path vector-effect="non-scaling-stroke" d="M7 7.8v4.4M4.8 10h4.4"/>
+<circle vector-effect="non-scaling-stroke" cx="18.6" cy="8.6" r="1.2"/><circle vector-effect="non-scaling-stroke" cx="21.6" cy="11.4" r="1.2"/></g>
+<g id="s-balloon" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M8 1.6c3.6 0 6.4 3 6.4 6.8 0 4.2-3.4 7.6-6.4 9.4-3-1.8-6.4-5.2-6.4-9.4C1.6 4.6 4.4 1.6 8 1.6z"/>
+<path vector-effect="non-scaling-stroke" d="M8 17.8v1.6M6.6 19.4h2.8l-1.4 4"/></g>
+<g id="s-clock" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="10" cy="10" r="8.4"/><path vector-effect="non-scaling-stroke" d="M10 5.2V10l3.4 2.2"/></g>
+<g id="s-bulb" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M8.5 1.6a6.6 6.6 0 0 1 4 11.8c-.8.6-1.2 1.4-1.2 2.4H5.7c0-1-.4-1.8-1.2-2.4a6.6 6.6 0 0 1 4-11.8z"/>
+<path vector-effect="non-scaling-stroke" d="M5.7 18.2h5.6M6.6 21h3.8"/></g>
+<g id="s-cat" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M3.4 6.4 2 1.8l4.6 2.6a9.6 9.6 0 0 1 7.8 0L19 1.8l-1.4 4.6a7.8 7.8 0 1 1-14.2 0z"/>
+<circle vector-effect="non-scaling-stroke" cx="7.4" cy="10.4" r="1"/><circle vector-effect="non-scaling-stroke" cx="13.6" cy="10.4" r="1"/>
+<path vector-effect="non-scaling-stroke" d="M10.5 13v1.4M8.4 15.4c1.4 1 2.8 1 4.2 0"/></g>
+<g id="s-leaf" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M18.4 1.6C9.6 1.6 2.4 5.6 2.4 12.4c0 2.4 1 4.4 2.6 5.8C10.6 18 18.4 13.6 18.4 1.6z"/>
+<path vector-effect="non-scaling-stroke" d="M2.6 18.4C6.4 13.6 10.6 10.4 15 8.6"/></g>
+<g id="s-gift" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.6" y="7.4" width="17.8" height="11.4" rx="1.6"/>
+<path vector-effect="non-scaling-stroke" d="M1 7.4h19.4M10.5 7.4v11.4"/>
+<path vector-effect="non-scaling-stroke" d="M10.5 7.4C9 5 7.4 1.6 5 1.6a2.4 2.4 0 0 0 0 4.8h11a2.4 2.4 0 0 0 0-4.8c-2.4 0-4 3.4-5.5 5.8z"/></g>
+<g id="s-sun" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="11" cy="11" r="5"/>
+<path vector-effect="non-scaling-stroke" d="M11 1.6v2.6M11 17.8v2.6M1.6 11h2.6M17.8 11h2.6M4.4 4.4l1.8 1.8M15.8 15.8l1.8 1.8M17.6 4.4l-1.8 1.8M6.2 15.8l-1.8 1.8"/></g>
+<g id="s-prompt" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.4" y="1.6" width="23.2" height="16.8" rx="2.6"/>
+<path vector-effect="non-scaling-stroke" d="M5.6 7.2 8.8 10l-3.2 2.8M11 13h6.4"/></g>
+<g id="s-keyboard" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.4" y="2.6" width="27.2" height="12.8" rx="2.4"/>
+<path vector-effect="non-scaling-stroke" d="M5 6.4h1.6M9 6.4h1.6M13 6.4h1.6M17 6.4h1.6M21 6.4h1.6M25 6.4h.6"/>
+<path vector-effect="non-scaling-stroke" d="M5 9.8h1.6M9 9.8h1.6M13 9.8h1.6M17 9.8h1.6M21 9.8h1.6"/>
+<path vector-effect="non-scaling-stroke" d="M9 12.8h12"/></g>
+<g id="s-mouse" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.4" y="1.6" width="12.2" height="19.8" rx="6.1"/>
+<path vector-effect="non-scaling-stroke" d="M7.5 5v4.4"/></g>
+<g id="s-monitor" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.4" y="1.6" width="23.2" height="15.4" rx="2.4"/>
+<path vector-effect="non-scaling-stroke" d="M9.6 20.4h6.8M13 17v3.4"/></g>
+<g id="s-server" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.4" y="1.6" width="19.2" height="6.6" rx="1.6"/>
+<rect vector-effect="non-scaling-stroke" x="1.4" y="10.4" width="19.2" height="6.6" rx="1.6"/>
+<circle vector-effect="non-scaling-stroke" cx="5" cy="4.9" r="1"/><circle vector-effect="non-scaling-stroke" cx="5" cy="13.7" r="1"/>
+<path vector-effect="non-scaling-stroke" d="M9.4 4.9h7.6M9.4 13.7h7.6M6 19.4h10"/></g>
+<g id="s-database" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><ellipse vector-effect="non-scaling-stroke" cx="10" cy="4.6" rx="8.4" ry="3.2"/>
+<path vector-effect="non-scaling-stroke" d="M1.6 4.6v13.4c0 1.8 3.8 3.2 8.4 3.2s8.4-1.4 8.4-3.2V4.6"/>
+<path vector-effect="non-scaling-stroke" d="M1.6 11.4c0 1.8 3.8 3.2 8.4 3.2s8.4-1.4 8.4-3.2"/></g>
+<g id="s-usb" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="2.6" y="7.4" width="7.8" height="16" rx="1.6"/>
+<path vector-effect="non-scaling-stroke" d="M4.6 7.4V2.6h4v4.8M6.5 12v7"/></g>
+<g id="s-floppy" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M1.6 3.2A1.6 1.6 0 0 1 3.2 1.6h12.4l3.8 3.8v14a1.6 1.6 0 0 1-1.6 1.6H3.2a1.6 1.6 0 0 1-1.6-1.6z"/>
+<path vector-effect="non-scaling-stroke" d="M6 1.6v6.2h8V1.6M6 19.4v-6.6h9v6.6"/></g>
+<g id="s-wifi" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M2.2 6.2a15.2 15.2 0 0 1 19.6 0"/>
+<path vector-effect="non-scaling-stroke" d="M5.8 10a10 10 0 0 1 12.4 0"/>
+<path vector-effect="non-scaling-stroke" d="M9.4 13.6a5 5 0 0 1 5.2 0"/>
+<circle vector-effect="non-scaling-stroke" cx="12" cy="16.4" r="1.2"/></g>
+<g id="s-network" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="12" cy="3.6" r="2.6"/><circle vector-effect="non-scaling-stroke" cx="3.6" cy="18" r="2.6"/><circle vector-effect="non-scaling-stroke" cx="20.4" cy="18" r="2.6"/>
+<path vector-effect="non-scaling-stroke" d="M10.6 5.8 4.8 15.6M13.4 5.8l5.8 9.8M6.2 18h11.6"/></g>
+<g id="s-brackets" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M8.4 3.6 2.6 9l5.8 5.4M15.6 3.6 21.4 9l-5.8 5.4M13.4 2.4 10.6 15.6"/></g>
+<g id="s-braces" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M8.4 1.8c-2.6 0-2.6 3.4-2.6 5.4S4 10 2.6 10c1.4 0 3.2.8 3.2 2.8s0 5.4 2.6 5.4"/>
+<path vector-effect="non-scaling-stroke" d="M13.6 1.8c2.6 0 2.6 3.4 2.6 5.4S18 10 19.4 10c-1.4 0-3.2.8-3.2 2.8s0 5.4-2.6 5.4"/></g>
+<g id="s-lock" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.6" y="9" width="14.8" height="11.4" rx="2.4"/>
+<path vector-effect="non-scaling-stroke" d="M5 9V6.4a4 4 0 0 1 8 0V9"/><circle vector-effect="non-scaling-stroke" cx="9" cy="14.6" r="1.4"/></g>
+<g id="s-key" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="5.6" cy="7.4" r="4"/>
+<path vector-effect="non-scaling-stroke" d="M9.6 7.4h12.8M18.6 7.4v3.6M14.6 7.4v3"/></g>
+<g id="s-shield" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M9.5 1.6 17.4 4v8c0 4.6-3.2 8-7.9 9.4C4.8 20 1.6 16.6 1.6 12V4z"/>
+<path vector-effect="non-scaling-stroke" d="M6.2 11.6 8.8 14l4.4-4.6"/></g>
+<g id="s-battery" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.4" y="2.6" width="20.2" height="9.8" rx="2.2"/>
+<path vector-effect="non-scaling-stroke" d="M23.6 6v3M4.6 5.6h3.2v3.8H4.6zM9.8 5.6H13v3.8H9.8z"/></g>
+<g id="s-plug" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M4.4 8.4h9.2v3.8a4.6 4.6 0 0 1-9.2 0z"/>
+<path vector-effect="non-scaling-stroke" d="M6.4 8.4V2.6M11.6 8.4V2.6M9 16.8v4.6"/></g>
+<g id="s-robot" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="2.6" y="5.4" width="16.8" height="12.6" rx="3.2"/>
+<circle vector-effect="non-scaling-stroke" cx="8" cy="11.4" r="1.4"/><circle vector-effect="non-scaling-stroke" cx="14" cy="11.4" r="1.4"/>
+<path vector-effect="non-scaling-stroke" d="M11 1.6v3.8M1 10v4M21 10v4M9 15.4h4"/></g>
+<g id="s-satellite" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="12" cy="12.8" r="3.6"/>
+<path vector-effect="non-scaling-stroke" d="M12 9.2V3.6M12 16.4V21M8.4 12.8H2.6M15.6 12.8h5.8"/>
+<path vector-effect="non-scaling-stroke" d="M6.6 7.4 9.4 10.2M17.4 7.4 14.6 10.2M6.6 18.2l2.8-2.8M17.4 18.2l-2.8-2.8"/></g>
+<g id="s-infinity" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M14 7.4c2-3.4 3.6-5 6-5a5 5 0 0 1 0 10c-2.4 0-4-1.6-6-5-2-3.4-3.6-5-6-5a5 5 0 0 0 0 10c2.4 0 4-1.6 6-5z"/></g>
+<g id="s-box" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M11 1.6 20.4 6v10L11 20.4 1.6 16V6z"/>
+<path vector-effect="non-scaling-stroke" d="M1.6 6 11 10.4 20.4 6M11 10.4v10"/></g>
+<g id="s-puzzle" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M2.6 8.4h4a2.4 2.4 0 1 1 4.8 0h4v4a2.4 2.4 0 1 1 0 4.8v.8H2.6v-4.4a2.4 2.4 0 1 0 0-4.8z"/></g>
+<g id="s-cursor" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M2.4 1.6 13 12.4l-4.6.6 2.8 5.6-2.4 1.2-2.8-5.6-3 3.4z"/></g>
+<g id="s-terminal-cursor" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M2.6 4.4 7 10l-4.4 5.6M10 15.6h7.4"/></g>
+<g id="s-copyleft" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="10" cy="10" r="8.4"/>
+<path vector-effect="non-scaling-stroke" d="M7.4 7.2a4 4 0 1 0 0 5.6M12.6 6.6v6.8"/></g>
+<g id="s-hdd" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.4" y="2.6" width="21.2" height="12.8" rx="2.4"/>
+<circle vector-effect="non-scaling-stroke" cx="12" cy="9" r="4"/><circle vector-effect="non-scaling-stroke" cx="12" cy="9" r="1"/>
+<path vector-effect="non-scaling-stroke" d="M18.4 12.6h1.6"/></g>
+<g id="s-soccer" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="10.5" cy="10.5" r="9"/>
+<path vector-effect="non-scaling-stroke" d="M10.5 5.4 14.4 8.2 12.9 12.8H8.1L6.6 8.2z"/>
+<path vector-effect="non-scaling-stroke" d="M10.5 1.5v3.9M2.4 8.2l4.2 0M18.6 8.2l-4.2 0M5.6 18.2l2.5-5.4M15.4 18.2l-2.5-5.4"/></g>
+<g id="s-basketball" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="10.5" cy="10.5" r="9"/>
+<path vector-effect="non-scaling-stroke" d="M10.5 1.5v18M1.5 10.5h18M4.2 4.2c4 3.4 4 8.6 0 12.6M16.8 4.2c-4 3.4-4 8.6 0 12.6"/></g>
+<g id="s-racket" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><ellipse vector-effect="non-scaling-stroke" cx="8.5" cy="8.4" rx="6.8" ry="7.6"/>
+<path vector-effect="non-scaling-stroke" d="M3.4 4.4c4 2.6 6.6 6 8.2 9.8M13.6 4.4c-4 2.6-6.6 6-8.2 9.8"/>
+<path vector-effect="non-scaling-stroke" d="M8.5 16v8.4"/></g>
+<g id="s-dumbbell" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.4" y="4.6" width="4" height="6.8" rx="1.4"/><rect vector-effect="non-scaling-stroke" x="21.6" y="4.6" width="4" height="6.8" rx="1.4"/>
+<path vector-effect="non-scaling-stroke" d="M5.4 8h16.2M6.8 3.4v9.2M20.2 3.4v9.2"/></g>
+<g id="s-trophy" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M5.6 1.6h10.8v6.2a5.4 5.4 0 0 1-10.8 0z"/>
+<path vector-effect="non-scaling-stroke" d="M5.6 3.4H2.4v1.8a3.4 3.4 0 0 0 3.2 3.4M16.4 3.4h3.2v1.8a3.4 3.4 0 0 1-3.2 3.4"/>
+<path vector-effect="non-scaling-stroke" d="M11 13.2v4.2M7 21.4h8l-.8-4H7.8z"/></g>
+<g id="s-medal" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="9" cy="16.6" r="6.4"/><path vector-effect="non-scaling-stroke" d="M9 13.4l1.2 2.4 2.6.4-1.9 1.8.5 2.6L9 19.4l-2.4 1.2.5-2.6-1.9-1.8 2.6-.4z"/>
+<path vector-effect="non-scaling-stroke" d="M4.6 1.6 7 10M13.4 1.6 11 10"/></g>
+<g id="s-stopwatch" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="9.5" cy="13.4" r="7.8"/><path vector-effect="non-scaling-stroke" d="M9.5 8.8v4.6l3 2"/>
+<path vector-effect="non-scaling-stroke" d="M6.6 1.6h5.8M9.5 1.6v3.8M15.4 5.2l2-2"/></g>
+<g id="s-skate" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M2.6 4.4c3-2 17.8-2 20.8 0 1.4 1 .4 2.6-1.6 2.8L5.8 7.2C3.4 7.2 1.2 5.4 2.6 4.4z"/>
+<circle vector-effect="non-scaling-stroke" cx="7.4" cy="11.4" r="2.6"/><circle vector-effect="non-scaling-stroke" cx="18.6" cy="11.4" r="2.6"/></g>
+<g id="s-target" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="10.5" cy="10.5" r="9"/><circle vector-effect="non-scaling-stroke" cx="10.5" cy="10.5" r="5.4"/><circle vector-effect="non-scaling-stroke" cx="10.5" cy="10.5" r="1.6"/></g>
+<g id="s-dice" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.6" y="1.6" width="16.8" height="16.8" rx="3.4"/>
+<circle vector-effect="non-scaling-stroke" cx="6.4" cy="6.4" r="1.2"/><circle vector-effect="non-scaling-stroke" cx="13.6" cy="13.6" r="1.2"/><circle vector-effect="non-scaling-stroke" cx="10" cy="10" r="1.2"/></g>
+<g id="s-joystick" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="10" cy="4.6" r="3"/><path vector-effect="non-scaling-stroke" d="M10 7.6v7"/>
+<path vector-effect="non-scaling-stroke" d="M2.6 14.6h14.8a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H2.6a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2z"/></g>
+<g id="s-arcade" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.6" y="1.6" width="16.8" height="21.8" rx="3"/>
+<rect vector-effect="non-scaling-stroke" x="4.6" y="4.6" width="10.8" height="7.8" rx="1.4"/>
+<circle vector-effect="non-scaling-stroke" cx="6.6" cy="17" r="1.4"/><circle vector-effect="non-scaling-stroke" cx="12.4" cy="17" r="1.4"/><path vector-effect="non-scaling-stroke" d="M5.4 20.8h9"/></g>
+<g id="s-invader" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M4.6 4.6h2.8V1.8h7.2v2.8h2.8v3h2.8v7.6h-2.8v-3h-2.8v3h-7.2v-3H4.6v3H1.8V7.6h2.8z"/>
+<circle vector-effect="non-scaling-stroke" cx="8.4" cy="8.4" r="1"/><circle vector-effect="non-scaling-stroke" cx="13.6" cy="8.4" r="1"/></g>
+<g id="s-cards" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="7.4" y="3.6" width="12" height="16.8" rx="2" transform="rotate(8 13.4 12)"/>
+<rect vector-effect="non-scaling-stroke" x="2.6" y="1.6" width="12" height="16.8" rx="2" transform="rotate(-10 8.6 10)"/>
+<path vector-effect="non-scaling-stroke" d="M8.6 6.6 10.8 9 8.6 11.4 6.4 9z"/></g>
+<g id="s-palette" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M12 1.6c6 0 10.4 3.6 10.4 8 0 3-2.6 4-4.6 4h-2c-1.6 0-2.6 1-2.6 2.2 0 1.6 1.4 1.8 1.4 3 0 .8-1 1.6-2.6 1.6C5.6 20.4 1.6 16 1.6 10.4 1.6 5 6 1.6 12 1.6z"/>
+<circle vector-effect="non-scaling-stroke" cx="7" cy="8.6" r="1.4"/><circle vector-effect="non-scaling-stroke" cx="11.4" cy="5.6" r="1.4"/><circle vector-effect="non-scaling-stroke" cx="16.4" cy="7.4" r="1.4"/></g>
+<g id="s-brush" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M4.4 1.6h6.2v11.8H4.4z"/>
+<path vector-effect="non-scaling-stroke" d="M3 13.4h9v3.6c0 3.6-1.6 6.4-4.5 6.4S3 20.6 3 17z"/></g>
+<g id="s-pencil" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M15.6 1.8 20.2 6.4 7.6 19H3v-4.6z"/>
+<path vector-effect="non-scaling-stroke" d="M13.4 4 18 8.6"/></g>
+<g id="s-clapper" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M1.6 7.4h21.8v10.8a1.6 1.6 0 0 1-1.6 1.6H3.2a1.6 1.6 0 0 1-1.6-1.6z"/>
+<path vector-effect="non-scaling-stroke" d="M2.4 7.4 4.6 2.2l4.6 1.6-2.2 3.6M9.2 3.8l4.6 1.6-2.2 2M13.8 5.4l4.6 1.6-1.6 .4"/></g>
+<g id="s-mic" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="4.4" y="1.6" width="6.4" height="12.8" rx="3.2"/>
+<path vector-effect="non-scaling-stroke" d="M2.2 12.4a5.4 5.4 0 0 0 10.8 0M7.6 17.8v5.6M4.8 23.4h5.6"/></g>
+<g id="s-piano" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.6" y="2.6" width="20.8" height="12.8" rx="1.8"/>
+<path vector-effect="non-scaling-stroke" d="M8.5 2.6v12.8M15.5 2.6v12.8M5 2.6v7.4h2.4V2.6M12 2.6v7.4h2.4V2.6M19 2.6v7.4h-2.4"/></g>
+<g id="s-mask" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M12 1.8c5 0 10.4 1 10.4 4.4 0 4.6-3.6 11.4-10.4 11.4S1.6 10.8 1.6 6.2c0-3.4 5.4-4.4 10.4-4.4z"/>
+<circle vector-effect="non-scaling-stroke" cx="8" cy="7.6" r="1.2"/><circle vector-effect="non-scaling-stroke" cx="16" cy="7.6" r="1.2"/><path vector-effect="non-scaling-stroke" d="M8.6 12.4c2 1.6 4.8 1.6 6.8 0"/></g>
+<g id="s-frame" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.6" y="1.6" width="18.8" height="18.8" rx="1.6"/>
+<path vector-effect="non-scaling-stroke" d="M4.4 15.4 8.6 10l3.4 3.6 2.6-2.4 3 4.2z"/><circle vector-effect="non-scaling-stroke" cx="14.6" cy="6.6" r="1.4"/></g>
+<g id="s-hat" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M6.6 11.4V4.6a2.6 2.6 0 0 1 2.6-2.6h5.6a2.6 2.6 0 0 1 2.6 2.6v6.8"/>
+<path vector-effect="non-scaling-stroke" d="M1.6 12.4c0-1 2-1.6 4.4-2h12c2.4.4 4.4 1 4.4 2 0 1.8-4.6 3.4-10.4 3.4S1.6 14.2 1.6 12.4z"/></g>
+<g id="s-glasses" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="6.6" cy="7.4" r="5"/><circle vector-effect="non-scaling-stroke" cx="21.4" cy="7.4" r="5"/>
+<path vector-effect="non-scaling-stroke" d="M11.6 6.4c1.6-1 3.2-1 4.8 0M1.6 5.4 3.4 3.4M26.4 5.4 24.6 3.4"/></g>
+<g id="s-shirt" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M9 1.8 3 4.6 1.6 9.4l3.6 1.4v9.4h14.6v-9.4l3.6-1.4L22 4.6 16 1.8"/>
+<path vector-effect="non-scaling-stroke" d="M9 1.8c0 2 1.4 3 3.5 3s3.5-1 3.5-3"/></g>
+<g id="s-sneaker" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M1.6 12.4V6.6l4.4-2 3 2.4 3.6-.6 5.4 3.2 6.4 1.4c1.6.4 2 1.6 2 3.2H1.6z"/>
+<path vector-effect="non-scaling-stroke" d="M6 4.6 8.4 8M12 6.4l1.6 2.4"/></g>
+<g id="s-umbrella" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M1.6 11.4a10.4 10.4 0 0 1 20.8 0c-1.8-1.6-3.6-1.6-5.2 0-1.6-1.6-3.4-1.6-5.2 0-1.8-1.6-3.6-1.6-5.2 0-1.6-1.6-3.4-1.6-5.2 0z"/>
+<path vector-effect="non-scaling-stroke" d="M12 11.4v9a2.4 2.4 0 0 1-4.8 0"/></g>
+<g id="s-suitcase" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="1.6" y="5.6" width="20.8" height="13.8" rx="2.4"/>
+<path vector-effect="non-scaling-stroke" d="M8 5.6V3.4a1.8 1.8 0 0 1 1.8-1.8h4.4A1.8 1.8 0 0 1 16 3.4v2.2M1.6 12.4h20.8"/></g>
+<g id="s-chair" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M3.4 1.6h12.2v9.8H3.4z"/>
+<path vector-effect="non-scaling-stroke" d="M2 11.4h15M4.4 11.4v11M14.6 11.4v11M4.4 17h10.2"/></g>
+<g id="s-candle" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><rect vector-effect="non-scaling-stroke" x="4.4" y="8.4" width="6.2" height="12.8" rx="1.4"/>
+<path vector-effect="non-scaling-stroke" d="M2.6 21.2h9.8M7.5 8.4V5.6"/>
+<path vector-effect="non-scaling-stroke" d="M7.5 1.6c1.6 1.4 2.4 2.4 2.4 3.4a2.4 2.4 0 0 1-4.8 0c0-1 .8-2 2.4-3.4z"/></g>
+<g id="s-plant" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M5 14.4h9l-1 8H6z"/>
+<path vector-effect="non-scaling-stroke" d="M9.5 14.4V7M9.5 9.4C7 9.4 4.4 7.4 4.4 3.6c3.6 0 5.1 2.4 5.1 5.8zM9.5 11.4c2.5 0 5.1-2 5.1-5.8-3.6 0-5.1 2.4-5.1 5.8z"/></g>
+<g id="s-wineglass" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M3.4 1.6h8.2v5.4a4.1 4.1 0 0 1-8.2 0z"/>
+<path vector-effect="non-scaling-stroke" d="M7.5 11.4v10M4.4 21.4h6.2"/></g>
+<g id="s-popcorn" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M4.6 9.4h10.8l-1.4 13H6z"/>
+<circle vector-effect="non-scaling-stroke" cx="6" cy="6.4" r="2.6"/><circle vector-effect="non-scaling-stroke" cx="10" cy="4.6" r="2.8"/><circle vector-effect="non-scaling-stroke" cx="14" cy="6.6" r="2.4"/></g>
+<g id="s-dog" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M4.4 5.4 2.6 1.8l4 1.6a9 9 0 0 1 8.8 0l4-1.6-1.8 3.6a7.4 7.4 0 1 1-13.2 0z"/>
+<circle vector-effect="non-scaling-stroke" cx="8" cy="9.6" r="1"/><circle vector-effect="non-scaling-stroke" cx="14" cy="9.6" r="1"/>
+<path vector-effect="non-scaling-stroke" d="M11 12.4v1.4M9 15.4c1.4 1 2.6 1 4 0"/></g>
+<g id="s-bird" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M1.6 9.4c0-3.4 3-6.2 6.6-6.2 3 0 4.6 1.4 6 3.2l6.2-1-3.4 3.6c0 4-3.2 7.4-7.2 7.4-4.4 0-8.2-2.8-8.2-7z"/>
+<circle vector-effect="non-scaling-stroke" cx="7" cy="7.6" r="1"/></g>
+<g id="s-fish" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M1.6 8c3-3.6 6.6-5.4 10.4-5.4 4.4 0 7.6 2.4 9.4 5.4-1.8 3-5 5.4-9.4 5.4-3.8 0-7.4-1.8-10.4-5.4z"/>
+<path vector-effect="non-scaling-stroke" d="M21.4 8 22.4 3.4 18.6 6M21.4 8l1 4.6-3.8-2.6"/><circle vector-effect="non-scaling-stroke" cx="7.6" cy="7" r="1"/></g>
+<g id="s-paw" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><ellipse vector-effect="non-scaling-stroke" cx="4.4" cy="7.4" rx="2.4" ry="3"/><ellipse vector-effect="non-scaling-stroke" cx="9.5" cy="4.6" rx="2.4" ry="3.2"/><ellipse vector-effect="non-scaling-stroke" cx="14.6" cy="7.4" rx="2.4" ry="3"/>
+<path vector-effect="non-scaling-stroke" d="M9.5 10.4c3.4 0 5.6 2 5.6 4.2s-2.4 2.8-5.6 2.8-5.6-.6-5.6-2.8 2.2-4.2 5.6-4.2z"/></g>
+<g id="s-compass" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><circle vector-effect="non-scaling-stroke" cx="10.5" cy="10.5" r="9"/>
+<path vector-effect="non-scaling-stroke" d="M14 7 8.6 8.6 7 14l5.4-1.6z"/></g>
+<g id="s-map" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M1.6 4.6 8.6 1.8v13.6l-7 2.8zM8.6 1.8l6.8 2.8v13.6L8.6 15.4zM15.4 4.6l7-2.8v13.6l-7 2.8z"/></g>
+<g id="s-ticket" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M1.6 4.4a1.6 1.6 0 0 1 1.6-1.6h19.2a1.6 1.6 0 0 1 1.6 1.6v2.4a2.6 2.6 0 0 0 0 5.2v2.4a1.6 1.6 0 0 1-1.6 1.6H3.2a1.6 1.6 0 0 1-1.6-1.6v-2.4a2.6 2.6 0 0 0 0-5.2z"/>
+<path vector-effect="non-scaling-stroke" d="M9.4 2.8v2M9.4 7.4v2M9.4 12v2"/></g>
+<g id="s-clover" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M10 10.4c-1.4-2.6-.6-4.8 1.4-5.6 2-.8 3.8.6 3.8 2.6 0 1.8-1.8 3-5.2 3z"/>
+<path vector-effect="non-scaling-stroke" d="M10 10.4c1.4-2.6.6-4.8-1.4-5.6-2-.8-3.8.6-3.8 2.6 0 1.8 1.8 3 5.2 3z"/>
+<path vector-effect="non-scaling-stroke" d="M10 10.4c-2.6 1.4-4.8.6-5.6-1.4M10 10.4c2.6 1.4 4.8.6 5.6-1.4M10 10.4v10.4"/></g>
+<g id="s-balloon-gift" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M10 1.8 12.4 7l5.8.8-4.2 4 1 5.8L10 15l-5 2.6 1-5.8-4.2-4L7.6 7z"/></g>
+</defs>
+<g color="#6f6152" opacity="0.17">
+<use href="#s-dice" transform="translate(505.1 328.5) rotate(5.6) scale(2.2883) translate(-10.000 -10.000)"/>
+<use href="#s-candle" transform="translate(181.3 497.9) rotate(20.9) scale(2.2617) translate(-7.500 -12.500)"/>
+<use href="#s-wineglass" transform="translate(202.9 132.3) rotate(10.3) scale(2.2202) translate(-7.500 -12.500)"/>
+<use href="#s-coffee" transform="translate(595.4 333.0) rotate(1.0) scale(2.1399) translate(-11.000 -10.000)"/>
+<use href="#s-trophy" transform="translate(-47.5 27.7) rotate(20.2) scale(2.1559) translate(-11.000 -11.500)"/>
+<use href="#s-trophy" transform="translate(-47.5 707.7) rotate(20.2) scale(2.1559) translate(-11.000 -11.500)"/>
+<use href="#s-trophy" transform="translate(632.5 27.7) rotate(20.2) scale(2.1559) translate(-11.000 -11.500)"/>
+<use href="#s-trophy" transform="translate(632.5 707.7) rotate(20.2) scale(2.1559) translate(-11.000 -11.500)"/>
+<use href="#s-bicycle" transform="translate(246.2 460.5) rotate(11.4) scale(1.9151) translate(-15.000 -9.500)"/>
+<use href="#s-hdd" transform="translate(155.6 10.7) rotate(-10.5) scale(2.5277) translate(-12.000 -9.000)"/>
+<use href="#s-hdd" transform="translate(155.6 690.7) rotate(-10.5) scale(2.5277) translate(-12.000 -9.000)"/>
+<use href="#s-mic" transform="translate(22.4 559.7) rotate(17.1) scale(2.6683) translate(-7.500 -12.500)"/>
+<use href="#s-mic" transform="translate(702.4 559.7) rotate(17.1) scale(2.6683) translate(-7.500 -12.500)"/>
+<use href="#s-bulb" transform="translate(435.3 260.6) rotate(-6.7) scale(2.4300) translate(-8.500 -11.500)"/>
+<use href="#s-chip" transform="translate(366.5 331.9) rotate(-17.6) scale(2.3015) translate(-10.500 -10.500)"/>
+<use href="#s-saturn" transform="translate(548.6 245.9) rotate(7.6) scale(2.5324) translate(-12.000 -10.000)"/>
+<use href="#s-bug" transform="translate(123.3 443.9) rotate(18.8) scale(2.1733) translate(-10.500 -10.500)"/>
+<use href="#s-battery" transform="translate(70.7 137.2) rotate(-2.3) scale(2.4870) translate(-13.000 -7.500)"/>
+<use href="#s-battery" transform="translate(750.7 137.2) rotate(-2.3) scale(2.4870) translate(-13.000 -7.500)"/>
+<use href="#s-map" transform="translate(362.2 97.2) rotate(-16.6) scale(2.0640) translate(-12.000 -10.000)"/>
+<use href="#s-cat" transform="translate(303.0 405.0) rotate(-8.3) scale(2.6431) translate(-10.500 -9.500)"/>
+<use href="#s-arcade" transform="translate(160.4 377.7) rotate(8.2) scale(2.4287) translate(-10.000 -12.500)"/>
+<use href="#s-moon" transform="translate(347.9 -59.7) rotate(0.4) scale(2.6948) translate(-9.000 -9.500)"/>
+<use href="#s-moon" transform="translate(347.9 620.3) rotate(0.4) scale(2.6948) translate(-9.000 -9.500)"/>
+<use href="#s-guitar" transform="translate(271.4 -8.5) rotate(-4.4) scale(2.4490) translate(-8.500 -13.000)"/>
+<use href="#s-guitar" transform="translate(271.4 671.5) rotate(-4.4) scale(2.4490) translate(-8.500 -13.000)"/>
+<use href="#s-gamepad" transform="translate(479.8 -66.9) rotate(5.6) scale(2.3336) translate(-13.500 -9.000)"/>
+<use href="#s-gamepad" transform="translate(479.8 613.1) rotate(5.6) scale(2.3336) translate(-13.500 -9.000)"/>
+<use href="#s-camera" transform="translate(358.3 179.0) rotate(-4.9) scale(2.4511) translate(-12.000 -9.500)"/>
+<use href="#s-burger" transform="translate(56.9 339.0) rotate(11.1) scale(2.0293) translate(-12.000 -10.000)"/>
+<use href="#s-burger" transform="translate(736.9 339.0) rotate(11.1) scale(2.0293) translate(-12.000 -10.000)"/>
+<use href="#s-database" transform="translate(521.4 396.1) rotate(-22.3) scale(2.3978) translate(-10.000 -11.500)"/>
+<use href="#s-piano" transform="translate(-27.6 238.5) rotate(-22.5) scale(2.1878) translate(-12.000 -9.000)"/>
+<use href="#s-piano" transform="translate(652.4 238.5) rotate(-22.5) scale(2.1878) translate(-12.000 -9.000)"/>
+<use href="#s-soccer" transform="translate(256.1 231.5) rotate(-4.6) scale(2.6930) translate(-10.500 -10.500)"/>
+<use href="#s-glasses" transform="translate(60.9 -22.2) rotate(-4.2) scale(2.2893) translate(-14.000 -6.500)"/>
+<use href="#s-glasses" transform="translate(60.9 657.8) rotate(-4.2) scale(2.2893) translate(-14.000 -6.500)"/>
+<use href="#s-glasses" transform="translate(740.9 -22.2) rotate(-4.2) scale(2.2893) translate(-14.000 -6.500)"/>
+<use href="#s-glasses" transform="translate(740.9 657.8) rotate(-4.2) scale(2.2893) translate(-14.000 -6.500)"/>
+<use href="#s-clapper" transform="translate(339.4 254.7) rotate(-7.8) scale(2.1705) translate(-12.500 -10.000)"/>
+<use href="#s-heart" transform="translate(153.5 244.1) rotate(-20.4) scale(2.9169) translate(-10.000 -9.000)"/>
+<use href="#s-monitor" transform="translate(91.8 43.1) rotate(0.8) scale(1.9373) translate(-13.000 -11.000)"/>
+<use href="#s-monitor" transform="translate(91.8 723.1) rotate(0.8) scale(1.9373) translate(-13.000 -11.000)"/>
+<use href="#s-folder" transform="translate(-28.4 423.8) rotate(-11.1) scale(2.5008) translate(-11.500 -9.000)"/>
+<use href="#s-folder" transform="translate(651.6 423.8) rotate(-11.1) scale(2.5008) translate(-11.500 -9.000)"/>
+<use href="#s-key" transform="translate(397.5 16.0) rotate(-2.1) scale(2.5804) translate(-12.000 -7.500)"/>
+<use href="#s-key" transform="translate(397.5 696.0) rotate(-2.1) scale(2.5804) translate(-12.000 -7.500)"/>
+<use href="#s-brackets" transform="translate(193.0 587.4) rotate(10.6) scale(2.3087) translate(-12.000 -9.000)"/>
+<use href="#s-usb" transform="translate(442.6 164.1) rotate(4.2) scale(2.8037) translate(-6.500 -12.500)"/>
+<use href="#s-medal" transform="translate(586.7 -64.5) rotate(-15.9) scale(2.2393) translate(-9.000 -12.500)"/>
+<use href="#s-medal" transform="translate(586.7 615.5) rotate(-15.9) scale(2.2393) translate(-9.000 -12.500)"/>
+<use href="#s-wink" transform="translate(-39.1 100.5) rotate(2.6) scale(2.2078) translate(-10.500 -10.500)"/>
+<use href="#s-wink" transform="translate(640.9 100.5) rotate(2.6) scale(2.2078) translate(-10.500 -10.500)"/>
+<use href="#s-joystick" transform="translate(296.3 542.4) rotate(-1.8) scale(2.3148) translate(-10.000 -12.000)"/>
+<use href="#s-stopwatch" transform="translate(402.5 408.8) rotate(0.6) scale(2.1593) translate(-9.500 -11.500)"/>
+<use href="#s-pizza" transform="translate(539.8 466.0) rotate(-2.4) scale(2.2322) translate(-11.000 -10.500)"/>
+<use href="#s-balloon" transform="translate(132.5 550.0) rotate(13.7) scale(2.2746) translate(-8.000 -12.500)"/>
+<use href="#s-note" transform="translate(575.4 146.5) rotate(6.0) scale(2.5318) translate(-8.500 -10.500)"/>
+<use href="#s-terminal-cursor" transform="translate(59.4 475.0) rotate(18.6) scale(2.4955) translate(-10.000 -10.000)"/>
+<use href="#s-terminal-cursor" transform="translate(739.4 475.0) rotate(18.6) scale(2.4955) translate(-10.000 -10.000)"/>
+<use href="#s-clover" transform="translate(603.1 492.3) rotate(-8.8) scale(2.1164) translate(-10.000 -11.000)"/>
+<use href="#s-ticket" transform="translate(269.1 334.2) rotate(-9.7) scale(2.2860) translate(-13.000 -8.500)"/>
+<use href="#s-plant" transform="translate(547.3 25.6) rotate(7.1) scale(2.0726) translate(-9.500 -12.000)"/>
+<use href="#s-plant" transform="translate(547.3 705.6) rotate(7.1) scale(2.0726) translate(-9.500 -12.000)"/>
+<use href="#s-sneaker" transform="translate(433.7 532.5) rotate(4.9) scale(2.4466) translate(-13.500 -7.500)"/>
+<use href="#s-mouse" transform="translate(500.9 91.5) rotate(-19.6) scale(2.4118) translate(-7.500 -11.500)"/>
+<use href="#s-floppy" transform="translate(362.8 479.0) rotate(0.9) scale(2.6156) translate(-10.500 -10.500)"/>
+<use href="#s-puzzle" transform="translate(275.4 91.1) rotate(-10.6) scale(2.6289) translate(-11.000 -10.500)"/>
+<use href="#s-donut" transform="translate(69.1 229.4) rotate(-0.5) scale(2.5066) translate(-11.000 -11.000)"/>
+<use href="#s-donut" transform="translate(749.1 229.4) rotate(-0.5) scale(2.5066) translate(-11.000 -11.000)"/>
+<use href="#s-cards" transform="translate(19.7 54.6) rotate(-11.5) scale(2.1583) translate(-12.000 -11.000)"/>
+<use href="#s-cards" transform="translate(19.7 734.6) rotate(-11.5) scale(2.1583) translate(-12.000 -11.000)"/>
+<use href="#s-cards" transform="translate(699.7 54.6) rotate(-11.5) scale(2.1583) translate(-12.000 -11.000)"/>
+<use href="#s-cards" transform="translate(699.7 734.6) rotate(-11.5) scale(2.1583) translate(-12.000 -11.000)"/>
+<use href="#s-palette" transform="translate(509.4 535.0) rotate(-8.8) scale(2.1409) translate(-12.000 -10.500)"/>
+<use href="#s-target" transform="translate(0.7 168.0) rotate(-12.8) scale(2.5372) translate(-10.500 -10.500)"/>
+<use href="#s-target" transform="translate(680.7 168.0) rotate(-12.8) scale(2.5372) translate(-10.500 -10.500)"/>
+<use href="#s-bolt" transform="translate(464.5 436.1) rotate(-22.5) scale(2.5144) translate(-7.000 -11.000)"/>
+<use href="#s-gift" transform="translate(477.9 18.7) rotate(5.7) scale(2.5701) translate(-10.500 -10.000)"/>
+<use href="#s-gift" transform="translate(477.9 698.7) rotate(5.7) scale(2.5701) translate(-10.500 -10.000)"/>
+<use href="#s-terminal" transform="translate(200.6 306.6) rotate(12.0) scale(2.1685) translate(-12.500 -9.500)"/>
+<use href="#s-rocket" transform="translate(435.9 347.1) rotate(-2.1) scale(2.2962) translate(-9.000 -12.500)"/>
+<use href="#s-prompt" transform="translate(69.7 404.2) rotate(-1.9) scale(2.0910) translate(-13.000 -10.000)"/>
+<use href="#s-planet" transform="translate(114.3 313.4) rotate(9.0) scale(2.3162) translate(-9.500 -9.500)"/>
+<use href="#s-box" transform="translate(-13.5 333.1) rotate(6.5) scale(2.3338) translate(-11.000 -11.000)"/>
+<use href="#s-box" transform="translate(666.5 333.1) rotate(6.5) scale(2.3338) translate(-11.000 -11.000)"/>
+<use href="#s-cursor" transform="translate(-23.0 -43.6) rotate(-16.2) scale(2.8426) translate(-7.500 -11.000)"/>
+<use href="#s-cursor" transform="translate(-23.0 636.4) rotate(-16.2) scale(2.8426) translate(-7.500 -11.000)"/>
+<use href="#s-cursor" transform="translate(657.0 -43.6) rotate(-16.2) scale(2.8426) translate(-7.500 -11.000)"/>
+<use href="#s-cursor" transform="translate(657.0 636.4) rotate(-16.2) scale(2.8426) translate(-7.500 -11.000)"/>
+<use href="#s-chair" transform="translate(429.6 84.6) rotate(23.3) scale(2.2571) translate(-9.500 -12.000)"/>
+<use href="#s-suitcase" transform="translate(139.4 122.0) rotate(-4.1) scale(1.7560) translate(-12.000 -10.500)"/>
+<use href="#s-mask" transform="translate(586.0 393.5) rotate(-11.6) scale(1.8294) translate(-12.000 -9.500)"/>
+<use href="#s-umbrella" transform="translate(515.6 181.2) rotate(9.6) scale(1.9192) translate(-12.000 -12.000)"/>
+<use href="#s-keyboard" transform="translate(-7.7 490.8) rotate(-22.4) scale(1.8432) translate(-15.000 -9.000)"/>
+<use href="#s-keyboard" transform="translate(672.3 490.8) rotate(-22.4) scale(1.8432) translate(-15.000 -9.000)"/>
+<use href="#s-sun" transform="translate(254.9 601.3) rotate(-14.6) scale(1.7999) translate(-11.000 -11.000)"/>
+<use href="#s-clock" transform="translate(327.3 39.6) rotate(-5.0) scale(2.3414) translate(-10.000 -10.000)"/>
+<use href="#s-clock" transform="translate(327.3 719.6) rotate(-5.0) scale(2.3414) translate(-10.000 -10.000)"/>
+<use href="#s-book" transform="translate(105.2 606.5) rotate(-3.5) scale(1.7925) translate(-12.000 -10.000)"/>
+<use href="#s-icecream" transform="translate(220.5 39.7) rotate(-4.0) scale(2.1881) translate(-7.500 -12.500)"/>
+<use href="#s-icecream" transform="translate(220.5 719.7) rotate(-4.0) scale(2.1881) translate(-7.500 -12.500)"/>
+<use href="#s-cloud" transform="translate(271.9 162.6) rotate(9.9) scale(1.8867) translate(-12.500 -8.000)"/>
+<use href="#s-dog" transform="translate(229.3 397.7) rotate(2.7) scale(1.8835) translate(-11.000 -10.000)"/>
+<use href="#s-balloon-gift" transform="translate(365.0 555.5) rotate(5.7) scale(1.9799) translate(-10.000 -10.000)"/>
+<use href="#s-network" transform="translate(-49.7 566.4) rotate(-14.7) scale(1.7200) translate(-12.000 -11.000)"/>
+<use href="#s-network" transform="translate(630.3 566.4) rotate(-14.7) scale(1.7200) translate(-12.000 -11.000)"/>
+<use href="#s-invader" transform="translate(585.1 74.6) rotate(-13.7) scale(1.9265) translate(-11.000 -9.500)"/>
+<use href="#s-dumbbell" transform="translate(158.6 175.0) rotate(22.5) scale(1.7843) translate(-13.500 -8.000)"/>
+<use href="#s-plug" transform="translate(172.6 76.0) rotate(-3.6) scale(1.9174) translate(-9.000 -11.500)"/>
+<use href="#s-wifi" transform="translate(575.5 546.5) rotate(10.9) scale(1.8667) translate(-12.000 -9.000)"/>
+<use href="#s-compass" transform="translate(416.1 -49.7) rotate(1.3) scale(1.8856) translate(-10.500 -10.500)"/>
+<use href="#s-compass" transform="translate(416.1 630.3) rotate(1.3) scale(1.8856) translate(-10.500 -10.500)"/>
+<use href="#s-brush" transform="translate(534.0 -33.9) rotate(19.8) scale(1.7150) translate(-7.500 -12.500)"/>
+<use href="#s-brush" transform="translate(534.0 646.1) rotate(19.8) scale(1.7150) translate(-7.500 -12.500)"/>
+<use href="#s-pencil" transform="translate(233.0 530.2) rotate(11.8) scale(1.7999) translate(-11.000 -11.000)"/>
+<use href="#s-shirt" transform="translate(212.0 -34.2) rotate(-15.8) scale(1.5014) translate(-12.500 -11.000)"/>
+<use href="#s-shirt" transform="translate(212.0 645.8) rotate(-15.8) scale(1.5014) translate(-12.500 -11.000)"/>
+<use href="#s-copyleft" transform="translate(40.0 286.4) rotate(18.1) scale(1.5556) translate(-10.000 -10.000)"/>
+<use href="#s-copyleft" transform="translate(720.0 286.4) rotate(18.1) scale(1.5556) translate(-10.000 -10.000)"/>
+<use href="#s-skate" transform="translate(302.5 467.3) rotate(-18.6) scale(1.4659) translate(-13.000 -7.500)"/>
+<use href="#s-branch" transform="translate(475.4 219.0) rotate(-21.4) scale(1.5479) translate(-9.000 -11.000)"/>
+<use href="#s-smiley" transform="translate(181.3 439.4) rotate(-12.0) scale(1.6836) translate(-10.500 -10.500)"/>
+<use href="#s-fish" transform="translate(616.9 189.0) rotate(-23.0) scale(1.7334) translate(-12.000 -8.000)"/>
+<use href="#s-diamond" transform="translate(609.5 277.6) rotate(5.1) scale(1.6375) translate(-9.500 -9.500)"/>
+<use href="#s-popcorn" transform="translate(200.8 203.4) rotate(0.8) scale(1.4084) translate(-10.000 -12.000)"/>
+<use href="#s-basketball" transform="translate(112.1 499.5) rotate(16.1) scale(1.2795) translate(-10.500 -10.500)"/>
+<use href="#s-headphones" transform="translate(492.1 272.3) rotate(-0.4) scale(1.2164) translate(-12.000 -10.000)"/>
+<use href="#s-hat" transform="translate(533.0 593.0) rotate(21.1) scale(1.2667) translate(-12.000 -9.000)"/>
+<use href="#s-server" transform="translate(152.4 628.0) rotate(23.9) scale(1.4142) translate(-11.000 -11.000)"/>
+<use href="#s-braces" transform="translate(313.7 136.7) rotate(-15.1) scale(1.2781) translate(-11.000 -10.000)"/>
+<use href="#s-bird" transform="translate(17.3 382.5) rotate(-8.5) scale(1.3368) translate(-11.000 -9.000)"/>
+<use href="#s-bird" transform="translate(697.3 382.5) rotate(-8.5) scale(1.3368) translate(-11.000 -9.000)"/>
+<use href="#s-plane" transform="translate(405.4 212.1) rotate(-11.9) scale(1.2467) translate(-11.500 -10.000)"/>
+<use href="#s-racket" transform="translate(590.8 440.7) rotate(-2.5) scale(1.2233) translate(-8.500 -13.000)"/>
+<use href="#s-leaf" transform="translate(473.9 489.0) rotate(23.3) scale(1.3435) translate(-10.000 -10.000)"/>
+<use href="#s-robot" transform="translate(78.4 535.3) rotate(10.8) scale(1.4467) translate(-11.000 -10.500)"/>
+<use href="#s-lock" transform="translate(421.4 467.8) rotate(-20.4) scale(1.3368) translate(-9.000 -11.000)"/>
+<use href="#s-shield" transform="translate(584.6 -9.4) rotate(-11.3) scale(1.2738) translate(-9.500 -11.500)"/>
+<use href="#s-shield" transform="translate(584.6 670.6) rotate(-11.3) scale(1.2738) translate(-9.500 -11.500)"/>
+<use href="#s-frame" transform="translate(15.5 112.7) rotate(13.5) scale(1.2214) translate(-11.000 -11.000)"/>
+<use href="#s-frame" transform="translate(695.5 112.7) rotate(13.5) scale(1.2214) translate(-11.000 -11.000)"/>
+<use href="#s-star" transform="translate(112.6 190.7) rotate(21.5) scale(1.3775) translate(-10.000 -9.500)"/>
+<use href="#s-flask" transform="translate(401.8 585.4) rotate(23.6) scale(1.3072) translate(-9.500 -11.000)"/>
+<use href="#s-dot" transform="translate(41.4 611.4) rotate(14.7) scale(1.6613) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(385.5 286.7) rotate(-14.1) scale(0.9274) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(480.8 371.1) rotate(1.2) scale(0.9606) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(302.1 597.6) rotate(9.6) scale(1.1684) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(315.0 313.9) rotate(26.9) scale(1.2018) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(349.6 379.1) rotate(27.7) scale(2.1728) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(62.6 594.7) rotate(20.6) scale(0.9961) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(548.1 93.0) rotate(-25.1) scale(1.0890) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(313.2 207.6) rotate(-1.2) scale(1.2449) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(233.3 172.8) rotate(-29.9) scale(1.8694) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(339.2 -9.8) rotate(8.9) scale(2.3041) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(339.2 670.2) rotate(8.9) scale(2.3041) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(16.9 448.9) rotate(-13.7) scale(1.0571) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(696.9 448.9) rotate(-13.7) scale(1.0571) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(116.7 651.9) rotate(11.9) scale(1.1166) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(575.2 292.3) rotate(-11.0) scale(2.0733) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(599.4 223.5) rotate(-5.0) scale(1.9438) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(275.3 283.1) rotate(26.3) scale(2.0656) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(625.0 374.6) rotate(4.5) scale(2.1017) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(644.6 284.6) rotate(16.3) scale(1.0422) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(571.2 197.2) rotate(28.5) scale(2.0672) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(369.3 53.2) rotate(-19.3) scale(1.5970) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(100.3 363.6) rotate(22.9) scale(1.0677) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(297.3 628.9) rotate(13.4) scale(0.9415) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(492.8 140.2) rotate(16.3) scale(2.1673) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(6.3 1.8) rotate(27.3) scale(2.0883) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(6.3 681.8) rotate(27.3) scale(2.0883) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(686.3 1.8) rotate(27.3) scale(2.0883) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(686.3 681.8) rotate(27.3) scale(2.0883) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(463.0 302.2) rotate(12.0) scale(1.7493) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(353.0 407.2) rotate(25.4) scale(1.9540) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(528.6 132.0) rotate(-7.5) scale(1.7158) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(27.0 427.1) rotate(-13.1) scale(1.0017) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(117.6 83.7) rotate(18.0) scale(1.2877) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(385.5 262.2) rotate(-27.7) scale(0.9849) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(627.1 151.7) rotate(-5.9) scale(1.1330) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(315.8 354.1) rotate(11.4) scale(1.1911) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(11.7 264.1) rotate(-6.5) scale(1.1247) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(691.7 264.1) rotate(-6.5) scale(1.1247) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(66.7 83.2) rotate(-2.2) scale(1.9381) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(77.6 572.6) rotate(-10.0) scale(1.3250) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(548.7 514.4) rotate(23.5) scale(1.5917) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(459.4 390.7) rotate(12.3) scale(1.7970) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(209.8 260.2) rotate(-4.1) scale(2.0498) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(225.2 356.6) rotate(17.2) scale(1.1503) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(549.4 308.0) rotate(-1.4) scale(1.8775) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(391.6 134.8) rotate(24.5) scale(0.8948) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(13.4 220.4) rotate(4.1) scale(1.7362) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(693.4 220.4) rotate(4.1) scale(1.7362) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(385.9 238.0) rotate(-14.7) scale(1.0498) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(408.6 308.4) rotate(2.8) scale(0.8840) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(-6.8 284.0) rotate(13.9) scale(1.1496) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(673.2 284.0) rotate(13.9) scale(1.1496) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(77.0 283.3) rotate(27.5) scale(1.2604) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(434.6 583.5) rotate(-17.7) scale(1.1137) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(274.2 497.9) rotate(5.1) scale(1.0462) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(180.5 543.4) rotate(-12.4) scale(0.9680) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(648.2 530.4) rotate(20.7) scale(0.9759) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(553.5 350.9) rotate(-9.1) scale(1.0581) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(448.0 656.1) rotate(19.8) scale(0.9175) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(237.0 279.3) rotate(3.1) scale(1.7701) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(224.1 89.8) rotate(-2.3) scale(0.9963) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(473.1 563.8) rotate(6.6) scale(1.6488) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(340.0 525.7) rotate(-14.4) scale(0.8946) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(102.0 270.2) rotate(-23.4) scale(0.8607) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(112.0 383.0) rotate(15.9) scale(0.8237) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(521.4 289.2) rotate(-28.0) scale(0.6048) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(160.2 324.3) rotate(-0.9) scale(0.8477) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(307.9 288.7) rotate(14.2) scale(0.6502) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(537.2 111.4) rotate(2.5) scale(0.6895) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(136.5 63.7) rotate(-16.0) scale(0.7563) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(334.1 578.4) rotate(-29.0) scale(1.3441) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(337.7 438.7) rotate(-22.4) scale(1.2994) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(494.3 469.0) rotate(-18.0) scale(0.7415) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(377.0 522.6) rotate(14.1) scale(0.5918) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(241.9 139.4) rotate(-21.8) scale(0.6182) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(614.5 530.8) rotate(9.3) scale(0.7234) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(205.4 -1.2) rotate(-17.3) scale(1.1785) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(205.4 678.8) rotate(-17.3) scale(1.1785) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(255.3 561.5) rotate(-20.0) scale(0.6199) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(518.4 -5.3) rotate(2.9) scale(0.6541) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(518.4 674.7) rotate(2.9) scale(0.6541) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(611.3 656.5) rotate(-25.3) scale(0.8132) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(323.0 84.2) rotate(-7.0) scale(1.2810) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(304.8 178.9) rotate(-12.0) scale(0.7517) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(271.8 41.2) rotate(23.6) scale(0.8262) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(142.4 600.2) rotate(-22.9) scale(1.1931) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(458.5 115.7) rotate(-4.4) scale(0.6304) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(537.6 70.7) rotate(20.0) scale(0.7456) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(45.1 97.1) rotate(1.5) scale(0.6391) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(656.0 379.4) rotate(13.4) scale(0.5963) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(357.7 431.5) rotate(-19.2) scale(0.6574) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(439.4 215.4) rotate(-20.8) scale(0.6270) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(320.0 109.0) rotate(-28.8) scale(1.2063) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(176.6 648.7) rotate(26.8) scale(0.7795) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(102.8 -5.3) rotate(28.0) scale(0.6599) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(102.8 674.7) rotate(28.0) scale(0.6599) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(139.7 487.8) rotate(25.4) scale(1.4809) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(341.5 135.6) rotate(-0.4) scale(0.7633) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(95.4 94.9) rotate(-10.7) scale(1.2214) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(334.2 300.3) rotate(-21.2) scale(0.7890) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(141.2 508.6) rotate(27.0) scale(1.3101) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(625.1 305.3) rotate(-6.0) scale(0.6063) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(25.4 624.2) rotate(9.2) scale(1.3801) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(202.4 359.4) rotate(6.6) scale(0.6147) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(35.7 513.0) rotate(16.9) scale(0.8290) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(505.4 490.2) rotate(-13.6) scale(0.7011) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(373.9 372.4) rotate(1.4) scale(1.0813) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(122.6 154.6) rotate(24.5) scale(1.2776) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(607.2 245.9) rotate(-10.9) scale(0.8096) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(58.0 183.2) rotate(1.2) scale(0.7299) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(204.0 463.2) rotate(-22.9) scale(0.5785) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(155.7 300.6) rotate(-9.3) scale(1.5288) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(113.2 401.2) rotate(-17.3) scale(0.7551) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(295.9 261.0) rotate(11.7) scale(0.8104) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(558.3 428.0) rotate(9.5) scale(1.1874) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(616.2 452.2) rotate(-17.7) scale(0.7268) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(475.8 125.2) rotate(21.8) scale(0.6965) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(556.1 578.3) rotate(-11.7) scale(1.1792) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(391.1 517.1) rotate(15.7) scale(1.1733) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(213.8 175.9) rotate(-0.0) scale(1.1709) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(400.9 118.1) rotate(19.8) scale(0.7920) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(639.6 513.5) rotate(-5.4) scale(0.6714) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(616.2 134.0) rotate(11.1) scale(0.6942) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(13.2 604.9) rotate(-17.4) scale(0.6025) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(693.2 604.9) rotate(-17.4) scale(0.6025) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(293.1 297.1) rotate(1.8) scale(1.3559) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(371.8 136.6) rotate(20.1) scale(1.0952) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(498.2 243.3) rotate(-16.3) scale(0.8451) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(429.3 663.7) rotate(-16.7) scale(0.6467) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(317.6 496.5) rotate(-23.5) scale(1.4968) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(630.8 463.6) rotate(-24.3) scale(1.3146) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(51.0 21.8) rotate(0.7) scale(1.2419) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(588.9 33.8) rotate(7.4) scale(0.7999) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(316.4 650.7) rotate(-0.6) scale(0.7406) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(29.1 10.4) rotate(3.2) scale(1.4030) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(29.1 690.4) rotate(3.2) scale(1.4030) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(315.6 164.8) rotate(3.6) scale(1.0931) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(562.8 104.7) rotate(22.0) scale(0.5745) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(20.2 244.8) rotate(-3.4) scale(0.6569) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(68.5 614.8) rotate(15.2) scale(0.6857) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(232.1 567.9) rotate(-16.1) scale(1.0222) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(437.1 42.6) rotate(8.4) scale(0.6359) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(658.7 590.8) rotate(18.3) scale(0.6790) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(441.7 396.6) rotate(-8.8) scale(0.6276) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(446.8 475.0) rotate(25.7) scale(0.6509) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(375.4 221.0) rotate(19.5) scale(0.6550) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(353.5 7.5) rotate(-8.5) scale(0.6822) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(353.5 687.5) rotate(-8.5) scale(0.6822) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(328.3 510.6) rotate(4.7) scale(1.2476) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(502.4 658.6) rotate(5.7) scale(1.3907) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(319.7 584.5) rotate(24.3) scale(0.5759) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(548.0 330.2) rotate(-26.1) scale(1.3883) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(250.8 295.1) rotate(-10.7) scale(0.6390) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(91.2 176.3) rotate(24.7) scale(1.0443) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(317.8 -4.1) rotate(-23.9) scale(0.5886) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(317.8 675.9) rotate(-23.9) scale(0.5886) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(15.4 661.4) rotate(21.0) scale(1.1126) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(599.9 108.6) rotate(-20.4) scale(0.7835) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(403.4 289.0) rotate(16.3) scale(0.5856) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(565.2 503.8) rotate(-0.9) scale(0.6957) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(372.9 659.2) rotate(-7.1) scale(1.1364) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(480.3 296.4) rotate(-19.8) scale(0.6050) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(455.5 572.5) rotate(4.6) scale(0.5997) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(262.2 382.3) rotate(10.6) scale(0.6661) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(389.1 369.4) rotate(-9.9) scale(0.6940) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(391.0 61.4) rotate(-0.2) scale(1.4721) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(193.8 172.0) rotate(4.7) scale(1.1387) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(9.7 294.8) rotate(-10.4) scale(1.0286) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(689.7 294.8) rotate(-10.4) scale(1.0286) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(330.8 368.1) rotate(-3.9) scale(1.0626) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(468.1 64.1) rotate(-3.7) scale(0.7730) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(520.4 54.9) rotate(18.7) scale(0.6979) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(382.4 648.0) rotate(-24.2) scale(0.6374) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(405.2 497.6) rotate(-17.2) scale(0.6271) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(428.1 301.9) rotate(20.4) scale(0.5378) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(116.7 -9.5) rotate(9.8) scale(0.5054) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(116.7 670.5) rotate(9.8) scale(0.5054) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(47.3 172.3) rotate(9.3) scale(0.3596) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(245.7 185.1) rotate(12.5) scale(0.8611) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(397.0 157.9) rotate(-29.3) scale(0.5400) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(299.3 246.9) rotate(-14.3) scale(0.4500) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(364.9 669.1) rotate(25.2) scale(0.4742) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(370.2 433.8) rotate(-6.8) scale(0.3607) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(401.7 184.8) rotate(20.2) scale(0.5072) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(479.2 190.4) rotate(27.3) scale(0.3737) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(577.8 107.4) rotate(-2.5) scale(0.7204) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(206.1 235.7) rotate(23.2) scale(0.5471) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(538.8 292.3) rotate(-7.5) scale(0.8499) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(22.9 407.0) rotate(21.5) scale(0.4404) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(617.2 220.7) rotate(5.6) scale(0.4877) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(501.9 219.8) rotate(-6.1) scale(0.6718) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(73.9 183.9) rotate(15.9) scale(0.5192) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(630.3 527.9) rotate(-9.4) scale(0.5586) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(327.3 339.0) rotate(29.0) scale(0.4466) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(242.3 124.0) rotate(2.6) scale(0.4572) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(213.9 431.9) rotate(6.4) scale(0.4047) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(553.4 669.3) rotate(20.4) scale(0.7554) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(49.1 523.4) rotate(0.7) scale(0.5469) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(203.8 93.1) rotate(-13.4) scale(0.5596) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(317.4 335.1) rotate(-13.0) scale(0.4801) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(298.1 497.3) rotate(-14.1) scale(0.5206) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(146.9 55.7) rotate(8.6) scale(0.3714) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(367.8 283.9) rotate(7.7) scale(0.3849) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(546.2 614.5) rotate(12.1) scale(0.3807) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(623.9 601.4) rotate(-6.0) scale(0.8221) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(542.2 569.3) rotate(-17.0) scale(0.9039) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(504.6 575.1) rotate(-20.1) scale(0.9169) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(371.4 385.9) rotate(-14.7) scale(0.4745) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(186.7 628.6) rotate(7.8) scale(0.4848) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(127.1 637.5) rotate(18.6) scale(0.3988) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(221.8 0.9) rotate(13.8) scale(0.9755) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(221.8 680.9) rotate(13.8) scale(0.9755) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(115.0 219.7) rotate(-8.4) scale(0.5332) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(21.7 639.7) rotate(7.7) scale(0.5085) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(439.9 -4.3) rotate(27.7) scale(0.7488) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(439.9 675.7) rotate(27.7) scale(0.7488) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(660.2 541.5) rotate(0.3) scale(0.4409) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(325.4 449.0) rotate(14.1) scale(0.8556) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(293.2 278.0) rotate(-20.2) scale(0.7800) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(428.1 443.5) rotate(5.0) scale(0.3830) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(515.3 142.3) rotate(15.2) scale(0.4890) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(-8.2 380.0) rotate(-24.3) scale(0.8097) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(671.8 380.0) rotate(-24.3) scale(0.8097) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(304.8 642.3) rotate(7.6) scale(0.4134) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(0.6 598.7) rotate(-6.2) scale(0.4956) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(680.6 598.7) rotate(-6.2) scale(0.4956) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(148.5 588.4) rotate(-2.9) scale(0.7977) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(580.3 213.6) rotate(-17.7) scale(0.6860) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(501.6 455.3) rotate(18.9) scale(0.3696) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(238.2 154.8) rotate(14.5) scale(0.7287) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(251.7 500.6) rotate(6.9) scale(0.5580) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(651.8 201.5) rotate(-10.7) scale(0.3606) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(417.4 443.7) rotate(-26.5) scale(0.4333) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(108.0 106.9) rotate(10.8) scale(0.4734) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(46.2 83.6) rotate(-27.0) scale(0.6440) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(342.6 424.2) rotate(-27.2) scale(0.7497) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(134.5 650.6) rotate(26.7) scale(0.4179) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(219.4 490.7) rotate(-13.7) scale(0.4328) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(32.0 256.5) rotate(17.4) scale(0.4786) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(-10.0 12.4) rotate(-15.5) scale(0.5153) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(670.0 12.4) rotate(-15.5) scale(0.5153) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(62.8 301.0) rotate(-18.6) scale(0.7775) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(223.1 188.0) rotate(-4.4) scale(0.7510) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(199.1 534.1) rotate(-16.0) scale(0.5112) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(450.2 209.9) rotate(-22.7) scale(0.4104) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(552.9 199.7) rotate(23.2) scale(0.7687) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(241.0 637.5) rotate(22.6) scale(0.7906) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(296.4 195.5) rotate(18.2) scale(0.7086) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(643.0 370.8) rotate(-10.9) scale(0.4151) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(359.3 291.7) rotate(-29.9) scale(0.4798) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(643.3 142.7) rotate(25.8) scale(0.4647) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(106.6 167.1) rotate(-27.4) scale(0.4237) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(58.3 68.1) rotate(19.3) scale(0.7534) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(222.5 614.9) rotate(18.8) scale(0.4840) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(84.0 85.2) rotate(-13.5) scale(0.7238) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(104.6 254.9) rotate(-12.9) scale(0.3739) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(591.9 17.4) rotate(-25.6) scale(0.9308) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(41.6 375.4) rotate(-28.0) scale(0.4186) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(631.3 356.2) rotate(5.0) scale(0.4513) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(556.3 369.7) rotate(14.4) scale(0.5458) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(475.0 252.7) rotate(-5.7) scale(0.8137) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(42.0 188.1) rotate(18.7) scale(1.0132) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(239.2 299.1) rotate(-0.4) scale(0.3671) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(12.5 409.3) rotate(-10.6) scale(0.4017) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(398.3 449.3) rotate(2.2) scale(0.5718) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(470.2 285.2) rotate(-29.1) scale(0.9074) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(478.0 656.1) rotate(-9.0) scale(0.3777) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(349.3 294.7) rotate(-5.0) scale(0.3997) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(151.7 474.5) rotate(-23.9) scale(0.6618) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(115.9 354.1) rotate(-4.1) scale(0.5110) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(57.4 515.1) rotate(22.2) scale(0.4106) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(200.1 544.7) rotate(-1.3) scale(0.4284) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(436.4 601.8) rotate(-14.8) scale(0.4905) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(286.5 618.3) rotate(23.5) scale(0.3549) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(571.1 423.7) rotate(-12.5) scale(0.7929) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(609.7 -7.0) rotate(-14.5) scale(0.3745) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(609.7 673.0) rotate(-14.5) scale(0.3745) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(108.6 6.1) rotate(9.5) scale(0.7848) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(108.6 686.1) rotate(9.5) scale(0.7848) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(131.1 50.9) rotate(-13.1) scale(0.3752) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(444.7 306.2) rotate(-21.9) scale(0.8835) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(86.5 445.8) rotate(7.7) scale(0.3738) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(551.4 64.4) rotate(-16.1) scale(0.9986) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(28.5 312.5) rotate(-1.6) scale(0.9332) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(477.4 393.7) rotate(9.6) scale(0.5438) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(429.5 209.3) rotate(-25.0) scale(0.3669) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(207.2 82.5) rotate(22.4) scale(0.3826) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(136.9 201.1) rotate(-0.9) scale(0.9150) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(394.2 302.0) rotate(14.4) scale(0.8753) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(31.6 202.9) rotate(-22.8) scale(0.5225) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(289.5 31.3) rotate(-23.7) scale(0.4552) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(253.0 282.3) rotate(2.4) scale(0.3937) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(118.8 275.5) rotate(-6.1) scale(0.4194) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(301.5 235.2) rotate(-11.2) scale(0.4312) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(503.1 228.5) rotate(-29.8) scale(0.3886) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(571.1 362.4) rotate(17.3) scale(0.5316) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(258.7 415.3) rotate(6.7) scale(0.4862) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(534.3 505.3) rotate(-6.3) scale(0.4055) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(494.5 363.7) rotate(-24.0) scale(0.3628) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(261.8 396.1) rotate(-4.6) scale(0.3836) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(551.9 112.7) rotate(17.8) scale(0.7490) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(160.5 467.0) rotate(-10.1) scale(0.3615) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(98.9 639.6) rotate(-29.0) scale(0.4795) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(508.5 438.2) rotate(8.7) scale(0.4608) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(330.4 118.1) rotate(7.6) scale(0.4582) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(555.1 184.1) rotate(24.4) scale(0.6977) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(398.1 276.0) rotate(27.4) scale(0.4665) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(542.5 556.5) rotate(8.6) scale(0.3868) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(204.3 373.0) rotate(-18.6) scale(0.6858) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(263.6 515.6) rotate(-29.1) scale(0.4986) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(288.2 583.7) rotate(12.3) scale(0.4156) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(251.7 129.4) rotate(26.6) scale(0.3657) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(651.9 63.5) rotate(-8.1) scale(0.8752) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(473.0 512.5) rotate(21.8) scale(0.3945) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(514.0 281.0) rotate(-13.6) scale(0.6485) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(196.1 405.6) rotate(1.8) scale(0.8119) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(285.3 194.3) rotate(20.6) scale(0.5168) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(-7.5 123.2) rotate(23.2) scale(0.4241) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(672.5 123.2) rotate(23.2) scale(0.4241) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(23.8 358.5) rotate(8.5) scale(0.7574) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(553.5 291.5) rotate(0.6) scale(0.7829) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(413.2 126.2) rotate(27.2) scale(0.6984) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(594.8 575.0) rotate(11.5) scale(0.5515) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(94.3 4.3) rotate(-26.4) scale(0.4410) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(94.3 684.3) rotate(-26.4) scale(0.4410) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(124.2 169.2) rotate(10.1) scale(0.4374) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(33.0 445.0) rotate(-6.3) scale(0.6782) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(620.9 668.2) rotate(-20.2) scale(0.4885) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(281.5 444.4) rotate(10.1) scale(0.3695) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(511.0 131.1) rotate(20.8) scale(0.8669) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(608.6 422.7) rotate(26.6) scale(0.4758) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(586.8 186.6) rotate(-4.5) scale(0.4327) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(439.1 486.7) rotate(17.9) scale(0.4278) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(146.7 333.6) rotate(-6.5) scale(0.8552) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(476.3 354.9) rotate(12.9) scale(0.4717) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(154.3 421.6) rotate(1.4) scale(0.3912) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(141.9 287.6) rotate(29.6) scale(0.4046) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(140.3 78.9) rotate(11.3) scale(0.6770) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(189.3 344.3) rotate(13.8) scale(0.4545) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(513.8 41.2) rotate(-7.4) scale(0.4332) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(304.5 160.4) rotate(-27.5) scale(0.3629) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(99.4 572.5) rotate(7.5) scale(0.5382) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(592.9 251.5) rotate(-11.7) scale(0.4432) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(630.1 294.6) rotate(8.0) scale(0.3674) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(231.7 191.1) rotate(3.8) scale(0.6427) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(206.1 423.9) rotate(-18.8) scale(0.3615) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(107.8 157.3) rotate(29.6) scale(0.7264) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(303.5 276.9) rotate(12.3) scale(0.4362) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(320.0 294.8) rotate(1.6) scale(0.8405) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(667.0 530.7) rotate(-4.7) scale(0.5326) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(591.3 205.9) rotate(-17.4) scale(0.4429) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(376.2 586.6) rotate(-14.3) scale(0.4464) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(134.2 589.3) rotate(26.5) scale(0.4565) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(79.3 304.6) rotate(24.6) scale(0.4233) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(1.9 91.5) rotate(-0.7) scale(0.8449) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(681.9 91.5) rotate(-0.7) scale(0.8449) translate(-4.500 -4.500)"/>
+<use href="#s-dot" transform="translate(137.6 88.8) rotate(0.5) scale(0.7329) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(22.1 -7.9) rotate(-28.5) scale(0.3948) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(22.1 672.1) rotate(-28.5) scale(0.3948) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(617.7 66.2) rotate(10.9) scale(0.4469) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(333.9 214.2) rotate(4.4) scale(0.4129) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(637.3 480.7) rotate(9.8) scale(0.3632) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(258.2 38.3) rotate(-16.9) scale(0.6611) translate(-4.500 -4.500)"/>
+<use href="#s-sparkle" transform="translate(532.0 354.5) rotate(4.0) scale(0.4394) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(671.0 590.6) rotate(17.0) scale(0.3740) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(408.3 134.2) rotate(27.5) scale(0.4183) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(208.3 347.9) rotate(25.4) scale(0.4787) translate(-8.000 -8.000)"/>
+<use href="#s-dot" transform="translate(199.8 244.5) rotate(27.4) scale(0.6678) translate(-4.500 -4.500)"/>
+<use href="#s-ring" transform="translate(607.1 121.6) rotate(-20.6) scale(0.3963) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(46.2 596.5) rotate(-7.9) scale(0.3845) translate(-8.000 -8.000)"/>
+<use href="#s-sparkle" transform="translate(466.0 657.1) rotate(29.5) scale(0.5009) translate(-8.000 -8.000)"/>
+<use href="#s-ring" transform="translate(294.8 209.1) rotate(-14.8) scale(0.3795) translate(-8.000 -8.000)"/>
+</g>
+</svg>

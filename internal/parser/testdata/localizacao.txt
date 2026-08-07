@@ -1,0 +1,6 @@
+26/07/2026 14:32 - Vitor: location: https://maps.google.com/?q=-23.55,-46.63
+26/07/2026 14:33 - Ana: ubicación: https://maps.google.com/?q=-23.55,-46.63
+26/07/2026 14:34 - Bruno: posizione: https://maps.google.com/?q=-23.55,-46.63
+26/07/2026 14:35 - Carla: position: https://maps.google.com/?q=-23.55,-46.63
+26/07/2026 14:36 - Dieter: standort: https://maps.google.com/?q=-23.55,-46.63
+26/07/2026 14:38 - Femke: locatie: https://maps.google.com/?q=-23.55,-46.63

@@ -1,0 +1,7 @@
+{{define "header-oob"}}
+<span id="name-conversation-current" class="name-conversation" hx-swap-oob="true">{{.Chat.Name}}</span>
+<span id="avatar-header" class="avatar{{if not .Chat.AvatarPath}} {{avatarClass .Chat.Name}}{{end}}"
+      hx-swap-oob="true">
+  {{template "avatar-core" .Chat}}
+</span>
+{{end}}

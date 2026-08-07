@@ -1,0 +1,55 @@
+{{/* Same picker in two shells: the right panel when it was opened from the profile, the
+     members dialog when it was opened from there — closing the dialog to show a panel
+     behind it loses the user's place. Target and back link are what differ. */}}
+{{define "photo-candidates"}}
+<div class="box-search" x-data="{ q: false }" x-init="q = !!$refs.field.value">
+  <span class="icon-search">{{template "icon-search"}}</span>
+  <input type="search" class="field-search" name="q" autocomplete="off" autofocus
+         placeholder="{{t "profile.link_photo_search"}}" value="{{.Term}}" x-ref="field"
+         @input="q = !!$event.target.value"
+         hx-get="/chats/{{.Chat.ID}}/participante/foto?sender={{.Sender | urlquery}}&from={{.From}}&mq={{.MembersTerm | urlquery}}"
+         hx-trigger="input changed delay:300ms, search"
+         hx-target="{{.Target}}">
+  <button type="button" class="button-clear-search" x-show="q" x-cloak title="{{t "action.clear"}}"
+          @click="$refs.field.value = ''; q = false; $refs.field.dispatchEvent(new Event('search'))">
+    {{template "icon-close"}}
+  </button>
+</div>
+
+<p class="hint-senders">{{t "profile.link_photo_hint" .Sender}}</p>
+
+<div class="list-senders">
+  {{range .Candidates}}
+  <button type="button" class="item-sender"
+          hx-post="/chats/{{$.Chat.ID}}/participante/foto?sender={{$.Sender | urlquery}}&chat_id={{.ID}}&from={{$.From}}&mq={{$.MembersTerm | urlquery}}"
+          hx-target="{{$.Target}}">
+    <span class="avatar avatar-sender {{avatarClass .Name}}">{{template "avatar-core" .}}</span>
+    <span class="name-sender">{{.Name}}</span>
+  </button>
+  {{else}}
+  <p class="list-empty">{{t "profile.link_photo_empty"}}</p>
+  {{end}}
+</div>
+{{end}}
+
+{{if .FromModal}}
+<div class="overlay-modal" x-data @click.self="document.getElementById('modal').innerHTML = ''"
+     @keydown.escape.window="document.getElementById('modal').innerHTML = ''">
+  <div class="dialog-members">
+    <div class="header-dialog">
+      <button type="button" class="button-close-profile" title="{{t "action.back"}}"
+              hx-get="/chats/{{.Chat.ID}}/membros?q={{.MembersTerm | urlquery}}" hx-target="#modal">{{template "icon-back"}}</button>
+      <h2>{{t "profile.link_photo"}}</h2>
+    </div>
+    {{template "photo-candidates" .}}
+  </div>
+</div>
+{{else}}
+<div class="panel-profile">
+  <div class="header-search">
+    <button type="button" class="button-close-profile" title="{{t "action.back"}}"
+            hx-get="/chats/{{.Chat.ID}}/perfil" hx-target="#right-panel">{{template "icon-back"}}</button>
+  </div>
+  {{template "photo-candidates" .}}
+</div>
+{{end}}

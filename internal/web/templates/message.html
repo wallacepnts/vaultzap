@@ -1,0 +1,128 @@
+{{define "gutter-avatar"}}
+{{if and .IsGroup (not .Mine)}}
+  {{if .FirstInBlock}}
+  <span class="avatar avatar-message {{if not .AvatarURL}}{{.SenderClass}}{{end}}">
+    {{if .AvatarURL}}<img class="avatar-photo" src="{{.AvatarURL}}" alt="">{{else}}{{initials .SenderName}}{{end}}
+  </span>
+  {{else}}
+  <span class="avatar-gutter"></span>
+  {{end}}
+{{end}}
+{{end}}
+
+{{if eq .Kind "system"}}
+<div class="message-system"><span>{{.Body}}</span></div>
+{{else if eq .AttachmentMediaKind "sticker"}}
+{{if .StickerRunStart}}
+<div class="row-stickers{{if .Mine}} row-stickers--mine{{end}}{{if .FirstInBlock}} row-new-block{{end}}">
+{{template "gutter-avatar" .}}
+<div class="run-stickers{{if .IsGroup}} run-stickers--bubble{{end}}{{if .Mine}} run-stickers--mine{{end}}">
+{{end}}
+{{/* Direct child of the strip, not of the sticker's own row: the header spans the whole
+     bubble and the stickers wrap below it. */}}
+{{if .ShowSenderName}}
+{{/* The outer span is the full-width line that pushes the stickers below; the inner one is
+     the pill, which hugs its text. flex-basis on the pill itself would stretch it. */}}
+<span class="line-header-sticker">
+  <span class="header-sticker">
+    <span class="name-sender {{.SenderClass}}">{{.SenderName}}</span>
+    {{if .SenderRenamed}}<span class="number-sender">{{.Sender}}</span>{{end}}
+  </span>
+</span>
+{{end}}
+<div class="row-bubble row-bubble--sticker{{if .Mine}} row-bubble--mine{{end}}{{if .Highlighted}} row-highlighted{{end}}">
+  {{/* The wrapper is what the chevron anchors to: the row spans the whole
+       conversation width, so without it the top-right corner would be far
+       from the sticker itself.
+       O wrapper é a âncora do chevron: a row ocupa a largura toda da
+       conversa, então sem ele o canto superior direito cairia longe da
+       própria figurinha. */}}
+  <span class="wrap-sticker">
+    <img class="sticker" src="/media/{{.AttachmentID}}" loading="lazy" alt="{{t "message.sticker"}}">
+  </span>
+  {{/* Sibling of the image, not child: the time follows the column's width, so a lone
+       sticker puts it at the bubble's right edge. */}}
+  {{template "message-actions" (messageActions .ChatID .ID .Favorite .Pinned .ShortTime "meta-sticker")}}
+</div>
+{{if .StickerRunEnd}}</div></div>{{end}}
+{{else}}
+<div class="row-bubble{{if .Mine}} row-bubble--mine{{end}}{{if .FirstInBlock}} row-new-block{{end}}{{if .Highlighted}} row-highlighted{{end}}">
+  {{template "gutter-avatar" .}}
+  <div class="bubble{{if .FirstInBlock}} bubble--tail{{else}} bubble--compact{{end}}{{if .AttachmentID}} bubble--media{{end}}" data-kind="{{.Kind}}">
+    {{if .ShowSenderName}}
+    <span class="header-bubble">
+      <span class="name-sender {{.SenderClass}}">{{.SenderName}}</span>
+      {{if .SenderRenamed}}<span class="number-sender">{{.Sender}}</span>{{end}}
+    </span>
+    {{end}}
+
+    {{if not .AttachmentID}}
+    <span class="body-bubble{{if isOnlyEmoji .Body}} body-bubble--emoji{{end}}">{{format .Body}}</span>
+
+    {{else if eq .AttachmentMediaKind "image"}}
+    <img class="media-image media-lightbox" src="/media/{{.AttachmentID}}" loading="lazy"
+         {{if .AttachmentWidth}}width="{{.AttachmentWidth}}"{{end}} {{if .AttachmentHeight}}height="{{.AttachmentHeight}}"{{end}}
+         alt="{{t "message.image"}}"
+         data-sender="{{if .Mine}}{{t "message.you"}}{{else if .Sender}}{{.Sender}}{{end}}"
+         data-when="{{dateTimeDisplay .SentAt}}"
+         @click="$dispatch('open-lightbox', { src: '/media/{{.AttachmentID}}' })">
+
+    {{else if eq .AttachmentMediaKind "gif"}}
+    <video class="media-image media-lightbox" src="/media/{{.AttachmentID}}" autoplay loop muted playsinline
+           data-sender="{{if .Mine}}{{t "message.you"}}{{else if .Sender}}{{.Sender}}{{end}}"
+           data-when="{{dateTimeDisplay .SentAt}}"
+           @click="$dispatch('open-lightbox', { src: '/media/{{.AttachmentID}}' })"></video>
+
+    {{else if eq .AttachmentMediaKind "video"}}
+    <video class="media-video" controls preload="metadata" src="/media/{{.AttachmentID}}"></video>
+
+    {{else if or (eq .AttachmentMediaKind "audio") (eq .AttachmentMediaKind "voice")}}
+    <div class="audio-voice" x-data="audioVoice()">
+      <audio x-ref="audio" preload="metadata" src="/media/{{.AttachmentID}}"
+             @loadedmetadata="duration = $refs.audio.duration"
+             @timeupdate="position = $refs.audio.currentTime"
+             @ended="playing = false"
+             @pause="playing = false"></audio>
+      <button type="button" class="audio-voice-play"
+              @click="playing ? pause() : play()" :aria-label="playing ? '{{t "gallery.pause"}}' : '{{t "gallery.play_audio"}}'">
+        <span class="icon-audio-play" x-show="!playing">{{template "icon-play" .}}</span>
+        <span x-show="playing" x-cloak>{{template "icon-pause" .}}</span>
+      </button>
+      <div class="audio-voice-body">
+        <div class="audio-voice-waveform" @click="seek($event)">
+          {{template "audio-waveform" .}}
+          <div class="audio-voice-waveform-progress" :style="'clip-path: inset(0 ' + (100 - progress) + '% 0 0)'">{{template "audio-waveform" .}}</div>
+          <div class="audio-voice-waveform-dot" :style="'left:' + progress + '%'"></div>
+        </div>
+        <div class="audio-voice-times">
+          <span x-text="currentTime"></span>
+          <span>{{.ShortTime}}</span>
+        </div>
+      </div>
+      {{if .SenderName}}
+      <div class="audio-voice-avatar-wrap" x-show="!playing">
+        <span class="avatar audio-voice-avatar{{if not .AvatarURL}} {{avatarClass .SenderName}}{{end}}">
+          {{if .AvatarURL}}
+          <img class="avatar-photo" src="{{.AvatarURL}}" alt="">
+          {{else}}
+          {{initials .SenderName}}
+          {{end}}
+        </span>
+        <span class="audio-voice-badge-mic">{{template "icon-microphone" .}}</span>
+      </div>
+      <button type="button" class="audio-voice-speed" x-show="playing" x-cloak
+              @click="cycleSpeed()" x-text="displayedSpeed"></button>
+      {{end}}
+    </div>
+
+    {{else}}
+    <a class="media-document" href="/media/{{.AttachmentID}}" download="{{.AttachmentName}}">
+      <span class="media-document-icon">📄</span>
+      <span class="media-document-name">{{.AttachmentName}}</span>
+    </a>
+    {{end}}
+
+    {{template "message-actions" (messageActions .ChatID .ID .Favorite .Pinned .ShortTime "meta-bubble")}}
+  </div>
+</div>
+{{end}}

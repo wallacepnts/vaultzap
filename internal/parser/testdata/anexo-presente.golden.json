@@ -1,0 +1,35 @@
+{
+  "source": "android",
+  "date_order": "DMY",
+  "is_group": false,
+  "messages": [
+    {
+      "sent_at": "2026-07-26 14:32:00",
+      "seq": 1,
+      "sender": "Vitor",
+      "body": "IMG-20260726-WA0001.jpg (arquivo anexado)",
+      "kind": "media",
+      "attachment_name": "IMG-20260726-WA0001.jpg",
+      "media_kind": "image"
+    },
+    {
+      "sent_at": "2026-07-26 14:33:00",
+      "seq": 2,
+      "sender": "Vitor",
+      "body": "VID-20260726-WA0002.mp4 (arquivo anexado)",
+      "kind": "media",
+      "attachment_name": "VID-20260726-WA0002.mp4",
+      "media_kind": "video"
+    },
+    {
+      "sent_at": "2026-07-26 14:34:00",
+      "seq": 3,
+      "sender": "Vitor",
+      "body": "PTT-20260726-WA0003.opus (arquivo anexado)",
+      "kind": "media",
+      "attachment_name": "PTT-20260726-WA0003.opus",
+      "media_kind": "voice"
+    }
+  ],
+  "warnings": null
+}

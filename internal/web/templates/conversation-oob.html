@@ -1,0 +1,6 @@
+{{/* Whole conversation as an OOB fragment, used by handlers that refresh
+     #conversation from a request whose hx-target is elsewhere (right panel).
+     Conversa inteira como fragmento OOB, usado por handlers que atualizam
+     #conversation a partir de um request cujo hx-target é outro (painel
+     direito). */}}
+{{define "conversation-oob"}}<main id="conversation" hx-swap-oob="true">{{template "conversation.html" .}}</main>{{end}}

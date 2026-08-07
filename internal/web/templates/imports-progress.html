@@ -1,0 +1,37 @@
+{{/* The bar polls THIS route, which reads memory only. Going through /imports would
+     block: the import holds the single DB connection for the whole transaction, and a
+     poll issued at the start of the message phase only answered after the commit —
+     measured at 123s on a 6.7 GiB export. */}}
+{{define "import-progress-bar"}}
+<div class="running-import"
+     hx-get="/imports/progress" hx-trigger="every 2s" hx-target="this" hx-swap="outerHTML">
+  <div class="running-import-row">
+    <span class="running-import-file">{{if .Scanning}}{{.Phase}}{{else}}{{.File}}{{end}}</span>
+    <span class="running-import-elapsed">{{.Elapsed}}</span>
+  </div>
+  {{if .Scanning}}
+  <div class="bar-import bar-import--indeterminate"><div class="bar-import-fill"></div></div>
+  {{else}}
+  <div class="bar-import"><div class="bar-import-fill" style="width: {{.Percent}}%"></div></div>
+  <div class="running-import-row">
+    <span>{{.Phase}}</span>
+    <span class="running-import-detail">{{.Detail}} · {{.Percent}}%</span>
+  </div>
+  {{end}}
+</div>
+{{end}}
+
+{{if .Importing}}
+{{template "import-progress-bar" .Running}}
+{{else}}
+{{/* Nothing running any more: one last load to bring the list back with the new items, and
+     the polling ends with this element being replaced. */}}
+{{/* Targets the imports page itself, not #conversation: a reload still in flight when the
+     user clicks away would otherwise drop the imports page over whatever they opened. With
+     this target the element is simply gone and htmx swaps nothing. */}}
+<div hx-get="/imports" hx-trigger="load" hx-target="#imports-page" hx-swap="outerHTML"></div>
+{{/* And the sidebar, so a conversation that just came in shows up without a reload. The
+     data attribute makes app.js swap in the last chat-list URL, keeping the active chip
+     or search term. */}}
+<div hx-get="/chats" hx-trigger="load" hx-target="#list-chats" data-restore-chat-list="1"></div>
+{{end}}

@@ -1,0 +1,13 @@
+# Vendored assets with a fixed version in the file name. Never reference a
+# CDN at runtime. To update, download the new version, recompute the sha256,
+# and update this list and the references in the HTML.
+#
+# Assets vendorizados com versão fixa no nome do arquivo. Nunca referenciar
+# CDN em runtime. Ao atualizar, baixe a nova versão, recalcule o sha256 e
+# atualize esta lista e as referências no HTML.
+
+htmx-2.0.10.min.js      sha256:71ea67185bfa8c98c39d31717c6fce5d852370fcdfd129db4543774d3145c0de
+  origem: https://unpkg.com/htmx.org@2.0.10/dist/htmx.min.js
+
+alpine-3.15.12.min.js   sha256:57b37d7cae9a27d965fdae4adcc844245dfdc407e655aee85dcfff3a08036a3f
+  origem: https://unpkg.com/alpinejs@3.15.12/dist/cdn.min.js

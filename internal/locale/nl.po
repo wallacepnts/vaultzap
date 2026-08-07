@@ -1,0 +1,637 @@
+# VaultZap — UI text catalog. msgid is the key used in templates via
+# {{t "key"}}, not source text — see internal/locale/locale.go.
+# Catálogo de texto da UI. msgid é a chave usada nos templates via
+# {{t "chave"}}, não o texto de origem — ver internal/locale/locale.go.
+#
+# Nederlands, melhor esforço — sem falante nativo nem export real para
+# conferir, mesma ressalva de es/it/fr/de/pt.
+
+msgid "me.title"
+msgstr "Je profiel"
+
+msgid "me.no_name"
+msgstr "Geen naam ingesteld"
+
+msgid "me.name_label"
+msgstr "Je naam in de export"
+
+msgid "me.name_placeholder"
+msgstr "Hoe je in gesprekken verschijnt"
+
+msgid "me.help"
+msgstr "De afzender die als jou geldt in gesprekken zonder gekozen eigenaar."
+
+msgid "me.from_env"
+msgstr "Komt van VAULTZAP_ME."
+
+msgid "rail.label"
+msgstr "Navigatiebalk"
+
+msgid "sidebar.all_media"
+msgstr "Media uit alle gesprekken"
+
+msgid "sidebar.my_photo"
+msgstr "Je foto"
+
+msgid "sidebar.watched_folder"
+msgstr "Gevolgde map"
+
+msgid "sidebar.toggle_theme"
+msgstr "Thema wisselen"
+
+msgid "sidebar.language_title"
+msgstr "Taal: %s"
+
+msgid "sidebar.search_chat"
+msgstr "Gesprek zoeken"
+
+msgid "chats.archived"
+msgstr "Gearchiveerd"
+
+msgid "chats.all"
+msgstr "Alles"
+
+msgid "chats.favorites"
+msgstr "Favorieten"
+
+msgid "chats.groups"
+msgstr "Groepen"
+
+msgid "chats.delete_list_title"
+msgstr "Lijst %s verwijderen"
+
+msgid "chats.delete_list_confirm"
+msgstr "Lijst %s verwijderen? De gesprekken erin blijven bestaan."
+
+msgid "chats.new_list"
+msgstr "Nieuwe lijst"
+
+msgid "chats.more_lists"
+msgstr "Meer lijsten"
+
+msgid "chats.list_name"
+msgstr "Naam van de lijst"
+
+msgid "action.create"
+msgstr "Aanmaken"
+
+msgid "chats.favorite"
+msgstr "Favoriet"
+
+msgid "chats.pinned"
+msgstr "Vastgezet"
+
+msgid "chats.more_options"
+msgstr "Meer opties"
+
+msgid "chats.unarchive"
+msgstr "Gesprek uit archief halen"
+
+msgid "chats.archive"
+msgstr "Gesprek archiveren"
+
+msgid "chats.unpin"
+msgstr "Losmaken"
+
+msgid "chats.pin"
+msgstr "Vastzetten"
+
+msgid "chats.remove_favorite"
+msgstr "Uit favorieten verwijderen"
+
+msgid "chats.add_favorite"
+msgstr "Aan favorieten toevoegen"
+
+msgid "chats.update_chat"
+msgstr "Gesprek bijwerken"
+
+msgid "chats.merge_chat"
+msgstr "Gesprek samenvoegen"
+
+msgid "chats.export_chat"
+msgstr "Gesprek exporteren"
+
+msgid "export.txt"
+msgstr "Tekst (.txt)"
+
+msgid "export.markdown"
+msgstr "Markdown (.md)"
+
+msgid "export.html"
+msgstr "HTML"
+
+msgid "export.print"
+msgstr "HTML om af te drukken / PDF"
+
+msgid "export.typst"
+msgstr "Typst (.typ)"
+
+msgid "chats.add_to_list"
+msgstr "Aan lijst toevoegen"
+
+msgid "chats.delete_confirm"
+msgstr "Gesprek %s verwijderen? De berichten en media verdwijnen voorgoed uit VaultZap. Het exportbestand in de invoermap wordt niet aangeraakt — je kunt het opnieuw importeren."
+
+msgid "chats.delete_chat"
+msgstr "Gesprek verwijderen"
+
+msgid "chats.empty_archived"
+msgstr "Geen gearchiveerde gesprekken."
+
+msgid "chats.empty_favorites"
+msgstr "Nog geen favoriete gesprekken."
+
+msgid "chats.empty_groups"
+msgstr "Nog geen groepen geïmporteerd."
+
+msgid "chats.empty_list"
+msgstr "Nog geen gesprekken in deze lijst."
+
+msgid "chats.empty_all"
+msgstr "Nog geen gesprekken geïmporteerd."
+
+msgid "conversation.contact_info"
+msgstr "Contactgegevens"
+
+msgid "conversation.group_info"
+msgstr "Groepsgegevens"
+
+msgid "conversation.total_messages"
+msgstr "%d berichten"
+
+msgid "conversation.search_here"
+msgstr "In dit gesprek zoeken"
+
+msgid "conversation.go_to_date"
+msgstr "Naar een datum gaan"
+
+msgid "conversation.view_media"
+msgstr "Media bekijken"
+
+msgid "conversation.which_is_you"
+msgstr "Wie van hen ben jij?"
+
+msgid "conversation.recent_message"
+msgstr "Naar het recentste bericht gaan"
+
+msgid "conversation.read_only"
+msgstr "Alleen-lezen bestand"
+
+msgid "conversation.select_prompt"
+msgstr "Selecteer een gesprek om te beginnen met lezen."
+
+msgid "conversation.epigraph"
+msgstr "Wie het verleden beheerst, beheerst de toekomst; wie het heden beheerst, beheerst het verleden."
+
+msgid "action.close"
+msgstr "Sluiten"
+
+msgid "action.clear"
+msgstr "Wissen"
+
+msgid "calendar.previous_month"
+msgstr "Vorige maand"
+
+msgid "calendar.month"
+msgstr "Maand"
+
+msgid "calendar.year"
+msgstr "Jaar"
+
+msgid "calendar.next_month"
+msgstr "Volgende maand"
+
+msgid "calendar.day_singular"
+msgstr "%d bericht"
+
+msgid "calendar.day_plural"
+msgstr "%d berichten"
+
+msgid "calendar.recent_month"
+msgstr "Naar de recentste maand gaan"
+
+msgid "calendar.help"
+msgstr "Klik op een dag om het gesprek op dat punt te openen."
+
+msgid "action.edit"
+msgstr "Bewerken"
+
+msgid "action.back"
+msgstr "Terug"
+
+msgid "action.save"
+msgstr "Opslaan"
+
+msgid "action.rename"
+msgstr "Naam wijzigen"
+
+msgid "profile.edit_group"
+msgstr "Groepsnaam bewerken"
+
+msgid "profile.edit_contact"
+msgstr "Contact bewerken"
+
+msgid "profile.show_photo"
+msgstr "Foto tonen"
+
+msgid "profile.upload_photo"
+msgstr "Foto uploaden"
+
+msgid "profile.remove_photo"
+msgstr "Foto verwijderen"
+
+msgid "profile.starred_messages"
+msgstr "Gemarkeerde berichten"
+
+msgid "profile.no_starred_messages"
+msgstr "Nog geen gemarkeerde berichten."
+
+msgid "profile.participants_title"
+msgstr "Deelnemers (%d)"
+
+msgid "profile.you"
+msgstr "Jij"
+
+msgid "profile.participant_photo"
+msgstr "Foto van deelnemer"
+
+msgid "profile.link_photo"
+msgstr "Foto van een ander gesprek gebruiken"
+
+msgid "profile.link_photo_search"
+msgstr "Gesprek met foto zoeken"
+
+msgid "profile.link_photo_hint"
+msgstr "Kies het gesprek waarvan de foto voor %s staat."
+
+msgid "profile.link_photo_empty"
+msgstr "Nog geen enkel gesprek heeft een foto."
+
+msgid "profile.see_all"
+msgstr "Alles bekijken (%d meer)"
+
+msgid "profile.search_members"
+msgstr "Leden zoeken"
+
+msgid "profile.search_contacts"
+msgstr "Contacten zoeken"
+
+msgid "profile.participants_help"
+msgstr "Laat de naam leeg om terug te gaan naar die van het export."
+
+msgid "profile.messages_per_page"
+msgstr "Berichten per pagina"
+
+msgid "profile.load"
+msgstr "Laden"
+
+msgid "profile.all"
+msgstr "Alles"
+
+msgid "profile.page_help"
+msgstr "Hoeveel berichten er in één keer laden, hier en bij het omhoog scrollen. Geldt alleen voor dit gesprek — een ander gesprek openen gaat terug naar 50. \"Alles\" is de %d van dit gesprek."
+
+msgid "profile.group_name"
+msgstr "Groepsnaam"
+
+msgid "profile.name"
+msgstr "Naam"
+
+msgid "profile.phone"
+msgstr "Telefoon"
+
+msgid "gallery.back"
+msgstr "Terug naar het gesprek"
+
+msgid "gallery.all_chats"
+msgstr "Media uit alle gesprekken"
+
+msgid "gallery.title"
+msgstr "Media — %s"
+
+msgid "gallery.tab_photos"
+msgstr "Foto's"
+
+msgid "gallery.tab_videos"
+msgstr "Video's"
+
+msgid "gallery.tab_stickers"
+msgstr "Stickers"
+
+msgid "gallery.tab_audio"
+msgstr "Audio"
+
+msgid "gallery.tab_documents"
+msgstr "Documenten"
+
+msgid "gallery.tab_links"
+msgstr "Links"
+
+msgid "gallery.empty_links"
+msgstr "Geen links in dit gesprek."
+
+msgid "gallery.empty_documents"
+msgstr "Geen documenten in dit gesprek."
+
+msgid "gallery.empty_audio"
+msgstr "Geen audio in dit gesprek."
+
+msgid "gallery.empty_tab"
+msgstr "Nog niets in dit tabblad."
+
+msgid "gallery.pause"
+msgstr "Pauzeren"
+
+msgid "gallery.play_audio"
+msgstr "Audio afspelen"
+
+msgid "message.star"
+msgstr "Bericht markeren"
+
+msgid "message.unstar"
+msgstr "Markering verwijderen"
+
+msgid "message.pin"
+msgstr "Bericht vastmaken"
+
+msgid "message.pin_replace"
+msgstr "Je hebt het maximale aantal vastgezette berichten bereikt. Het langst vastgezette bericht wordt vervangen."
+
+msgid "message.unpin"
+msgstr "Bericht losmaken"
+
+msgid "message.starred"
+msgstr "Gemarkeerd"
+
+msgid "message.pinned"
+msgstr "Vastgemaakt"
+
+msgid "message.sticker"
+msgstr "Sticker"
+
+msgid "message.image"
+msgstr "Afbeelding"
+
+msgid "message.you"
+msgstr "Jij"
+
+msgid "search.system"
+msgstr "Systeem"
+
+msgid "search.no_results"
+msgstr "Geen resultaten voor \"%s\"."
+
+msgid "merge.help"
+msgstr "Kies het gesprek dat met dit gesprek wordt samengevoegd. De berichten ervan worden hierheen verplaatst en het houdt op te bestaan."
+
+msgid "merge.search_placeholder"
+msgstr "Gesprek zoeken"
+
+msgid "merge.confirm"
+msgstr "Alles van \"%s\" samenvoegen met dit gesprek (\"%s\")? Het gesprek \"%s\" houdt op te bestaan; dubbele berichten worden genegeerd, niets wordt verdubbeld."
+
+msgid "merge.empty"
+msgstr "Geen gesprek gevonden."
+
+msgid "chats.group_singular"
+msgstr "groep"
+
+msgid "imports.items"
+msgstr "%d items"
+
+msgid "imports.scan_now"
+msgstr "Nu scannen"
+
+msgid "imports.count"
+msgstr "%d toegevoegd, %d overgeslagen"
+
+msgid "imports.warning_count"
+msgstr "%d waarschuwingen"
+
+msgid "imports.hide_details"
+msgstr "Details verbergen"
+
+msgid "imports.view_details"
+msgstr "Details tonen"
+
+msgid "imports.reimport"
+msgstr "Opnieuw importeren…"
+
+msgid "imports.added"
+msgstr "Toegevoegd"
+
+msgid "imports.added_note"
+msgstr "nieuwe berichten opgeslagen"
+
+msgid "imports.skipped"
+msgstr "Overgeslagen"
+
+msgid "imports.skipped_note"
+msgstr "stonden al in de collectie (zelfde datum, afzender en tekst) — hetzelfde export opnieuw importeren verdubbelt niets"
+
+msgid "imports.warnings"
+msgstr "Waarschuwingen"
+
+msgid "imports.warnings_note"
+msgstr "regels die de parser niet begreep; worden systeembericht met de ruwe tekst, niets wordt weggegooid"
+
+msgid "imports.finished"
+msgstr "Voltooid"
+
+msgid "imports.warning_lines"
+msgstr "Regels met waarschuwing"
+
+msgid "imports.fix_note_1"
+msgstr "Om te corrigeren: bewerk die regels in het exportbestand, zet het bestand terug in de invoermap en gebruik "
+
+msgid "imports.fix_note_2"
+msgstr " (of \"Gesprek bijwerken\" in het chatmenu). Berichten die al binnen zijn, worden niet verdubbeld."
+
+msgid "coherence.title"
+msgstr "Coherentiecontrole"
+
+msgid "coherence.clean"
+msgstr "Niets wijkt af van wat WhatsApp schrijft. Dit is geen bewijs van echtheid: een export draagt geen handtekening."
+
+msgid "coherence.note"
+msgstr "Geen van deze bewijst manipulatie, en hun afwezigheid bewijst het tegendeel evenmin — een export draagt geen handtekening."
+
+msgid "coherence.marks_missing"
+msgstr "%d bijlage- of meldingsregel(s) zonder de onzichtbare tekens die WhatsApp schrijft (vanaf regel %d)."
+
+msgid "coherence.out_of_order"
+msgstr "%d bericht(en) veel eerder gedateerd dan het bericht erboven (vanaf bericht %d). Exports zijn chronologisch."
+
+msgid "coherence.media_naming"
+msgstr "%d bijlage(n) met een naam buiten de WhatsApp-conventie (vanaf bericht %d)."
+
+msgid "coherence.media_date"
+msgstr "%d bijlage(n) waarvan de naam een andere datum draagt dan het bericht (vanaf bericht %d)."
+
+msgid "coherence.media_missing"
+msgstr "%d in de tekst genoemde bijlage(n) kwamen niet mee in het bestand, terwijl andere dat wel deden."
+
+msgid "imports.empty"
+msgstr "Nog geen import. Zet een bestand in de gevolgde map."
+
+msgid "update.help_1"
+msgstr "Kies het bestand uit de invoermap dat "
+
+msgid "update.help_2"
+msgstr " aanvult. Alleen nieuwe berichten worden toegevoegd — berichten die er al zijn, worden genegeerd."
+
+msgid "update.result"
+msgstr "%d nieuwe berichten, %d bestonden al"
+
+msgid "update.result_warnings"
+msgstr "%d waarschuwingen van de parser"
+
+msgid "update.confirm"
+msgstr "\"%s\" importeren in het gesprek %s?"
+
+msgid "update.empty_1"
+msgstr "Geen bestand in de invoermap."
+
+msgid "update.empty_2"
+msgstr "Zet het nieuwe export in"
+
+msgid "update.empty_3"
+msgstr " en open dit scherm opnieuw."
+
+msgid "messages.loading_older"
+msgstr "Oudere berichten laden…"
+
+msgid "lightbox.previous"
+msgstr "Vorige"
+
+msgid "lightbox.next"
+msgstr "Volgende"
+
+msgid "lightbox.zoom_out"
+msgstr "Uitzoomen"
+
+msgid "lightbox.zoom_in"
+msgstr "Inzoomen"
+
+msgid "lightbox.download"
+msgstr "Downloaden"
+
+msgid "cropper.drag"
+msgstr "Sleep de afbeelding om aan te passen"
+
+msgid "cropper.confirm"
+msgstr "Bevestigen"
+
+msgid "action.cancel"
+msgstr "Annuleren"
+
+msgid "action.replace"
+msgstr "Vervangen"
+
+msgid "action.undo"
+msgstr "Ongedaan maken"
+
+msgid "toast.pin_limit"
+msgstr "Je kunt tot %d gesprekken vastzetten."
+
+msgid "toast.chat_pinned"
+msgstr "Gesprek vastgezet"
+
+msgid "toast.chat_unpinned"
+msgstr "Gesprek losgemaakt"
+
+msgid "toast.message_starred"
+msgstr "Bericht met ster: 1"
+
+msgid "toast.message_unstarred"
+msgstr "Ster verwijderd van bericht: 1"
+
+msgid "toast.chat_favorited"
+msgstr "Toegevoegd aan favorieten."
+
+msgid "toast.chat_unfavorited"
+msgstr "Verwijderd uit favorieten."
+
+msgid "toast.removed_from_list"
+msgstr "Gesprek uit lijst verwijderd"
+
+msgid "toast.added_to_list"
+msgstr "Gesprek aan lijst toegevoegd"
+
+msgid "toast.import_error"
+msgstr "Dat bestand kon niet worden geïmporteerd: %s"
+
+msgid "toast.new_messages_in"
+msgstr "%d nieuwe berichten in %s"
+
+msgid "toast.merge_error"
+msgstr "De gesprekken konden niet worden samengevoegd: %s"
+
+msgid "toast.merge_result"
+msgstr "%d berichten verplaatst, %d bestonden al"
+
+msgid "date.connector"
+msgstr "om"
+
+msgid "export.photo"
+msgstr "foto"
+
+msgid "export.video"
+msgstr "video"
+
+msgid "export.gif"
+msgstr "GIF"
+
+msgid "export.audio"
+msgstr "audio"
+
+msgid "export.voice"
+msgstr "spraakbericht"
+
+msgid "export.sticker"
+msgstr "sticker"
+
+msgid "export.document"
+msgstr "document"
+
+msgid "export.contact"
+msgstr "contact"
+
+msgid "export.attachment"
+msgstr "bijlage"
+
+msgid "export.footer"
+msgstr "Geëxporteerd uit VaultZap op %s."
+
+msgid "imports.phase_scanning"
+msgstr "Map wordt doorzocht…"
+
+msgid "imports.phase_extracting"
+msgstr "Uitpakken"
+
+msgid "imports.phase_importing"
+msgstr "Berichten importeren"
+
+msgid "imports.of"
+msgstr "%s van %s"
+
+msgid "imports.of_messages"
+msgstr "%d van %d berichten"
+
+msgid "imports.running_now"
+msgstr "Bezig met importeren"
+
+msgid "update.in_inbox"
+msgstr "In de invoermap"
+
+msgid "update.already_imported"
+msgstr "Al geïmporteerd (verplaatst)"
+
+msgid "update.started"
+msgstr "%s wordt geïmporteerd…"
+
+msgid "conversation.other_sender"
+msgstr "Andere afzender (%d)"
+
+msgid "conversation.filter_sender"
+msgstr "Afzender zoeken"

@@ -1,0 +1,33 @@
+{{/* The user's own profile: photo and the name that decides which sender is "you" — the
+     same thing VAULTZAP_ME sets, with this one winning when both exist. */}}
+<div class="panel-profile" x-data>
+  <div class="header-profile">
+    <button type="button" class="button-close-profile" title="{{t "action.close"}}"
+            onclick="document.getElementById('right-panel').innerHTML=''">{{template "icon-close"}}</button>
+    <h2>{{t "me.title"}}</h2>
+  </div>
+
+  <div class="block-avatar-profile">
+    <div class="avatar-large-wrap">
+      <button type="button" class="button-avatar-large"
+              @click="document.getElementById('input-my-photo-raw').click()">
+        <span class="avatar-large {{if not .Photo}}avatar-color-4{{end}}">
+          {{if .Photo}}<img class="avatar-photo" src="/eu/foto" alt="">{{else}}{{template "icon-person"}}{{end}}
+        </span>
+        <span class="overlay-avatar-large">{{template "icon-camera-plus"}}</span>
+      </button>
+    </div>
+
+    <span class="name-profile">{{if .Name}}{{.Name}}{{else}}{{t "me.no_name"}}{{end}}</span>
+  </div>
+
+  <div class="divider-profile-actions"></div>
+
+  <form class="form-me" hx-post="/eu" hx-target="#right-panel">
+    <label class="label-me" for="field-me">{{t "me.name_label"}}</label>
+    <input type="text" id="field-me" name="name" value="{{.Name}}" maxlength="100"
+           class="field-search" placeholder="{{t "me.name_placeholder"}}" autocomplete="off">
+    <button type="submit" class="button-save-me">{{t "action.save"}}</button>
+    <p class="help-participants">{{t "me.help"}}{{if .FromEnv}} {{t "me.from_env"}}{{end}}</p>
+  </form>
+</div>

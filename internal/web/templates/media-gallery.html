@@ -1,0 +1,33 @@
+<div class="header-conversation">
+  {{if .Global}}
+  <button type="button" class="button-back-gallery" title="{{t "action.close"}}"
+          onclick="document.getElementById('conversation').innerHTML = ''">{{template "icon-close"}}</button>
+  <div class="info-header">
+    <span class="name-conversation">{{.Chat.Name}}</span>
+  </div>
+  {{else}}
+  <button type="button" class="button-back-gallery" title="{{t "gallery.back"}}"
+          hx-get="/chats/{{.Chat.ID}}" hx-target="#conversation">{{template "icon-back"}}</button>
+  <div class="info-header">
+    <span class="name-conversation">{{t "gallery.title" .Chat.Name}}</span>
+  </div>
+  {{end}}
+</div>
+
+<nav class="tabs-gallery">
+  {{range .Tabs}}
+  <button type="button" class="tab-gallery{{if .Active}} tab-gallery--active{{end}}"
+          hx-get="{{if $.Global}}/midia?aba={{.Slug}}{{else}}/chats/{{$.Chat.ID}}/media?aba={{.Slug}}{{end}}"
+          hx-target="#conversation">{{.Label}} ({{.Count}})</button>
+  {{end}}
+</nav>
+
+{{if eq .Tab "links"}}
+<div class="list-gallery gallery-scroll">{{template "gallery-items" .}}</div>
+
+{{else if or (eq .Tab "documentos") (eq .Tab "audios")}}
+<div class="list-gallery gallery-scroll">{{template "gallery-items" .}}</div>
+
+{{else}}
+<div class="gallery-grid gallery-scroll">{{template "gallery-items" .}}</div>
+{{end}}

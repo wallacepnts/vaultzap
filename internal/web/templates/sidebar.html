@@ -1,0 +1,44 @@
+<div class="top-sidebar">
+  <a href="/" class="title-app">VaultZap</a>
+</div>
+
+<div class="box-search" x-data="{ q: '' }">
+  <span class="icon-search">{{template "icon-search"}}</span>
+  <input
+    type="search"
+    class="field-search"
+    name="q"
+    placeholder="{{t "sidebar.search_chat"}}"
+    autocomplete="off"
+    x-model="q"
+    x-ref="fieldSearch"
+    hx-get="/chats"
+    hx-trigger="input changed delay:300ms, search"
+    hx-target="#list-chats"
+    hx-swap="innerHTML"
+  >
+  {{/* Replaces the native input[type=search] "x" (hidden via CSS): the
+       native one can't be styled to hover like the rest of the app.
+       Dispatches a "search" event on the field, the same one the native
+       button fires, to hit the hx-trigger above without waiting out the
+       300ms debounce.
+       Substitui o "x" nativo do input[type=search] (escondido via CSS):
+       o nativo não dá pra estilizar o hover igual ao resto do app. Dispara
+       um evento "search" no campo, o mesmo que o nativo dispara, pra cair
+       no hx-trigger acima sem esperar o debounce de 300ms. */}}
+  <button type="button" class="button-clear-search" x-show="q" x-cloak
+          title="{{t "action.clear"}}"
+          @click="q = ''; $refs.fieldSearch.focus(); $refs.fieldSearch.dispatchEvent(new Event('search'))">
+    {{template "icon-close"}}
+  </button>
+</div>
+<div id="list-chats">
+  {{template "chat-list.html" .}}
+</div>
+
+{{/* AGPL-3.0 §13: a network app has to offer users a way to get its source. Points at the
+     upstream repo, not an instance-specific fork — self-hosters running a fork should
+     change this to their own repo's URL. Sits below the chat list, not in the rail: a bare
+     icon there went unnoticed, and the license means for this to be found. */}}
+<a class="link-source" href="https://github.com/wallacepnts/vaultzap" target="_blank"
+   rel="noopener noreferrer">github.com/wallacepnts/vaultzap</a>

@@ -1,0 +1,634 @@
+# VaultZap — UI text catalog. msgid is the key used in templates via
+# {{t "key"}}, not source text — see internal/locale/locale.go.
+# Catálogo de texto da UI. msgid é a chave usada nos templates via
+# {{t "chave"}}, não o texto de origem — ver internal/locale/locale.go.
+
+msgid "me.title"
+msgstr "Dein Profil"
+
+msgid "me.no_name"
+msgstr "Kein Name festgelegt"
+
+msgid "me.name_label"
+msgstr "Dein Name im Export"
+
+msgid "me.name_placeholder"
+msgstr "Wie du in Unterhaltungen erscheinst"
+
+msgid "me.help"
+msgstr "Der Absender, der als du gilt, in Unterhaltungen ohne gewählten Besitzer."
+
+msgid "me.from_env"
+msgstr "Kommt aus VAULTZAP_ME."
+
+msgid "rail.label"
+msgstr "Navigationsleiste"
+
+msgid "sidebar.all_media"
+msgstr "Medien aus allen Unterhaltungen"
+
+msgid "sidebar.my_photo"
+msgstr "Dein Foto"
+
+msgid "sidebar.watched_folder"
+msgstr "Beobachteter Ordner"
+
+msgid "sidebar.toggle_theme"
+msgstr "Design wechseln"
+
+msgid "sidebar.language_title"
+msgstr "Sprache: %s"
+
+msgid "sidebar.search_chat"
+msgstr "Unterhaltung suchen"
+
+msgid "chats.archived"
+msgstr "Archiviert"
+
+msgid "chats.all"
+msgstr "Alle"
+
+msgid "chats.favorites"
+msgstr "Favoriten"
+
+msgid "chats.groups"
+msgstr "Gruppen"
+
+msgid "chats.delete_list_title"
+msgstr "Liste %s löschen"
+
+msgid "chats.delete_list_confirm"
+msgstr "Liste %s löschen? Ihre Unterhaltungen sind davon nicht betroffen."
+
+msgid "chats.new_list"
+msgstr "Neue Liste"
+
+msgid "chats.more_lists"
+msgstr "Weitere Listen"
+
+msgid "chats.list_name"
+msgstr "Listenname"
+
+msgid "action.create"
+msgstr "Erstellen"
+
+msgid "chats.favorite"
+msgstr "Favorit"
+
+msgid "chats.pinned"
+msgstr "Angeheftet"
+
+msgid "chats.more_options"
+msgstr "Weitere Optionen"
+
+msgid "chats.unarchive"
+msgstr "Unterhaltung aus Archiv holen"
+
+msgid "chats.archive"
+msgstr "Unterhaltung archivieren"
+
+msgid "chats.unpin"
+msgstr "Unterhaltung lösen"
+
+msgid "chats.pin"
+msgstr "Unterhaltung anheften"
+
+msgid "chats.remove_favorite"
+msgstr "Aus Favoriten entfernen"
+
+msgid "chats.add_favorite"
+msgstr "Zu Favoriten hinzufügen"
+
+msgid "chats.update_chat"
+msgstr "Unterhaltung aktualisieren"
+
+msgid "chats.merge_chat"
+msgstr "Unterhaltung zusammenführen"
+
+msgid "chats.export_chat"
+msgstr "Unterhaltung exportieren"
+
+msgid "export.txt"
+msgstr "Text (.txt)"
+
+msgid "export.markdown"
+msgstr "Markdown (.md)"
+
+msgid "export.html"
+msgstr "HTML"
+
+msgid "export.print"
+msgstr "HTML zum Drucken / PDF"
+
+msgid "export.typst"
+msgstr "Typst (.typ)"
+
+msgid "chats.add_to_list"
+msgstr "Zu Liste hinzufügen"
+
+msgid "chats.delete_confirm"
+msgstr "Unterhaltung %s löschen? Ihre Nachrichten und Dateien verschwinden endgültig aus VaultZap. Der Export im beobachteten Ordner bleibt unangetastet — du kannst ihn von dort erneut importieren."
+
+msgid "chats.delete_chat"
+msgstr "Unterhaltung löschen"
+
+msgid "chats.empty_archived"
+msgstr "Keine archivierten Unterhaltungen."
+
+msgid "chats.empty_favorites"
+msgstr "Noch keine Lieblingsunterhaltungen."
+
+msgid "chats.empty_groups"
+msgstr "Noch keine Gruppen importiert."
+
+msgid "chats.empty_list"
+msgstr "Noch keine Unterhaltungen in dieser Liste."
+
+msgid "chats.empty_all"
+msgstr "Noch keine Unterhaltungen importiert."
+
+msgid "conversation.contact_info"
+msgstr "Kontaktinfo"
+
+msgid "conversation.group_info"
+msgstr "Gruppeninfo"
+
+msgid "conversation.total_messages"
+msgstr "%d Nachrichten"
+
+msgid "conversation.search_here"
+msgstr "In dieser Unterhaltung suchen"
+
+msgid "conversation.go_to_date"
+msgstr "Zu einem Datum springen"
+
+msgid "conversation.view_media"
+msgstr "Medien ansehen"
+
+msgid "conversation.which_is_you"
+msgstr "Wer davon bist du?"
+
+msgid "conversation.recent_message"
+msgstr "Zur neuesten Nachricht springen"
+
+msgid "conversation.read_only"
+msgstr "Schreibgeschütztes Archiv"
+
+msgid "conversation.select_prompt"
+msgstr "Wähle eine Unterhaltung, um mit dem Lesen zu beginnen."
+
+msgid "conversation.epigraph"
+msgstr "Wer die Vergangenheit kontrolliert, kontrolliert die Zukunft; wer die Gegenwart kontrolliert, kontrolliert die Vergangenheit."
+
+msgid "action.close"
+msgstr "Schließen"
+
+msgid "action.clear"
+msgstr "Löschen"
+
+msgid "calendar.previous_month"
+msgstr "Vorheriger Monat"
+
+msgid "calendar.month"
+msgstr "Monat"
+
+msgid "calendar.year"
+msgstr "Jahr"
+
+msgid "calendar.next_month"
+msgstr "Nächster Monat"
+
+msgid "calendar.day_singular"
+msgstr "%d Nachricht"
+
+msgid "calendar.day_plural"
+msgstr "%d Nachrichten"
+
+msgid "calendar.recent_month"
+msgstr "Zum neuesten Monat springen"
+
+msgid "calendar.help"
+msgstr "Klicke auf einen Tag, um die Unterhaltung an diesem Punkt zu öffnen."
+
+msgid "action.edit"
+msgstr "Bearbeiten"
+
+msgid "action.back"
+msgstr "Zurück"
+
+msgid "action.save"
+msgstr "Speichern"
+
+msgid "action.rename"
+msgstr "Umbenennen"
+
+msgid "profile.edit_group"
+msgstr "Gruppennamen bearbeiten"
+
+msgid "profile.edit_contact"
+msgstr "Kontakt bearbeiten"
+
+msgid "profile.show_photo"
+msgstr "Foto anzeigen"
+
+msgid "profile.upload_photo"
+msgstr "Foto hochladen"
+
+msgid "profile.remove_photo"
+msgstr "Foto entfernen"
+
+msgid "profile.starred_messages"
+msgstr "Markierte Nachrichten"
+
+msgid "profile.no_starred_messages"
+msgstr "Noch keine markierten Nachrichten."
+
+msgid "profile.participants_title"
+msgstr "Teilnehmer (%d)"
+
+msgid "profile.you"
+msgstr "Du"
+
+msgid "profile.participant_photo"
+msgstr "Foto des Teilnehmers"
+
+msgid "profile.link_photo"
+msgstr "Foto einer anderen Unterhaltung verwenden"
+
+msgid "profile.link_photo_search"
+msgstr "Unterhaltung mit Foto suchen"
+
+msgid "profile.link_photo_hint"
+msgstr "Wähle die Unterhaltung, deren Foto für %s steht."
+
+msgid "profile.link_photo_empty"
+msgstr "Noch hat keine Unterhaltung ein Foto."
+
+msgid "profile.see_all"
+msgstr "Alle anzeigen (%d weitere)"
+
+msgid "profile.search_members"
+msgstr "Mitglieder suchen"
+
+msgid "profile.search_contacts"
+msgstr "Kontakte suchen"
+
+msgid "profile.participants_help"
+msgstr "Namensfeld leer lassen, um zum Namen aus dem Export zurückzukehren."
+
+msgid "profile.messages_per_page"
+msgstr "Nachrichten pro Seite"
+
+msgid "profile.load"
+msgstr "Laden"
+
+msgid "profile.all"
+msgstr "Alle"
+
+msgid "profile.page_help"
+msgstr "Wie viele Nachrichten auf einmal geladen werden, hier und beim Hochscrollen. Gilt nur für diese Unterhaltung — eine andere zu öffnen setzt es auf 50 zurück. \"Alle\" sind hier %d."
+
+msgid "profile.group_name"
+msgstr "Gruppenname"
+
+msgid "profile.name"
+msgstr "Name"
+
+msgid "profile.phone"
+msgstr "Telefon"
+
+msgid "gallery.back"
+msgstr "Zurück zur Unterhaltung"
+
+msgid "gallery.all_chats"
+msgstr "Medien aus allen Unterhaltungen"
+
+msgid "gallery.title"
+msgstr "Medien — %s"
+
+msgid "gallery.tab_photos"
+msgstr "Fotos"
+
+msgid "gallery.tab_videos"
+msgstr "Videos"
+
+msgid "gallery.tab_stickers"
+msgstr "Sticker"
+
+msgid "gallery.tab_audio"
+msgstr "Audio"
+
+msgid "gallery.tab_documents"
+msgstr "Dokumente"
+
+msgid "gallery.tab_links"
+msgstr "Links"
+
+msgid "gallery.empty_links"
+msgstr "Keine Links in dieser Unterhaltung."
+
+msgid "gallery.empty_documents"
+msgstr "Keine Dokumente in dieser Unterhaltung."
+
+msgid "gallery.empty_audio"
+msgstr "Kein Audio in dieser Unterhaltung."
+
+msgid "gallery.empty_tab"
+msgstr "Hier ist noch nichts."
+
+msgid "gallery.pause"
+msgstr "Pause"
+
+msgid "gallery.play_audio"
+msgstr "Audio abspielen"
+
+msgid "message.star"
+msgstr "Nachricht markieren"
+
+msgid "message.unstar"
+msgstr "Markierung aufheben"
+
+msgid "message.pin"
+msgstr "Nachricht anheften"
+
+msgid "message.pin_replace"
+msgstr "Du hast die maximale Anzahl angepinnter Nachrichten erreicht. Die am längsten angepinnte wird ersetzt."
+
+msgid "message.unpin"
+msgstr "Anheftung aufheben"
+
+msgid "message.starred"
+msgstr "Markiert"
+
+msgid "message.pinned"
+msgstr "Angeheftet"
+
+msgid "message.sticker"
+msgstr "Sticker"
+
+msgid "message.image"
+msgstr "Bild"
+
+msgid "message.you"
+msgstr "Du"
+
+msgid "search.system"
+msgstr "System"
+
+msgid "search.no_results"
+msgstr "Keine Ergebnisse für \"%s\"."
+
+msgid "merge.help"
+msgstr "Wähle die Unterhaltung, die mit dieser zusammengeführt werden soll. Ihre Nachrichten werden hierher verschoben, und sie existiert danach nicht mehr."
+
+msgid "merge.search_placeholder"
+msgstr "Unterhaltung suchen"
+
+msgid "merge.confirm"
+msgstr "Alles von \"%s\" mit dieser Unterhaltung (\"%s\") zusammenführen? Die Unterhaltung \"%s\" existiert danach nicht mehr; doppelte Nachrichten werden verworfen, nichts wird dupliziert."
+
+msgid "merge.empty"
+msgstr "Keine Unterhaltung gefunden."
+
+msgid "chats.group_singular"
+msgstr "Gruppe"
+
+msgid "imports.items"
+msgstr "%d Elemente"
+
+msgid "imports.scan_now"
+msgstr "Jetzt scannen"
+
+msgid "imports.count"
+msgstr "%d hinzugefügt, %d übersprungen"
+
+msgid "imports.warning_count"
+msgstr "%d Warnungen"
+
+msgid "imports.hide_details"
+msgstr "Details ausblenden"
+
+msgid "imports.view_details"
+msgstr "Details anzeigen"
+
+msgid "imports.reimport"
+msgstr "Erneut importieren…"
+
+msgid "imports.added"
+msgstr "Hinzugefügt"
+
+msgid "imports.added_note"
+msgstr "neue Nachrichten erfasst"
+
+msgid "imports.skipped"
+msgstr "Übersprungen"
+
+msgid "imports.skipped_note"
+msgstr "bereits im Archiv (gleiches Datum, Absender und Text) — derselbe Export erneut importiert dupliziert nichts"
+
+msgid "imports.warnings"
+msgstr "Warnungen"
+
+msgid "imports.warnings_note"
+msgstr "Zeilen, die der Parser nicht verstanden hat; sie werden zu einer Systemnachricht mit dem Originaltext, nichts wird verworfen"
+
+msgid "imports.finished"
+msgstr "Abgeschlossen"
+
+msgid "imports.warning_lines"
+msgstr "Zeilen mit Warnung"
+
+msgid "imports.fix_note_1"
+msgstr "Zum Korrigieren: diese Zeilen in der Exportdatei bearbeiten, die Datei zurück in den beobachteten Ordner legen und "
+
+msgid "imports.fix_note_2"
+msgstr " verwenden (oder \"Unterhaltung aktualisieren\" im Menü der Unterhaltung). Bereits importierte Nachrichten werden nicht dupliziert."
+
+msgid "coherence.title"
+msgstr "Kohärenzprüfung"
+
+msgid "coherence.clean"
+msgstr "Nichts weicht davon ab, was WhatsApp schreibt. Das ist kein Echtheitsnachweis: ein Export trägt keine Signatur."
+
+msgid "coherence.note"
+msgstr "Nichts davon beweist eine Manipulation, und ihr Fehlen beweist das Gegenteil ebenso wenig — ein Export trägt keine Signatur."
+
+msgid "coherence.marks_missing"
+msgstr "%d Anhang- oder Hinweiszeile(n) ohne die unsichtbaren Marken, die WhatsApp schreibt (ab Zeile %d)."
+
+msgid "coherence.out_of_order"
+msgstr "%d Nachricht(en) deutlich früher datiert als die darüber (ab Nachricht %d). Exporte sind chronologisch."
+
+msgid "coherence.media_naming"
+msgstr "%d Anhang/Anhänge mit einem Namen außerhalb der WhatsApp-Konvention (ab Nachricht %d)."
+
+msgid "coherence.media_date"
+msgstr "%d Anhang/Anhänge, deren Name ein anderes Datum trägt als die Nachricht (ab Nachricht %d)."
+
+msgid "coherence.media_missing"
+msgstr "%d im Text genannte(r) Anhang/Anhänge kamen nicht in der Datei an, andere schon."
+
+msgid "imports.empty"
+msgstr "Noch keine Importe. Lege eine Datei im beobachteten Ordner ab."
+
+msgid "update.help_1"
+msgstr "Wähle die Datei aus dem beobachteten Ordner, die "
+
+msgid "update.help_2"
+msgstr " vervollständigt. Nur neue Nachrichten kommen hinzu — bereits vorhandene werden übersprungen."
+
+msgid "update.result"
+msgstr "%d neue Nachrichten, %d gab es bereits"
+
+msgid "update.result_warnings"
+msgstr "%d Parser-Warnungen"
+
+msgid "update.confirm"
+msgstr "\"%s\" in die Unterhaltung %s importieren?"
+
+msgid "update.empty_1"
+msgstr "Keine Dateien im beobachteten Ordner."
+
+msgid "update.empty_2"
+msgstr "Lege den neuen Export ab in"
+
+msgid "update.empty_3"
+msgstr " und öffne diesen Bildschirm erneut."
+
+msgid "messages.loading_older"
+msgstr "Ältere Nachrichten werden geladen…"
+
+msgid "lightbox.previous"
+msgstr "Zurück"
+
+msgid "lightbox.next"
+msgstr "Weiter"
+
+msgid "lightbox.zoom_out"
+msgstr "Verkleinern"
+
+msgid "lightbox.zoom_in"
+msgstr "Vergrößern"
+
+msgid "lightbox.download"
+msgstr "Herunterladen"
+
+msgid "cropper.drag"
+msgstr "Bild zum Anpassen ziehen"
+
+msgid "cropper.confirm"
+msgstr "Bestätigen"
+
+msgid "action.cancel"
+msgstr "Abbrechen"
+
+msgid "action.replace"
+msgstr "Ersetzen"
+
+msgid "action.undo"
+msgstr "Rückgängig"
+
+msgid "toast.pin_limit"
+msgstr "Du kannst bis zu %d Unterhaltungen anheften."
+
+msgid "toast.chat_pinned"
+msgstr "Unterhaltung angeheftet"
+
+msgid "toast.chat_unpinned"
+msgstr "Unterhaltung nicht mehr angeheftet"
+
+msgid "toast.message_starred"
+msgstr "Nachricht markiert: 1"
+
+msgid "toast.message_unstarred"
+msgstr "Nachrichtenmarkierung entfernt: 1"
+
+msgid "toast.chat_favorited"
+msgstr "Zu Favoriten hinzugefügt."
+
+msgid "toast.chat_unfavorited"
+msgstr "Aus Favoriten entfernt."
+
+msgid "toast.removed_from_list"
+msgstr "Unterhaltung aus Liste entfernt"
+
+msgid "toast.added_to_list"
+msgstr "Unterhaltung zu Liste hinzugefügt"
+
+msgid "toast.import_error"
+msgstr "Diese Datei konnte nicht importiert werden: %s"
+
+msgid "toast.new_messages_in"
+msgstr "%d neue Nachrichten in %s"
+
+msgid "toast.merge_error"
+msgstr "Unterhaltungen konnten nicht zusammengeführt werden: %s"
+
+msgid "toast.merge_result"
+msgstr "%d Nachrichten verschoben, %d gab es bereits"
+
+msgid "date.connector"
+msgstr "um"
+
+msgid "export.photo"
+msgstr "Foto"
+
+msgid "export.video"
+msgstr "Video"
+
+msgid "export.gif"
+msgstr "GIF"
+
+msgid "export.audio"
+msgstr "Audio"
+
+msgid "export.voice"
+msgstr "Sprachnachricht"
+
+msgid "export.sticker"
+msgstr "Sticker"
+
+msgid "export.document"
+msgstr "Dokument"
+
+msgid "export.contact"
+msgstr "Kontakt"
+
+msgid "export.attachment"
+msgstr "Anhang"
+
+msgid "export.footer"
+msgstr "Exportiert aus VaultZap am %s."
+
+msgid "imports.phase_scanning"
+msgstr "Ordner wird durchsucht…"
+
+msgid "imports.phase_extracting"
+msgstr "Entpacken"
+
+msgid "imports.phase_importing"
+msgstr "Nachrichten werden importiert"
+
+msgid "imports.of"
+msgstr "%s von %s"
+
+msgid "imports.of_messages"
+msgstr "%d von %d Nachrichten"
+
+msgid "imports.running_now"
+msgstr "Import läuft"
+
+msgid "update.in_inbox"
+msgstr "Im Eingangsordner"
+
+msgid "update.already_imported"
+msgstr "Bereits importiert (verschoben)"
+
+msgid "update.started"
+msgstr "%s wird importiert …"
+
+msgid "conversation.other_sender"
+msgstr "Anderer Absender (%d)"
+
+msgid "conversation.filter_sender"
+msgstr "Absender suchen"

@@ -1,0 +1,31 @@
+{
+  "source": "android",
+  "date_order": "DMY",
+  "is_group": false,
+  "messages": [
+    {
+      "sent_at": "2026-07-26 14:32:00",
+      "seq": 1,
+      "sender": "Vitor",
+      "body": "mensagem normal",
+      "kind": "text"
+    },
+    {
+      "sent_at": "",
+      "seq": 2,
+      "sender": null,
+      "body": "45/07/2026 14:33 - Vitor: linha com data impossível\nsegunda linha da mensagem corrompida\nterceira linha, que também não pode sumir",
+      "kind": "system"
+    },
+    {
+      "sent_at": "2026-07-26 14:34:00",
+      "seq": 3,
+      "sender": "Ana",
+      "body": "outra normal",
+      "kind": "text"
+    }
+  ],
+  "warnings": [
+    "line 2: invalid date/time, treated as a system message"
+  ]
+}

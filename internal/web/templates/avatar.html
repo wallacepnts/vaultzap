@@ -1,0 +1,14 @@
+{{/* Core of a chat's avatar: user photo > group icon > name initials.
+     Takes a store.Chat. The outer <span class="avatar ..."> lives in each template.
+     Miolo do avatar de um chat: foto do usuário > ícone de grupo > iniciais
+     do nome. Recebe um store.Chat. O <span class="avatar ..."> externo fica
+     em cada template. */}}
+{{define "avatar-core"}}
+{{- if .AvatarPath -}}
+<img class="avatar-photo" src="/chats/{{.ID}}/avatar" alt="">
+{{- else if .IsGroup -}}
+{{template "icon-group"}}
+{{- else -}}
+{{initials .Name}}
+{{- end -}}
+{{end}}

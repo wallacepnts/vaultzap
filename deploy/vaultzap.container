@@ -1,0 +1,31 @@
+[Unit]
+Description=vaultzap - arquivo de conversas exportadas
+
+[Container]
+Image=ghcr.io/wallacepnts/vaultzap:latest
+AutoUpdate=registry
+PublishPort=8927:8927
+
+EnvironmentFile=%h/.config/containers/env/vaultzap.env
+
+Volume=%h/.config/containers/volumes/vaultzap/data:/data:z
+Volume=%h/.config/containers/volumes/vaultzap/inbox:/inbox:rw,z
+
+#Secret=vaultzap-basic-auth,type=mount,target=/run/secrets/vaultzap_basic_auth
+#Environment=VAULTZAP_BASIC_AUTH_FILE=/run/secrets/vaultzap_basic_auth
+
+UserNS=keep-id:uid=65532,gid=65532
+ReadOnly=true
+Tmpfs=/tmp
+NoNewPrivileges=true
+DropCapability=ALL
+
+HealthCmd=["/vaultzap", "healthcheck"]
+HealthInterval=30s
+
+[Service]
+Restart=always
+TimeoutStartSec=120
+
+[Install]
+WantedBy=default.target

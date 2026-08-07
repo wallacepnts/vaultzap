@@ -1,0 +1,4054 @@
+/* vaultzap — theme and components. No build step: plain CSS, native variables. */
+
+/* Wallpapers: static/img/wallpaper-{light,dark}.svg. The two differ only in the
+   stroke color. */
+
+:root[data-theme="dark"] {
+  /* Neutral, not #0c1014 — that had a blue cast (B 8 points over R) that the real rail
+     doesn't have. Sampled off a live WhatsApp Web screenshot: the rail and sidebar sit
+     on a true neutral gray (R≈G≈B), not blue-black. Same brightness, hue corrected. */
+  --bg-app: #101010;
+  --bg-panel: #0d0d0d;
+  --bg-chat: #090a0b;
+  --bg-hover: #2a2b2b;
+  --bg-input: #2a2b2b;
+  --bubble-in: #262626;
+  --bubble-out: #024a3d;
+  --divider: #8696a026;
+  --text: #e9edef;
+  --text-dim: #8696a0;
+  --accent: #00a884;
+  /* The neon green, measured out of the official app's recording (#25d366) and closed a
+     touch to #21c063 at the user's request: same hue, 4.5 points less lightness. */
+  --accent-bright: #21c063;
+  /* The real app fills the selected filter chip solid and sets the label white, not the
+     accent color — checked against the current dark redesign, not just the classic pill. */
+  --chip-active-text: var(--text);
+  --link: #53bdeb;
+  --scrollbar-thumb: #8696a04d;
+  --wallpaper: linear-gradient(rgba(9, 10, 11, 0.94), rgba(9, 10, 11, 0.94)),
+    url("/static/img/wallpaper-dark.svg");
+
+  --avatar-0-bg: #3a2a1f;
+  --avatar-0-fg: #d9a066;
+  --avatar-1-bg: #3a1f2a;
+  --avatar-1-fg: #e0759e;
+  --avatar-2-bg: #1a3535;
+  --avatar-2-fg: #4dd0c4;
+  --avatar-3-bg: #1f2d45;
+  --avatar-3-fg: #6b9bd6;
+  --avatar-4-bg: #241f3d;
+  --avatar-4-fg: #9d84d9;
+  --avatar-5-bg: #2a2a2a;
+  --avatar-5-fg: #d6d6d6;
+  --avatar-6-bg: #3d2419;
+  --avatar-6-fg: #e08a4d;
+  --avatar-7-bg: #3a1f28;
+  --avatar-7-fg: #e05570;
+  --avatar-8-bg: #15282a;
+  --avatar-8-fg: #4dd9b8;
+  --avatar-9-bg: #1f3d2a;
+  --avatar-9-fg: #66c98a;
+  --avatar-10-bg: #3d3319;
+  --avatar-10-fg: #d9c066;
+  --avatar-11-bg: #241f45;
+  --avatar-11-fg: #8f7ae0;
+  --avatar-12-bg: #1f2d3d;
+  --avatar-12-fg: #6bb8d6;
+  --avatar-13-bg: #3d1f35;
+  --avatar-13-fg: #d966c9;
+  --avatar-14-bg: #2d3319;
+  --avatar-14-fg: #a8c966;
+  --avatar-15-bg: #1f2933;
+  --avatar-15-fg: #7d9db3;
+  --avatar-16-bg: #331f3d;
+  --avatar-16-fg: #c47ad9;
+  --avatar-17-bg: #16331f;
+  --avatar-17-fg: #4dc97a;
+  --avatar-18-bg: #3d1f24;
+  --avatar-18-fg: #e08a94;
+  --avatar-19-bg: #242424;
+  --avatar-19-fg: #a0a0a0;
+}
+
+:root[data-theme="light"] {
+  --bg-app: #f0f2f5;
+  --bg-panel: #ffffff;
+  --bg-chat: #efeae2;
+  --bg-hover: #f5f6f6;
+  --bg-input: #f0f2f5;
+  --bubble-in: #ffffff;
+  --bubble-out: #d9fdd3;
+  --divider: #00000014;
+  --text: #111b21;
+  --text-dim: #667781;
+  --accent: #00a884;
+  --accent-bright: #21c063;
+  /* Darker than the neon: over the pale fill the neon reads at 1.96:1, unreadable. This
+     one measures 5.4:1. */
+  --chip-active-text: #046a52;
+  --link: #027eb5;
+  --scrollbar-thumb: #00000026;
+  --wallpaper: url("/static/img/wallpaper-light.svg");
+
+  --avatar-0-bg: #f2e2cc;
+  --avatar-0-fg: #9c6b32;
+  --avatar-1-bg: #fbdde9;
+  --avatar-1-fg: #c2185b;
+  --avatar-2-bg: #d7f3ef;
+  --avatar-2-fg: #00897b;
+  --avatar-3-bg: #e2e8fb;
+  --avatar-3-fg: #3f51b5;
+  --avatar-4-bg: #e8e0f9;
+  --avatar-4-fg: #6a3fb5;
+  --avatar-5-bg: #e8e8e8;
+  --avatar-5-fg: #5f5f5f;
+  --avatar-6-bg: #fbe3d3;
+  --avatar-6-fg: #b5541f;
+  --avatar-7-bg: #fbdde0;
+  --avatar-7-fg: #c62838;
+  --avatar-8-bg: #d7f3ec;
+  --avatar-8-fg: #00967a;
+  --avatar-9-bg: #ddf2e0;
+  --avatar-9-fg: #2e7d43;
+  --avatar-10-bg: #f5efd0;
+  --avatar-10-fg: #97821f;
+  --avatar-11-bg: #e6e0fb;
+  --avatar-11-fg: #5232c9;
+  --avatar-12-bg: #dcedf7;
+  --avatar-12-fg: #1f6fa3;
+  --avatar-13-bg: #f7def3;
+  --avatar-13-fg: #a3238e;
+  --avatar-14-bg: #eaf2d0;
+  --avatar-14-fg: #6d8a1f;
+  --avatar-15-bg: #dfe6ec;
+  --avatar-15-fg: #3f5d75;
+  --avatar-16-bg: #f0dcf5;
+  --avatar-16-fg: #8e28a3;
+  --avatar-17-bg: #d7f2e0;
+  --avatar-17-fg: #1f8a4d;
+  --avatar-18-bg: #fbe0e2;
+  --avatar-18-fg: #c2455a;
+  --avatar-19-bg: #ececec;
+  --avatar-19-fg: #6b6b6b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Roboto, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--bg-app);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Firefox: scrollbar-width/color. Chromium: -webkit-* pseudo-elements on the
+   scrolling containers, with a literal color per theme. */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+#body-conversation::-webkit-scrollbar,
+#list-chats::-webkit-scrollbar,
+.gallery-grid::-webkit-scrollbar,
+.lightbox-thumbnails::-webkit-scrollbar,
+.body-calendar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+#body-conversation::-webkit-scrollbar-track,
+#list-chats::-webkit-scrollbar-track,
+.gallery-grid::-webkit-scrollbar-track,
+.lightbox-thumbnails::-webkit-scrollbar-track,
+.body-calendar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#body-conversation::-webkit-scrollbar-button,
+#list-chats::-webkit-scrollbar-button,
+.gallery-grid::-webkit-scrollbar-button,
+.lightbox-thumbnails::-webkit-scrollbar-button,
+.body-calendar::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+:root[data-theme="dark"] #body-conversation::-webkit-scrollbar-thumb,
+:root[data-theme="dark"] #list-chats::-webkit-scrollbar-thumb,
+:root[data-theme="dark"] .gallery-grid::-webkit-scrollbar-thumb,
+:root[data-theme="dark"] .lightbox-thumbnails::-webkit-scrollbar-thumb,
+:root[data-theme="dark"] .body-calendar::-webkit-scrollbar-thumb {
+  background: #8696a04d;
+  border-radius: 2.5px;
+}
+
+:root[data-theme="light"] #body-conversation::-webkit-scrollbar-thumb,
+:root[data-theme="light"] #list-chats::-webkit-scrollbar-thumb,
+:root[data-theme="light"] .gallery-grid::-webkit-scrollbar-thumb,
+:root[data-theme="light"] .lightbox-thumbnails::-webkit-scrollbar-thumb,
+:root[data-theme="light"] .body-calendar::-webkit-scrollbar-thumb {
+  background: #00000026;
+  border-radius: 2.5px;
+}
+
+#app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  /* Containing block for the right panel when it overlays on a narrow window. */
+  position: relative;
+}
+
+/* ---------- sidebar ---------- */
+
+/* 31% measured against the official app: a 578px sidebar in an 1858px window. The cap
+   only keeps it from becoming an absurd column on an ultrawide. */
+#sidebar {
+  width: min(31%, 640px);
+  min-width: 300px;
+  background: var(--bg-panel);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--divider);
+}
+
+/* Heights off the official window at the same width: top bar 44, search 44, chips 32,
+   list item 64 — ours was 58/56/44/68, which pushed the list a good 40px down. */
+/* The navigation rail: the watched folder and the settings on top, the user's own things at
+   the bottom. 64px wide and 24px icons come off the official window; the 40px target is
+   circular by the user's choice, where the official one is a squircle. */
+#rail {
+  width: 64px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0 14px;
+  background: var(--bg-app);
+  border-right: 1px solid var(--divider);
+}
+
+#rail svg {
+  width: 24px;
+  height: 24px;
+}
+
+.spacer-rail {
+  flex: 1;
+}
+
+#rail .button-imports,
+#rail .button-theme,
+#rail .button-locale,
+.button-rail,
+.button-my-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: var(--text-dim);
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Filled circle on the destination that is on screen, the rail's most telling detail. */
+#rail .rail-active {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+#rail .button-imports,
+#rail .button-theme,
+#rail .button-locale,
+.button-rail {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+#rail .button-imports:hover,
+#rail .button-theme:hover,
+#rail .button-locale:hover,
+.button-rail:hover,
+.button-my-photo:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.button-my-photo {
+  width: 38px;
+  height: 38px;
+  margin-top: 4px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* The rail is 62px wide, so the language menu has to open to its right. */
+.form-me {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 20px 20px;
+}
+
+.label-me {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.button-save-me {
+  align-self: flex-start;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 18px;
+  background: var(--accent);
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#rail .menu-locale {
+  left: 46px;
+  right: auto;
+  top: 0;
+  bottom: auto;
+}
+
+.button-my-photo .avatar-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Same size as the "read-only" banner under the conversation, which it visually pairs
+   with — one strip at the foot of each side column. */
+.link-source {
+  display: block;
+  flex: none;
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+  color: var(--text-dim);
+  border-top: 1px solid var(--divider);
+  text-decoration: none;
+}
+
+.link-source:hover {
+  color: var(--text);
+  background: var(--bg-hover);
+}
+
+.top-sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 16px;
+}
+
+.title-app {
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+:root[data-theme="light"] .title-app {
+  color: var(--accent);
+}
+
+.actions-top-sidebar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* position: relative anchors .dot-badge and the locale menu; the size, colour and box come
+   from the #rail block above. */
+.button-theme,
+.button-imports,
+.button-locale,
+.wrap-select-locale {
+  position: relative;
+}
+
+.button-locale:hover,
+.button-locale--open {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.flag-locale {
+  flex: none;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.menu-locale {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 30;
+  /* Width from content: "Português (Brasil)" is much longer than "English", and a fixed
+     min-width either wraps that item or leaves blank space on the short ones. */
+  width: max-content;
+  padding: 6px 0;
+  border-radius: 8px;
+  border: 1px solid var(--divider);
+  background: var(--bg-panel);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+/* No wrapping: it is what makes width: max-content above measure a full line. */
+.menu-locale .item-menu-chat {
+  white-space: nowrap;
+}
+
+/* Sun while dark, moon while light. See sidebar.html for why this is CSS and not x-show. */
+.icon-theme {
+  display: flex;
+}
+
+:root[data-theme="dark"] .icon-theme--light,
+:root[data-theme="light"] .icon-theme--dark {
+  display: none;
+}
+
+.badge-imports:empty {
+  display: none;
+}
+
+/* Green pill at the icon's top-right, as in the official app. The ring in the rail's own
+   background keeps it readable over the button's hover fill. Kept small on purpose: at 18px
+   it covered the folder's own shape, which is what tells the icon apart.
+   --accent-bright, not --accent, and near-black text: sampled off the real badge (its "18"),
+   the fill is the same bright green as the active filter chip, and the digits are dark, not
+   white — white read noticeably weaker against that green. */
+.dot-badge {
+  position: absolute;
+  top: 3px;
+  right: 1px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background: var(--accent-bright);
+  border: 2px solid var(--bg-app);
+  color: #0a0a0a;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12px;
+  text-align: center;
+}
+
+.box-search {
+  position: relative;
+  padding: 7px 12px;
+}
+
+.icon-search {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+/* Matched to the official app's search field: 38px tall, 2px green ring on focus. The
+   border is 2px even when transparent, so focusing never nudges the layout. The current
+   redesign's field is a rounded rectangle, not the old full pill. */
+.field-search {
+  width: 100%;
+  padding: 7px 36px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: var(--bg-input);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+}
+
+/* Without it the field falls back to the browser's default focus ring. */
+.field-search:focus {
+  border-color: var(--accent-bright);
+  background: var(--bg-panel);
+}
+
+/* Native input[type=search] "x": replaced by .button-clear-search below. */
+.field-search::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+.button-clear-search {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.button-clear-search svg {
+  width: 16px;
+  height: 16px;
+}
+
+.button-clear-search:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.field-search::placeholder {
+  color: var(--text-dim);
+}
+
+#list-chats {
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* ---------- "Archived" row ---------- */
+
+.row-archived {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  background: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.row-archived:hover {
+  background: var(--bg-hover);
+}
+
+.row-archived svg {
+  flex: none;
+  color: var(--text-dim);
+}
+
+.row-archived-label {
+  flex: 1;
+  text-align: left;
+}
+
+.row-archived-counter {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* ---------- chat list item + context menu ---------- */
+
+.item-chat-wrap {
+  position: relative;
+}
+
+/* Bare glyph, no filled circle: in the official app the chevron never gets a box of its
+   own — the only thing that reacts to the hover is the row. */
+.arrow-menu-chat {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(8px);
+  transition: opacity 0.14s ease-out, transform 0.14s ease-out;
+}
+
+.item-chat-wrap:hover .arrow-menu-chat,
+.arrow-menu-chat--open {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.arrow-menu-chat:hover {
+  color: var(--text);
+}
+
+.menu-chat {
+  position: absolute;
+  right: 12px;
+  top: calc(100% - 6px);
+  z-index: 30;
+  min-width: 220px;
+  padding: 6px 0;
+  border-radius: 8px;
+  border: 1px solid var(--divider);
+  background: var(--bg-panel);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.item-menu-chat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 11px 18px;
+  border: none;
+  background: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.item-menu-chat:hover {
+  background: var(--bg-hover);
+}
+
+.item-menu-chat svg {
+  flex: none;
+  color: var(--text-dim);
+}
+
+.item-menu-chat--danger:hover,
+.item-menu-chat--danger:hover svg {
+  color: #f15c6d;
+}
+
+.divider-menu-chat {
+  height: 1px;
+  margin: 6px 0;
+  background: var(--divider);
+}
+
+/* The resting state already carries the hover card's vertical metrics (7+7 padding plus
+   the 2px seam), so hovering changes nothing but the horizontal inset and the fill. With
+   8px padding at rest and 7px on hover the row kept its 64px pitch, but the avatar and
+   both lines of text stepped 1px up under the cursor — the "jumping" seen side by side
+   with the official app. */
+.item-chat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 16px;
+  margin: 0 0 2px;
+  cursor: pointer;
+}
+
+/* Keyed on the wrapper's hover, not .item-chat's: the chevron button is a sibling, so
+   with the cursor on it .item-chat would leave :hover and the card would vanish from
+   under the arrow. Same reason for keeping it while the menu is open.
+   Only the horizontal box changes: 8px of margin replaces 8px of padding, so the content
+   stays exactly where it was. The 2px seam is kept (it comes from .item-chat) because two
+   rounded cards touching edge to edge — an active row next to a hovered one — read as one
+   merged block. */
+.item-chat-wrap:hover .item-chat,
+.item-chat-wrap:has(.arrow-menu-chat--open) .item-chat,
+.item-chat--active,
+.item-chat--active:hover {
+  background: var(--bg-hover);
+  margin: 0 8px 2px;
+  padding: 7px 8px;
+  border-radius: 8px;
+}
+
+.info-chat {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.row-top-chat {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.name-chat {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.time-chat {
+  font-size: 12px;
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+
+.row-bottom-chat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+
+.preview-chat {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-empty {
+  padding: 24px 16px;
+  color: var(--text-dim);
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ---------- watched folder (/imports) ---------- */
+
+.running-import {
+  margin: 12px 16px 4px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--bg-panel);
+  border: 1px solid var(--divider);
+}
+
+.running-import-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.running-import-file {
+  color: var(--text);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.running-import-detail,
+.running-import-elapsed {
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.bar-import {
+  height: 6px;
+  margin: 8px 0;
+  border-radius: 3px;
+  background: var(--bg-hover);
+  overflow: hidden;
+}
+
+/* Width comes from the server on each poll; the transition keeps the 2s step from
+   looking like a jump. */
+/* No total to measure against while the folder is being walked. */
+.bar-import--indeterminate .bar-import-fill {
+  width: 35%;
+  animation: sweep-import 1.1s ease-in-out infinite;
+}
+
+@keyframes sweep-import {
+  from { margin-left: -35%; }
+  to   { margin-left: 100%; }
+}
+
+.bar-import-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--accent);
+  transition: width 400ms linear;
+}
+
+/* Its own flex column, min-height: 0 and all — #imports-page is a single div standing in
+   for #conversation's usual header + body-wrap siblings, so without this .list-imports'
+   flex: 1 has no flex container to answer to and the whole page grows with its content
+   instead of scrolling. */
+#imports-page {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-imports {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  background: var(--bg-chat);
+  padding: 8px 16px;
+}
+
+.item-import {
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background: var(--bg-panel);
+  border-left: 3px solid var(--divider);
+}
+
+.item-import--error {
+  border-left-color: #e53935;
+}
+
+.item-import--done {
+  border-left-color: var(--accent);
+}
+
+.item-import-row1 {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.item-import-when {
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+
+.item-import-detail {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: var(--text-dim);
+}
+
+.item-import-error {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: #e53935;
+}
+
+/* ---------- avatar ---------- */
+
+.avatar {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.item-chat .avatar {
+  width: 48px;
+  height: 48px;
+  font-size: 17px;
+}
+
+.avatar > svg,
+.avatar-large > svg {
+  width: 58%;
+  height: 58%;
+}
+
+.avatar-color-0 {
+  background: var(--avatar-0-bg);
+  color: var(--avatar-0-fg);
+}
+.avatar-color-1 {
+  background: var(--avatar-1-bg);
+  color: var(--avatar-1-fg);
+}
+.avatar-color-2 {
+  background: var(--avatar-2-bg);
+  color: var(--avatar-2-fg);
+}
+.avatar-color-3 {
+  background: var(--avatar-3-bg);
+  color: var(--avatar-3-fg);
+}
+.avatar-color-4 {
+  background: var(--avatar-4-bg);
+  color: var(--avatar-4-fg);
+}
+.avatar-color-5 {
+  background: var(--avatar-5-bg);
+  color: var(--avatar-5-fg);
+}
+.avatar-color-6 {
+  background: var(--avatar-6-bg);
+  color: var(--avatar-6-fg);
+}
+.avatar-color-7 {
+  background: var(--avatar-7-bg);
+  color: var(--avatar-7-fg);
+}
+.avatar-color-8 {
+  background: var(--avatar-8-bg);
+  color: var(--avatar-8-fg);
+}
+.avatar-color-9 {
+  background: var(--avatar-9-bg);
+  color: var(--avatar-9-fg);
+}
+.avatar-color-10 {
+  background: var(--avatar-10-bg);
+  color: var(--avatar-10-fg);
+}
+.avatar-color-11 {
+  background: var(--avatar-11-bg);
+  color: var(--avatar-11-fg);
+}
+.avatar-color-12 {
+  background: var(--avatar-12-bg);
+  color: var(--avatar-12-fg);
+}
+.avatar-color-13 {
+  background: var(--avatar-13-bg);
+  color: var(--avatar-13-fg);
+}
+.avatar-color-14 {
+  background: var(--avatar-14-bg);
+  color: var(--avatar-14-fg);
+}
+.avatar-color-15 {
+  background: var(--avatar-15-bg);
+  color: var(--avatar-15-fg);
+}
+.avatar-color-16 {
+  background: var(--avatar-16-bg);
+  color: var(--avatar-16-fg);
+}
+.avatar-color-17 {
+  background: var(--avatar-17-bg);
+  color: var(--avatar-17-fg);
+}
+.avatar-color-18 {
+  background: var(--avatar-18-bg);
+  color: var(--avatar-18-fg);
+}
+.avatar-color-19 {
+  background: var(--avatar-19-bg);
+  color: var(--avatar-19-fg);
+}
+
+/* ---------- conversation ---------- */
+
+#conversation {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.conversation-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 0 24px;
+  color: var(--text-dim);
+  background: var(--bg-app);
+}
+
+.epigraph-empty {
+  margin: 0;
+  max-width: 46ch;
+  text-align: center;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.6;
+  opacity: 0.55;
+}
+
+.epigraph-empty cite {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  font-style: normal;
+}
+
+:root[data-theme="dark"] .conversation-empty {
+  background: #1a1a1a;
+}
+
+:root[data-theme="light"] .conversation-empty {
+  background: #f5f4f2;
+}
+
+.header-clickable {
+  cursor: pointer;
+}
+
+.header-conversation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--bg-panel);
+}
+
+.info-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-conversation {
+  font-weight: 500;
+}
+
+.detail-conversation {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+
+.avatar-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- "Contact info" panel (#right-panel) ---------- */
+
+.panel-profile {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--bg-panel);
+  font-weight: 500;
+}
+
+.header-profile span {
+  flex: 1;
+}
+
+.button-close-profile,
+.button-edit-profile {
+  border: none;
+  background: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-close-profile:hover,
+.button-edit-profile:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.body-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 32px 16px;
+}
+
+.button-avatar-large {
+  position: relative;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+}
+
+.avatar-large {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.name-profile {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.button-who-are-you {
+  margin-top: 16px;
+  padding: 6px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--divider);
+  background: var(--bg-hover);
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.button-who-are-you:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.body-profile-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 28px 16px 12px;
+}
+
+.field-profile-row {
+  display: flex;
+  gap: 20px;
+}
+
+.icon-field-profile {
+  flex: none;
+  color: var(--text-dim);
+  padding-top: 22px;
+}
+
+.field-profile-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.label-field-profile {
+  display: block;
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+
+.body-profile-edit input[type="text"] {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--divider);
+  border-radius: 0;
+  background: none;
+  color: var(--text);
+  font-size: 15px;
+  padding: 2px 0 6px;
+}
+
+.body-profile-edit input[type="text"]:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+.button-confirm-profile {
+  align-self: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.button-confirm-profile:hover {
+  filter: brightness(1.1);
+}
+
+.phone-profile {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* ---------- avatar with camera overlay + menu (view/upload/remove photo) ---------- */
+
+.avatar-large-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.overlay-avatar-large {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 120ms ease;
+  pointer-events: none;
+}
+
+.avatar-large-wrap:hover .overlay-avatar-large {
+  opacity: 1;
+}
+
+.overlay-avatar-large svg {
+  transition: transform 120ms ease;
+  transform: scale(0.85);
+}
+
+.avatar-large-wrap:hover .overlay-avatar-large svg {
+  transform: scale(1.5);
+}
+
+.menu-photo-avatar {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+  z-index: 5;
+  min-width: 190px;
+  background: var(--bg-panel);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-menu-photo-avatar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: var(--text);
+  font-size: 13.5px;
+  cursor: pointer;
+}
+
+.item-menu-photo-avatar:hover {
+  background: var(--bg-hover);
+}
+
+.divider-menu-photo-avatar {
+  border: none;
+  border-top: 1px solid var(--divider);
+  margin: 4px 0;
+}
+
+/* Real file input, invisible; the <label> or the crop step interacts with it. */
+.input-avatar-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ---------- circular avatar crop (cropper) ---------- */
+
+.cropper-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  z-index: 1100;
+  color: #e9edef;
+}
+
+.cropper-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  font-size: 14px;
+}
+
+.cropper-header button {
+  border: none;
+  background: none;
+  color: #e9edef;
+  cursor: pointer;
+  display: flex;
+}
+
+.cropper-header span:first-of-type {
+  flex: 1;
+}
+
+.cropper-header span:last-of-type {
+  width: 20px;
+}
+
+.cropper-window {
+  /* Keep in sync with windowPx in layout.html — the crop math reads that value and it has
+     to match what is drawn here. */
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.6);
+}
+
+.cropper-window:active {
+  cursor: grabbing;
+}
+
+.cropper-image {
+  /* width/height come from the inline :style in layout.html: portrait sizes by width,
+     landscape by height, so the image always covers the circle. */
+  max-width: none;
+  user-select: none;
+  touch-action: none;
+  transform-origin: center;
+}
+
+.cropper-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.cropper-controls button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #e9edef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.cropper-controls button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cropper-confirm {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.cropper-confirm:hover {
+  filter: brightness(1.1);
+}
+
+.conversation-body-wrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.body-conversation {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  /* clip, not the auto that overflow-y implies: it is what cuts the highlight band's
+     overshoot without making this a horizontal scroll container. */
+  overflow-x: clip;
+  background-color: var(--bg-chat);
+  background-image: var(--wallpaper);
+  background-repeat: repeat;
+  background-size: 570px auto;
+  /* vw, not %: a percentage shrinks with the conversation when the right panel opens, and
+     that is what dragged the left-hand bubbles towards the sidebar. Measured in the
+     official app's recording: incoming bubbles stay put, only the outgoing ones move. */
+  /* Asymmetric on purpose: the left inset was pulled in so incoming bubbles sit near the
+     sidebar, but the outgoing ones did not need the same and looked glued to the edge. */
+  padding: 12px min(60px, 6vw) 12px min(40px, 5vw);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --bubble-in, not --bg-panel: same near-invisible-over-the-wallpaper issue as the date
+   divider above — this button floats on the canvas, not on a panel. */
+.button-down {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bubble-in);
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.button-down:hover {
+  background: var(--bg-hover);
+}
+
+.warning-read-only {
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+  color: var(--text-dim);
+  background: var(--bg-panel);
+  border-top: 1px solid var(--divider);
+}
+
+/* ---------- "who am I" bar ---------- */
+
+/* ---------- sender list (right panel) ---------- */
+
+.hint-senders {
+  margin: 14px 0 6px;
+  padding: 0 16px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.item-sender {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.item-sender:hover {
+  background: var(--bg-hover);
+}
+
+.avatar-sender {
+  width: 34px;
+  height: 34px;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.name-sender {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.bar-picker-owner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--text-dim);
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--divider);
+  flex-wrap: wrap;
+}
+
+/* ---------- pinned messages strip ---------- */
+
+.banner-pinned {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 16px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--divider);
+}
+
+.segments-pinned {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: none;
+}
+
+.segment-pinned {
+  width: 2px;
+  height: 5px;
+  border-radius: 1px;
+  background: var(--text-dim);
+  opacity: 0.35;
+}
+
+.segment-pinned--active {
+  opacity: 1;
+}
+
+.icon-banner-pinned {
+  display: flex;
+  flex: none;
+  color: var(--text-dim);
+}
+
+.icon-banner-pinned svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Truncated to one line: the strip must not grow with a long message. */
+.text-banner-pinned {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.text-banner-pinned:hover {
+  color: var(--text);
+}
+
+.candidates-owner {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.button-candidate-owner {
+  padding: 4px 10px;
+  border-radius: 14px;
+  border: 1px solid var(--divider);
+  background: var(--bg-hover);
+  color: var(--text);
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.button-candidate-owner:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.sentinel-top {
+  position: relative;
+  height: 1px;
+}
+
+.sentinel-top-loading {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--text-dim);
+  background: var(--bg-panel);
+  padding: 4px 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- date divider ---------- */
+
+.divider-date {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+/* --bubble-in, not --bg-panel: in dark mode --bg-panel (#0d0d0d) sits almost on top of
+   the wallpaper's own near-black (#090a0b), so the pill nearly disappeared. --bubble-in
+   is meaningfully lighter and equals --bg-panel in light mode anyway, so nothing changes
+   there. */
+.divider-date span {
+  background: var(--bubble-in);
+  color: var(--text-dim);
+  font-size: 12.5px;
+  padding: 5px 12px 6px;
+  border-radius: 7.5px;
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+}
+
+/* ---------- system message ---------- */
+
+.message-system {
+  display: flex;
+  justify-content: center;
+  margin: 6px 0;
+}
+
+.message-system span {
+  background: var(--bubble-in);
+  color: var(--text-dim);
+  font-size: 12.5px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 80%;
+  /* Preserves the export's "\n" without turning it into <br>. It matters here because a
+     multi-line system message is almost always a line whose date the parser couldn't read. */
+  white-space: pre-wrap;
+}
+
+/* ---------- bubbles ---------- */
+
+/* --gap-bubble lives on the row, not on .bubble, because the highlight band has to
+   subtract it: the margin sits inside the row's box, so a band drawn on the row would
+   show green above the bubble and nothing below. */
+.row-bubble {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 1px 0;
+  --gap-bubble: 2px;
+}
+
+/* Someone else starting to talk gets air; a message continuing the same block stays tight,
+   as in the official app. Must come after .row-bubble: its "margin: 1px 0" shorthand would
+   reset this one. */
+.row-new-block {
+  margin-top: 12px;
+}
+
+.row-bubble--sticker {
+  --gap-bubble: 0px;
+}
+
+.row-bubble--mine {
+  justify-content: flex-end;
+}
+
+.bubble {
+  position: relative;
+  max-width: min(65%, 450px);
+  background: var(--bubble-in);
+  border-radius: 7.5px;
+  padding: 6px 7px 8px 9px;
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+  margin-top: var(--gap-bubble);
+}
+
+.row-bubble--mine .bubble {
+  background: var(--bubble-out);
+}
+
+.bubble--tail {
+  border-top-left-radius: 0;
+}
+
+.row-bubble--mine .bubble--tail {
+  border-top-left-radius: 7.5px;
+  border-top-right-radius: 0;
+}
+
+.bubble--tail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid var(--bubble-in);
+  border-right: 8px solid var(--bubble-in);
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+
+.row-bubble--mine .bubble--tail::before {
+  left: auto;
+  right: -7px;
+  border-top: 8px solid var(--bubble-out);
+  border-left: 8px solid var(--bubble-out);
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+/* Takes the fg of the person's avatar colour, which is defined per theme: the old fixed
+   palette was made for a light background and six of its ten colours sat under 3:1 on the
+   dark bubble. background: none drops the avatar class's fill, which is for the circle. */
+.name-sender {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  background: none;
+}
+
+.body-bubble {
+  display: block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 14.2px;
+  line-height: 19px;
+  color: var(--text);
+  padding-right: calc(42px + var(--meta-badges, 0px));
+}
+
+/* The badges sit inline with the clock inside .meta-bubble, which is absolute, so the
+   room reserved on the text has to grow with them or they ride over the last line.
+   16px each = the 13px icon + the 3px gap. */
+.bubble:has(.badge-message-star),
+.bubble:has(.badge-message-pin) {
+  --meta-badges: 16px;
+}
+
+.bubble:has(.badge-message-star):has(.badge-message-pin) {
+  --meta-badges: 32px;
+}
+
+/* en's 12h clock ("12:22 PM") is wider than the 24h format of every other locale
+   (mirrors clockLayout in render/data.go). */
+html[lang="en"] .body-bubble {
+  padding-right: calc(58px + var(--meta-badges, 0px));
+}
+
+.body-bubble--emoji {
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.emoji-inline {
+  font-size: 1.25em;
+  line-height: 1;
+  vertical-align: -0.2em;
+}
+
+.body-bubble code {
+  background: var(--bg-hover);
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.body-bubble a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+/* The wrapper takes over the absolute positioning .time-bubble used to have, so badges
+   and chevron sit inline with the clock. */
+.meta-bubble {
+  position: absolute;
+  right: 9px;
+  bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.time-bubble {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+/* Read-only indicators; the action lives in the dropdown below. */
+.badge-message-star,
+.badge-message-pin {
+  display: flex;
+}
+
+.badge-message-star svg,
+.badge-message-pin svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* Both in --text-dim, the tone of the clock beside them: the official app's star is NOT
+   amber. A warning colour there pulls the eye away from the message. */
+.badge-message-star,
+.badge-message-pin {
+  color: var(--text-dim);
+}
+
+/* The #meta-{id} swap wrapper generates no box, so its children lay out as if they were
+   direct children of the bubble. */
+.wrap-message-actions {
+  display: contents;
+}
+
+/* Chevron matched frame by frame against the official app's recording: inside the
+   bubble's top-right corner, same spot for every message type. The radial-gradient is
+   what reads as "blur" — a solid centre fading out, so whatever is underneath fades
+   instead of being cut by a hard edge. */
+.button-menu-message {
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  /* Above .bubble--media's legibility gradient (z-index 1) and the meta (z-index 2). */
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  background: radial-gradient(circle at 60% 50%, var(--bubble-in) 40%, transparent 72%);
+  color: var(--text-dim);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.row-bubble--mine .button-menu-message {
+  background: radial-gradient(circle at 60% 50%, var(--bubble-out) 40%, transparent 72%);
+}
+
+/* Over an attachment the chevron shows with no veil: tinting it with the bubble colour
+   painted a blob on the image. The drop-shadow is the one concession — a plain white
+   arrow disappears on a light photo. */
+.bubble--media .button-menu-message,
+.row-bubble--sticker .button-menu-message {
+  background: none;
+  color: #fff;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.7));
+}
+
+/* Voice: the avatar already fills the top-right corner, so the chevron shifts left of
+   it, onto the player's top padding strip and clear of the waveform bars. */
+.bubble--media:has(.audio-voice) .button-menu-message {
+  right: 52px;
+}
+
+.button-menu-message svg {
+  width: 16px;
+  height: 16px;
+}
+
+.bubble:hover .button-menu-message,
+.row-bubble--sticker:hover .button-menu-message,
+.button-menu-message--open {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Sized by the image, so the chevron lands on the sticker instead of the full-width row. */
+.wrap-sticker {
+  position: relative;
+  display: inline-block;
+}
+
+.meta-sticker {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  background: var(--bubble-in);
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+}
+
+.row-bubble--mine .meta-sticker {
+  background: var(--bubble-out);
+}
+
+/* Positioned from the chevron's own bounding rect on open: "fixed" here is about
+   escaping .bubble--media's overflow:hidden, not about tracking scroll. */
+.menu-message {
+  position: fixed;
+  z-index: 40;
+  min-width: 220px;
+  padding: 6px 0;
+  border-radius: 8px;
+  border: 1px solid var(--divider);
+  background: var(--bg-panel);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.bubble[data-kind="deleted"] .body-bubble,
+.bubble[data-kind="media_omitted"] .body-bubble,
+.bubble[data-kind="call"] .body-bubble,
+.bubble[data-kind="location"] .body-bubble,
+.bubble[data-kind="contact"] .body-bubble {
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+/* ---------- inline media in bubbles ---------- */
+
+[x-cloak] {
+  display: none !important;
+}
+
+/* No overflow: hidden — it used to clip the media to the bubble's shape, and with it the
+   tail, which is why the tail rule excluded media bubbles. The media carries its own radius
+   and, in a group, the sender header is what sits in the corner now. */
+.bubble--media {
+  padding: 3px;
+  position: relative;
+}
+
+/* Media reaches the bubble's edge, so the sender name's padding is adjusted to line up
+   with text bubbles. */
+.bubble--media .name-sender {
+  padding: 3px 0 0 6px;
+}
+
+.media-image,
+.media-video {
+  display: block;
+  max-width: 320px;
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.media-video {
+  cursor: default;
+}
+
+.bubble--media:has(.media-image, .media-video)::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  height: 64px;
+  border-radius: 0 0 5px 5px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* z-index on the wrapper, not .time-bubble: .meta-bubble is what carries
+   position:absolute, so it is the one that must outrank the gradient's z-index:1. */
+.bubble--media .meta-bubble {
+  z-index: 2;
+}
+
+.bubble--media .time-bubble {
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 8px;
+}
+
+.bubble--media:has(.media-image, .media-video) .time-bubble {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* The time is already shown in .audio-voice-times. */
+.bubble--media:has(.audio-voice) .time-bubble {
+  display: none;
+}
+
+/* With the clock hidden .meta-bubble carries only the badges, and the bubble's
+   bottom-right corner is the avatar — left there, a star lands on someone's face. They
+   move onto the player's clock line, which gives up exactly their width. */
+.bubble--media:has(.audio-voice) .meta-bubble {
+  right: 75px;
+  bottom: 9px;
+}
+
+.audio-voice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 15px 8px 6px 4px;
+}
+
+.audio-voice-play {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  margin-top: -6px;
+  margin-right: 4px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.audio-voice-play:hover,
+.audio-voice-play:focus-visible {
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+
+.icon-audio-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-audio-play svg {
+  margin-left: 2px;
+}
+
+.audio-voice-body {
+  flex: none;
+  width: 142px;
+}
+
+.audio-voice-waveform {
+  position: relative;
+  width: 142px;
+  height: 22px;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.audio-voice-waveform-progress {
+  position: absolute;
+  inset: 0;
+  color: var(--text);
+  pointer-events: none;
+}
+
+.audio-voice-waveform-progress svg {
+  width: 100%;
+  height: 22px;
+}
+
+.audio-voice-waveform-dot {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--link);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.audio-voice-times {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 2px;
+  padding-right: var(--meta-badges, 0px);
+}
+
+.audio-voice-avatar-wrap {
+  position: relative;
+  flex: none;
+  margin-top: -12px;
+  margin-left: 10px;
+}
+
+.audio-voice-speed {
+  flex: none;
+  margin-top: 0;
+  margin-left: 10px;
+  padding: 4px 9px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.audio-voice-avatar {
+  width: 46px;
+  height: 46px;
+}
+
+.audio-voice-badge-mic {
+  position: absolute;
+  left: -3px;
+  bottom: -4px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--link);
+}
+
+.icon-mic-outline {
+  fill: var(--bubble-in);
+  stroke: var(--bubble-in);
+}
+
+.row-bubble--mine .icon-mic-outline {
+  fill: var(--bubble-out);
+  stroke: var(--bubble-out);
+}
+
+.icon-mic-capsule {
+  fill: currentColor;
+}
+
+.icon-mic-stroke {
+  stroke: currentColor;
+  fill: none;
+}
+
+.media-document {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-hover);
+  border-radius: 8px;
+  padding: 10px;
+  margin: 2px 0 4px;
+  text-decoration: none;
+  color: var(--text);
+  max-width: 260px;
+}
+
+.media-document-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.media-document-name {
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.row-bubble--sticker {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.row-bubble--sticker:not(.row-bubble--mine) {
+  align-items: flex-start;
+}
+
+.sticker {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+}
+
+.row-bubble--sticker .name-sender {
+  margin-bottom: 0;
+}
+
+/* In a group every incoming block shows the sender's photo in a column of its own, left of
+   the bubble, like the official app. Later messages of the block keep the indent with an
+   empty gutter instead of repeating the avatar. */
+/* The gap has to clear the bubble's tail, which sticks out 7px to the left: with the old
+   6px the tail landed on the avatar, and 12px still left it grazing the circle. 18px puts
+   11px of air between the tail's tip and the avatar, the same as the official app.
+   The negative left margin (its own width plus that gap) hangs the column in the
+   conversation's 6% padding, like the official app: the bubbles stay where they were and
+   only the avatar moves towards the sidebar. */
+.avatar-message {
+  width: 34px;
+  height: 34px;
+  font-size: 13px;
+  flex: none;
+  margin-left: -26px;
+  margin-right: 18px;
+  align-self: flex-start;
+}
+
+.avatar-gutter {
+  width: 52px;
+  margin-left: -26px;
+  flex: none;
+}
+
+.row-stickers {
+  display: flex;
+  align-items: flex-start;
+}
+
+.row-stickers--mine {
+  justify-content: flex-end;
+}
+
+/* Name on the left, the export's own sender on the right, as in the official app. */
+.header-bubble {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* An empty message (the export does produce them) has no body line to reserve room for the
+   clock, which then lands on top of the name. */
+.bubble:has(.body-bubble:empty) .header-bubble {
+  padding-right: calc(42px + var(--meta-badges, 0px));
+}
+
+html[lang="en"] .bubble:has(.body-bubble:empty) .header-bubble {
+  padding-right: calc(58px + var(--meta-badges, 0px));
+}
+
+.number-sender {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+/* Stickers sent one after the other line up in a strip, bottom aligned so their times sit
+   on the same line while the header of the first one pushes only its own column down. */
+.run-stickers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 6px;
+  width: fit-content;
+  max-width: 65%;
+  margin: 2px 0;
+}
+
+/* The sticker itself never gets a background — only the header and the time do, each in a
+   pill of its own. The strip is just the positioning context for the chevron, which would
+   otherwise anchor to a sticker's column, in the middle of the group. */
+.run-stickers--bubble {
+  position: relative;
+}
+
+.run-stickers--mine {
+  margin-left: auto;
+}
+
+.run-stickers--mine.run-stickers--bubble {
+  background: var(--bubble-out);
+}
+
+/* The columns share the strip's width, so the time of a lone sticker lands at the bubble's
+   right edge and, with several, under each one — as in the official app. The sticker sits
+   centred in its column, which is what leaves the even margins around it there. */
+.run-stickers .row-bubble--sticker {
+  flex: 1;
+  align-items: flex-start;
+}
+
+.run-stickers--bubble .row-bubble--sticker {
+  position: static;
+}
+
+/* width 0 + min-width 100% keeps the header out of the strip's intrinsic width, so the
+   strip is as wide as the stickers and the name bar follows them instead of the other way
+   round. Plain "flex-basis: 100%" would still contribute the name's max-content. */
+.line-header-sticker {
+  flex-basis: 100%;
+  width: 0;
+  min-width: 100%;
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.header-sticker {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  width: 100%;
+  padding: 4px 10px;
+  border-radius: 7.5px;
+  border-top-left-radius: 0;
+  background: var(--bubble-in);
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+}
+
+/* Same tail as a bubble: a sticker is still a message from someone. */
+.header-sticker::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid var(--bubble-in);
+  border-right: 8px solid var(--bubble-in);
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+
+.row-stickers--mine .header-sticker {
+  border-top-left-radius: 7.5px;
+  border-top-right-radius: 0;
+}
+
+.row-stickers--mine .header-sticker::before {
+  left: auto;
+  right: -7px;
+  border-top-color: var(--bubble-out);
+  border-right-color: transparent;
+  border-left: 8px solid var(--bubble-out);
+}
+
+.row-stickers--mine .header-sticker {
+  background: var(--bubble-out);
+}
+
+.avatar-sticker {
+  width: 22px;
+  height: 22px;
+  font-size: 10px;
+  flex: none;
+}
+
+.time-sticker {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+/* ---------- conversation header buttons ---------- */
+
+.button-search,
+.button-calendar,
+.button-gallery,
+.button-back-gallery {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-dim);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.button-search {
+  margin-left: auto;
+}
+
+.button-search:hover,
+.button-calendar:hover,
+.button-gallery:hover,
+.button-back-gallery:hover {
+  background: var(--bg-hover);
+}
+
+.button-back-gallery {
+  margin-left: 0;
+  margin-right: 4px;
+  font-size: 20px;
+}
+
+/* ---------- media gallery ---------- */
+
+/* An empty div is a zero-height grid cell, and a zero-area target never intersects —
+   the observer simply never fires. It spans the row so it can't hide beside an item. */
+.sentinel-gallery {
+  grid-column: 1 / -1;
+  height: 40px;
+}
+
+.gallery-grid {
+  flex: 1;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 4px;
+  padding: 12px;
+  align-content: start;
+  background: var(--bg-chat);
+}
+
+.gallery-item {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 4px;
+  background: var(--bg-hover);
+}
+
+.gallery-item--sticker {
+  object-fit: contain;
+  background: transparent;
+  padding: 6px;
+}
+
+/* ---------- gallery tabs ---------- */
+
+.tabs-gallery {
+  display: flex;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--divider);
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: none;
+}
+
+.tabs-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-gallery {
+  flex: 1 0 auto;
+  padding: 14px 18px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: none;
+  color: var(--text-dim);
+  font-size: 14px;
+  font-family: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tab-gallery:hover {
+  background: var(--bg-hover);
+}
+
+.tab-gallery--active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- gallery lists (documents, audio, links) ---------- */
+
+.list-gallery {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: var(--bg-chat);
+}
+
+.card-document,
+.card-link,
+.card-audio {
+  background: var(--bubble-in);
+  border-radius: 7.5px;
+  padding: 10px 12px;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.card-document:hover,
+.card-link:hover {
+  background: var(--bg-hover);
+}
+
+.card-document {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-document-badge {
+  flex: none;
+  width: 34px;
+  height: 40px;
+  border-radius: 4px;
+  background: var(--bg-hover);
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.card-document-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.card-document-name {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-document-meta,
+.card-document-date,
+.card-link-date,
+.card-audio-date {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.card-document-date {
+  flex: none;
+  align-self: flex-end;
+}
+
+.card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.card-link-domain {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.card-link-url {
+  font-size: 13px;
+  color: var(--link);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-link-date {
+  align-self: flex-end;
+}
+
+.card-audio {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-audio-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card-audio-name {
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.audio-voice--gallery {
+  padding: 0;
+}
+
+.audio-voice--gallery .audio-voice-speed {
+  margin-top: 0;
+}
+
+/* Full width in the gallery (fixed at 142px in the bubble); app.js recalculates bars. */
+.audio-voice--gallery .audio-voice-body {
+  flex: 1;
+  width: auto;
+  min-width: 0;
+}
+
+.audio-voice--gallery .audio-voice-waveform {
+  width: auto;
+}
+
+.audio-voice--gallery .audio-voice-waveform > svg {
+  width: 100%;
+  height: 22px;
+}
+
+/* ---------- lightbox ---------- */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e9edef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightbox-arrow:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.lightbox-arrow--previous {
+  left: 20px;
+}
+
+.lightbox-arrow--next {
+  right: 20px;
+}
+
+.lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  flex-shrink: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+  color: #e9edef;
+}
+
+.lightbox-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.lightbox-sender {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.lightbox-when {
+  font-size: 12px;
+  color: #8696a0;
+}
+
+.lightbox-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.lightbox-actions button,
+.lightbox-actions a {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  color: #e9edef;
+  cursor: pointer;
+}
+
+.lightbox-actions button:hover,
+.lightbox-actions a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-actions button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.lightbox-actions button:disabled:hover {
+  background: none;
+}
+
+.lightbox-content-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.lightbox-content {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 4px;
+  transition: transform 0.15s ease;
+}
+
+.lightbox-thumbnails {
+  display: flex;
+  gap: 6px;
+  padding: 12px 20px;
+  overflow-x: auto;
+  flex-shrink: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+}
+
+.lightbox-thumbnail-item {
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.lightbox-thumbnail {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 4px;
+  opacity: 0.5;
+  display: block;
+}
+
+.lightbox-thumbnail--active {
+  opacity: 1;
+  outline: 2px solid var(--accent);
+}
+
+/* ---------- right panel (search) ---------- */
+
+/* Slides open by animating its own width, which pushes the conversation narrower — the
+   official app does the same, measured at ~120ms (1260px to 684px between +17ms and
+   +136ms of the click). :empty drives it: htmx filling the panel ends the empty state,
+   so no class has to be toggled on either side. */
+#right-panel {
+  width: 480px;
+  flex: none;
+  background: var(--bg-panel);
+  display: flex;
+  flex-direction: column;
+  /* Clips the content while the width animates. The scroll lives in the child, not here:
+     the panel's scrollbar would eat 15px of a content box its children are pinned to 480px
+     for, cutting the right edge of every row. */
+  overflow: hidden;
+  transition: width 120ms ease;
+}
+
+#right-panel:empty {
+  width: 0;
+}
+
+/* Below this the three columns stop fitting — at 900px the conversation was down to 120px
+   and at 587px the panel's right edge landed past the window. There it overlays instead. */
+@media (max-width: 1100px) {
+  #right-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    box-shadow: -8px 0 24px rgba(0, 0, 0, 0.45);
+  }
+
+  #right-panel:empty {
+    box-shadow: none;
+  }
+}
+
+/* Without this the content reflows every frame instead of sliding in behind the clip. */
+#right-panel > * {
+  flex: none;
+  width: min(480px, 100vw);
+  height: 100%;
+  overflow-y: auto;
+}
+
+
+.header-search {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 16px 10px 10px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.header-search .box-search {
+  flex: 1;
+  padding: 0 12px;
+}
+
+.body-update .box-search {
+  margin-bottom: 12px;
+}
+
+.list-results-search {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.result-search {
+  display: block;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--divider);
+  cursor: pointer;
+}
+
+.result-search:hover {
+  background: var(--bg-hover);
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.result-sender {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.result-date {
+  font-size: 11px;
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+
+.result-snippet {
+  display: block;
+  font-size: 13px;
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-snippet mark {
+  background: none;
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Message highlighted on arrival (search, calendar day, pinned strip — all three route
+   through "?around="): a green band across the conversation, flashing once.
+
+   The band is a ::before on the row, not a background: the row stops at
+   .body-conversation's side padding and the band has to reach the panel's edges. It
+   overshoots by -9999px and the panel clips it, which is why overflow-x there must be
+   clip. A percentage can't land the edges: left/right resolve against the row while the
+   padding is a percentage of the panel, and 1px sticking out was enough to raise a
+   horizontal scrollbar over the conversation.
+
+   ::before and .bubble both have z-index auto, so paint order is DOM order and the
+   bubble stays on top without a z-index anywhere. */
+.row-highlighted::before {
+  content: "";
+  position: absolute;
+  /* Hugs the bubble, not the row: --gap-bubble is the bubble's top margin, inside the
+     row's box, so skipping it is what makes the band even above and below. Never
+     negative — rows are 1px apart and this ::before would paint over the next bubble. */
+  top: var(--gap-bubble);
+  bottom: 0;
+  left: -9999px;
+  right: -9999px;
+  pointer-events: none;
+  animation: highlight-band 0.6s ease-out forwards;
+}
+
+@keyframes highlight-band {
+  0%, 55% {
+    background: color-mix(in srgb, var(--accent-bright) 30%, transparent);
+  }
+  100% {
+    background: color-mix(in srgb, var(--accent-bright) 0%, transparent);
+  }
+}
+
+.button-scan.htmx-request {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.button-scan.htmx-request svg {
+  animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- chat list filter bar ---------- */
+
+/* One row, never wrapping: what doesn't fit goes to the chevron's menu (see
+   layoutChipFilters in app.js). */
+.filters-chats {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 16px 6px;
+}
+
+.row-chips {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  /* min-width: 0 lets the row shrink below its content so the chevron keeps its place. */
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Chips keep their natural width — otherwise flex shrinks them all and nothing ever
+   overflows. */
+.row-chips > * {
+  flex: none;
+}
+
+.wrap-chips-more {
+  position: relative;
+  flex: none;
+}
+
+.menu-chips {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 30;
+  min-width: 200px;
+  padding: 6px 0;
+  border-radius: 8px;
+  border: 1px solid var(--divider);
+  background: var(--bg-panel);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.item-menu-list {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.item-menu-list[hidden] {
+  display: none;
+}
+
+.button-delete-list-menu {
+  flex: none;
+  margin-right: 10px;
+  padding: 0 6px;
+  border: none;
+  background: none;
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.item-menu-list:hover .button-delete-list-menu {
+  opacity: 1;
+}
+
+.button-delete-list-menu:hover {
+  color: #f15c6d;
+}
+
+/* Solid flat fill, no outline — the real chip isn't a stroked pill, it's filled. */
+.chip-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 26px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 15px;
+  background: var(--bg-hover);
+  color: var(--text-dim);
+  font-family: inherit;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.chip-filter:hover {
+  background: color-mix(in srgb, var(--bg-hover) 100%, var(--text) 12%);
+}
+
+/* Same fill as the outgoing bubble — it's the app's own "selected green", pale in light
+   mode and dark teal in dark mode, and it's already tuned for that fill in both themes. */
+.chip-filter--active,
+.chip-filter--active:hover {
+  background: var(--bubble-out);
+  color: var(--chip-active-text);
+}
+
+.chip-counter {
+  font-size: 12px;
+}
+
+.chip-filter--more {
+  padding: 0 9px;
+}
+
+.chip-list-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+/* An explicit display beats the browser stylesheet's [hidden] { display: none }, so the
+   attribute set by layoutChipFilters needs this to take effect; without it the
+   overflowing chip stays laid out and shows up clipped at the edge. */
+.chip-list-wrap[hidden] {
+  display: none;
+}
+
+.chip-delete-list {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg-panel);
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 15px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chip-list-wrap:hover .chip-delete-list {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.chip-delete-list:hover {
+  color: #f15c6d;
+}
+
+.form-new-list {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-new-list input {
+  width: 130px;
+  height: 30px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 15px;
+  background: var(--bg-input);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-new-list button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.form-new-list button:hover {
+  background: var(--bg-hover);
+}
+
+/* ---------- pinned/favorite badges on the list item ---------- */
+
+.badges-chat {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--text-dim);
+}
+
+/* On hover the chevron slides in at right:12px, absolutely positioned over this row, so
+   the pin steps aside. margin-right, not transform: the margin re-runs the flex layout
+   and .preview-chat gives up the width; a transform would only move the badge visually
+   and let the pin land on a long preview's text. */
+.badges-chat {
+  transition: margin-right 0.14s ease-out;
+}
+
+.item-chat-wrap:hover .badges-chat,
+.item-chat-wrap:has(.arrow-menu-chat--open) .badges-chat {
+  margin-right: 26px;
+}
+
+.badge-chat svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---------- "Add to list" submenu ---------- */
+
+.item-menu-chat--submenu {
+  justify-content: flex-start;
+}
+
+.arrow-submenu {
+  margin-left: auto;
+  display: flex;
+  color: var(--text-dim);
+}
+
+.arrow-submenu svg {
+  width: 16px;
+  height: 16px;
+}
+
+.submenu-nested {
+  border-top: 1px solid var(--divider);
+  padding: 4px 0;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.mark-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  flex: none;
+  color: var(--text);
+}
+
+.mark-list svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+}
+
+.form-new-list--menu {
+  padding: 6px 18px 8px;
+}
+
+.form-new-list--menu input {
+  width: 100%;
+}
+
+/* ---------- toast (bottom-left corner) ---------- */
+
+.toast {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 380px;
+  padding: 10px 12px 10px 16px;
+  border-radius: 8px;
+  background: var(--bg-hover);
+  color: var(--text);
+  font-size: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+}
+
+.toast-icon {
+  display: flex;
+  color: var(--accent);
+}
+
+.toast-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.toast-text {
+  flex: 1;
+}
+
+.toast-undo {
+  flex: none;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 14px;
+  background: var(--bg-panel);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.toast-undo:hover {
+  filter: brightness(1.3);
+}
+
+/* ---------- modal alert ---------- */
+
+.alert-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.alert-box {
+  min-width: 380px;
+  max-width: 460px;
+  padding: 20px 22px 14px;
+  border-radius: 6px;
+  background: var(--bg-hover);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+}
+
+.alert-text {
+  margin: 0 0 26px;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.alert-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.alert-cancel {
+  min-width: 92px;
+  padding: 9px 22px;
+  border: 1px solid var(--divider);
+  border-radius: 20px;
+  background: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.alert-cancel:hover {
+  background: var(--bg-panel);
+}
+
+.alert-ok {
+  min-width: 92px;
+  padding: 9px 22px;
+  border: none;
+  border-radius: 20px;
+  background: var(--accent);
+  color: #111b21;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.alert-ok:hover {
+  filter: brightness(1.08);
+}
+
+/* ---------- profile action row (starred messages) ---------- */
+
+.row-profile-action {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  background: none;
+  color: var(--text);
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.row-profile-action:hover {
+  background: var(--bg-hover);
+}
+
+.row-profile-action .chip-counter {
+  margin-left: auto;
+  color: var(--text-dim);
+}
+
+.row-profile-action--danger,
+.row-profile-action--danger svg {
+  color: #f15c6d;
+}
+
+.divider-profile-actions {
+  height: 1px;
+  margin: 8px 0;
+  background: var(--divider);
+}
+
+.submenu-profile-lists {
+  padding: 2px 0 6px 32px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+/* ---------- group participants (rename) ---------- */
+
+.section-participants,
+.section-page {
+  padding: 4px 20px 20px;
+}
+
+.row-participant {
+  position: relative;
+}
+
+.menu-participant-photo {
+  top: 52px;
+  left: 12px;
+}
+
+.avatar-participant {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.button-see-all {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px 0;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.button-see-all:hover {
+  text-decoration: underline;
+}
+
+/* ---------- "search members" dialog ---------- */
+
+.overlay-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-members {
+  display: flex;
+  flex-direction: column;
+  width: min(460px, 92vw);
+  max-height: min(640px, 86vh);
+  border-radius: 8px;
+  background: var(--bg-panel);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.header-dialog {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px 4px;
+}
+
+.header-dialog h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.list-members {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 8px;
+}
+
+.letter-members {
+  margin: 0;
+  padding: 10px 16px 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+.row-member {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+}
+
+.row-member:hover {
+  background: var(--bg-hover);
+}
+
+.menu-member-photo {
+  top: 58px;
+  left: 16px;
+}
+
+/* Same 48px as the profile panel's list, which is the official app's size. */
+.avatar-member {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  font-size: 16px;
+  flex: none;
+}
+
+.name-member {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.number-member {
+  color: var(--text-dim);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.badge-participant-owner {
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--bg-hover);
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+.title-section-participants {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+.row-participant {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 0;
+}
+
+/* 48px, the size of the official app's member list. */
+.avatar-participant {
+  width: 48px;
+  height: 48px;
+  font-size: 16px;
+}
+
+.info-participant {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.name-participant {
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.original-participant {
+  font-size: 12px;
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.button-edit-participant {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.button-edit-participant:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.form-participant,
+.form-page {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-participant input,
+.form-page input {
+  flex: 1;
+  min-width: 0;
+  height: 34px;
+  padding: 0 10px;
+  border: none;
+  border-bottom: 2px solid var(--accent);
+  background: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+}
+
+.form-participant button,
+.form-page button {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.form-participant button:hover,
+.form-page button:hover {
+  background: var(--bg-hover);
+}
+
+.form-page input {
+  max-width: 110px;
+}
+
+/* The browser's number spinner is drawn by the platform, not by us: light box, own arrows,
+   its own hover. Hiding it costs nothing here — the value is typed and "All" is a button. */
+.form-page input::-webkit-outer-spin-button,
+.form-page input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-page input {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.button-all-page {
+  flex: none;
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid var(--divider);
+  border-radius: 15px;
+  background: none;
+  color: var(--text-dim);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.button-all-page:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.help-participants {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* ---------- "update conversation" panel ---------- */
+
+.title-group-inbox {
+  margin: 14px 0 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text-dim);
+}
+
+.body-update {
+  padding: 8px 20px 20px;
+  overflow-y: auto;
+}
+
+.help-update {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.result-update {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.item-inbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  border: none;
+  border-radius: 7px;
+  background: var(--bubble-in);
+  color: var(--text);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.item-inbox:hover {
+  background: var(--bg-hover);
+}
+
+.item-inbox:disabled {
+  opacity: 0.5;
+  cursor: progress;
+}
+
+.icon-item-inbox {
+  flex: none;
+  display: flex;
+  color: var(--text-dim);
+}
+
+.info-item-inbox {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.name-item-inbox {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meta-item-inbox {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.body-update code {
+  font-size: 12px;
+  word-break: break-all;
+}
+
+/* ---------- an import's details (/imports) ---------- */
+
+.item-import-warnings {
+  color: #e0a44d;
+}
+
+.item-import-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.button-detail-import {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--link);
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.button-detail-import:hover {
+  text-decoration: underline;
+}
+
+.detail-import {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--divider);
+}
+
+.grid-detail-import {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 14px;
+  margin: 0 0 10px;
+  font-size: 13px;
+}
+
+.grid-detail-import dt {
+  color: var(--text-dim);
+}
+
+.grid-detail-import dd {
+  margin: 0;
+}
+
+.note-detail {
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+.list-coherence-import {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.list-coherence-import li {
+  margin-bottom: 3px;
+}
+
+.note-coherence-clean {
+  margin-top: 10px;
+}
+
+.title-warnings-import {
+  margin: 12px 0 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.list-warnings-import {
+  max-height: 260px;
+  overflow-y: auto;
+  margin: 0 0 10px;
+  padding: 8px 10px 8px 26px;
+  border-radius: 6px;
+  background: var(--bg-chat);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+/* ---------- date-jump calendar ---------- */
+
+.panel-calendar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Only this part grows (a month with many days) and needs its own scroll; header, month
+   navigation and grid stay fixed above. */
+.body-calendar {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
+.navigation-month {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px 8px;
+}
+
+.title-month {
+  flex: 1;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.picker-month-year {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.wrap-picker-month-year {
+  position: relative;
+}
+
+.button-picker-month-year {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  border-radius: 6px;
+  background: var(--bg-hover);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+.button-picker-month-year svg {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  color: var(--text-dim);
+}
+
+.button-picker-month-year--open {
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.menu-picker-month-year {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 6px);
+  transform: translateX(-50%);
+  z-index: 30;
+  width: max-content;
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 6px 0;
+  border-radius: 8px;
+  border: 1px solid var(--divider);
+  background: var(--bg-panel);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.menu-picker-month-year .item-menu-chat {
+  white-space: nowrap;
+}
+
+.button-month {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.button-month:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.button-month--empty {
+  cursor: default;
+}
+
+.grid-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  padding: 0 16px;
+}
+
+.label-day-week {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-dim);
+  padding-bottom: 4px;
+}
+
+.cell-day {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: var(--text);
+  font-family: inherit;
+  padding: 0;
+}
+
+button.cell-day {
+  cursor: pointer;
+}
+
+button.cell-day:hover {
+  outline: 2px solid var(--accent);
+}
+
+.cell-day--empty {
+  color: var(--text-dim);
+  opacity: 0.35;
+}
+
+.number-day {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.count-day {
+  font-size: 9.5px;
+  line-height: 1;
+  opacity: 0.75;
+}
+
+.cell-day--n1 { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+.cell-day--n2 { background: color-mix(in srgb, var(--accent) 38%, transparent); }
+.cell-day--n3 { background: color-mix(in srgb, var(--accent) 62%, transparent); }
+.cell-day--n4 { background: var(--accent); color: #fff; }
+
+.button-month-recent {
+  display: block;
+  margin: 14px auto 0;
+  padding: 6px 14px;
+  border: 1px solid var(--divider);
+  border-radius: 16px;
+  background: none;
+  color: var(--text-dim);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.button-month-recent:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.panel-calendar .help-participants {
+  padding: 0 16px;
+}
+
+.list-days-calendar {
+  margin-top: 14px;
+  border-top: 1px solid var(--divider);
+}
+
+.item-day-calendar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-bottom: 1px solid var(--divider);
+  background: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.item-day-calendar:hover {
+  background: var(--bg-hover);
+}
+
+.label-item-day-calendar {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.count-item-day-calendar {
+  flex: none;
+  min-width: 22px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+}

@@ -1,0 +1,57 @@
+{
+  "source": "android",
+  "date_order": "DMY",
+  "is_group": true,
+  "messages": [
+    {
+      "sent_at": "2026-07-26 14:32:00",
+      "seq": 1,
+      "sender": "Vitor",
+      "body": "Chamada de voz perdida",
+      "kind": "call"
+    },
+    {
+      "sent_at": "2026-07-26 14:33:00",
+      "seq": 2,
+      "sender": "Ana",
+      "body": "Missed video call",
+      "kind": "call"
+    },
+    {
+      "sent_at": "2026-07-26 14:34:00",
+      "seq": 3,
+      "sender": "Bruno",
+      "body": "Llamada de voz perdida",
+      "kind": "call"
+    },
+    {
+      "sent_at": "2026-07-26 14:35:00",
+      "seq": 4,
+      "sender": "Carla",
+      "body": "Chiamata vocale persa",
+      "kind": "call"
+    },
+    {
+      "sent_at": "2026-07-26 14:36:00",
+      "seq": 5,
+      "sender": "Dieter",
+      "body": "Appel vocal manqué",
+      "kind": "call"
+    },
+    {
+      "sent_at": "2026-07-26 14:37:00",
+      "seq": 6,
+      "sender": "Elke",
+      "body": "Verpasster Sprachanruf",
+      "kind": "call"
+    },
+    {
+      "sent_at": "2026-07-26 14:38:00",
+      "seq": 7,
+      "sender": "Femke",
+      "body": "Gemiste spraakoproep",
+      "kind": "call"
+    }
+  ],
+  "warnings": null
+}

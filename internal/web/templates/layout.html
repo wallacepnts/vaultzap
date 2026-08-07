@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="{{.ChatList.Locale}}" data-theme="dark"
+      x-data="{ theme: localStorage.getItem('theme') || 'dark' }"
+      x-init="$watch('theme', v => { localStorage.setItem('theme', v); document.documentElement.dataset.theme = v })">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VaultZap</title>
+  {{/* Applies the saved theme before the first paint. Alpine loads deferred,
+       so leaving this to x-init meant half a second of the page rendered in
+       the wrong theme on every reload — measured at 575ms. Inline and above
+       the stylesheet on purpose: anything else runs too late.
+       Aplica o tema salvo antes do primeiro paint. O Alpine carrega com defer,
+       então deixar isto pro x-init significava meio segundo de página no tema
+       errado a cada recarga — medido em 575ms. Inline e acima da folha de
+       estilo de propósito: qualquer outra coisa roda tarde demais. */}}
+  <script>document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark';</script>
+  <link rel="icon" href="/static/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="{{asset "css/app.css"}}">
+  <script src="{{asset "vendor/htmx-2.0.10.min.js"}}"></script>
+  <script src="{{asset "app.js"}}" defer></script>
+  <script src="{{asset "vendor/alpine-3.15.12.min.js"}}" defer></script>
+</head>
+<body>
+  <div id="app">
+    {{template "rail.html" .ChatList}}
+    <aside id="sidebar">
+      {{template "sidebar.html" .ChatList}}
+    </aside>
+    <main id="conversation">
+      {{.Content}}
+    </main>
+    <aside id="right-panel"></aside>
+    {{/* Any panel can fill it; the fragment inside is what closes it. */}}
+    <div id="modal"></div>
+  </div>
+
+  <div
+    x-data="{
+      open: false,
+      items: [],
+      index: 0,
+      scale: 1,
+      openAt(src) {
+        const absoluteSrc = new URL(src, window.location.href).href;
+        // Already open on this item: a redundant dispatch would re-trigger the video load.
+        if (this.open && this.items[this.index]?.src === absoluteSrc) return;
+        const galleryItems = Array.from(document.querySelectorAll('.media-lightbox')).map((el) => ({
+          src: el.currentSrc || el.src,
+          type: el.tagName === 'VIDEO' ? 'video' : 'image',
+          sender: el.dataset.sender || '',
+          when: el.dataset.when || '',
+        }));
+        const index = galleryItems.findIndex((i) => i.src === absoluteSrc);
+        if (index === -1) {
+          this.items = [{ src: absoluteSrc, type: 'image', sender: '', when: '' }];
+          this.index = 0;
+        } else {
+          this.items = galleryItems;
+          this.index = index;
+        }
+      },
+      previous() {
+        if (this.index <= 0) return;
+        this.$el.closest('.lightbox').querySelectorAll('video, audio').forEach((m) => m.pause());
+        this.index--; this.scale = 1;
+      },
+      next() {
+        if (this.index >= this.items.length - 1) return;
+        this.$el.closest('.lightbox').querySelectorAll('video, audio').forEach((m) => m.pause());
+        this.index++; this.scale = 1;
+      },
+      // closest('.lightbox'), not a bare $el: these methods also run from directives on
+      // descendants (the close button), where $el is that descendant and would find
+      // nothing to pause.
+      close() {
+        this.$el.closest('.lightbox').querySelectorAll('video, audio').forEach((m) => m.pause());
+        this.open = false;
+      },
+    }"
+    x-show="open"
+    x-cloak
+    @open-lightbox.window="openAt($event.detail.src); scale = 1; open = true"
+    @close-lightbox.window="close()"
+    @keydown.escape.window="close()"
+    @keydown.arrow-left.window="previous()"
+    @keydown.arrow-right.window="next()"
+    @click="close()"
+    class="lightbox"
+  >
+    <button type="button" class="lightbox-arrow lightbox-arrow--previous" title="{{t "lightbox.previous"}}"
+            x-show="items.length > 1 && index > 0" x-cloak @click.stop="previous()">
+      {{template "icon-back"}}
+    </button>
+    <button type="button" class="lightbox-arrow lightbox-arrow--next" title="{{t "lightbox.next"}}"
+            x-show="items.length > 1 && index < items.length - 1" x-cloak @click.stop="next()">
+      {{template "icon-forward"}}
+    </button>
+    <div class="lightbox-header" @click.stop>
+      <div class="lightbox-info">
+        <span class="lightbox-sender" x-text="items[index]?.sender"></span>
+        <span class="lightbox-when" x-text="items[index]?.when"></span>
+      </div>
+      <div class="lightbox-actions">
+        <button type="button" title="{{t "lightbox.zoom_out"}}" :disabled="scale <= 1"
+                @click="scale = Math.max(scale - 0.5, 1)">{{template "icon-zoom-out"}}</button>
+        <button type="button" title="{{t "lightbox.zoom_in"}}" :disabled="scale >= 3"
+                @click="scale = Math.min(scale + 0.5, 3)">{{template "icon-zoom-in"}}</button>
+        <a title="{{t "lightbox.download"}}" :href="items[index]?.src" download @click.stop>{{template "icon-download"}}</a>
+        <button type="button" title="{{t "action.close"}}" @click="close()">{{template "icon-close"}}</button>
+      </div>
+    </div>
+
+    <div class="lightbox-content-wrap">
+      <!-- x-if, not x-show: the video element isn't created for image items. -->
+      <template x-if="items[index]?.type === 'image'">
+        <img :src="items[index]?.src" class="lightbox-content" :style="{ transform: 'scale(' + scale + ')' }"
+             @click.stop>
+      </template>
+      <template x-if="items[index]?.type === 'video'">
+        <!-- Setting .src restarts playback even for the same value, so x-effect is used
+             instead of a :src binding that reassigns on every reactive tick. Explicit
+             .play() instead of the autoplay attribute: the browser doesn't treat
+             autoplay-attribute playback as user-initiated and silently blocks an
+             unmuted video, leaving the player frozen on frame 0. -->
+        <video x-ref="lightboxVideo" controls class="lightbox-content"
+               x-effect="if ($refs.lightboxVideo.src !== items[index]?.src) { $refs.lightboxVideo.src = items[index]?.src || ''; $refs.lightboxVideo.play().catch(() => {}) }"
+               :style="{ transform: 'scale(' + scale + ')' }" @click.stop></video>
+      </template>
+    </div>
+
+    <div class="lightbox-thumbnails" x-show="items.length > 1" @click.stop>
+      <!-- index as :key, since src can repeat. -->
+      <template x-for="(item, i) in items" :key="i">
+        <div class="lightbox-thumbnail-item"
+             @click="$el.closest('.lightbox').querySelectorAll('video, audio').forEach((m) => m.pause()); index = i; scale = 1">
+          <template x-if="item.type === 'image'">
+            <img :src="item.src" class="lightbox-thumbnail" :class="{ 'lightbox-thumbnail--active': i === index }">
+          </template>
+          <template x-if="item.type === 'video'">
+            <video :src="item.src" muted preload="metadata" class="lightbox-thumbnail"
+                   :class="{ 'lightbox-thumbnail--active': i === index }"></video>
+          </template>
+        </div>
+      </template>
+    </div>
+  </div>
+
+  <!-- Global so it works from any panel: outside #conversation and #right-panel. -->
+  <div
+    x-data="{
+      open: false,
+      dataUrl: '',
+      scale: 1,
+      x: 0,
+      y: 0,
+      dragging: false,
+      startX: 0,
+      startY: 0,
+      // Keep in sync with .cropper-window in app.css: the crop math reads this value and
+      // it has to match what is drawn. It doesn't change the cropped fraction, only the
+      // on-screen room to position and zoom.
+      windowPx: 320,
+      // A cap, not the output size: cropperToBlob saves whatever real detail the source
+      // has in the visible area, up to this.
+      maxOutputPx: 1024,
+      // Decides which side the cover-fit is based on, in the :style below and in
+      // cropperToBlob. Set on the image's load event.
+      landscape: false,
+      startDrag(event) {
+        this.dragging = true;
+        const p = event.touches ? event.touches[0] : event;
+        this.startX = p.clientX - this.x;
+        this.startY = p.clientY - this.y;
+      },
+      drag(event) {
+        if (!this.dragging) return;
+        const p = event.touches ? event.touches[0] : event;
+        this.x = p.clientX - this.startX;
+        this.y = p.clientY - this.startY;
+      },
+      stopDrag() { this.dragging = false; },
+      async confirm() {
+        const blob = await cropperToBlob(this.$refs.cropperImage, this.x, this.y, this.scale, this.windowPx, this.maxOutputPx);
+        const input = document.getElementById(window.cropperTarget || 'input-avatar-final');
+        if (input && blob) {
+          const dt = new DataTransfer();
+          dt.items.add(new File([blob], 'avatar.png', { type: 'image/png' }));
+          input.files = dt.files;
+          htmx.trigger(input, 'change');
+        }
+        this.open = false;
+      },
+    }"
+    x-show="open"
+    x-cloak
+    @open-cropper.window="open = true; dataUrl = $event.detail.dataUrl; scale = 1; x = 0; y = 0; landscape = false"
+    @keydown.escape.window="open = false"
+    class="cropper-overlay"
+  >
+    <div class="cropper-header">
+      <button type="button" title="{{t "action.cancel"}}" @click="open = false">{{template "icon-close"}}</button>
+      <span>{{t "cropper.drag"}}</span>
+      <span></span>
+    </div>
+    <div class="cropper-window">
+      {{/* Cover-fit basis flips with orientation: portrait/square sizes by
+           width (100%) and lets height overflow past the circle, same as
+           before; landscape now sizes by height (100%) instead, so it
+           overflows sideways and actually covers the window top to bottom
+           — the old code always sized by width, which under-filled a wide
+           photo's height and left the circle showing gaps.
+           A base do cover-fit troca com a orientação: retrato/quadrada usa
+           a largura (100%) e deixa a altura transbordar, como antes;
+           horizontal agora usa a altura (100%), então transborda pros
+           lados e cobre a janela de cima a baixo — o código antigo sempre
+           usava a largura, o que preenchia de menos a altura de uma foto
+           larga e deixava vão no círculo. */}}
+      <img x-ref="cropperImage" :src="dataUrl" class="cropper-image" draggable="false"
+           @load="landscape = $el.naturalWidth > $el.naturalHeight"
+           :style="(landscape ? 'width:auto;height:100%;' : 'width:100%;height:auto;') + 'transform: translate(' + x + 'px,' + y + 'px) scale(' + scale + ')'"
+           @mousedown="startDrag($event)" @mousemove.window="drag($event)" @mouseup.window="stopDrag()"
+           @touchstart="startDrag($event)" @touchmove.window="drag($event)" @touchend.window="stopDrag()">
+    </div>
+    <div class="cropper-controls">
+      <button type="button" title="{{t "lightbox.zoom_out"}}" :disabled="scale <= 1"
+              @click="scale = Math.max(scale - 0.2, 1)">{{template "icon-zoom-out"}}</button>
+      <button type="button" title="{{t "lightbox.zoom_in"}}" :disabled="scale >= 3"
+              @click="scale = Math.min(scale + 0.2, 3)">{{template "icon-zoom-in"}}</button>
+    </div>
+    <button type="button" class="cropper-confirm" title="{{t "cropper.confirm"}}" @click="confirm()">{{template "icon-check"}}</button>
+  </div>
+
+  {{/* Toast and alert, triggered by the server via HX-Trigger. Kept outside #app.
+       Toast e alerta, disparados pelo servidor via HX-Trigger. Ficam fora de #app. */}}
+  <div
+    x-data="{
+      open: false,
+      text: '',
+      action: null,
+      timer: null,
+      show(detail) {
+        this.text = detail.text;
+        this.action = detail.undo ? {
+          url: detail.undo,
+          values: detail.values || {},
+          target: detail.target || '#list-chats',
+          swap: detail.swap || 'innerHTML',
+        } : null;
+        this.open = true;
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => { this.open = false }, 5000);
+      },
+      undo() {
+        if (!this.action) return;
+        htmx.ajax('POST', this.action.url, {
+          target: this.action.target, swap: this.action.swap,
+          values: { ...this.action.values, undoing: '1' },
+        });
+        this.open = false;
+        clearTimeout(this.timer);
+      },
+    }"
+    x-show="open"
+    x-cloak
+    @toast.window="show($event.detail)"
+    class="toast"
+    role="status"
+  >
+    <span class="toast-icon">{{template "icon-check"}}</span>
+    <span class="toast-text" x-text="text"></span>
+    <button type="button" class="toast-undo" x-show="action" @click="undo()">{{t "action.undo"}}</button>
+  </div>
+
+  <div
+    x-data="{ open: false, text: '', confirming: false }"
+    x-show="open"
+    x-cloak
+    @alert.window="text = $event.detail.value ?? $event.detail; confirming = false; open = true"
+    @confirm.window="text = $event.detail.text; confirming = true; open = true"
+    @keydown.escape.window="open = false"
+    @click.self="open = false"
+    class="alert-overlay"
+  >
+    {{/* Same box in two modes: plain alert (OK dismisses) and confirmation
+         (cancel + accept). The pending action is NOT held in x-data: Alpine
+         calls a function it finds while evaluating an expression, so
+         x-show="run" would run the callback the moment the box opened. It
+         stays in app.js, and accepting only fires the event that releases it.
+         Two buttons instead of one with a bound label: the label comes from
+         the catalog and an apostrophe in it (fr/it) would close the JS
+         string inside the attribute.
+         A mesma caixa em dois modos: alerta puro (OK dispensa) e confirmação
+         (cancelar + aceitar). A ação pendente NÃO fica no x-data: o Alpine
+         chama uma função que encontre ao avaliar uma expressão, então
+         x-show="run" executaria o callback assim que a caixa abrisse. Ela
+         mora no app.js, e aceitar só dispara o evento que a libera. Dois
+         botões em vez de um com rótulo dinâmico: o rótulo vem do catálogo e
+         um apóstrofo nele (fr/it) fecharia a string JS dentro do atributo. */}}
+    <div class="alert-box" role="alertdialog" aria-modal="true">
+      <p class="alert-text" x-text="text"></p>
+      <div class="alert-actions">
+        <button type="button" class="alert-cancel" x-show="confirming" @click="open = false">{{t "action.cancel"}}</button>
+        <button type="button" class="alert-ok" x-show="!confirming" @click="open = false">OK</button>
+        <button type="button" class="alert-ok" x-show="confirming"
+                @click="open = false; $dispatch('confirm-accepted')">{{t "action.replace"}}</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

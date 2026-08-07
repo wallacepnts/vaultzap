@@ -1,0 +1,29 @@
+{
+  "source": "android",
+  "date_order": "DMY",
+  "is_group": false,
+  "messages": [
+    {
+      "sent_at": "2026-07-26 00:00:00",
+      "seq": 1,
+      "sender": "Vitor",
+      "body": "meia-noite",
+      "kind": "text"
+    },
+    {
+      "sent_at": "2026-07-26 12:30:00",
+      "seq": 2,
+      "sender": "Vitor",
+      "body": "meio-dia e meia",
+      "kind": "text"
+    },
+    {
+      "sent_at": "2026-07-26 23:59:00",
+      "seq": 3,
+      "sender": "Vitor",
+      "body": "quase meia-noite",
+      "kind": "text"
+    }
+  ],
+  "warnings": null
+}

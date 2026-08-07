@@ -1,0 +1,58 @@
+<div class="panel-profile">
+<div class="header-search">
+  {{/* Close X on the left, same position/class as profile, calendar, merge,
+       and update (§6) — this used to be the only panel with close on the
+       right.
+       X de fechar à esquerda, mesma posição/classe de perfil, calendário,
+       mesclar e atualizar (§6) — era o único painel com o fechar à
+       direita. */}}
+  <button type="button" class="button-close-profile" title="{{t "action.close"}}"
+          onclick="document.getElementById('right-panel').innerHTML=''">{{template "icon-close"}}</button>
+
+  {{/* q here is just a boolean (has text or not) to show the "x" clear
+       button — never the term itself, since putting .Term inside x-data
+       (a JS context) would need manual quote-escaping; the field's initial
+       value already comes in safely via the plain value attribute.
+       q aqui é só um booleano (tem texto ou não) pra mostrar o "x" de
+       limpar — nunca o termo em si, porque colocar .Term dentro de um
+       x-data (contexto JS) exigiria escapar aspas manualmente; o valor
+       inicial do campo já vem seguro via o atributo value comum. */}}
+  <div class="box-search" x-data="{ q: false }" x-init="q = !!$refs.fieldSearch.value">
+    <span class="icon-search">{{template "icon-search"}}</span>
+    <input
+      type="search"
+      class="field-search"
+      name="q"
+      placeholder="{{t "conversation.search_here"}}"
+      autocomplete="off"
+      value="{{.Term}}"
+      autofocus
+      x-ref="fieldSearch"
+      @input="q = !!$event.target.value"
+      hx-get="/chats/{{.Chat.ID}}/search"
+      hx-trigger="input changed delay:300ms, search"
+      hx-target="#right-panel"
+    >
+    <button type="button" class="button-clear-search" x-show="q" x-cloak
+            title="{{t "action.clear"}}"
+            @click="$refs.fieldSearch.value = ''; q = false; $refs.fieldSearch.focus(); $refs.fieldSearch.dispatchEvent(new Event('search'))">
+      {{template "icon-close"}}
+    </button>
+  </div>
+</div>
+<div class="list-results-search">
+  {{range .Results}}
+  <a class="result-search"
+     hx-get="/chats/{{$.Chat.ID}}/messages?around={{.Message.ID}}"
+     hx-target="#list-messages" hx-swap="innerHTML">
+    <span class="result-header">
+      <span class="result-sender">{{if .Message.Sender}}{{.Message.Sender}}{{else}}{{t "search.system"}}{{end}}</span>
+      <span class="result-date">{{dateTimeDisplay .Message.SentAt}}</span>
+    </span>
+    <span class="result-snippet">{{formatSnippet .Snippet}}</span>
+  </a>
+  {{else}}
+  {{if .Term}}<p class="list-empty">{{t "search.no_results" .Term}}</p>{{end}}
+  {{end}}
+</div>
+</div>

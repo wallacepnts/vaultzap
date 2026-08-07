@@ -1,0 +1,224 @@
+{{$arquivadas := .Archived}}
+{{$filtro := .ActiveFilter}}
+{{$listaAtiva := .ActiveList}}
+
+{{if $arquivadas}}
+<button type="button" class="row-archived" hx-get="/chats" hx-target="#list-chats" hx-swap="innerHTML">
+  {{template "icon-back"}}
+  <span class="row-archived-label">{{t "chats.archived"}}</span>
+</button>
+{{else}}
+{{/* Filter bar, inside #list-chats. */}}
+{{/* One single row: the chips that don't fit the sidebar's width are hidden by
+     layoutChipFilters() in app.js and surface in the chevron's menu instead,
+     the way the official app does it. Every list is rendered twice — once as
+     a chip, once as a menu item with the same data-list-id — so the script
+     only flips "hidden" on the pair and never has to build markup.
+     Uma linha só: os chips que não cabem na largura da sidebar são escondidos
+     por layoutChipFilters() no app.js e aparecem no menu do chevron, como no
+     app oficial. Cada lista é renderizada duas vezes — uma como chip, outra
+     como item de menu com o mesmo data-list-id — então o script só alterna
+     "hidden" no par, sem nunca precisar montar markup. */}}
+<nav class="filters-chats" x-data="{ chipsMenu: false, newList: false }">
+  <div class="row-chips" x-ref="rowChips" x-show="!newList">
+    <button type="button" class="chip-filter{{if and (eq $filtro "tudo") (not $listaAtiva)}} chip-filter--active{{end}}"
+            hx-get="/chats" hx-target="#list-chats" hx-swap="innerHTML">{{t "chats.all"}}</button>
+
+    <button type="button" class="chip-filter{{if eq $filtro "favoritas"}} chip-filter--active{{end}}"
+            hx-get="/chats?filtro=favoritas" hx-target="#list-chats" hx-swap="innerHTML">
+      {{t "chats.favorites"}}{{with .TotalFavorites}} <span class="chip-counter">{{.}}</span>{{end}}
+    </button>
+
+    <button type="button" class="chip-filter{{if eq $filtro "grupos"}} chip-filter--active{{end}}"
+            hx-get="/chats?filtro=grupos" hx-target="#list-chats" hx-swap="innerHTML">
+      {{t "chats.groups"}}{{with .TotalGroups}} <span class="chip-counter">{{.}}</span>{{end}}
+    </button>
+
+    {{range .Lists}}
+    <span class="chip-list-wrap" data-list-id="{{.ID}}">
+      <button type="button" class="chip-filter{{if eq $listaAtiva .ID}} chip-filter--active{{end}}"
+              hx-get="/chats?lista={{.ID}}" hx-target="#list-chats" hx-swap="innerHTML">
+        {{.Name}}{{with .Total}} <span class="chip-counter">{{.}}</span>{{end}}
+      </button>
+      <button type="button" class="chip-delete-list" title="{{t "chats.delete_list_title" .Name}}"
+              hx-delete="/listas/{{.ID}}" hx-target="#list-chats" hx-swap="innerHTML"
+              hx-confirm="{{t "chats.delete_list_confirm" .Name}}">×</button>
+    </span>
+    {{end}}
+  </div>
+
+  <div class="wrap-chips-more" x-show="!newList">
+    <button type="button" class="chip-filter chip-filter--more" title="{{t "chats.more_lists"}}"
+            :class="{ 'chip-filter--active': chipsMenu }" :aria-expanded="chipsMenu"
+            @click="chipsMenu = !chipsMenu">{{template "icon-arrow-down"}}</button>
+
+    <div class="menu-chips" x-show="chipsMenu" x-cloak
+         @click.outside="chipsMenu = false" @keydown.escape.window="chipsMenu = false">
+      {{range .Lists}}
+      <span class="item-menu-list" data-list-id="{{.ID}}" hidden>
+        <button type="button" class="item-menu-chat"
+                hx-get="/chats?lista={{.ID}}" hx-target="#list-chats" hx-swap="innerHTML"
+                @click="chipsMenu = false">
+          <span>{{.Name}}</span>{{with .Total}} <span class="chip-counter">{{.}}</span>{{end}}
+        </button>
+        <button type="button" class="button-delete-list-menu" title="{{t "chats.delete_list_title" .Name}}"
+                hx-delete="/listas/{{.ID}}" hx-target="#list-chats" hx-swap="innerHTML"
+                hx-confirm="{{t "chats.delete_list_confirm" .Name}}">×</button>
+      </span>
+      {{end}}
+      <button type="button" class="item-menu-chat"
+              @click="chipsMenu = false; newList = true; $nextTick(() => $refs.newListField.focus())">
+        {{template "icon-plus"}}<span>{{t "chats.new_list"}}</span>
+      </button>
+    </div>
+  </div>
+
+  {{/* POST /listas creates an empty list. */}}
+  <form class="form-new-list" x-show="newList" x-cloak
+        hx-post="/listas" hx-target="#list-chats" hx-swap="innerHTML"
+        @htmx:after-request="newList = false; $refs.newListField.value = ''">
+    <input type="text" name="name" x-ref="newListField" placeholder="{{t "chats.list_name"}}"
+           maxlength="40" required @keydown.escape="newList = false">
+    <button type="submit" title="{{t "action.create"}}">{{template "icon-check"}}</button>
+  </form>
+</nav>
+
+{{if .TotalArchived}}
+<button type="button" class="row-archived" hx-get="/chats?arquivadas=1" hx-target="#list-chats" hx-swap="innerHTML">
+  {{template "icon-archive"}}
+  <span class="row-archived-label">{{t "chats.archived"}}</span>
+  <span class="row-archived-counter">{{.TotalArchived}}</span>
+</button>
+{{end}}
+{{end}}
+
+{{/* Query string mutations resend to keep the user on the same chip.
+     Query string que as mutações reenviam pra manter o usuário no mesmo chip. */}}
+{{$ctx := ""}}
+{{if $arquivadas}}{{$ctx = "?arquivadas=1"}}
+{{else if $listaAtiva}}{{$ctx = printf "?lista=%d" $listaAtiva}}
+{{else if ne $filtro "tudo"}}{{$ctx = printf "?filtro=%s" $filtro}}{{end}}
+
+{{range .Chats}}
+{{/* Wrapper for the item's arrow and menu. */}}
+{{$chat := .}}
+<div class="item-chat-wrap" x-data="{ menu: false, listsSubmenu: false, exportSubmenu: false, newList: false }"
+     @keydown.escape.window="menu = false">
+  <a class="item-chat" href="/chats/{{.ID}}" hx-get="/chats/{{.ID}}" hx-target="#conversation" hx-push-url="true">
+    <span class="avatar{{if not .AvatarPath}} {{avatarClass .Name}}{{end}}">
+      {{template "avatar-core" .Chat}}
+    </span>
+    <span class="info-chat">
+      <span class="row-top-chat">
+        <span class="name-chat">{{.Name}}</span>
+        <span class="time-chat">{{.PreviewTime}}</span>
+      </span>
+      {{/* Badges on the same line as the preview, inside .info-chat.
+           Selos na mesma linha da prévia, dentro de .info-chat. */}}
+      <span class="row-bottom-chat">
+        <span class="preview-chat">{{.PreviewBody}}</span>
+        {{/* Pin only, like the official app: the "Favoritas" chip is where being
+             favourited shows up, and a heart on every favourited row is noise on the
+             one screen that has to stay scannable. The wrapper is rendered ONLY when
+             there is a badge — an empty one still takes the hover margin below and
+             re-ellipsizes the preview, and ":empty" can't save it, since the newline
+             inside the tag already counts as content. */}}
+        {{if .Pinned}}<span class="badges-chat"><span class="badge-chat"
+              title="{{t "chats.pinned"}}">{{template "icon-pin"}}</span></span>{{end}}
+      </span>
+    </span>
+  </a>
+
+  <button type="button" class="arrow-menu-chat" title="{{t "chats.more_options"}}"
+          :class="{ 'arrow-menu-chat--open': menu }" :aria-expanded="menu"
+          @click.prevent.stop="menu = !menu">{{template "icon-arrow-down"}}</button>
+
+  <div class="menu-chat" x-show="menu" x-cloak
+       @click.outside="menu = false; listsSubmenu = false; exportSubmenu = false; newList = false">
+    <button type="button" class="item-menu-chat" @click="menu = false"
+            hx-post="/chats/{{.ID}}/arquivar{{$ctx}}" hx-target="#list-chats" hx-swap="innerHTML">
+      {{if .Archived}}{{template "icon-unarchive"}}<span>{{t "chats.unarchive"}}</span>
+      {{else}}{{template "icon-archive"}}<span>{{t "chats.archive"}}</span>{{end}}
+    </button>
+
+    <button type="button" class="item-menu-chat" @click="menu = false"
+            hx-post="/chats/{{.ID}}/fixar{{$ctx}}" hx-target="#list-chats" hx-swap="innerHTML">
+      {{if .Pinned}}{{template "icon-unpin"}}<span>{{t "chats.unpin"}}</span>
+      {{else}}{{template "icon-pin"}}<span>{{t "chats.pin"}}</span>{{end}}
+    </button>
+
+    <button type="button" class="item-menu-chat" @click="menu = false"
+            hx-post="/chats/{{.ID}}/favoritar{{$ctx}}" hx-target="#list-chats" hx-swap="innerHTML">
+      {{if .Favorite}}{{template "icon-heart-filled"}}<span>{{t "chats.remove_favorite"}}</span>
+      {{else}}{{template "icon-heart"}}<span>{{t "chats.add_favorite"}}</span>{{end}}
+    </button>
+
+    <button type="button" class="item-menu-chat" @click="menu = false"
+            hx-get="/chats/{{.ID}}/atualizar" hx-target="#right-panel">
+      {{template "icon-refresh"}}<span>{{t "chats.update_chat"}}</span>
+    </button>
+
+    <button type="button" class="item-menu-chat" @click="menu = false"
+            hx-get="/chats/{{.ID}}/mesclar" hx-target="#right-panel">
+      {{template "icon-merge"}}<span>{{t "chats.merge_chat"}}</span>
+    </button>
+
+    {{/* Export: plain GET with download via Content-Disposition.
+         Exportar: GET simples com download via Content-Disposition. */}}
+    <div class="item-menu-chat item-menu-chat--submenu" @click.stop="exportSubmenu = !exportSubmenu">
+      {{template "icon-download"}}<span>{{t "chats.export_chat"}}</span>
+      <span class="arrow-submenu">{{template "icon-forward"}}</span>
+    </div>
+
+    <div class="submenu-nested" x-show="exportSubmenu" x-cloak @click.stop>
+      <a class="item-menu-chat" href="/chats/{{.ID}}/exportar?formato=txt">{{t "export.txt"}}</a>
+      <a class="item-menu-chat" href="/chats/{{.ID}}/exportar?formato=markdown">{{t "export.markdown"}}</a>
+      <a class="item-menu-chat" href="/chats/{{.ID}}/exportar?formato=html">{{t "export.html"}}</a>
+      <a class="item-menu-chat" href="/chats/{{.ID}}/exportar?formato=impressao">{{t "export.print"}}</a>
+      <a class="item-menu-chat" href="/chats/{{.ID}}/exportar?formato=typst">{{t "export.typst"}}</a>
+    </div>
+
+    <div class="item-menu-chat item-menu-chat--submenu" @click.stop="listsSubmenu = !listsSubmenu">
+      {{template "icon-list"}}<span>{{t "chats.add_to_list"}}</span>
+      <span class="arrow-submenu">{{template "icon-forward"}}</span>
+    </div>
+
+    <div class="submenu-nested" x-show="listsSubmenu" x-cloak @click.stop>
+      {{range .Lists}}
+      <button type="button" class="item-menu-chat"
+              hx-post="/chats/{{$chat.ID}}/listas{{$ctx}}" hx-target="#list-chats" hx-swap="innerHTML"
+              hx-vals='{"list_id": "{{.ID}}", "in": "{{if .In}}0{{else}}1{{end}}"}'>
+        <span class="mark-list">{{if .In}}{{template "icon-check"}}{{end}}</span>
+        <span>{{.Name}}</span>
+      </button>
+      {{end}}
+      <div class="divider-menu-chat"></div>
+      <button type="button" class="item-menu-chat" x-show="!newList"
+              @click.stop="newList = true; $nextTick(() => $refs.listField.focus())">
+        {{template "icon-plus"}}<span>{{t "chats.new_list"}}</span>
+      </button>
+      <form class="form-new-list form-new-list--menu" x-show="newList" x-cloak
+            hx-post="/chats/{{.ID}}/listas{{$ctx}}" hx-target="#list-chats" hx-swap="innerHTML">
+        <input type="text" name="name" x-ref="listField" placeholder="{{t "chats.list_name"}}"
+               maxlength="40" required @keydown.escape.stop="newList = false">
+        <button type="submit" title="{{t "action.create"}}">{{template "icon-check"}}</button>
+      </form>
+    </div>
+
+    <div class="divider-menu-chat"></div>
+    <button type="button" class="item-menu-chat item-menu-chat--danger" @click="menu = false"
+            hx-delete="/chats/{{.ID}}{{$ctx}}" hx-target="#list-chats" hx-swap="innerHTML"
+            hx-confirm="{{t "chats.delete_confirm" .Name}}">
+      {{template "icon-trash"}}<span>{{t "chats.delete_chat"}}</span>
+    </button>
+  </div>
+</div>
+{{else}}
+<p class="list-empty">
+  {{if $arquivadas}}{{t "chats.empty_archived"}}
+  {{else if eq $filtro "favoritas"}}{{t "chats.empty_favorites"}}
+  {{else if eq $filtro "grupos"}}{{t "chats.empty_groups"}}
+  {{else if $listaAtiva}}{{t "chats.empty_list"}}
+  {{else}}{{t "chats.empty_all"}}{{end}}
+</p>
+{{end}}

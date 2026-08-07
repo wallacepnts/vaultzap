@@ -1,0 +1,36 @@
+{
+  "source": "android",
+  "date_order": "DMY",
+  "is_group": true,
+  "messages": [
+    {
+      "sent_at": "2026-07-26 14:00:00",
+      "seq": 1,
+      "sender": null,
+      "body": "Vitor criou o grupo \"Amigos\"",
+      "kind": "system"
+    },
+    {
+      "sent_at": "2026-07-26 14:01:00",
+      "seq": 2,
+      "sender": "Vitor",
+      "body": "Oi pessoal",
+      "kind": "text"
+    },
+    {
+      "sent_at": "2026-07-26 14:02:00",
+      "seq": 3,
+      "sender": "Ana",
+      "body": "Oi!",
+      "kind": "text"
+    },
+    {
+      "sent_at": "2026-07-26 14:03:00",
+      "seq": 4,
+      "sender": "Bruno",
+      "body": "E aí",
+      "kind": "text"
+    }
+  ],
+  "warnings": null
+}

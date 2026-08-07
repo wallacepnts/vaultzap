@@ -1,0 +1,58 @@
+{{/* The whole header opens the profile; the action buttons "consume" their click so it
+     never reaches it. */}}
+<div class="header-conversation header-clickable"
+     title="{{if .Chat.IsGroup}}{{t "conversation.group_info"}}{{else}}{{t "conversation.contact_info"}}{{end}}"
+     hx-get="/chats/{{.Chat.ID}}/perfil" hx-target="#right-panel">
+  <span id="avatar-header" class="avatar{{if not .Chat.AvatarPath}} {{avatarClass .Chat.Name}}{{end}}">
+    {{template "avatar-core" .Chat}}
+  </span>
+  <div class="info-header">
+    <span id="name-conversation-current" class="name-conversation">{{.Chat.Name}}</span>
+    <span class="detail-conversation">{{t "conversation.total_messages" .Chat.MessageCount}}</span>
+  </div>
+  <button type="button" class="button-search" title="{{t "conversation.search_here"}}"
+          hx-get="/chats/{{.Chat.ID}}/search" hx-target="#right-panel"
+          hx-trigger="click consume">{{template "icon-search"}}</button>
+  <button type="button" class="button-calendar" title="{{t "conversation.go_to_date"}}"
+          hx-get="/chats/{{.Chat.ID}}/calendario" hx-target="#right-panel"
+          hx-trigger="click consume">{{template "icon-calendar"}}</button>
+  <button type="button" class="button-gallery" title="{{t "conversation.view_media"}}"
+          hx-get="/chats/{{.Chat.ID}}/media" hx-target="#conversation"
+          hx-trigger="click consume">{{template "icon-gallery"}}</button>
+</div>
+{{template "pinned-banner" .}}
+{{if .OwnerCandidates}}
+<div class="bar-picker-owner" x-data="{ show: {{.ShowOwnerPicker}} }" x-show="show" x-cloak
+     @reopen-owner-picker.window="show = true">
+  <span>{{t "conversation.which_is_you"}}</span>
+  <div class="candidates-owner">
+    {{range .OwnerCandidates}}
+    <button type="button" class="button-candidate-owner" name="owner" value="{{.}}"
+            hx-post="/chats/{{$.Chat.ID}}/owner" hx-target="#conversation">{{.}}</button>
+    {{end}}
+
+    {{/* Everyone else opens in the right panel, where the project already puts long
+         lists — a floating menu with 725 items was unusable. */}}
+    {{if .OwnerOthers}}
+    <button type="button" class="button-candidate-owner button-candidate-owner--more"
+            hx-get="/chats/{{.Chat.ID}}/remetentes" hx-target="#right-panel">
+      {{t "conversation.other_sender" (len .OwnerOthers)}}
+    </button>
+    {{end}}
+  </div>
+</div>
+{{end}}
+<div class="conversation-body-wrap" x-data="{ scrolledAway: false }">
+  <div class="body-conversation" id="body-conversation"
+       @scroll="scrolledAway = $el.scrollHeight - $el.scrollTop - $el.clientHeight > 200">
+    <div id="list-messages">
+      {{template "messages-page.html" .}}
+    </div>
+  </div>
+  <button type="button" class="button-down" title="{{t "conversation.recent_message"}}"
+          x-show="scrolledAway" x-cloak
+          @click="document.getElementById('body-conversation').scrollTo({ top: document.getElementById('body-conversation').scrollHeight, behavior: 'smooth' })">
+    {{template "icon-arrow-down"}}
+  </button>
+</div>
+<div class="warning-read-only">{{t "conversation.read_only"}}</div>
