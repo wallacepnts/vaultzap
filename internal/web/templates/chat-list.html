@@ -47,8 +47,14 @@
     {{end}}
   </div>
 
+  {{/* Only one of the two ever shows, decided by layoutChipFilters: "+" while every chip
+       fits, the chevron once one overflows — the way the official app does it. They are
+       the same width so swapping never changes what fits. */}}
   <div class="wrap-chips-more" x-show="!newList">
-    <button type="button" class="chip-filter chip-filter--more" title="{{t "chats.more_lists"}}"
+    <button type="button" class="chip-filter chip-filter--new" title="{{t "chats.new_list"}}"
+            @click="newList = true; $nextTick(() => $refs.newListField.focus())">{{template "icon-plus"}}</button>
+
+    <button type="button" class="chip-filter chip-filter--more" title="{{t "chats.more_lists"}}" hidden
             :class="{ 'chip-filter--active': chipsMenu }" :aria-expanded="chipsMenu"
             @click="chipsMenu = !chipsMenu">{{template "icon-arrow-down"}}</button>
 

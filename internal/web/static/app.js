@@ -38,6 +38,10 @@ function layoutChipFilters() {
   const bar = document.querySelector(".filters-chats");
   if (!bar) return;
   const row = bar.querySelector(".row-chips");
+  const wrap = bar.querySelector(".wrap-chips-more");
+  // The whole bar is swapped out for the "new list" form, and measuring it while it is
+  // display:none reads every width as zero.
+  if (!row.offsetWidth) return;
   let chips = [...row.querySelectorAll(".chip-list-wrap")];
   chips.forEach((chip) => (chip.hidden = false));
 
@@ -48,8 +52,12 @@ function layoutChipFilters() {
     chips = [...row.querySelectorAll(".chip-list-wrap")];
   }
 
+  // The bar's own edge, minus the room the "+"/chevron takes beside the chips — it sits
+  // after them now, so a chip only fits if it clears that button too.
+  const style = getComputedStyle(bar);
+  const limit = bar.getBoundingClientRect().right - parseFloat(style.paddingRight) -
+    wrap.getBoundingClientRect().width - parseFloat(style.columnGap || 0);
   // Measure every chip before hiding any: hiding shifts the ones after it.
-  const limit = row.getBoundingClientRect().right;
   const rights = chips.map((chip) => chip.getBoundingClientRect().right);
   let overflowFrom = chips.length;
   for (let i = 0; i < chips.length; i++) {
@@ -61,6 +69,13 @@ function layoutChipFilters() {
     const chip = chips.find((c) => c.dataset.listId === item.dataset.listId);
     item.hidden = !(chip && chip.hidden);
   });
+
+  // "+" while everything fits, chevron once something had to be hidden.
+  const overflowed = overflowFrom < chips.length;
+  const more = bar.querySelector(".chip-filter--more");
+  const add = bar.querySelector(".chip-filter--new");
+  if (more) more.hidden = !overflowed;
+  if (add) add.hidden = overflowed;
 }
 
 document.addEventListener("DOMContentLoaded", layoutChipFilters);

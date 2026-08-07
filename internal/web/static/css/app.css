@@ -2932,12 +2932,14 @@ html[lang="en"] .bubble:has(.body-bubble:empty) .header-bubble {
   padding: 3px 16px 6px;
 }
 
+/* Width comes from the content, not the bar: the "+"/chevron is the next flex item, so it
+   sits right after the last visible chip instead of pinned to the far edge. It still
+   shrinks (and clips) when the chips overflow, which is the frame layoutChipFilters
+   measures before hiding any of them. */
 .row-chips {
   display: flex;
   align-items: center;
   gap: 6px;
-  /* min-width: 0 lets the row shrink below its content so the chevron keeps its place. */
-  flex: 1;
   min-width: 0;
   overflow: hidden;
 }
@@ -2951,6 +2953,7 @@ html[lang="en"] .bubble:has(.body-bubble:empty) .header-bubble {
 .wrap-chips-more {
   position: relative;
   flex: none;
+  display: inline-flex;
 }
 
 .menu-chips {
@@ -3030,8 +3033,19 @@ html[lang="en"] .bubble:has(.body-bubble:empty) .header-bubble {
   font-size: 12px;
 }
 
-.chip-filter--more {
-  padding: 0 9px;
+/* Round, and both the same width: layoutChipFilters swaps one for the other, and any
+   width difference would change what fits and flip the decision back. */
+.chip-filter--more,
+.chip-filter--new {
+  width: 26px;
+  padding: 0;
+  justify-content: center;
+}
+
+/* Needed because .chip-filter sets display explicitly, which beats the browser
+   stylesheet's [hidden] { display: none } — same trap as .chip-list-wrap below. */
+.chip-filter[hidden] {
+  display: none;
 }
 
 .chip-list-wrap {
