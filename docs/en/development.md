@@ -27,11 +27,9 @@ go run ./cmd/vaultzap ingest "WhatsApp Chat with John.zip"
 
 ## Running without Docker/Podman
 
-<!-- Temporary section: remove once the image is published to ghcr.io — from then on
-     "Running in a container", right below, is enough on its own. -->
-
-Step by step to run the binary directly on your machine, without a container — useful while
-the image isn't published, or if you simply don't want to use a container.
+Step by step to run the binary directly on your machine, without a container. The main path
+is the published image (see [Docker](docker.md), [Podman](podman.md) and
+[Quadlet](quadlet.md)); this one is for whoever would rather not use a container.
 
 1. **Install Go 1.25+** (https://go.dev/dl/) and confirm with `go version`.
 

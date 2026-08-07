@@ -27,11 +27,9 @@ go run ./cmd/vaultzap ingest "Conversa do WhatsApp com Fulano.zip"
 
 ## Rodar sem Docker/Podman
 
-<!-- Seção temporária: remover quando a imagem for publicada em ghcr.io — a partir daí
-     "Rodar em container", logo abaixo, já basta. -->
-
-Passo a passo pra rodar o binário direto na sua máquina, sem container — útil enquanto a
-imagem não é publicada, ou se você simplesmente não quer usar container.
+Passo a passo pra rodar o binário direto na sua máquina, sem container. O caminho principal
+é a imagem publicada (veja [Docker](docker.md), [Podman](podman.md) e [Quadlet](quadlet.md));
+este aqui é pra quem prefere não usar container.
 
 1. **Instale o Go 1.25+** (https://go.dev/dl/) e confirme com `go version`.
 
