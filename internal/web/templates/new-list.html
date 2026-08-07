@@ -1,0 +1,85 @@
+{{/* Takes over the sidebar, like the official app does — the chat list is what the panel
+     is picking from, so it is the one column that can be spared. */}}
+{{$pre := .Preselected}}
+<div class="panel-new-list" x-data="{ picker: false, name: '', term: '', chosen: [] }"
+     x-init="name = $refs.nameField.value;
+             chosen = [...$el.querySelectorAll('input[data-preselected]')].map((i) => i.value)">
+  <div class="header-profile">
+    <button type="button" class="button-close-profile" title="{{t "action.back"}}"
+            hx-get="/sidebar" hx-target="#sidebar">{{template "icon-back"}}</button>
+    <span>{{t "lists.create_title"}}</span>
+  </div>
+
+  {{/* The checkboxes live inside the form, so the picked chats ARE what gets posted —
+       no parallel array to keep in sync, just x-model over the same inputs. */}}
+  <form class="body-new-list" hx-post="/listas" hx-target="#sidebar">
+    <div class="field-profile-row">
+      <div class="field-profile-group">
+        <label class="label-field-profile" for="field-list-name">{{t "chats.list_name"}}</label>
+        <input type="text" id="field-list-name" name="name" x-ref="nameField" x-model="name"
+               value="{{.Name}}" maxlength="40" autocomplete="off" autofocus>
+      </div>
+    </div>
+
+    {{if .Error}}<p class="error-new-list">{{.Error}}</p>{{end}}
+
+    <p class="title-section-new-list">{{t "lists.included"}}</p>
+
+    <button type="button" class="row-add-chats" @click="picker = !picker">
+      <span class="circle-add-chats">{{template "icon-plus"}}</span>
+      <span>{{t "lists.add_chats"}}</span>
+    </button>
+
+    {{/* Every chat is rendered twice — once here as an included row, once below as a
+         picker item — and Alpine only toggles which shows, the same pairing the filter
+         chips use. Keeps all markup server-rendered. */}}
+    <div class="list-included-chats">
+      {{range .Chats}}
+      <div class="row-included-chat" data-id="{{.ID}}" x-cloak
+           x-show="chosen.includes($el.dataset.id)">
+        <span class="avatar avatar-participant{{if not .AvatarPath}} {{avatarClass .Name}}{{end}}">
+          {{template "avatar-core" .Chat}}
+        </span>
+        <span class="info-item-inbox">
+          <span class="name-item-inbox">{{.Name}}</span>
+          <span class="meta-item-inbox">{{.PreviewBody}}</span>
+        </span>
+        <button type="button" class="button-remove-chat" title="{{t "action.remove"}}"
+                @click="chosen = chosen.filter((v) => v !== $el.parentElement.dataset.id)">
+          {{template "icon-trash"}}
+        </button>
+      </div>
+      {{end}}
+    </div>
+
+    {{/* Filtered in the browser, not by htmx: a round trip would re-render the rows and
+         wipe every checkbox already ticked. The name travels in data-name because x-show
+         is not a JS context for html/template — a quote in a chat's name would break out
+         of the expression. */}}
+    <div class="picker-chats" x-show="picker" x-cloak>
+      <div class="box-search">
+        <span class="icon-search">{{template "icon-search"}}</span>
+        <input type="search" class="field-search" x-model="term"
+               placeholder="{{t "sidebar.search_chat"}}" autocomplete="off">
+      </div>
+
+      {{range .Chats}}
+      <label class="item-pick-chat" data-name="{{.Name}}"
+             x-show="!term || $el.dataset.name.toLowerCase().includes(term.toLowerCase())">
+        <input type="checkbox" name="chat_id" value="{{.ID}}" x-model="chosen"
+               {{if index $pre .ID}}data-preselected{{end}}>
+        <span class="avatar avatar-participant{{if not .AvatarPath}} {{avatarClass .Name}}{{end}}">
+          {{template "avatar-core" .Chat}}
+        </span>
+        <span class="name-item-inbox">{{.Name}}</span>
+      </label>
+      {{else}}
+      <p class="list-empty">{{t "chats.empty_all"}}</p>
+      {{end}}
+    </div>
+
+    <button type="submit" class="button-create-list" :disabled="!name.trim()">
+      {{t "lists.create"}}
+    </button>
+  </form>
+</div>
