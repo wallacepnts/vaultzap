@@ -1734,17 +1734,67 @@ func escapeNonASCII(s string) string {
 	return b.String()
 }
 
+// The "create list" panel takes over the sidebar; going back re-renders it whole. ?chat=
+// starts with that conversation included, which is how the chat's own menu opens it.
+func (h *Handler) newListPanel(w http.ResponseWriter, r *http.Request) {
+	data := NewListData{Preselected: map[int64]bool{}}
+	if id, err := strconv.ParseInt(r.URL.Query().Get("chat"), 10, 64); err == nil {
+		data.Preselected[id] = true
+	}
+	h.renderNewList(w, r, data)
+}
+
+func (h *Handler) renderNewList(w http.ResponseWriter, r *http.Request, data NewListData) {
+	list, err := h.buildChatList(r.Context(), store.ChatFilter{}, requestLocale(r))
+	if err != nil {
+		h.internalError(w, "chat list", err)
+		return
+	}
+	data.Chats = list.Chats
+	h.render(w, r, "new-list.html", data)
+}
+
+func (h *Handler) sidebar(w http.ResponseWriter, r *http.Request) {
+	data, err := h.buildChatList(r.Context(), filterFromURL(r), requestLocale(r))
+	if err != nil {
+		h.internalError(w, "chat list", err)
+		return
+	}
+	h.render(w, r, "sidebar.html", data)
+}
+
 func (h *Handler) createList(w http.ResponseWriter, r *http.Request) {
 	name := strings.TrimSpace(r.FormValue("name"))
 	if name == "" {
 		http.Error(w, "name required", http.StatusBadRequest)
 		return
 	}
-	if _, err := h.store.CreateList(r.Context(), name); err != nil {
-		http.Error(w, "a list with that name already exists", http.StatusConflict)
+	picked := map[int64]bool{}
+	for _, raw := range r.Form["chat_id"] {
+		if id, err := strconv.ParseInt(raw, 10, 64); err == nil {
+			picked[id] = true
+		}
+	}
+
+	listID, err := h.store.CreateList(r.Context(), name)
+	if err != nil {
+		// Re-render the panel instead of a bare 409: htmx does not swap 4xx, so the user
+		// would type a duplicate name and see nothing happen at all. Name and picks come
+		// back with it, or they would have to redo the whole thing.
+		h.renderNewList(w, r, NewListData{
+			Preselected: picked,
+			Name:        name,
+			Error:       locale.T(requestLocale(r), "lists.exists"),
+		})
 		return
 	}
-	h.respondChatList(w, r)
+	for id := range picked {
+		if err := h.store.SetChatInList(r.Context(), id, listID, true); err != nil {
+			h.internalError(w, "add chat to list", err)
+			return
+		}
+	}
+	h.sidebar(w, r)
 }
 
 func (h *Handler) deleteList(w http.ResponseWriter, r *http.Request) {

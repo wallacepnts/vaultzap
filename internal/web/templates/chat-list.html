@@ -19,8 +19,8 @@
      app oficial. Cada lista é renderizada duas vezes — uma como chip, outra
      como item de menu com o mesmo data-list-id — então o script só alterna
      "hidden" no par, sem nunca precisar montar markup. */}}
-<nav class="filters-chats" x-data="{ chipsMenu: false, newList: false }">
-  <div class="row-chips" x-ref="rowChips" x-show="!newList">
+<nav class="filters-chats" x-data="{ chipsMenu: false }">
+  <div class="row-chips" x-ref="rowChips">
     <button type="button" class="chip-filter{{if and (eq $filtro "tudo") (not $listaAtiva)}} chip-filter--active{{end}}"
             hx-get="/chats" hx-target="#list-chats" hx-swap="innerHTML">{{t "chats.all"}}</button>
 
@@ -50,9 +50,9 @@
   {{/* Only one of the two ever shows, decided by layoutChipFilters: "+" while every chip
        fits, the chevron once one overflows — the way the official app does it. They are
        the same width so swapping never changes what fits. */}}
-  <div class="wrap-chips-more" x-show="!newList">
+  <div class="wrap-chips-more">
     <button type="button" class="chip-filter chip-filter--new" title="{{t "chats.new_list"}}"
-            @click="newList = true; $nextTick(() => $refs.newListField.focus())">{{template "icon-plus"}}</button>
+            hx-get="/listas/nova" hx-target="#sidebar">{{template "icon-plus"}}</button>
 
     <button type="button" class="chip-filter chip-filter--more" title="{{t "chats.more_lists"}}" hidden
             :class="{ 'chip-filter--active': chipsMenu }" :aria-expanded="chipsMenu"
@@ -72,21 +72,12 @@
                 hx-confirm="{{t "chats.delete_list_confirm" .Name}}">×</button>
       </span>
       {{end}}
-      <button type="button" class="item-menu-chat"
-              @click="chipsMenu = false; newList = true; $nextTick(() => $refs.newListField.focus())">
+      <button type="button" class="item-menu-chat" @click="chipsMenu = false"
+              hx-get="/listas/nova" hx-target="#sidebar">
         {{template "icon-plus"}}<span>{{t "chats.new_list"}}</span>
       </button>
     </div>
   </div>
-
-  {{/* POST /listas creates an empty list. */}}
-  <form class="form-new-list" x-show="newList" x-cloak
-        hx-post="/listas" hx-target="#list-chats" hx-swap="innerHTML"
-        @htmx:after-request="newList = false; $refs.newListField.value = ''">
-    <input type="text" name="name" x-ref="newListField" placeholder="{{t "chats.list_name"}}"
-           maxlength="40" required @keydown.escape="newList = false">
-    <button type="submit" title="{{t "action.create"}}">{{template "icon-check"}}</button>
-  </form>
 </nav>
 
 {{if .TotalArchived}}
@@ -108,7 +99,7 @@
 {{range .Chats}}
 {{/* Wrapper for the item's arrow and menu. */}}
 {{$chat := .}}
-<div class="item-chat-wrap" x-data="{ menu: false, listsSubmenu: false, exportSubmenu: false, newList: false }"
+<div class="item-chat-wrap" x-data="{ menu: false, listsSubmenu: false, exportSubmenu: false }"
      @keydown.escape.window="menu = false">
   <a class="item-chat" href="/chats/{{.ID}}" hx-get="/chats/{{.ID}}" hx-target="#conversation" hx-push-url="true">
     <span class="avatar{{if not .AvatarPath}} {{avatarClass .Name}}{{end}}">
@@ -140,7 +131,7 @@
           @click.prevent.stop="menu = !menu">{{template "icon-arrow-down"}}</button>
 
   <div class="menu-chat" x-show="menu" x-cloak
-       @click.outside="menu = false; listsSubmenu = false; exportSubmenu = false; newList = false">
+       @click.outside="menu = false; listsSubmenu = false; exportSubmenu = false">
     <button type="button" class="item-menu-chat" @click="menu = false"
             hx-post="/chats/{{.ID}}/arquivar{{$ctx}}" hx-target="#list-chats" hx-swap="innerHTML">
       {{if .Archived}}{{template "icon-unarchive"}}<span>{{t "chats.unarchive"}}</span>
@@ -199,16 +190,11 @@
       </button>
       {{end}}
       <div class="divider-menu-chat"></div>
-      <button type="button" class="item-menu-chat" x-show="!newList"
-              @click.stop="newList = true; $nextTick(() => $refs.listField.focus())">
+      {{/* Opens the same panel the filter bar's "+" does, with this chat already ticked. */}}
+      <button type="button" class="item-menu-chat" @click="menu = false"
+              hx-get="/listas/nova?chat={{$chat.ID}}" hx-target="#sidebar">
         {{template "icon-plus"}}<span>{{t "chats.new_list"}}</span>
       </button>
-      <form class="form-new-list form-new-list--menu" x-show="newList" x-cloak
-            hx-post="/chats/{{.ID}}/listas{{$ctx}}" hx-target="#list-chats" hx-swap="innerHTML">
-        <input type="text" name="name" x-ref="listField" placeholder="{{t "chats.list_name"}}"
-               maxlength="40" required @keydown.escape.stop="newList = false">
-        <button type="submit" title="{{t "action.create"}}">{{template "icon-check"}}</button>
-      </form>
     </div>
 
     <div class="divider-menu-chat"></div>

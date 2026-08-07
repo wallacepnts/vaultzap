@@ -63,6 +63,21 @@ msgstr "Apagar a lista %s"
 msgid "chats.delete_list_confirm"
 msgstr "Apagar a lista %s? As conversas dela não são afetadas."
 
+msgid "lists.create_title"
+msgstr "Criar nova lista"
+
+msgid "lists.included"
+msgstr "Conversas incluídas"
+
+msgid "lists.add_chats"
+msgstr "Adicionar pessoas ou grupos"
+
+msgid "lists.create"
+msgstr "Criar lista"
+
+msgid "lists.exists"
+msgstr "Já existe uma lista com esse nome."
+
 msgid "chats.new_list"
 msgstr "Nova lista"
 
@@ -215,6 +230,9 @@ msgstr "Clique num dia para abrir a conversa nesse ponto."
 
 msgid "action.edit"
 msgstr "Editar"
+
+msgid "action.remove"
+msgstr "Remover"
 
 msgid "action.back"
 msgstr "Voltar"

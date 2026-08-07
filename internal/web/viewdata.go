@@ -34,6 +34,16 @@ type ChatListData struct {
 	Version string
 }
 
+// NewListData feeds new-list.html: every chat to pick from, which of them start out
+// included, and — after a name collision — the message plus what the user had typed and
+// picked, so the panel comes back filled in instead of blank.
+type NewListData struct {
+	Chats       []ChatView
+	Preselected map[int64]bool
+	Name        string
+	Error       string
+}
+
 type ConversationData struct {
 	Chat       store.Chat
 	Messages   []MessageView

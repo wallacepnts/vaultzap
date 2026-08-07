@@ -74,6 +74,8 @@ func (h *Handler) Routes() http.Handler {
 	mux.HandleFunc("POST /chats/{id}/fixar", h.pinChat)
 	mux.HandleFunc("POST /chats/{id}/favoritar", h.favoriteChat)
 	mux.HandleFunc("POST /chats/{id}/listas", h.chatInList)
+	mux.HandleFunc("GET /sidebar", h.sidebar)
+	mux.HandleFunc("GET /listas/nova", h.newListPanel)
 	mux.HandleFunc("POST /listas", h.createList)
 	mux.HandleFunc("DELETE /listas/{id}", h.deleteList)
 	mux.HandleFunc("DELETE /chats/{id}", h.deleteChat)

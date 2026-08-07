@@ -39,8 +39,8 @@ function layoutChipFilters() {
   if (!bar) return;
   const row = bar.querySelector(".row-chips");
   const wrap = bar.querySelector(".wrap-chips-more");
-  // The whole bar is swapped out for the "new list" form, and measuring it while it is
-  // display:none reads every width as zero.
+  // Measuring while the bar is hidden reads every width as zero, which would hide every
+  // chip at once.
   if (!row.offsetWidth) return;
   let chips = [...row.querySelectorAll(".chip-list-wrap")];
   chips.forEach((chip) => (chip.hidden = false));

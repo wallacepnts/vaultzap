@@ -63,6 +63,21 @@ msgstr "Lijst %s verwijderen"
 msgid "chats.delete_list_confirm"
 msgstr "Lijst %s verwijderen? De gesprekken erin blijven bestaan."
 
+msgid "lists.create_title"
+msgstr "Nieuwe lijst maken"
+
+msgid "lists.included"
+msgstr "Opgenomen chats"
+
+msgid "lists.add_chats"
+msgstr "Personen of groepen toevoegen"
+
+msgid "lists.create"
+msgstr "Lijst maken"
+
+msgid "lists.exists"
+msgstr "Er bestaat al een lijst met die naam."
+
 msgid "chats.new_list"
 msgstr "Nieuwe lijst"
 
@@ -215,6 +230,9 @@ msgstr "Klik op een dag om het gesprek op dat punt te openen."
 
 msgid "action.edit"
 msgstr "Bewerken"
+
+msgid "action.remove"
+msgstr "Verwijderen"
 
 msgid "action.back"
 msgstr "Terug"

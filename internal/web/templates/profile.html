@@ -107,7 +107,7 @@
        existiam no menu de contexto da sidebar; aqui elas levam from=perfil,
        o que faz o handler responder com este painel re-renderizado (rótulos e
        checks acompanham o novo estado) mais a sidebar via OOB. */}}
-  <div class="section-profile-actions" x-show="!editing" x-data="{ listsSubmenu: false, newList: false }">
+  <div class="section-profile-actions" x-show="!editing" x-data="{ listsSubmenu: false }">
     <div class="divider-profile-actions"></div>
 
     <button type="button" class="row-profile-action"
@@ -130,16 +130,11 @@
         <span>{{.Name}}</span>
       </button>
       {{end}}
-      <button type="button" class="item-menu-chat" x-show="!newList"
-              @click.stop="newList = true; $nextTick(() => $refs.listField.focus())">
+      {{/* Same panel the chat's own menu opens, with this conversation already included. */}}
+      <button type="button" class="item-menu-chat"
+              hx-get="/listas/nova?chat={{.Chat.ID}}" hx-target="#sidebar">
         {{template "icon-plus"}}<span>{{t "chats.new_list"}}</span>
       </button>
-      <form class="form-new-list form-new-list--menu" x-show="newList" x-cloak
-            hx-post="/chats/{{.Chat.ID}}/listas?from=perfil" hx-target="#right-panel">
-        <input type="text" name="name" x-ref="listField" placeholder="{{t "chats.list_name"}}"
-               maxlength="40" required @keydown.escape.stop="newList = false">
-        <button type="submit" title="{{t "action.create"}}">{{template "icon-check"}}</button>
-      </form>
     </div>
 
     <div class="divider-profile-actions"></div>

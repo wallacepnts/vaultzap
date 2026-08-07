@@ -1156,7 +1156,7 @@ html {
   margin-bottom: 4px;
 }
 
-.body-profile-edit input[type="text"] {
+.field-profile-group input[type="text"] {
   width: 100%;
   border: none;
   border-bottom: 1px solid var(--divider);
@@ -1167,7 +1167,7 @@ html {
   padding: 2px 0 6px;
 }
 
-.body-profile-edit input[type="text"]:focus {
+.field-profile-group input[type="text"]:focus {
   outline: none;
   border-bottom-color: var(--accent);
 }
@@ -3087,42 +3087,6 @@ html[lang="en"] .bubble:has(.body-bubble:empty) .header-bubble {
   color: #f15c6d;
 }
 
-.form-new-list {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.form-new-list input {
-  width: 130px;
-  height: 30px;
-  padding: 0 10px;
-  border: none;
-  border-radius: 15px;
-  background: var(--bg-input);
-  color: var(--text);
-  font-family: inherit;
-  font-size: 14px;
-  outline: none;
-}
-
-.form-new-list button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border: none;
-  border-radius: 50%;
-  background: none;
-  color: var(--accent);
-  cursor: pointer;
-}
-
-.form-new-list button:hover {
-  background: var(--bg-hover);
-}
-
 /* ---------- pinned/favorite badges on the list item ---------- */
 
 .badges-chat {
@@ -3188,14 +3152,6 @@ html[lang="en"] .bubble:has(.body-bubble:empty) .header-bubble {
   width: 16px;
   height: 16px;
   stroke: currentColor;
-}
-
-.form-new-list--menu {
-  padding: 6px 18px 8px;
-}
-
-.form-new-list--menu input {
-  width: 100%;
 }
 
 /* ---------- toast (bottom-left corner) ---------- */
@@ -4050,4 +4006,158 @@ button.cell-day:hover {
   font-size: 11px;
   font-weight: 600;
   color: var(--text);
+}
+
+/* ---------- "create new list" panel (takes over the sidebar) ---------- */
+
+.panel-new-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.body-new-list {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 18px 16px 12px;
+  overflow-y: auto;
+}
+
+.error-new-list {
+  margin: -8px 0 0;
+  font-size: 13px;
+  color: #f15c6d;
+}
+
+.title-section-new-list {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+.row-add-chats {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: -8px;
+  padding: 6px 0;
+  border: none;
+  background: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.circle-add-chats {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+}
+
+.picker-chats {
+  display: flex;
+  flex-direction: column;
+  margin-top: -8px;
+}
+
+.picker-chats .box-search {
+  padding: 0 0 8px;
+}
+
+.picker-chats .icon-search {
+  left: 12px;
+}
+
+.item-pick-chat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 4px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.item-pick-chat:hover {
+  background: var(--bg-hover);
+}
+
+/* Drawn here, not by the browser (§9.9). The tick is an inline data URI so it costs no
+   request — the app makes none at runtime. */
+.item-pick-chat input {
+  flex: none;
+  appearance: none;
+  width: 19px;
+  height: 19px;
+  margin: 0;
+  border: 2px solid var(--text-dim);
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.item-pick-chat input:checked {
+  border-color: var(--accent);
+  background: var(--accent)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 13 4 4L19 7'/%3E%3C/svg%3E")
+    center / 12px no-repeat;
+}
+
+.button-create-list {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 9px 22px;
+  border: none;
+  border-radius: 20px;
+  background: var(--accent);
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button-create-list:disabled {
+  background: var(--bg-hover);
+  color: var(--text-dim);
+  cursor: default;
+}
+
+.list-included-chats {
+  display: flex;
+  flex-direction: column;
+  margin-top: -8px;
+}
+
+.row-included-chat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 4px;
+}
+
+.button-remove-chat {
+  flex: none;
+  padding: 6px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.button-remove-chat:hover {
+  background: var(--bg-hover);
+  color: #f15c6d;
 }
