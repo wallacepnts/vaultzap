@@ -84,6 +84,8 @@
     <span class="chip-counter">{{.MediaCount}}</span>
   </button>
 
+  <div class="divider-profile-actions" x-show="!editing"></div>
+
   {{/* "Starred messages", same place the official app puts it.
        "Mensagens favoritas", no mesmo lugar em que o app oficial põe. */}}
   <button type="button" class="row-profile-action" x-show="!editing"

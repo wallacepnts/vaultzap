@@ -166,7 +166,7 @@ msgid "conversation.go_to_date"
 msgstr "Naar een datum gaan"
 
 msgid "conversation.view_media"
-msgstr "Media bekijken"
+msgstr "Media, links en documenten"
 
 msgid "conversation.which_is_you"
 msgstr "Wie van hen ben jij?"

@@ -163,7 +163,7 @@ msgid "conversation.go_to_date"
 msgstr "Ir para uma data"
 
 msgid "conversation.view_media"
-msgstr "Ver mídia"
+msgstr "Mídia, links e docs"
 
 msgid "conversation.which_is_you"
 msgstr "Qual desses é você?"
