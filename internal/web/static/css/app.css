@@ -458,13 +458,12 @@ html {
   pointer-events: none;
 }
 
-/* Matched to the official app's search field: 38px tall, 2px green ring on focus. The
-   border is 2px even when transparent, so focusing never nudges the layout. The current
-   redesign's field is a rounded rectangle, not the old full pill. */
+/* Matched to the official app's search field: full pill, 38px tall, 2px green ring on
+   focus. The border is 2px even when transparent, so focusing never nudges the layout. */
 .field-search {
   width: 100%;
   padding: 7px 36px;
-  border-radius: 10px;
+  border-radius: 999px;
   border: 2px solid transparent;
   background: var(--bg-input);
   color: var(--text);
