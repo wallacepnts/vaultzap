@@ -60,6 +60,57 @@ msgstr "Apagar a lista %s"
 msgid "chats.delete_list_confirm"
 msgstr "Apagar a lista %s? As conversas dela não são afetadas."
 
+msgid "login.username"
+msgstr "Nome de usuário"
+
+msgid "login.confirm_password"
+msgstr "Repita a senha"
+
+msgid "login.setup_hint"
+msgstr "Escolha um nome de usuário e uma senha para proteger este arquivo."
+
+msgid "login.create"
+msgstr "Criar acesso"
+
+msgid "login.username_required"
+msgstr "Escolha um nome de usuário."
+
+msgid "login.no_match"
+msgstr "As duas senhas não são iguais."
+
+msgid "login.hint"
+msgstr "Este arquivo é protegido por senha."
+
+msgid "login.password"
+msgstr "Senha"
+
+msgid "login.enter"
+msgstr "Entrar"
+
+msgid "login.wrong_password"
+msgstr "Senha incorreta."
+
+msgid "login.wrong_current"
+msgstr "A senha atual não confere."
+
+msgid "login.too_short"
+msgstr "A nova senha precisa ter pelo menos %d caracteres."
+
+msgid "login.password_changed"
+msgstr "Senha alterada. As outras sessões foram encerradas."
+
+msgid "login.change_password"
+msgstr "Alterar senha"
+
+msgid "login.current_password"
+msgstr "Senha atual"
+
+msgid "login.new_password"
+msgstr "Nova senha"
+
+msgid "login.logout"
+msgstr "Sair"
+
 msgid "lists.create_title"
 msgstr "Criar nova lista"
 

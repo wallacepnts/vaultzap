@@ -3,6 +3,7 @@ package web
 
 import (
 	"context"
+	"crypto/sha256"
 	"crypto/subtle"
 	"net/http"
 	"net/url"
@@ -74,6 +75,12 @@ func (h *Handler) Routes() http.Handler {
 	mux.HandleFunc("POST /chats/{id}/fixar", h.pinChat)
 	mux.HandleFunc("POST /chats/{id}/favoritar", h.favoriteChat)
 	mux.HandleFunc("POST /chats/{id}/listas", h.chatInList)
+	mux.HandleFunc("GET /setup", h.setupPage)
+	mux.HandleFunc("POST /setup", h.setup)
+	mux.HandleFunc("GET /login", h.loginPage)
+	mux.HandleFunc("POST /login", h.login)
+	mux.HandleFunc("POST /logout", h.logout)
+	mux.HandleFunc("POST /eu/senha", h.changePassword)
 	mux.HandleFunc("GET /sidebar", h.sidebar)
 	mux.HandleFunc("GET /listas/nova", h.newListPanel)
 	mux.HandleFunc("POST /listas", h.createList)
@@ -88,7 +95,7 @@ func (h *Handler) Routes() http.Handler {
 	mux.HandleFunc("POST /imports/rescan", h.importsRescan)
 	mux.Handle("GET /static/", http.StripPrefix("/static/",
 		withStaticCache(http.FileServerFS(staticFileSystem()))))
-	return h.withAuth(withOriginProtection(withSecurityHeaders(mux)))
+	return h.guard(withOriginProtection(withSecurityHeaders(mux)))
 }
 
 // Framing matters even for a local app: any page on the web can put 127.0.0.1:8927 in an
@@ -123,15 +130,33 @@ func withStaticCache(next http.Handler) http.Handler {
 	})
 }
 
-func (h *Handler) withAuth(next http.Handler) http.Handler {
-	if !h.cfg.AuthEnabled() {
+// guard applies whichever authentication the configuration asks for.
+func (h *Handler) guard(next http.Handler) http.Handler {
+	switch h.cfg.AuthMode() {
+	case config.AuthBasic:
+		return h.withAuth(next)
+	case config.AuthLogin:
+		return h.withLogin(next)
+	default:
 		return next
 	}
+}
+
+// Compares digests, not the strings themselves, for two reasons that compound:
+// ConstantTimeCompare returns early when the lengths differ, which lets the password's
+// length be probed, and digests are always 32 bytes. And the two results are combined
+// with "&&" inside the negation instead of short-circuiting "||", so a wrong username
+// still pays for the password comparison — otherwise a wrong user answers measurably
+// faster than a wrong password and gives away which usernames exist.
+func (h *Handler) withAuth(next http.Handler) http.Handler {
+	wantUser, wantPass := h.cfg.BasicAuthHashes()
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		username, password, ok := r.BasicAuth()
-		if !ok ||
-			subtle.ConstantTimeCompare([]byte(username), []byte(h.cfg.BasicAuthUser)) != 1 ||
-			subtle.ConstantTimeCompare([]byte(password), []byte(h.cfg.BasicAuthPassword)) != 1 {
+		gotUser := sha256.Sum256([]byte(username))
+		gotPass := sha256.Sum256([]byte(password))
+		okUser := subtle.ConstantTimeCompare(gotUser[:], wantUser[:]) == 1
+		okPass := subtle.ConstantTimeCompare(gotPass[:], wantPass[:]) == 1
+		if !ok || !(okUser && okPass) {
 			w.Header().Set("WWW-Authenticate", `Basic realm="vaultzap"`)
 			http.Error(w, "unauthorized", http.StatusUnauthorized)
 			return

@@ -23,6 +23,7 @@ import (
 	"unicode/utf16"
 	"unicode/utf8"
 
+	"github.com/wallacepnts/vaultzap/internal/config"
 	"github.com/wallacepnts/vaultzap/internal/export"
 	"github.com/wallacepnts/vaultzap/internal/ingest"
 	"github.com/wallacepnts/vaultzap/internal/locale"
@@ -782,12 +783,24 @@ func (h *Handler) myPhotoPath() string {
 }
 
 func (h *Handler) myProfile(w http.ResponseWriter, r *http.Request) {
+	h.respondProfile(w, r, "", "")
+}
+
+// notice/failure ride along so the password form can report its outcome in the panel it
+// was submitted from.
+func (h *Handler) respondProfile(w http.ResponseWriter, r *http.Request, notice, failure string) {
 	saved, err := h.store.Setting(r.Context(), store.SettingMe)
 	if err != nil {
 		h.internalError(w, "read setting", err)
 		return
 	}
-	data := MyProfileData{Photo: h.hasMyPhoto(), Name: saved}
+	data := MyProfileData{
+		Photo:          h.hasMyPhoto(),
+		Name:           saved,
+		CanSetPassword: h.cfg.AuthMode() == config.AuthLogin,
+		Notice:         notice,
+		Error:          failure,
+	}
 	if saved == "" && h.cfg.Me != "" {
 		data.Name, data.FromEnv = h.cfg.Me, true
 	}

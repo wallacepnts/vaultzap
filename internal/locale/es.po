@@ -60,6 +60,57 @@ msgstr "Eliminar la lista %s"
 msgid "chats.delete_list_confirm"
 msgstr "¿Eliminar la lista %s? Sus conversaciones no se ven afectadas."
 
+msgid "login.username"
+msgstr "Nombre de usuario"
+
+msgid "login.confirm_password"
+msgstr "Repite la contraseña"
+
+msgid "login.setup_hint"
+msgstr "Elige un nombre de usuario y una contraseña para proteger este archivo."
+
+msgid "login.create"
+msgstr "Crear acceso"
+
+msgid "login.username_required"
+msgstr "Elige un nombre de usuario."
+
+msgid "login.no_match"
+msgstr "Las dos contraseñas no coinciden."
+
+msgid "login.hint"
+msgstr "Este archivo está protegido con contraseña."
+
+msgid "login.password"
+msgstr "Contraseña"
+
+msgid "login.enter"
+msgstr "Entrar"
+
+msgid "login.wrong_password"
+msgstr "Contraseña incorrecta."
+
+msgid "login.wrong_current"
+msgstr "La contraseña actual no coincide."
+
+msgid "login.too_short"
+msgstr "La nueva contraseña necesita al menos %d caracteres."
+
+msgid "login.password_changed"
+msgstr "Contraseña cambiada. Se cerraron las demás sesiones."
+
+msgid "login.change_password"
+msgstr "Cambiar contraseña"
+
+msgid "login.current_password"
+msgstr "Contraseña actual"
+
+msgid "login.new_password"
+msgstr "Nueva contraseña"
+
+msgid "login.logout"
+msgstr "Salir"
+
 msgid "lists.create_title"
 msgstr "Crear nueva lista"
 

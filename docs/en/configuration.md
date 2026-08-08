@@ -26,17 +26,44 @@ they land on the host is decided by the mounts.
 | `VAULTZAP_DATE_ORDER` | `DMY` | Tie-breaker for `01/02/2026`. The parser tries to infer it from the file itself; this only applies when the data can't resolve the ambiguity either. `DMY` or `MDY`. |
 | `VAULTZAP_ME` | empty | Sender treated as "me" (green bubble on the right). **Not a name of your choosing**: it's an exact match against the text before the colon on your own messages inside the export — open the `.txt` and copy it from one of your lines (`… - Wallace Pontes: Hi` → `VAULTZAP_ME=Wallace Pontes`). Getting it wrong isn't an error, it just has no effect. Usually unnecessary: in a 1:1 chat the app works it out from the filename, and the choice made in the "which of these is you?" bar is stored per conversation and takes precedence over this variable. |
 | `VAULTZAP_LOG_LEVEL` | `info` | `debug`, `info`, `warn` or `error`. Message content is never logged, at any level. |
-| `VAULTZAP_BASIC_AUTH` | empty | `user:password` turns authentication on. Empty = **no password**. See "With or without a password" below. |
+| `VAULTZAP_AUTH` | empty | `off` turns authentication off. Anything else (or nothing) keeps the login screen, which is the default. |
+| `VAULTZAP_BASIC_AUTH` | empty | `user:password` swaps the login screen for Basic Auth. Setting the variable **empty** is an error at boot — to run without a password, remove the line and use `VAULTZAP_AUTH=off`. |
 | `VAULTZAP_BASIC_AUTH_FILE` | empty | Path to a file containing `user:password` — this is what lets you use a Compose/Podman secret. Use this **or** the one above, never both. |
 
-## With or without a password
+## How access is protected
 
-**No password is the default.** There's nothing to configure: the app starts and anyone who
-reaches the port sees the whole archive. For an app running on `localhost`, that's usually
-exactly what you want.
+**A login screen, and it is the default.** Nothing to configure: on the first visit to a
+new database the app shows a setup screen where you pick a **username and password**. Only
+the password's hash is stored (PBKDF2-HMAC-SHA256, with its own salt). After that the setup
+screen is gone, and changing the password happens under **Your profile → Change password**.
 
-**With a password**, there are two ways — pick one; setting both stops the app at boot with a
-message saying so.
+> **Set it up right after the first boot.** Until someone does, whoever reaches the port
+> first can. The app says so in the log at startup. If the service does not need to be
+> reachable from the network, publish the port on localhost only —
+> `127.0.0.1:8927:8927` in `compose.yml`, or `PublishPort=127.0.0.1:8927:8927` in the
+> quadlet.
+
+There is **no attempt limiter**, and that is deliberate: a per-IP limiter behind a reverse
+proxy would either lock everyone out together (every request carries the proxy's IP) or be
+sidestepped by changing a header. What protects the archive is a good password.
+
+**Lost the password?** The binary handles it, without opening anything over the network:
+
+```bash
+vaultzap reset-password    # generates a new password, keeps the username, ends sessions
+```
+
+In the container: `podman exec vaultzap /vaultzap reset-password`.
+
+**No password**, if something in front already guards the port:
+
+```bash
+VAULTZAP_AUTH=off
+```
+
+**Basic Auth**, if you would rather have the HTTP header than a session cookie — it is what
+already existed, and it takes precedence over the login screen. Two ways; pick one, setting
+both stops the app at boot with a message saying so.
 
 *Simple, password in the configuration file:*
 

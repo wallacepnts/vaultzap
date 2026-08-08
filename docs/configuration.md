@@ -26,17 +26,43 @@ onde eles caem no host é decidido pelos mounts.
 | `VAULTZAP_DATE_ORDER` | `DMY` | Desempate de `01/02/2026`. O parser tenta inferir sozinho pelo próprio arquivo; isto só vale quando nem os dados resolvem a ambiguidade. `DMY` ou `MDY`. |
 | `VAULTZAP_ME` | vazio | Remetente tratado como "eu" (bolha verde à direita). **Não é um nome à sua escolha**: a comparação é exata contra o texto antes dos dois-pontos nas suas mensagens dentro do export — abra o `.txt` e copie de uma linha sua (`… - Wallace Pontes: Oi` → `VAULTZAP_ME=Wallace Pontes`). Errar não dá erro, só não faz efeito. Costuma ser dispensável: numa conversa 1:1 o app deduz sozinho pelo nome do arquivo, e a escolha da barra "qual destes é você?" é gravada por conversa e tem prioridade sobre esta variável. |
 | `VAULTZAP_LOG_LEVEL` | `info` | `debug`, `info`, `warn` ou `error`. Nunca é registrado conteúdo de mensagem, em nenhum nível. |
-| `VAULTZAP_BASIC_AUTH` | vazio | `usuario:senha` liga a autenticação. Vazio = **sem senha**. Ver "Com senha ou sem senha" abaixo. |
+| `VAULTZAP_AUTH` | vazio | `off` desliga a autenticação. Qualquer outro valor (ou nenhum) deixa a tela de login, que é o padrão. |
+| `VAULTZAP_BASIC_AUTH` | vazio | `usuario:senha` troca a tela de login por Basic Auth. Definir a variável **vazia** é erro no boot — para rodar sem senha, remova a linha e use `VAULTZAP_AUTH=off`. |
 | `VAULTZAP_BASIC_AUTH_FILE` | vazio | Caminho de um arquivo contendo `usuario:senha` — é o que permite usar secret do Compose/Podman. Use esta **ou** a de cima, nunca as duas. |
 
-## Com senha ou sem senha
+## Como o acesso é protegido
 
-**Sem senha é o padrão.** Não há nada a configurar: o app sobe e qualquer um que alcance a
-porta vê o acervo inteiro. Para um app rodando em `localhost`, costuma ser exatamente o que
-você quer.
+**Tela de login, e é o padrão.** Nada a configurar: no primeiro acesso a um banco novo, o
+app mostra uma tela de cadastro onde você escolhe **nome de usuário e senha**. Só o hash da
+senha é guardado (PBKDF2-HMAC-SHA256, com salt próprio). Depois disso a tela de cadastro
+some, e trocar a senha passa a ser em **Seu perfil → Alterar senha**.
 
-**Com senha**, há duas formas — escolha uma; definir as duas derruba o app no boot com uma
-mensagem dizendo isso.
+> **Cadastre logo no primeiro boot.** Enquanto ninguém cadastrou, quem alcançar a porta
+> primeiro pode fazê-lo. O app avisa isso no log ao subir. Se o serviço não precisa ser
+> alcançável pela rede, publique a porta só no localhost — `127.0.0.1:8927:8927` no
+> `compose.yml` ou `PublishPort=127.0.0.1:8927:8927` no quadlet.
+
+**Não existe limite de tentativas**, e é decisão consciente: um limitador por IP atrás de um
+proxy reverso ou bloquearia todo mundo junto (todos chegam com o IP do proxy) ou seria
+contornável trocando um cabeçalho. O que protege é uma senha boa.
+
+**Perdeu a senha?** O binário resolve, sem abrir nada pela rede:
+
+```bash
+vaultzap reset-password    # gera uma senha nova, mantém o usuário, encerra as sessões
+```
+
+No container: `podman exec vaultzap /vaultzap reset-password`.
+
+**Sem senha**, se algo na frente já protege a porta:
+
+```bash
+VAULTZAP_AUTH=off
+```
+
+**Basic Auth**, se você prefere o cabeçalho HTTP ao cookie de sessão — é o que já existia, e
+tem precedência sobre a tela de login. Duas formas; escolha uma, definir as duas derruba o
+app no boot com uma mensagem dizendo isso.
 
 *Simples, senha no arquivo de configuração:*
 

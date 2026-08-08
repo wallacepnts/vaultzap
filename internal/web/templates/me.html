@@ -33,4 +33,37 @@
     <button type="submit" class="button-confirm-profile" title="{{t "action.save"}}">{{template "icon-check"}}</button>
     <p class="help-participants">{{t "me.help"}}{{if .FromEnv}} {{t "me.from_env"}}{{end}}</p>
   </form>
+
+  {{/* Only under the login mode: with Basic Auth the credential lives in an env var or a
+       secret file, and with auth off there is nothing to change. */}}
+  {{if .CanSetPassword}}
+  <div class="divider-profile-actions"></div>
+
+  <form class="body-profile-edit form-password" hx-post="/eu/senha" hx-target="#right-panel">
+    <p class="title-section-new-list">{{t "login.change_password"}}</p>
+
+    <div class="field-profile-row">
+      <div class="field-profile-group">
+        <label class="label-field-profile" for="field-current">{{t "login.current_password"}}</label>
+        <input type="password" id="field-current" name="current" autocomplete="current-password" required>
+      </div>
+    </div>
+    <div class="field-profile-row">
+      <div class="field-profile-group">
+        <label class="label-field-profile" for="field-new">{{t "login.new_password"}}</label>
+        <input type="password" id="field-new" name="new" autocomplete="new-password" required>
+      </div>
+    </div>
+
+    {{if .Error}}<p class="error-new-list">{{.Error}}</p>{{end}}
+    {{if .Notice}}<p class="notice-profile">{{.Notice}}</p>{{end}}
+
+    <button type="submit" class="button-confirm-profile" title="{{t "action.save"}}">{{template "icon-check"}}</button>
+  </form>
+
+  <button type="button" class="row-profile-action row-profile-action--danger"
+          hx-post="/logout">
+    {{template "icon-back"}}<span>{{t "login.logout"}}</span>
+  </button>
+  {{end}}
 </div>

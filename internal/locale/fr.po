@@ -60,6 +60,57 @@ msgstr "Supprimer la liste %s"
 msgid "chats.delete_list_confirm"
 msgstr "Supprimer la liste %s ? Ses conversations ne sont pas affectées."
 
+msgid "login.username"
+msgstr "Nom d'utilisateur"
+
+msgid "login.confirm_password"
+msgstr "Répétez le mot de passe"
+
+msgid "login.setup_hint"
+msgstr "Choisissez un nom d'utilisateur et un mot de passe pour protéger cette archive."
+
+msgid "login.create"
+msgstr "Créer l'accès"
+
+msgid "login.username_required"
+msgstr "Choisissez un nom d'utilisateur."
+
+msgid "login.no_match"
+msgstr "Les deux mots de passe ne correspondent pas."
+
+msgid "login.hint"
+msgstr "Cette archive est protégée par un mot de passe."
+
+msgid "login.password"
+msgstr "Mot de passe"
+
+msgid "login.enter"
+msgstr "Se connecter"
+
+msgid "login.wrong_password"
+msgstr "Mot de passe incorrect."
+
+msgid "login.wrong_current"
+msgstr "Le mot de passe actuel ne correspond pas."
+
+msgid "login.too_short"
+msgstr "Le nouveau mot de passe doit faire au moins %d caractères."
+
+msgid "login.password_changed"
+msgstr "Mot de passe modifié. Les autres sessions ont été fermées."
+
+msgid "login.change_password"
+msgstr "Changer le mot de passe"
+
+msgid "login.current_password"
+msgstr "Mot de passe actuel"
+
+msgid "login.new_password"
+msgstr "Nouveau mot de passe"
+
+msgid "login.logout"
+msgstr "Se déconnecter"
+
 msgid "lists.create_title"
 msgstr "Créer une liste"
 

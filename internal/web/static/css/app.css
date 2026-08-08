@@ -1156,7 +1156,8 @@ html {
   margin-bottom: 4px;
 }
 
-.field-profile-group input[type="text"] {
+.field-profile-group input[type="text"],
+.field-profile-group input[type="password"] {
   width: 100%;
   border: none;
   border-bottom: 1px solid var(--divider);
@@ -1167,7 +1168,8 @@ html {
   padding: 2px 0 6px;
 }
 
-.field-profile-group input[type="text"]:focus {
+.field-profile-group input[type="text"]:focus,
+.field-profile-group input[type="password"]:focus {
   outline: none;
   border-bottom-color: var(--accent);
 }
@@ -4160,4 +4162,87 @@ button.cell-day:hover {
 .button-remove-chat:hover {
   background: var(--bg-hover);
   color: #f15c6d;
+}
+
+/* ---------- login page ---------- */
+
+.body-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bg-app);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.card-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: min(92vw, 360px);
+  padding: 36px 28px 28px;
+  border-radius: 12px;
+  background: var(--bg-panel);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+.card-login h1 {
+  margin: 6px 0 0;
+  font-size: 22px;
+}
+
+.hint-login {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.form-login input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--divider);
+  border-radius: 0;
+  background: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  padding: 4px 0 8px;
+}
+
+.form-login input:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+.form-login .button-create-list {
+  align-self: stretch;
+  margin-top: 22px;
+  text-align: center;
+}
+
+.error-login {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #f15c6d;
+}
+
+.form-password {
+  padding-top: 8px;
+}
+
+.notice-profile {
+  margin: 0;
+  font-size: 13px;
+  color: var(--accent);
 }

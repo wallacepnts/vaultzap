@@ -60,6 +60,57 @@ msgstr "Liste %s löschen"
 msgid "chats.delete_list_confirm"
 msgstr "Liste %s löschen? Ihre Unterhaltungen sind davon nicht betroffen."
 
+msgid "login.username"
+msgstr "Benutzername"
+
+msgid "login.confirm_password"
+msgstr "Passwort wiederholen"
+
+msgid "login.setup_hint"
+msgstr "Wählen Sie einen Benutzernamen und ein Passwort, um dieses Archiv zu schützen."
+
+msgid "login.create"
+msgstr "Zugang erstellen"
+
+msgid "login.username_required"
+msgstr "Wählen Sie einen Benutzernamen."
+
+msgid "login.no_match"
+msgstr "Die beiden Passwörter stimmen nicht überein."
+
+msgid "login.hint"
+msgstr "Dieses Archiv ist passwortgeschützt."
+
+msgid "login.password"
+msgstr "Passwort"
+
+msgid "login.enter"
+msgstr "Anmelden"
+
+msgid "login.wrong_password"
+msgstr "Falsches Passwort."
+
+msgid "login.wrong_current"
+msgstr "Das aktuelle Passwort stimmt nicht."
+
+msgid "login.too_short"
+msgstr "Das neue Passwort braucht mindestens %d Zeichen."
+
+msgid "login.password_changed"
+msgstr "Passwort geändert. Andere Sitzungen wurden beendet."
+
+msgid "login.change_password"
+msgstr "Passwort ändern"
+
+msgid "login.current_password"
+msgstr "Aktuelles Passwort"
+
+msgid "login.new_password"
+msgstr "Neues Passwort"
+
+msgid "login.logout"
+msgstr "Abmelden"
+
 msgid "lists.create_title"
 msgstr "Neue Liste erstellen"
 

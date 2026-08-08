@@ -1,0 +1,39 @@
+{{/* Standalone page: the only one rendered without a session, so it cannot reuse
+     layout.html — that one is built from the chat list. */}}
+<!DOCTYPE html>
+<html lang="{{.Locale}}" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VaultZap</title>
+  <link rel="icon" href="{{asset "img/favicon.svg"}}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{asset "css/app.css"}}">
+</head>
+<body class="body-login">
+  <main class="card-login">
+    <img class="logo-login" src="{{asset "img/favicon.svg"}}" alt="" width="56" height="56">
+    <h1>VaultZap</h1>
+    <p class="hint-login">{{if .Setup}}{{t "login.setup_hint"}}{{else}}{{t "login.hint"}}{{end}}</p>
+
+    <form method="post" action="{{if .Setup}}/setup{{else}}/login{{end}}" class="form-login">
+      <label class="label-field-profile" for="field-username">{{t "login.username"}}</label>
+      <input type="text" id="field-username" name="username" value="{{.Username}}"
+             autocomplete="username" maxlength="60" autofocus required>
+
+      <label class="label-field-profile" for="field-password">{{t "login.password"}}</label>
+      <input type="password" id="field-password" name="password" required
+             autocomplete="{{if .Setup}}new-password{{else}}current-password{{end}}">
+
+      {{if .Setup}}
+      <label class="label-field-profile" for="field-confirm">{{t "login.confirm_password"}}</label>
+      <input type="password" id="field-confirm" name="confirm" autocomplete="new-password" required>
+      {{end}}
+
+      {{if .Error}}<p class="error-login">{{.Error}}</p>{{end}}
+      <button type="submit" class="button-create-list">
+        {{if .Setup}}{{t "login.create"}}{{else}}{{t "login.enter"}}{{end}}
+      </button>
+    </form>
+  </main>
+</body>
+</html>

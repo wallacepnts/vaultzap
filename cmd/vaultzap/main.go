@@ -41,6 +41,12 @@ func main() {
 				os.Exit(1)
 			}
 			return
+		case "reset-password":
+			if err := runResetPassword(); err != nil {
+				fmt.Fprintln(os.Stderr, err)
+				os.Exit(1)
+			}
+			return
 		case "ingest":
 			if err := runIngest(os.Args[2:]); err != nil {
 				fmt.Fprintln(os.Stderr, err)
@@ -111,6 +117,10 @@ func runServer() error {
 		return fmt.Errorf("open database: %w", err)
 	}
 	defer db.Close()
+
+	if err := warnIfUnclaimed(ctx, db, cfg); err != nil {
+		return err
+	}
 
 	// The scan runs on a single serial goroutine, from startup to graceful shutdown.
 	scanner := ingest.NewScanner(db, cfg)

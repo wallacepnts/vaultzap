@@ -60,6 +60,57 @@ msgstr "Delete the list %s"
 msgid "chats.delete_list_confirm"
 msgstr "Delete the list %s? Its conversations are not affected."
 
+msgid "login.username"
+msgstr "Username"
+
+msgid "login.confirm_password"
+msgstr "Repeat the password"
+
+msgid "login.setup_hint"
+msgstr "Choose a username and a password to protect this archive."
+
+msgid "login.create"
+msgstr "Create access"
+
+msgid "login.username_required"
+msgstr "Choose a username."
+
+msgid "login.no_match"
+msgstr "The two passwords do not match."
+
+msgid "login.hint"
+msgstr "This archive is password protected."
+
+msgid "login.password"
+msgstr "Password"
+
+msgid "login.enter"
+msgstr "Log in"
+
+msgid "login.wrong_password"
+msgstr "Wrong password."
+
+msgid "login.wrong_current"
+msgstr "The current password does not match."
+
+msgid "login.too_short"
+msgstr "The new password needs at least %d characters."
+
+msgid "login.password_changed"
+msgstr "Password changed. Other sessions were signed out."
+
+msgid "login.change_password"
+msgstr "Change password"
+
+msgid "login.current_password"
+msgstr "Current password"
+
+msgid "login.new_password"
+msgstr "New password"
+
+msgid "login.logout"
+msgstr "Log out"
+
 msgid "lists.create_title"
 msgstr "Create new list"
 

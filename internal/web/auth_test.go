@@ -33,7 +33,7 @@ func TestWithAuth_unconfiguredPassesThrough(t *testing.T) {
 }
 
 func TestWithAuth_noCredentialsReturns401(t *testing.T) {
-	h := openTestHandler(t, config.Config{BasicAuthUser: "ana", BasicAuthPassword: "segredo"})
+	h := openTestHandler(t, config.Config{}.WithBasicAuth("ana", "segredo"))
 	rec := httptest.NewRecorder()
 	req := httptest.NewRequest(http.MethodGet, "/", nil)
 	h.Routes().ServeHTTP(rec, req)
@@ -45,19 +45,37 @@ func TestWithAuth_noCredentialsReturns401(t *testing.T) {
 	}
 }
 
+// Wrong username, wrong password and a password of a different length all have to answer
+// the same 401. The timing itself is not asserted — measuring it in a test is flaky — but
+// the behaviour these cases pin is what the digest comparison in withAuth exists for.
 func TestWithAuth_wrongCredentialsReturn401(t *testing.T) {
-	h := openTestHandler(t, config.Config{BasicAuthUser: "ana", BasicAuthPassword: "segredo"})
-	rec := httptest.NewRecorder()
-	req := httptest.NewRequest(http.MethodGet, "/", nil)
-	req.SetBasicAuth("ana", "senha-errada")
-	h.Routes().ServeHTTP(rec, req)
-	if rec.Code != http.StatusUnauthorized {
-		t.Fatalf("esperava 401 com senha errada, veio %d", rec.Code)
+	for _, c := range []struct {
+		nome     string
+		user     string
+		password string
+	}{
+		{"senha errada, mesmo tamanho", "ana", "sagrado"},
+		{"senha errada, tamanho diferente", "ana", "x"},
+		{"senha errada, bem mais longa", "ana", strings.Repeat("z", 500)},
+		{"usuário errado", "bruno", "segredo"},
+		{"usuário e senha errados", "bruno", "outra"},
+		{"usuário vazio", "", "segredo"},
+	} {
+		t.Run(c.nome, func(t *testing.T) {
+			h := openTestHandler(t, config.Config{}.WithBasicAuth("ana", "segredo"))
+			rec := httptest.NewRecorder()
+			req := httptest.NewRequest(http.MethodGet, "/", nil)
+			req.SetBasicAuth(c.user, c.password)
+			h.Routes().ServeHTTP(rec, req)
+			if rec.Code != http.StatusUnauthorized {
+				t.Fatalf("esperava 401, veio %d", rec.Code)
+			}
+		})
 	}
 }
 
 func TestWithAuth_correctCredentialsPass(t *testing.T) {
-	h := openTestHandler(t, config.Config{BasicAuthUser: "ana", BasicAuthPassword: "segredo"})
+	h := openTestHandler(t, config.Config{}.WithBasicAuth("ana", "segredo"))
 	rec := httptest.NewRecorder()
 	req := httptest.NewRequest(http.MethodGet, "/", nil)
 	req.SetBasicAuth("ana", "segredo")

@@ -63,6 +63,57 @@ msgstr "Lijst %s verwijderen"
 msgid "chats.delete_list_confirm"
 msgstr "Lijst %s verwijderen? De gesprekken erin blijven bestaan."
 
+msgid "login.username"
+msgstr "Gebruikersnaam"
+
+msgid "login.confirm_password"
+msgstr "Herhaal het wachtwoord"
+
+msgid "login.setup_hint"
+msgstr "Kies een gebruikersnaam en een wachtwoord om dit archief te beschermen."
+
+msgid "login.create"
+msgstr "Toegang aanmaken"
+
+msgid "login.username_required"
+msgstr "Kies een gebruikersnaam."
+
+msgid "login.no_match"
+msgstr "De twee wachtwoorden komen niet overeen."
+
+msgid "login.hint"
+msgstr "Dit archief is met een wachtwoord beveiligd."
+
+msgid "login.password"
+msgstr "Wachtwoord"
+
+msgid "login.enter"
+msgstr "Inloggen"
+
+msgid "login.wrong_password"
+msgstr "Onjuist wachtwoord."
+
+msgid "login.wrong_current"
+msgstr "Het huidige wachtwoord klopt niet."
+
+msgid "login.too_short"
+msgstr "Het nieuwe wachtwoord heeft minstens %d tekens nodig."
+
+msgid "login.password_changed"
+msgstr "Wachtwoord gewijzigd. Andere sessies zijn afgemeld."
+
+msgid "login.change_password"
+msgstr "Wachtwoord wijzigen"
+
+msgid "login.current_password"
+msgstr "Huidig wachtwoord"
+
+msgid "login.new_password"
+msgstr "Nieuw wachtwoord"
+
+msgid "login.logout"
+msgstr "Uitloggen"
+
 msgid "lists.create_title"
 msgstr "Nieuwe lijst maken"
 
