@@ -5,6 +5,7 @@ import (
 	"context"
 	"crypto/sha256"
 	"crypto/subtle"
+	"log/slog"
 	"net/http"
 	"net/url"
 	"strings"
@@ -171,6 +172,15 @@ func withOriginProtection(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		mutation := r.Method == http.MethodPost || r.Method == http.MethodDelete
 		if mutation && !trustedOrigin(r) {
+			// The user gets three words and nothing else, so the headers that caused the
+			// refusal have to land here — without them there is no way to tell which of
+			// the branches below fired. Routing data, never message content (§9.6).
+			slog.Warn("origem recusada",
+				"method", r.Method,
+				"path", r.URL.Path,
+				"sec_fetch_site", r.Header.Get("Sec-Fetch-Site"),
+				"origin", r.Header.Get("Origin"),
+				"host", r.Host)
 			http.Error(w, "untrusted origin", http.StatusForbidden)
 			return
 		}
@@ -178,14 +188,26 @@ func withOriginProtection(next http.Handler) http.Handler {
 	})
 }
 
+// Anything other than same-origin/none falls through to the Origin check rather than
+// refusing outright: "same-site" is a legitimate browser value (another subdomain, a
+// redirect on the way, a proxy that rewrites), and deciding on Sec-Fetch-Site alone
+// refused it without ever comparing host to host.
+//
+// That is not a loosening. A missing Origin already returns true, so a non-browser client
+// wanting past this check just omits both headers; being strict about Sec-Fetch-Site only
+// ever reached real browsers — which is exactly where Origin is trustworthy and cannot be
+// forged by a third-party page.
 func trustedOrigin(r *http.Request) bool {
-	if site := r.Header.Get("Sec-Fetch-Site"); site != "" {
-		return site == "same-origin" || site == "none"
+	switch r.Header.Get("Sec-Fetch-Site") {
+	case "same-origin", "none":
+		return true
 	}
 	origin := r.Header.Get("Origin")
 	if origin == "" {
 		return true
 	}
 	originURL, err := url.Parse(origin)
+	// Scheme is ignored on purpose: behind a reverse proxy the Origin arrives as https://
+	// while Host has no scheme, and comparing it would break the proxied deployment.
 	return err == nil && originURL.Host == r.Host
 }
